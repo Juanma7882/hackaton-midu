@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  database:
+    image: postgres:16
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432" # el puerto 5433 es el expuesto para fuera de Docker el 5432 es el interno del contenedor
+    networks:
+      - backend-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  backend:
+    depends_on:
+      - database
+    build:
+      context: ./backend-Preguntas
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - ./backend-Preguntas:/backend
+    ports:
+      - "3002:3000"
+    networks:
+      - backend-network
+      - frontend-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    depends_on:
+      - backend
+    build:
+      context: ./Frontend-preguntas
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./Frontend-preguntas/.env
+    volumes:
+      - ./Frontend-preguntas:/frontend
+      - /frontend/node_modules  # ✅ Esto previene que se sobrescriba
+    ports:
+      - "3003:3001"
+    networks:
+      - frontend-network
+
+networks:
+  backend-network:
+    driver: bridge
+  frontend-network:
+    driver: bridge

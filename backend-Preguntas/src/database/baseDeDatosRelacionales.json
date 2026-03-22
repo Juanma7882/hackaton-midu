@@ -1,0 +1,74 @@
+{
+    "preguntas": [
+        {
+            "pregunta": "¿Cuál es la diferencia entre WHERE y HAVING?",
+            "respuesta": " WHERE filtra filas antes de la agrupación, mientras que HAVING filtra después de la agrupación (con GROUP BY). WHERE no puede usar funciones de agregación, HAVING sí.",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué son las claves primarias y foráneas?",
+            "respuesta": "Una clave primaria es un campo o conjunto de campos que identifica de forma única cada registro en una tabla. Una clave foránea es un campo que hace referencia a la clave primaria de otra tabla, estableciendo relaciones entre ellas.",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Cuáles son los diferentes tipos de JOIN?",
+            "respuesta": "INNER JOIN: Devuelve solo los registros que coinciden en ambas tablas. LEFT JOIN: Devuelve todos los registros de la tabla izquierda y los coincidentes de la tabla derecha. RIGHT JOIN: Devuelve todos los registros de la tabla derecha y los coincidentes de la tabla izquierda. FULL JOIN: Devuelve todos los registros cuando hay una coincidencia en una de las tablas.",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es una subconsulta y tipos y retorno de las mismas?",
+            "respuesta": "Una subconsulta es una consulta anidada dentro de otra consulta SQL. Los tipos son: subconsultas escalares (devuelven un solo valor), subconsultas de múltiples filas (devuelven varias filas), y subconsultas de múltiples columnas (devuelven varias columnas). El retorno depende del tipo de subconsulta y se usa en cláusulas WHERE, FROM o SELECT.",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "Diferencia entre DELETE, TRUNCATE y DROP",
+            "respuesta": "DELETE: Elimina filas específicas de una tabla según una condición. TRUNCATE: Elimina todas las filas de una tabla, pero mantiene la estructura. DROP: Elimina completamente la tabla, incluyendo su estructura.",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "Índices: ¿Qué son y cuándo usarlos?",
+            "respuesta": "Un índice es una estructura de datos que mejora la velocidad de las operaciones de búsqueda en una tabla. Se usa cuando se necesita acceder rápidamente a registros específicos basados en valores de columnas. Sin embargo, los índices pueden ralentizar las operaciones de inserción, actualización y eliminación, por lo que deben usarse con moderación y en columnas que se consultan frecuentemente.",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es una transacción en SQL y cuáles son sus propiedades?",
+            "respuesta": "Una transacción es una unidad de trabajo que consiste en una o más operaciones SQL. Sus propiedades son: Atomicidad (La transacción es una unidad indivisible; todas sus partes se ejecutan exitosamente o ninguna se ejecuta (o se revierten), como en una transferencia bancaria donde el débito y el crédito deben ocurrir juntos.), Consistencia (se mantienen las reglas de integridad), Aislamiento (Las transacciones concurrentes no se afectan entre sí; el estado intermedio de una no es visible para otras, simulando que se ejecutan en secuencia (serializadas)) y Durabilidad (una vez confirmada, sus cambios se mantienen permanentemente).",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es la normalización y cuáles son sus formas normales?",
+            "respuesta": "La normalización es el proceso de organizar los datos en una base de datos para reducir la redundancia y mejorar la integridad. Las formas normales incluyen: 1FN (eliminar grupos repetitivos), 2FN (eliminar dependencias parciales), 3FN (eliminar dependencias transitivas), BCNF (forma normal de Boyce-Codd, una versión más estricta de 3FN), 4FN (eliminar dependencias multivaluadas) y 5FN (eliminar dependencias de unión).",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "diferencia entre SQL y NoSQL",
+            "respuesta": "SQL (Structured Query Language) es un lenguaje de programación utilizado para gestionar y manipular bases de datos relacionales, que organizan los datos en tablas con filas y columnas. NoSQL (Not Only SQL) se refiere a una variedad de sistemas de gestión de bases de datos que no utilizan el modelo relacional tradicional y pueden almacenar datos en formatos como documentos, grafos, clave-valor o columnas anchas. Las bases de datos SQL son adecuadas para aplicaciones con estructuras de datos bien definidas y relaciones complejas, mientras que las bases de datos NoSQL son más flexibles y escalables, ideales para grandes volúmenes de datos no estructurados o semi-estructurados.",
+            "etiquetas": [
+                "SQL",
+                "NoSQL"
+            ]
+        }
+    ],
+    "etiquetas": [
+        {
+            "nombre": "SQL",
+            "url": "/logos/sql.png"
+        }
+    ]
+}

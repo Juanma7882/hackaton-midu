@@ -1,0 +1,252 @@
+{
+    "preguntas": [
+        {
+            "pregunta": "¿Qué es Node.js y para qué se utiliza?",
+            "respuesta": "Node.js es un entorno de ejecución para JavaScript construido con el motor V8 de Chrome. Permite ejecutar JavaScript en el servidor, fuera del navegador. Se utiliza principalmente para construir aplicaciones de red rápidas y escalables, como APIs REST, sistemas de chat en tiempo real y microservicios.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Qué significa que Node.js es 'Single-threaded'?",
+            "respuesta": "Significa que Node.js utiliza un solo hilo principal para ejecutar el código JavaScript. Sin embargo, delega tareas pesadas (como operaciones de entrada/salida de archivos o red) al sistema operativo o a un grupo de hilos internos (Worker Pool), lo que le permite manejar miles de conexiones simultáneas sin bloquearse.",
+            "etiquetas": [
+                "Node.js",
+                "Arquitectura"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el Event Loop en Node.js?",
+            "respuesta": "Es el mecanismo que permite a Node.js realizar operaciones de E/S no bloqueantes. El bucle de eventos gestiona las fases de ejecución (timers, callbacks, poll, check), orquestando cuándo se deben ejecutar las tareas pendientes basándose en su prioridad y estado.",
+            "etiquetas": [
+                "Node.js",
+                "Event Loop"
+            ]
+        },
+        {
+            "pregunta": "Diferencia entre 'setImmediate()' y 'setTimeout()'",
+            "respuesta": "'setImmediate()' está diseñado para ejecutar un script una vez que finaliza la fase actual de 'poll' del Event Loop. 'setTimeout()' programa la ejecución después de que haya transcurrido un umbral mínimo de tiempo en milisegundos.",
+            "etiquetas": [
+                "Node.js",
+                "Asincronía"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es NPM?",
+            "respuesta": "Node Package Manager es el gestor de paquetes por defecto para Node.js. Permite a los desarrolladores instalar, compartir y gestionar dependencias de sus proyectos, además de ejecutar scripts definidos en el archivo package.json.",
+            "etiquetas": [
+                "Node.js",
+                "Herramientas"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es un archivo 'package-lock.json'?",
+            "respuesta": "Es un archivo generado automáticamente que registra la versión exacta de cada dependencia instalada. Su propósito es garantizar que todas las instalaciones en diferentes entornos (desarrollo, producción) sean idénticas y consistentes.",
+            "etiquetas": [
+                "Node.js",
+                "Herramientas"
+            ]
+        },
+        {
+            "pregunta": "¿Qué son los 'Streams' en Node.js?",
+            "respuesta": "Son colecciones de datos que no están disponibles de una sola vez y no necesitan caber en la memoria. Permiten leer o escribir datos de forma continua, pieza por pieza, lo cual es ideal para procesar archivos grandes o transmisiones de video.",
+            "etiquetas": [
+                "Node.js",
+                "Performance"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es un 'Buffer'?",
+            "respuesta": "Un Buffer es una región de memoria física utilizada para almacenar temporalmente datos binarios mientras se mueven de un lugar a otro. Es esencial para manejar flujos de datos binarios fuera del motor V8.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Cuál es la diferencia entre 'module.exports' y 'exports'?",
+            "respuesta": "'module.exports' es el objeto real que se devuelve como resultado de una instrucción 'require'. 'exports' es simplemente una referencia corta a 'module.exports'. Si asignas un nuevo objeto a 'exports', romperás la referencia y no exportarás nada.",
+            "etiquetas": [
+                "Node.js",
+                "Módulos"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el patrón 'Error-First Callback'?",
+            "respuesta": "Es una convención en Node.js donde el primer argumento de una función callback es un objeto de error (o null si no hubo error) y el segundo son los datos. Ejemplo: callback(err, data).",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el módulo 'fs'?",
+            "respuesta": "Es el módulo nativo 'File System' que proporciona una API para interactuar con el sistema de archivos de la computadora, permitiendo leer, crear, actualizar y borrar archivos de forma síncrona o asíncrona.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es REPL en Node.js?",
+            "respuesta": "Read-Eval-Print Loop. Es un entorno interactivo (consola) donde puedes escribir código JavaScript y obtener resultados inmediatos. Es útil para depuración rápida y pruebas de sintaxis.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el 'Callback Hell' y cómo se soluciona?",
+            "respuesta": "Es una situación donde se anidan múltiples callbacks dentro de otros, haciendo el código difícil de leer y mantener. Se soluciona usando Promesas, Async/Await o modularizando las funciones.",
+            "etiquetas": [
+                "Node.js",
+                "Asincronía"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es un Middleware en el contexto de Express.js?",
+            "respuesta": "Es una función que tiene acceso al objeto de solicitud (req), al objeto de respuesta (res) y a la siguiente función de middleware en el ciclo de solicitud-respuesta de la aplicación.",
+            "etiquetas": [
+                "Node.js",
+                "Express"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el módulo 'path'?",
+            "respuesta": "Es un módulo nativo que proporciona utilidades para trabajar con rutas de archivos y directorios, garantizando que el código funcione correctamente en diferentes sistemas operativos (Windows vs Linux).",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Qué hace 'process.nextTick()'?",
+            "respuesta": "Programa una función para que se ejecute inmediatamente después de que termine la operación actual, antes de que el Event Loop continúe con la siguiente fase.",
+            "etiquetas": [
+                "Node.js",
+                "Event Loop"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es un 'EventEmitter'?",
+            "respuesta": "Es una clase del módulo 'events' que permite la comunicación entre objetos. Un objeto emite un evento con un nombre y otros objetos escuchan ese evento para ejecutar funciones específicas.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "Diferencia entre dependencias y devDependencies",
+            "respuesta": "Las 'dependencies' son necesarias para que la aplicación se ejecute en producción. Las 'devDependencies' solo se necesitan para el desarrollo y pruebas (como linters o frameworks de test).",
+            "etiquetas": [
+                "Node.js",
+                "Herramientas"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es la técnica 'Clustering' en Node.js?",
+            "respuesta": "Es una forma de aprovechar los procesadores multinúcleo creando múltiples instancias de Node.js (procesos hijos) que comparten el mismo puerto de red, mejorando el rendimiento bajo carga pesada.",
+            "etiquetas": [
+                "Node.js",
+                "Arquitectura"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el módulo 'os'?",
+            "respuesta": "Es un módulo nativo que proporciona información sobre el sistema operativo subyacente, como el tiempo de actividad, la memoria libre, la CPU y las interfaces de red.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es 'Environment Variables' (Variables de entorno)?",
+            "respuesta": "Son valores externos a la aplicación (como claves API o puertos) que se configuran en el sistema o archivos .env para evitar exponer datos sensibles en el código fuente.",
+            "etiquetas": [
+                "Node.js",
+                "Seguridad"
+            ]
+        },
+        {
+            "pregunta": "¿Cómo se manejan las excepciones no capturadas?",
+            "respuesta": "Se puede usar el evento 'uncaughtException' del objeto 'process', aunque se recomienda capturar errores localmente o usar gestores de procesos como PM2 para reiniciar la app tras un fallo crítico.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el 'Worker Threads'?",
+            "respuesta": "Es un módulo que permite ejecutar código JavaScript en hilos paralelos. A diferencia del Event Loop, los Worker Threads son útiles para realizar tareas intensivas de CPU sin bloquear el hilo principal.",
+            "etiquetas": [
+                "Node.js",
+                "Performance"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es la 'Propagación de Errores' en Express?",
+            "respuesta": "Es el acto de pasar un error al siguiente middleware usando la función 'next(err)'. Express saltará todos los middlewares normales y buscará uno diseñado específicamente para el manejo de errores.",
+            "etiquetas": [
+                "Node.js",
+                "Express"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es Libuv?",
+            "respuesta": "Es una biblioteca multiplataforma escrita en C que Node.js utiliza para manejar operaciones asíncronas de entrada/salida. Implementa el Event Loop y el Thread Pool.",
+            "etiquetas": [
+                "Node.js",
+                "Arquitectura"
+            ]
+        },
+        {
+            "pregunta": "Diferencia entre CommonJS y ES Modules",
+            "respuesta": "CommonJS usa 'require' y 'module.exports' (tradicional de Node). ES Modules usa 'import' y 'export' (estándar moderno de JS). ESM es asíncrono y permite un mejor análisis estático.",
+            "etiquetas": [
+                "Node.js",
+                "Módulos"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el 'Garantía de Entrega' en Streams (Pipe)?",
+            "respuesta": "El método '.pipe()' conecta un stream de lectura con uno de escritura, manejando automáticamente el flujo de datos para que el destino no se vea abrumado por una fuente más rápida (backpressure).",
+            "etiquetas": [
+                "Node.js",
+                "Performance"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es 'Hydration' o 'SSR' con Node?",
+            "respuesta": "Server Side Rendering (SSR) es la técnica de generar el HTML de una página en el servidor usando Node.js antes de enviarlo al navegador, mejorando el SEO y el tiempo de carga inicial.",
+            "etiquetas": [
+                "Node.js"
+            ]
+        },
+        {
+            "pregunta": "¿Cómo funciona el 'Caching de Módulos'?",
+            "respuesta": "Cuando cargas un módulo por primera vez con 'require', Node.js lo almacena en caché. Las llamadas subsiguientes al mismo módulo devolverán la misma instancia cargada previamente.",
+            "etiquetas": [
+                "Node.js",
+                "Módulos"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el 'Event-Driven Programming'?",
+            "respuesta": "Es un paradigma de programación donde el flujo de la aplicación está determinado por eventos como clics del usuario, mensajes de otros programas o carga de archivos.",
+            "etiquetas": [
+                "Node.js",
+                "Conceptos"
+            ]
+        }
+    ],
+    "etiquetas": [
+        {
+            "nombre": "Node.js",
+            "url": "/logos/nodejs.png"
+        },
+        {
+            "nombre": "Arquitectura",
+            "url": "/logos/arquitectura.png"
+        },
+        {
+            "nombre": "Asincronía",
+            "url": "/logos/asincronia.png"
+        },
+        {
+            "nombre": "Performance",
+            "url": "/logos/performance.png"
+        }
+    ]
+}
