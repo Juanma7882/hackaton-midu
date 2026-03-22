@@ -1,13 +1,13 @@
 .env
-./backend-Preguntas/.env
-./Frontend-preguntas/.env
+./backend-preguntas/.env
+./frontend-preguntas/.env
 ./database/.env
-./Frontend-preguntas/node_modules
-./backend-Preguntas/node_modules
-./Frontend-preguntas/node_modules/*
-./backend-Preguntas/node_modules/*
-./Frontend-preguntas/package-lock.json
-./backend-Preguntas/package-lock.json
+./frontend-preguntas/node_modules
+./backend-preguntas/node_modules
+./frontend-preguntas/node_modules/*
+./backend-preguntas/node_modules/*
+./frontend-preguntas/package-lock.json
+./backend-preguntas/package-lock.json
 
 # Dependencias
 node_modules/
