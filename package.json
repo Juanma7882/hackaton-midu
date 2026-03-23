@@ -1,0 +1,26 @@
+{
+  "name": "hackaton-midu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend-preguntas run dev",
+    "dev:backend": "npm --prefix backend-preguntas run dev",
+    "build:frontend": "npm --prefix frontend-preguntas run build",
+    "build:backend": "npm --prefix backend-preguntas run build",
+    "lint:frontend": "npm --prefix frontend-preguntas run lint",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juanma7882/hackaton-midu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juanma7882/hackaton-midu/issues"
+  },
+  "homepage": "https://github.com/Juanma7882/hackaton-midu#readme"
+}

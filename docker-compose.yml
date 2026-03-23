@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   database:
     image: postgres:16
@@ -21,13 +19,14 @@ services:
     depends_on:
       - database
     build:
-      context: ./backend-Preguntas
+      context: ./backend-preguntas
       dockerfile: Dockerfile
     restart: always
     env_file:
       - ./.env
     volumes:
-      - ./backend-Preguntas:/backend
+      - ./backend-preguntas:/backend
+      - /backend/node_modules  # Preserva node_modules del build (evita sobrescritura)
     ports:
       - "3002:3000"
     networks:
@@ -43,13 +42,13 @@ services:
     depends_on:
       - backend
     build:
-      context: ./Frontend-preguntas
+      context: ./frontend-preguntas
       dockerfile: Dockerfile
     restart: always
     env_file:
-      - ./Frontend-preguntas/.env
+      - ./.env
     volumes:
-      - ./Frontend-preguntas:/frontend
+      - ./frontend-preguntas:/frontend
       - /frontend/node_modules  # ✅ Esto previene que se sobrescriba
     ports:
       - "3003:3001"
