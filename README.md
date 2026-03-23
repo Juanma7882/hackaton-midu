@@ -11,6 +11,7 @@
 | `npm run build:frontend` | Compila el frontend para producción (TypeScript + Vite build). |
 | `npm run build:backend` | Compila el backend a JavaScript (TypeScript → `dist/`). |
 | `npm run lint:frontend` | Ejecuta ESLint en el frontend para revisar el código. |
+
 Este cambio mejorara el workflow al tener la inicializacion del proyecto centralizada en el root folder.
 
 
