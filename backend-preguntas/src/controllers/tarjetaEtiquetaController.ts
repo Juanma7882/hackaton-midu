@@ -25,11 +25,24 @@ export const asignarEtiquetaATarjeta = async (req: any, res: any) => {
 
 export const listarTarjetasPorEtiquetaPorNombre = async (req: any, res: any) => {
     try {
-        const { nombreEtiqueta } = req.params;
+        const etiquetasQuery = typeof req.query.etiquetas === "string" ? req.query.etiquetas : "";
+
+        if (etiquetasQuery.trim().length > 0) {
+            const tarjetas = await tarjetaEtiquetaService.obtenerPreguntasPorEtiquetas(etiquetasQuery.split(","));
+
+            return res.status(200).json({
+                success: true,
+                message: "Tarjetas obtenidas correctamente para las etiquetas indicadas",
+                count: tarjetas.length,
+                data: tarjetas,
+                error: null
+            });
+        }
+
         const tarjetas = await tarjetaEtiquetaService.obtenerEtiquetasConPreguntas();
         return res.status(200).json({
             success: true,
-            message: `Tarjetas con la etiqueta "${nombreEtiqueta}" obtenidas correctamente`,
+            message: "Tarjetas agrupadas por etiqueta obtenidas correctamente",
             count: tarjetas.length,
             data: tarjetas,
             error: null

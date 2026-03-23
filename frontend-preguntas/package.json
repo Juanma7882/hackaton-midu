@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --port 3001 ",
+    "dev": "vite --host --port 3003",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview --host --port 3003"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
