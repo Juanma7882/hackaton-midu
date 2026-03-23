@@ -23,7 +23,6 @@ yarn-error.log*
 .env.production.local
 
 # Archivos de package managers
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 

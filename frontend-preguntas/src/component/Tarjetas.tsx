@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { construirUrlAsset, obtenerEtiquetas, type Etiqueta } from "../api/apis";
 import { useNavigate } from "react-router-dom";
+import TarjetaComponent from "./TarjetaComponent";
 
 
-export default function Tarjeta({ filtro }: { filtro: string }) {
+export default function Tarjetas({ filtro }: { filtro: string }) {
     const [etiquetas, setEtiquetas] = useState<Etiqueta[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const navigate = useNavigate();
@@ -32,16 +33,20 @@ export default function Tarjeta({ filtro }: { filtro: string }) {
         ...etiqueta,
         pathCompletoUrl: construirUrlAsset(etiqueta.url)
     }))
+    if (filtro.length > 0 && etiquetasConImagenAñadida.length === 0) {
+        return (
+            <div className="text-white text-2xl md:text-3xl col-span-full">
+                Ninguna etiqueta coincide con el filtro
+            </div>
+        );
+    }
+
     return (
         <>
             {etiquetasConImagenAñadida.map((etiqueta) => (
                 <div onClick={() => navigate(`/pregunta/${etiqueta.nombre}`)}
-                    key={etiqueta.id}
-                    className='flex flex-col justify-center items-center text-center bg-gray-900/50 w-40 h-50 rounded-2xl border border-gray-700 hover:border-gray-600 cursor-pointer md:w-55 sm:h-60 p-4 gap-4 '>
-                    <div className='w-24 md:w-40'>
-                        < img className='w-full h-full' src={etiqueta.pathCompletoUrl} alt={etiqueta.nombre} />
-                    </div>
-                    <h2 className='text-white text-2xl md:text-3xl'>{etiqueta.nombre}</h2>
+                    key={etiqueta.id}>
+                    <TarjetaComponent etiqueta={etiqueta} />
                 </div>
             ))}
         </>

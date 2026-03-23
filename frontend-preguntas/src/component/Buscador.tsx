@@ -26,7 +26,7 @@ export default function Buscador({ buscar, setBuscar }: BuscadorProps) {
                 transition"
             />
             <svg
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400"
+                className="cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
