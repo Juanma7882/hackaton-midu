@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import preguntasRoutes from "./routes/preguntas.routes.js";
 import etiquetaRoutes from "./routes/etiquetas.routes.js";
 import tarjetaEtiqueta from "./routes/tarjetaetiqueta.routes.js"
+import evaluacionesRoutes from "./routes/evaluaciones.routes.js";
 import healthRoutes from "./routes/health.routes.js";
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(
 app.use("/api/preguntas", preguntasRoutes);
 app.use("/api/etiquetas", etiquetaRoutes);
 app.use("/api/tarjetaEtiquetas", tarjetaEtiqueta);
+app.use("/api/evaluaciones", evaluacionesRoutes);
 app.use("/api/health", healthRoutes);
 
 // Ruta raíz de prueba
@@ -41,4 +43,3 @@ app.get("/", (req, res) => {
 });
 
 export default app;
-

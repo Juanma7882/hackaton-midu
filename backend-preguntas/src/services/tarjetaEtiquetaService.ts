@@ -1,7 +1,28 @@
 import Etiquetas from "../models/etiquetas.js";
 import Preguntas from "../models/preguntas.js";
+import { Op } from "sequelize";
+
+interface PreguntaConEtiquetas {
+    id: number;
+    pregunta: string;
+    respuesta: string;
+    Etiqueta: Array<{ nombre: string }>;
+}
 
 class TarjetaEtiquetaService {
+    private serializarPreguntas(preguntas: any[]): PreguntaConEtiquetas[] {
+        return preguntas.map((pregunta) => {
+            const preguntaPlana = typeof pregunta.get === "function" ? pregunta.get({ plain: true }) : pregunta;
+            const etiquetas = preguntaPlana.Etiquetas ?? preguntaPlana.Etiqueta ?? [];
+
+            return {
+                id: preguntaPlana.id,
+                pregunta: preguntaPlana.pregunta,
+                respuesta: preguntaPlana.respuesta,
+                Etiqueta: etiquetas.map((etiqueta: { nombre: string }) => ({ nombre: etiqueta.nombre })),
+            };
+        });
+    }
 
     /**
      *  Asocia una etiqueta existente a una pregunta existente/tarjeta específica
@@ -71,7 +92,6 @@ class TarjetaEtiquetaService {
                 include: [
                     {
                         model: Etiquetas,
-                        as: "Etiqueta",
                         where: { nombre: etiquetaNormalizada },
                         attributes: ["nombre"],
                         through: { attributes: [] },
@@ -79,9 +99,42 @@ class TarjetaEtiquetaService {
                 ],
             });
 
-            return preguntas;
+            return this.serializarPreguntas(preguntas);
         } catch (error) {
             console.log("Error al listar tarjetas por etiqueta:", error);
+            return [];
+        }
+    }
+
+    async obtenerPreguntasPorEtiquetas(nombresEtiquetas: string[]) {
+        try {
+            const etiquetasNormalizadas = nombresEtiquetas
+                .map((etiqueta) => etiqueta.trim().toLowerCase())
+                .filter(Boolean);
+
+            if (etiquetasNormalizadas.length === 0) {
+                return [];
+            }
+
+            const preguntas = await Preguntas.findAll({
+                include: [
+                    {
+                        model: Etiquetas,
+                        where: {
+                            nombre: {
+                                [Op.in]: etiquetasNormalizadas,
+                            },
+                        },
+                        attributes: ["nombre"],
+                        through: { attributes: [] },
+                    },
+                ],
+                order: [["id", "ASC"]],
+            });
+
+            return this.serializarPreguntas(preguntas);
+        } catch (error) {
+            console.log("Error al listar tarjetas por multiples etiquetas:", error);
             return [];
         }
     }

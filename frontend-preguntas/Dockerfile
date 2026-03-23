@@ -11,6 +11,6 @@ RUN npm ci
 # Copiar el resto del código
 COPY . .
 
-EXPOSE 3001
+EXPOSE 3003
 
 CMD ["npm", "run", "dev"]

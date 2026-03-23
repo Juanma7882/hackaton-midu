@@ -51,7 +51,7 @@ services:
       - ./frontend-preguntas:/frontend
       - /frontend/node_modules  # ✅ Esto previene que se sobrescriba
     ports:
-      - "3003:3001"
+      - "3003:3003"
     networks:
       - frontend-network
 
