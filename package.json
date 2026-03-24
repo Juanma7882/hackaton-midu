@@ -4,8 +4,8 @@
   "private": true,
   "description": "",
   "scripts": {
-    "dev:frontend": "npm --prefix frontend-preguntas run dev",
     "dev:backend": "npm --prefix backend-preguntas run dev",
+    "dev:frontend": "npm --prefix frontend-preguntas run dev",
     "build:frontend": "npm --prefix frontend-preguntas run build",
     "build:backend": "npm --prefix backend-preguntas run build",
     "lint:frontend": "npm --prefix frontend-preguntas run lint",

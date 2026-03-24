@@ -6,8 +6,9 @@ services:
       - ./.env
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5433:5432" # el puerto 5433 es el expuesto para fuera de Docker el 5432 es el interno del contenedor
+      - "5433:5432"
     networks:
       - backend-network
     healthcheck:
@@ -15,9 +16,11 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
   backend:
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     build:
       context: ./backend-preguntas
       dockerfile: Dockerfile
@@ -26,7 +29,7 @@ services:
       - ./.env
     volumes:
       - ./backend-preguntas:/backend
-      - /backend/node_modules  # Preserva node_modules del build (evita sobrescritura)
+      - /backend/node_modules
     ports:
       - "3002:3000"
     networks:
@@ -40,7 +43,8 @@ services:
 
   frontend:
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     build:
       context: ./frontend-preguntas
       dockerfile: Dockerfile
@@ -49,7 +53,7 @@ services:
       - ./.env
     volumes:
       - ./frontend-preguntas:/frontend
-      - /frontend/node_modules  # ✅ Esto previene que se sobrescriba
+      - /frontend/node_modules
     ports:
       - "3003:3003"
     networks:
@@ -60,3 +64,6 @@ networks:
     driver: bridge
   frontend-network:
     driver: bridge
+
+volumes:
+  postgres_data:

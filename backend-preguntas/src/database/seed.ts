@@ -57,6 +57,7 @@ export async function seedDatabase() {
   try {
     for (const etiqueta of todasEtiquetas) {
       // usar la propiedad 'url' del JSON (minúscula)
+      console.log(etiqueta)
       await etiquetaService.crear(etiqueta.nombre, etiqueta.url);
     }
     console.log("etiquetas procesadas (creadas o existentes) correctamente");

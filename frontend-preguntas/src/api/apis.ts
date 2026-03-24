@@ -39,7 +39,7 @@ async function consumirApiConBody<T>(url: string, init: RequestInit): Promise<T>
   if (!respuesta.ok) {
     throw new Error(`Error HTTP: ${respuesta.status}`);
   }
-
+  console.log(respuesta.json())
   return respuesta.json();
 }
 

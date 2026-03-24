@@ -20,7 +20,8 @@ async function startServer() {
     }
 
     app.listen(PORT, () => {
-      console.log(`🚀 Servidor en http://localhost:${PORT}`);
+      console.log(`🚀 Servidor en http://localhost:${PORT} corriendo solo el backend`);
+      console.log(`🚀 Servidor en http://localhost:3002   corriendo en docker`);
     });
   } catch (error) {
     console.error("❌ Error al iniciar el servidor", error);

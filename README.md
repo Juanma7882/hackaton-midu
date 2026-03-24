@@ -1,4 +1,15 @@
+
+
+## comandos para correr el sistema importante
+modificar el dockerfile del back para que inicialize la semilla
+luego de correrlo la primera vez en true desactivarlo y apartir de ahi 
+podes correrlo con docker-compose up --build o docker-compose up
+
+
+
 # Setup y ejecución del proyecto localmente
+
+
 
 ## Comandos principales
 

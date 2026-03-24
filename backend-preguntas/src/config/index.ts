@@ -26,13 +26,13 @@ const config: AppConfig = {
     port: getNumber(process.env.PORT, 3000),
     env: process.env.NODE_ENV || "development",
     db: {
-        host: process.env.PGHOST || process.env.PG_HOST || "localhost",
-        port: getNumber(process.env.PGPORT ?? process.env.PG_PORT, 5432),
-        user: process.env.PGUSER || process.env.PG_USER || "postgres",
-        password: process.env.PGPASSWORD || process.env.PG_PASSWORD || "admin",
-        database: process.env.PGDATABASE || process.env.PG_DATABASE || "bdpreguntas",
+        host: process.env.DB_HOST || "localhost",
+        port: getNumber(process.env.DB_PORT ?? process.env.DB_PORT, 5432),
+        user: process.env.POSTGRES_USER || process.env.DB_USER || "postgres",
+        password: process.env.POSTGRES_PASSWORD || process.env.DB_PASSWORD || "admin",
+        database: process.env.POSTGRES_DB || process.env.DB_NAME || "bdpreguntas",
     },
 };
 
-
 export default config;
+
