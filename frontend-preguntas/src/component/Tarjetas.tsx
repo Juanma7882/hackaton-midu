@@ -45,7 +45,7 @@ export default function Tarjetas({
 
     if (filtro.length > 0 && etiquetasConImagenAñadida.length === 0) {
         return (
-            <div className="text-white text-2xl md:text-3xl col-span-full">
+            <div className="text-2xl md:text-3xl col-span-full text-[var(--text-primary)]">
                 Ninguna etiqueta coincide con el filtro
             </div>
         );

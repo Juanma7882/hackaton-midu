@@ -9,61 +9,126 @@ export interface PreguntaAEvaluar {
     etiquetas?: string[];
 }
 
+export interface OpenRouterUsage {
+    prompt_tokens?: number;
+    completion_tokens?: number;
+    total_tokens?: number;
+}
+
+export interface Evaluacion {
+    preguntaId: number;
+    puntuacion: number;
+    esCorrecta: boolean;
+    feedback: string;
+    mejoras: string[];
+}
+
+export interface OpenRouterMessage {
+    role: "system" | "user" | "assistant";
+    content: string;
+    reasoning_details?: unknown;
+}
+
 interface OpenRouterResponse {
     choices?: Array<{
         message?: {
             content?: string;
+            reasoning_details?: unknown;
         };
     }>;
-    usage?: {
-        prompt_tokens?: number;
-        completion_tokens?: number;
-        total_tokens?: number;
-    };
+    usage?: OpenRouterUsage;
+}
+
+interface StreamChatPayload {
+    messages: OpenRouterMessage[];
+    model?: string;
+    temperature?: number;
 }
 
 class OpenRouterEvaluationService {
-    private construirPrompt(preguntas: PreguntaAEvaluar[]) {
-        return [
-            "Evalua respuestas de una entrevista tecnica.",
-            "Devuelve solo JSON valido con esta forma:",
-            '{"evaluaciones":[{"preguntaId":1,"puntuacion":0,"esCorrecta":false,"feedback":"texto","mejoras":["texto"]}]}',
-            "La puntuacion debe ir de 0 a 100.",
-            "esCorrecta debe ser true solo si la respuesta del usuario es correcta en lo esencial.",
-            "feedback debe ser breve, claro y en espanol.",
-            "mejoras debe incluir entre 0 y 3 sugerencias concretas.",
-            "Preguntas a evaluar:",
-            JSON.stringify(preguntas),
-        ].join("\n");
-    }
-
-    async evaluarPreguntas(preguntas: PreguntaAEvaluar[]) {
+    private obtenerHeaders() {
         const apiKey = process.env.OPENROUTER_API_KEY;
 
         if (!apiKey) {
             throw new Error("Falta definir OPENROUTER_API_KEY");
         }
 
+        return {
+            "Authorization": `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "http://localhost:3003",
+            "X-Title": process.env.OPENROUTER_APP_NAME || "hackaton-midu",
+        };
+    }
+
+    private construirPrompt(pregunta: PreguntaAEvaluar) {
+        return [
+            "Evalua UNA respuesta de una entrevista tecnica.",
+            "",
+            "PREGUNTA:",
+            pregunta.pregunta,
+            "",
+            "RESPUESTA CORRECTA (referencia):",
+            pregunta.respuestaCorrecta,
+            "",
+            "RESPUESTA DEL USUARIO:",
+            pregunta.respuestaUsuario,
+            "",
+            "Devuelve solo JSON valido con esta forma:",
+            '{"preguntaId":1,"puntuacion":0,"esCorrecta":false,"feedback":"texto breve","mejoras":["sugerencia1","sugerencia2"]}',
+            "",
+            "Reglas:",
+            "- puntuacion: 0 a 100.",
+            "- esCorrecta: true solo si la respuesta del usuario es correcta en lo esencial.",
+            "- feedback: breve, claro, en espanol.",
+            "- mejoras: entre 0 y 3 sugerencias concretas.",
+        ].join("\n");
+    }
+
+    async crearStreamChat(payload: StreamChatPayload) {
         const response = await fetch(OPENROUTER_API_URL, {
             method: "POST",
-            headers: {
-                "Authorization": `Bearer ${apiKey}`,
-                "Content-Type": "application/json",
-                "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "http://localhost:3000",
-                "X-Title": process.env.OPENROUTER_APP_NAME || "hackaton-midu",
-            },
+            headers: this.obtenerHeaders(),
+            body: JSON.stringify({
+                model: payload.model || DEFAULT_OPENROUTER_MODEL,
+                temperature: payload.temperature ?? 0.2,
+                stream: true,
+                messages: payload.messages,
+            }),
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`OpenRouter respondio con ${response.status}: ${errorText}`);
+        }
+
+        if (!response.body) {
+            throw new Error("OpenRouter no devolvio un stream");
+        }
+
+        return {
+            model: payload.model || DEFAULT_OPENROUTER_MODEL,
+            stream: response.body,
+        };
+    }
+
+    async evaluarPregunta(pregunta: PreguntaAEvaluar): Promise<{
+        modelo: string;
+        evaluacion: Evaluacion;
+        uso?: OpenRouterUsage;
+        contenidoCrudo: string;
+    }> {
+        const response = await fetch(OPENROUTER_API_URL, {
+            method: "POST",
+            headers: this.obtenerHeaders(),
             body: JSON.stringify({
                 model: DEFAULT_OPENROUTER_MODEL,
                 temperature: 0.2,
                 response_format: { type: "json_object" },
                 messages: [
                     {
-                        role: "system",
-                        content: "Eres un evaluador tecnico preciso. Responde exclusivamente con JSON valido.",
-                    },
-                    {
                         role: "user",
-                        content: this.construirPrompt(preguntas),
+                        content: this.construirPrompt(pregunta),
                     },
                 ],
             }),
@@ -82,13 +147,49 @@ class OpenRouterEvaluationService {
         }
 
         const contenidoNormalizado = contenidoCrudo.trim();
-        const resultado = JSON.parse(contenidoNormalizado) as { evaluaciones?: unknown[] };
+        const resultado = JSON.parse(contenidoNormalizado) as Evaluacion;
+
+        const evaluacion: Evaluacion = {
+            preguntaId: pregunta.preguntaId,
+            puntuacion: typeof resultado.puntuacion === "number" ? resultado.puntuacion : 0,
+            esCorrecta: Boolean(resultado.esCorrecta),
+            feedback: String(resultado.feedback ?? ""),
+            mejoras: Array.isArray(resultado.mejoras) ? resultado.mejoras : [],
+        };
 
         return {
             modelo: DEFAULT_OPENROUTER_MODEL,
-            evaluaciones: Array.isArray(resultado.evaluaciones) ? resultado.evaluaciones : [],
+            evaluacion,
             uso: data.usage,
             contenidoCrudo: contenidoNormalizado,
+        };
+    }
+
+    async evaluarPreguntas(preguntas: PreguntaAEvaluar[]): Promise<{
+        modelo: string;
+        evaluaciones: Evaluacion[];
+        uso?: OpenRouterUsage;
+    }> {
+        const resultados: Evaluacion[] = [];
+        let usoTotal: OpenRouterUsage | undefined;
+
+        for (const pregunta of preguntas) {
+            const { evaluacion, uso } = await this.evaluarPregunta(pregunta);
+            resultados.push(evaluacion);
+
+            if (uso) {
+                usoTotal = {
+                    prompt_tokens: (usoTotal?.prompt_tokens ?? 0) + (uso.prompt_tokens ?? 0),
+                    completion_tokens: (usoTotal?.completion_tokens ?? 0) + (uso.completion_tokens ?? 0),
+                    total_tokens: (usoTotal?.total_tokens ?? 0) + (uso.total_tokens ?? 0),
+                };
+            }
+        }
+
+        return {
+            modelo: DEFAULT_OPENROUTER_MODEL,
+            evaluaciones: resultados,
+            uso: usoTotal,
         };
     }
 }
