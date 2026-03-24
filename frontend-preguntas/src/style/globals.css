@@ -1,0 +1,39 @@
+@layer base {
+  :root {
+    /* Paleta principal */
+    --color-primary: #21FF00;
+    --color-secondary: #00FF00;
+    --color-tertiary: #00CC00;
+    --color-quaternary: #009900;
+    --color-quinary: #006600;
+    --color-senary: #003300;
+
+    /* Semánticos */
+    --bg-page: #000000;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --border-default: rgba(255, 255, 255, 0.2);
+    --border-accent: var(--color-primary);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --text-body: #d4d4d8;
+    --placeholder: #71717a;
+  }
+
+  progress {
+    background: var(--border-default);
+    border-radius: 9999px;
+  }
+  progress::-webkit-progress-bar {
+    background: var(--border-default);
+    border-radius: 9999px;
+  }
+  progress::-webkit-progress-value {
+    background: var(--color-primary);
+    border-radius: 9999px;
+  }
+  progress::-moz-progress-bar {
+    background: var(--color-primary);
+    border-radius: 9999px;
+  }
+}

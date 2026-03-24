@@ -26,7 +26,8 @@ services:
       - ./.env
     volumes:
       - ./backend-preguntas:/backend
-      - /backend/node_modules  # Preserva node_modules del build (evita sobrescritura)
+      - ./.env:/backend/.env
+      - /backend/node_modules
     ports:
       - "3002:3000"
     networks:
@@ -49,7 +50,7 @@ services:
       - ./.env
     volumes:
       - ./frontend-preguntas:/frontend
-      - /frontend/node_modules  # ✅ Esto previene que se sobrescriba
+      - /frontend/node_modules
     ports:
       - "3003:3003"
     networks:

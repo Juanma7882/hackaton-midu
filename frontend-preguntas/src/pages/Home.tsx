@@ -1,5 +1,4 @@
 import Buscador from '../component/Buscador'
-import '../style/index.css'
 import { useState } from 'react'
 import useDebounce from '../hooks/useDebounce'
 import Tarjetas from '../component/Tarjetas'
@@ -28,18 +27,18 @@ function Home() {
     }
 
     return (
-        <div className='bg-black flex flex-col justify-center items-center gap-8 p-8 md:p-12 border-2 border-dotted border-white w-11/12 max-w-7xl'>
+        <div className="flex flex-col justify-center items-center gap-8 p-8 md:p-12 border-2 border-dotted w-11/12 max-w-7xl bg-[var(--bg-page)] border-[var(--border-default)]">
             <div className='w-full flex justify-center items-center'>
                 <Buscador buscar={buscar} setBuscar={setBuscar} />
             </div>
             {!buscarDebounced &&
-                <h1 className='text-white text-2xl md:text-3xl'>Selecciona las etiquetas que te interesan para ver las preguntas</h1>
+                <h1 className="text-2xl md:text-3xl text-[var(--text-primary)]">Selecciona las etiquetas que te interesan para ver las preguntas</h1>
             }
-            <div className='w-full flex flex-wrap items-center justify-center gap-3 text-sm md:text-base text-white/80'>
-                <span className='uppercase tracking-[0.2em] text-white/60'>Seleccionadas</span>
+            <div className="w-full flex flex-wrap items-center justify-center gap-3 text-sm md:text-base text-[var(--text-secondary)]">
+                <span className="uppercase tracking-[0.2em] text-[var(--text-muted)]">Seleccionadas</span>
                 <span>{etiquetasSeleccionadas.length}</span>
                 {etiquetasSeleccionadas.length > 0 && (
-                    <span className='text-center text-white/60'>
+                    <span className="text-center text-[var(--text-muted)]">
                         {etiquetasSeleccionadas.join(' - ')}
                     </span>
                 )}
@@ -55,7 +54,7 @@ function Home() {
                 type='button'
                 onClick={irAPreguntas}
                 disabled={etiquetasSeleccionadas.length === 0}
-                className='cursor-pointer text-white text-xl md:text-2xl border border-cyan-400 px-6 py-3 rounded-lg transition disabled:cursor-not-allowed disabled:opacity-40 hover:bg-cyan-400/10'
+                className="cursor-pointer text-xl md:text-2xl px-6 py-3 rounded-lg transition disabled:cursor-not-allowed disabled:opacity-40 text-[var(--text-primary)] border border-[var(--border-accent)] hover:bg-[var(--color-primary)]/10"
             >
                 Ir a las preguntas
             </button>
