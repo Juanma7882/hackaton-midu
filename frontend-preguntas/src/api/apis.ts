@@ -25,7 +25,6 @@ async function consumirApi<T>(url: string, options?: RequestInit): Promise<T> {
   if (!respuesta.ok) {
     throw new Error(`Error HTTP: ${respuesta.status}`);
   }
-<<<<<<< HEAD
 
   return respuesta.json();
 }
@@ -43,8 +42,6 @@ async function consumirApiConBody<T>(url: string, init: RequestInit): Promise<T>
     throw new Error(`Error HTTP: ${respuesta.status}`);
   }
   console.log(respuesta.json())
-=======
->>>>>>> feat/003-complete-questions-page-and-openrouter-fetch
   return respuesta.json();
 }
 

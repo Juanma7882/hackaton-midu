@@ -9,10 +9,17 @@ export interface PreguntaAEvaluar {
     etiquetas?: string[];
 }
 
-export interface OpenRouterUsage {
-    prompt_tokens?: number;
-    completion_tokens?: number;
-    total_tokens?: number;
+interface OpenRouterResponse {
+    choices?: Array<{
+        message?: {
+            content?: string;
+        };
+    }>;
+    usage?: {
+        prompt_tokens?: number;
+        completion_tokens?: number;
+        total_tokens?: number;
+    };
 }
 
 export interface Evaluacion {
@@ -23,42 +30,43 @@ export interface Evaluacion {
     mejoras: string[];
 }
 
-export interface OpenRouterMessage {
-    role: "system" | "user" | "assistant";
+interface OpenRouterChatMessage {
+    role: string;
     content: string;
-    reasoning_details?: unknown;
 }
 
-interface OpenRouterResponse {
-    choices?: Array<{
-        message?: {
-            content?: string;
-            reasoning_details?: unknown;
-        };
-    }>;
-    usage?: OpenRouterUsage;
-}
 
-interface StreamChatPayload {
-    messages: OpenRouterMessage[];
-    model?: string;
-    temperature?: number;
-}
 
 class OpenRouterEvaluationService {
-    private obtenerHeaders() {
-        const apiKey = process.env.OPENROUTER_API_KEY;
-
-        if (!apiKey) {
-            throw new Error("Falta definir OPENROUTER_API_KEY");
-        }
-
+    private construirPayload(pregunta: PreguntaAEvaluar, forzarJsonMode: boolean) {
         return {
-            "Authorization": `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-            "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "http://localhost:3003",
-            "X-Title": process.env.OPENROUTER_APP_NAME || "hackaton-midu",
+            model: DEFAULT_OPENROUTER_MODEL,
+            temperature: 0.2,
+            ...(forzarJsonMode ? { response_format: { type: "json_object" } } : {}),
+            messages: [
+                {
+                    role: "system",
+                    content: "Eres un evaluador tecnico preciso. Responde exclusivamente con JSON valido.",
+                },
+                {
+                    role: "user",
+                    content: this.construirPrompt(pregunta),
+                },
+            ],
         };
+    }
+
+    private async requestOpenRouter(apiKey: string, pregunta: PreguntaAEvaluar, forzarJsonMode: boolean) {
+        return fetch(OPENROUTER_API_URL, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${apiKey}`,
+                "Content-Type": "application/json",
+                "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "http://localhost:3000",
+                "X-Title": process.env.OPENROUTER_APP_NAME || "hackaton-midu",
+            },
+            body: JSON.stringify(this.construirPayload(pregunta, forzarJsonMode)),
+        });
     }
 
     private construirPrompt(pregunta: PreguntaAEvaluar) {
@@ -85,15 +93,38 @@ class OpenRouterEvaluationService {
         ].join("\n");
     }
 
-    async crearStreamChat(payload: StreamChatPayload) {
+    async crearStreamChat({
+        messages,
+        model,
+        temperature,
+    }: {
+        messages: OpenRouterChatMessage[];
+        model?: string;
+        temperature?: number;
+    }): Promise<{
+        stream: ReadableStream<Uint8Array>;
+        model: string;
+    }> {
+        const apiKey = process.env.OPENROUTER_API_KEY;
+
+        if (!apiKey) {
+            throw new Error("Falta definir OPENROUTER_API_KEY");
+        }
+
+        const modeloUsado = model || DEFAULT_OPENROUTER_MODEL;
         const response = await fetch(OPENROUTER_API_URL, {
             method: "POST",
-            headers: this.obtenerHeaders(),
+            headers: {
+                "Authorization": `Bearer ${apiKey}`,
+                "Content-Type": "application/json",
+                "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "http://localhost:3000",
+                "X-Title": process.env.OPENROUTER_APP_NAME || "hackaton-midu",
+            },
             body: JSON.stringify({
-                model: payload.model || DEFAULT_OPENROUTER_MODEL,
-                temperature: payload.temperature ?? 0.2,
+                model: modeloUsado,
+                temperature: typeof temperature === "number" ? temperature : 0.7,
                 stream: true,
-                messages: payload.messages,
+                messages,
             }),
         });
 
@@ -103,36 +134,37 @@ class OpenRouterEvaluationService {
         }
 
         if (!response.body) {
-            throw new Error("OpenRouter no devolvio un stream");
+            throw new Error("OpenRouter no devolvio un stream valido");
         }
 
         return {
-            model: payload.model || DEFAULT_OPENROUTER_MODEL,
             stream: response.body,
+            model: modeloUsado,
         };
     }
 
     async evaluarPregunta(pregunta: PreguntaAEvaluar): Promise<{
         modelo: string;
         evaluacion: Evaluacion;
-        uso?: OpenRouterUsage;
+        uso?: OpenRouterResponse["usage"];
         contenidoCrudo: string;
     }> {
-        const response = await fetch(OPENROUTER_API_URL, {
-            method: "POST",
-            headers: this.obtenerHeaders(),
-            body: JSON.stringify({
-                model: DEFAULT_OPENROUTER_MODEL,
-                temperature: 0.2,
-                response_format: { type: "json_object" },
-                messages: [
-                    {
-                        role: "user",
-                        content: this.construirPrompt(pregunta),
-                    },
-                ],
-            }),
-        });
+        const apiKey = process.env.OPENROUTER_API_KEY;
+
+        if (!apiKey) {
+            throw new Error("Falta definir OPENROUTER_API_KEY");
+        }
+
+        let response = await this.requestOpenRouter(apiKey, pregunta, true);
+        if (!response.ok) {
+            const errorText = await response.text();
+            const noSoportaJsonMode = response.status === 400 && errorText.includes("JSON mode is not enabled");
+            if (noSoportaJsonMode) {
+                response = await this.requestOpenRouter(apiKey, pregunta, false);
+            } else {
+                throw new Error(`OpenRouter respondio con ${response.status}: ${errorText}`);
+            }
+        }
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -165,18 +197,18 @@ class OpenRouterEvaluationService {
         };
     }
 
+    /** Evalua varias preguntas llamando a la API una por una */
     async evaluarPreguntas(preguntas: PreguntaAEvaluar[]): Promise<{
         modelo: string;
         evaluaciones: Evaluacion[];
-        uso?: OpenRouterUsage;
+        uso?: OpenRouterResponse["usage"];
     }> {
         const resultados: Evaluacion[] = [];
-        let usoTotal: OpenRouterUsage | undefined;
+        let usoTotal = undefined;
 
         for (const pregunta of preguntas) {
             const { evaluacion, uso } = await this.evaluarPregunta(pregunta);
             resultados.push(evaluacion);
-
             if (uso) {
                 usoTotal = {
                     prompt_tokens: (usoTotal?.prompt_tokens ?? 0) + (uso.prompt_tokens ?? 0),
