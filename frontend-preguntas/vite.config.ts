@@ -10,7 +10,10 @@ export default defineConfig({
     port: 3003,
     watch: {
       usePolling: true
-    }
+    },
+    allowedHosts: [
+      'interviewquiz-frontend-827msf-063283-107-148-105-4.traefik.me'
+    ]
   },
   preview: {
     host: true,
