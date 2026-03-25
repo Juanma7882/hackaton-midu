@@ -35,11 +35,6 @@ interface OpenRouterChatMessage {
     content: string;
 }
 
-type NormalizedChatMessage = {
-    role: "user" | "assistant" | "system";
-    content: string;
-};
-
 
 const DEVELOPER_INSTRUCTION_ERROR = "Developer instruction is not enabled";
 
@@ -66,26 +61,23 @@ class OpenRouterEvaluationService {
         };
     }
 
-    private normalizarMensajes(messages: OpenRouterChatMessage[]): NormalizedChatMessage[] {
+    private normalizarMensajes(messages: OpenRouterChatMessage[]) {
         return messages
             .filter((message) => typeof message?.content === "string" && message.content.trim().length > 0)
             .map((message) => {
                 if (message.role === "assistant") {
-                    return { role: "assistant" as const, content: message.content };
+                    return { role: "assistant", content: message.content };
                 }
 
                 if (message.role === "system") {
-                    return { role: "system" as const, content: message.content };
+                    return { role: "system", content: message.content };
                 }
 
-                return { role: "user" as const, content: message.content };
+                return { role: "user", content: message.content };
             });
     }
 
-    private convertirInstruccionesASistemaEnUsuario(messages: NormalizedChatMessage[]): Array<{
-        role: "user" | "assistant";
-        content: string;
-    }> {
+    private convertirInstruccionesASistemaEnUsuario(messages: Array<{ role: string; content: string }>) {
         const instrucciones = messages
             .filter((message) => message.role === "system")
             .map((message) => message.content.trim())
@@ -112,9 +104,7 @@ class OpenRouterEvaluationService {
         return [
             {
                 role: primero.role === "assistant" ? "assistant" : "user",
-                content: primero.role === "assistant"
-                    ? `${prefijo}\n\n${primero.content}`
-                    : `${prefijo}\n\n${primero.content}`,
+                content: `${prefijo}\n\n${primero.content}`,
             },
             ...resto.map((message) => ({
                 role: message.role === "assistant" ? "assistant" : "user",
