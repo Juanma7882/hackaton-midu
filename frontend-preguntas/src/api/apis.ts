@@ -4,7 +4,7 @@ if (!API_BASE_URL) {
   throw new Error("Falta definir VITE_API_BASE_URL");
 }
 
-const API_ORIGIN = new URL(API_BASE_URL).origin;
+const API_ORIGIN = new URL(API_BASE_URL, window.location.origin).origin;
 
 const API_URLS = {
   etiquetas: `${API_BASE_URL}etiquetas`,
