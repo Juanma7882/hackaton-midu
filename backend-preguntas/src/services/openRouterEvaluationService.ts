@@ -30,16 +30,6 @@ export interface Evaluacion {
     mejoras: string[];
 }
 
-interface OpenRouterChatMessage {
-    role: string;
-    content: string;
-}
-
-
-const DEVELOPER_INSTRUCTION_ERROR = "Developer instruction is not enabled";
-
-
-
 class OpenRouterEvaluationService {
     private construirPayload(pregunta: PreguntaAEvaluar, forzarJsonMode: boolean) {
         return {
@@ -59,62 +49,6 @@ class OpenRouterEvaluationService {
                 },
             ],
         };
-    }
-
-    private normalizarMensajes(messages: OpenRouterChatMessage[]) {
-        return messages
-            .filter((message) => typeof message?.content === "string" && message.content.trim().length > 0)
-            .map((message) => {
-                if (message.role === "assistant") {
-                    return { role: "assistant", content: message.content };
-                }
-
-                if (message.role === "system") {
-                    return { role: "system", content: message.content };
-                }
-
-                return { role: "user", content: message.content };
-            });
-    }
-
-    private convertirInstruccionesASistemaEnUsuario(messages: Array<{ role: string; content: string }>) {
-        const instrucciones = messages
-            .filter((message) => message.role === "system")
-            .map((message) => message.content.trim())
-            .filter(Boolean);
-
-        const conversacion = messages.filter((message) => message.role !== "system");
-        const prefijo = instrucciones.length > 0
-            ? `Sigue estas instrucciones durante toda la conversacion:\n${instrucciones.join("\n\n")}`
-            : "";
-
-        if (conversacion.length === 0) {
-            return prefijo ? [{ role: "user", content: prefijo }] : [];
-        }
-
-        if (!prefijo) {
-            return conversacion.map((message) => ({
-                role: message.role === "assistant" ? "assistant" : "user",
-                content: message.content,
-            }));
-        }
-
-        const [primero, ...resto] = conversacion;
-
-        return [
-            {
-                role: primero.role === "assistant" ? "assistant" : "user",
-                content: `${prefijo}\n\n${primero.content}`,
-            },
-            ...resto.map((message) => ({
-                role: message.role === "assistant" ? "assistant" : "user",
-                content: message.content,
-            })),
-        ];
-    }
-
-    private esErrorDeInstruccionNoSoportada(status: number, errorText: string) {
-        return status === 400 && errorText.includes(DEVELOPER_INSTRUCTION_ERROR);
     }
 
     private async requestOpenRouter(apiKey: string, pregunta: PreguntaAEvaluar, forzarJsonMode: boolean) {
@@ -159,7 +93,7 @@ class OpenRouterEvaluationService {
         model,
         temperature,
     }: {
-        messages: OpenRouterChatMessage[];
+        messages: Array<{ role: string; content: string }>;
         model?: string;
         temperature?: number;
     }): Promise<{
@@ -173,8 +107,7 @@ class OpenRouterEvaluationService {
         }
 
         const modeloUsado = model || DEFAULT_OPENROUTER_MODEL;
-        const mensajesNormalizados = this.normalizarMensajes(messages);
-        let response = await fetch(OPENROUTER_API_URL, {
+        const response = await fetch(OPENROUTER_API_URL, {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${apiKey}`,
@@ -186,33 +119,9 @@ class OpenRouterEvaluationService {
                 model: modeloUsado,
                 temperature: typeof temperature === "number" ? temperature : 0.7,
                 stream: true,
-                messages: mensajesNormalizados,
+                messages,
             }),
         });
-
-        if (!response.ok) {
-            const errorText = await response.text();
-
-            if (this.esErrorDeInstruccionNoSoportada(response.status, errorText)) {
-                response = await fetch(OPENROUTER_API_URL, {
-                    method: "POST",
-                    headers: {
-                        "Authorization": `Bearer ${apiKey}`,
-                        "Content-Type": "application/json",
-                        "HTTP-Referer": process.env.OPENROUTER_SITE_URL || "http://localhost:3000",
-                        "X-Title": process.env.OPENROUTER_APP_NAME || "hackaton-midu",
-                    },
-                    body: JSON.stringify({
-                        model: modeloUsado,
-                        temperature: typeof temperature === "number" ? temperature : 0.7,
-                        stream: true,
-                        messages: this.convertirInstruccionesASistemaEnUsuario(mensajesNormalizados),
-                    }),
-                });
-            } else {
-                throw new Error(`OpenRouter respondio con ${response.status}: ${errorText}`);
-            }
-        }
 
         if (!response.ok) {
             const errorText = await response.text();
