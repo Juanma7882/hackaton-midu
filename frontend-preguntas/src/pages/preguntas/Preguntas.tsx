@@ -48,9 +48,12 @@ export default function Preguntas() {
     };
 
     return (
+        <>
+        <div className="absolute inset-0 bg-[var(--color-primary)] opacity-5 blur-[100px] pointer-events-none"></div>
         <div className="w-full max-w-7xl flex flex-col md:flex-row gap-4 m-4">
             <PreguntasEtiqueta onEvaluar={handleEvaluar} onCambioPregunta={reset} />
             <AIOverview evaluacion={evaluacion} loading={evalLoading} error={evalError} reset={reset} />
         </div>
+        </>
     );
 }
