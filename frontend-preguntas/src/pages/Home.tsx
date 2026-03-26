@@ -87,10 +87,10 @@ function Home() {
             {/* Header / Hero Section */}
                 <div className="absolute inset-0 bg-[var(--color-primary)] opacity-5 blur-[100px] pointer-events-none"></div>
                 <div
-                    className={`w-full max-w-2xl transition-all duration-700 overflow-hidden ${showDescription ? 'opacity-100 translate-y-0 max-h-96' : 'opacity-0 -translate-y-2 max-h-0 pointer-events-none'}`}
+                    className={`w-full max-w-5xl transition-all duration-700 overflow-hidden ${showDescription ? 'opacity-100 translate-y-0 max-h-96' : 'opacity-0 -translate-y-2 max-h-0 pointer-events-none'}`}
                 >
 
-                    <div className="text-[var(--text-secondary)] text-left text-2xl md:text-2xl w-full max-w-2xl font-light bg-black/50 p-6 rounded border border-[var(--border-default)] shadow-[0_0_10px_rgba(0,0,0,0.5)]">
+                    <div className="text-[var(--text-secondary)] text-left text-2xl md:text-2xl w-full max-w-5xl font-light bg-black/50 p-6 rounded border border-[var(--border-default)] shadow-[0_0_10px_rgba(0,0,0,0.5)]">
                     <p className="min-h-[1.75rem]">
                         <span className="text-[var(--color-primary)] font-bold mr-2">~ ❯</span>
                         {typedText1}
