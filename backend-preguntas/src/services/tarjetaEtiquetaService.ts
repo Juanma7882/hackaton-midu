@@ -1,4 +1,5 @@
-import Etiquetas from "../models/etiquetas.js";
+import Etiqueta from "../models/etiquetas.js";
+import { Etiquetas } from "../models/index.js";
 import Preguntas from "../models/preguntas.js";
 import { Op } from "sequelize";
 
@@ -41,6 +42,11 @@ class TarjetaEtiquetaService {
             const pregunta = await Preguntas.findByPk(idPregunta);
             if (!pregunta) {
                 throw new Error(`Pregunta ${idPregunta} no existe`);
+            }
+
+            const etiqueta = await Etiqueta.findByPk(idEtiqueta);
+            if (!etiqueta) {
+                throw new Error(`etiqueta ${idEtiqueta} no existe`);
             }
 
             await (pregunta as any).addEtiqueta(idEtiqueta);

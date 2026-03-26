@@ -5,17 +5,17 @@ import tarjeta from "../services/preguntaService.js"
 // listarPreguntar
 // eliminarPregunta
 
-export const crearPregunta = async (req:Request, res:Response) => {
-    try{
-        const { pregunta, respuesta, etiquetas } = req.body;
-        const nuevaPregunta = await tarjeta.crear( pregunta, respuesta);
+export const crearPregunta = async (req: Request, res: Response) => {
+    try {
+        const { pregunta, respuesta, dificultad, etiquetas } = req.body;
+        const nuevaPregunta = await tarjeta.crear(pregunta, respuesta, dificultad);
         return res.status(201).json({
             success: true,
             message: "Pregunta creada correctamente",
             data: nuevaPregunta,
             error: null
         });
-    }catch(error: any){
+    } catch (error: any) {
         console.error("Error al crear pregunta:", error);
         return res.status(500).json({
             success: false,
@@ -26,9 +26,9 @@ export const crearPregunta = async (req:Request, res:Response) => {
     }
 };
 
-export const listarPreguntar = async (req:Request, res:Response) => {
+export const listarPreguntar = async (req: Request, res: Response) => {
 
-    try{
+    try {
         const respuesta = await tarjeta.listar();
         return res.status(200).json({
             success: true,
@@ -38,7 +38,7 @@ export const listarPreguntar = async (req:Request, res:Response) => {
             error: null
         })
 
-    }catch(error: any){
+    } catch (error: any) {
         console.error("Error al obtener preguntas:", error);
         return res.status(500).json({
             success: false,
@@ -50,8 +50,8 @@ export const listarPreguntar = async (req:Request, res:Response) => {
 }
 
 
-export const eliminarPregunta = async (req:Request, res:Response) => {
-    try{
+export const eliminarPregunta = async (req: Request, res: Response) => {
+    try {
         const { id } = req.params;
         const idNum = Number(id);
         if (isNaN(idNum)) {
@@ -70,7 +70,7 @@ export const eliminarPregunta = async (req:Request, res:Response) => {
             error: null
         })
 
-    }catch(error: any){
+    } catch (error: any) {
         console.error("Error al obtener preguntas:", error);
         return res.status(500).json({
             success: false,

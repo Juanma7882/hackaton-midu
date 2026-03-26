@@ -3,6 +3,9 @@ import Preguntas from "../models/preguntas.js";
 // Tipo Inferido automáticamente del modelo
 export type PreguntaModel = InstanceType<typeof Preguntas>;
 
+type NivelDificultad = "Facil" | "Intermedio" | "Avanzado";
+
+
 class PreguntaService {
 
   // Listar todas las preguntas
@@ -24,9 +27,9 @@ class PreguntaService {
     }
   }
 
-  async crear(pregunta: string, respuesta: string) {
+  async crear(pregunta: string, respuesta: string, dificultad: NivelDificultad) {
     try {
-      const nueva = await Preguntas.create({ pregunta, respuesta });
+      const nueva = await Preguntas.create({ pregunta, respuesta, dificultad });
       return nueva;
     } catch (error) {
       console.error("Error al crear pregunta:", error);

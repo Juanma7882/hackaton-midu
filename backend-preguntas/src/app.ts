@@ -9,6 +9,7 @@ import etiquetaRoutes from "./routes/etiquetas.routes.js";
 import tarjetaEtiqueta from "./routes/tarjetaetiqueta.routes.js"
 import evaluacionesRoutes from "./routes/evaluaciones.routes.js";
 import healthRoutes from "./routes/health.routes.js";
+import mazos from "./routes/mazoEtiquetas.routes.js"
 const app = express();
 
 
@@ -33,6 +34,7 @@ app.use("/api/etiquetas", etiquetaRoutes);
 app.use("/api/tarjetaEtiquetas", tarjetaEtiqueta);
 app.use("/api/evaluaciones", evaluacionesRoutes);
 app.use("/api/health", healthRoutes);
+app.use("/api/mazo", mazos);
 
 // Ruta raíz de prueba
 app.get("/", (req, res) => {

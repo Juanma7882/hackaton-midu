@@ -4,9 +4,9 @@ import path from "path";
 import PreguntaService from "../services/preguntaService.js";
 import tarjetaEtiquetaService from "../services/tarjetaEtiquetaService.js";
 import etiquetaService from "../services/etiquetaService.js";
-
+import MazosService from "../services/mazosService.js";
+import MazosEtiquetaService from "../services/mazosEtiquetaService.js";
 const dataPath = path.resolve("src/database/");
-
 
 async function jsonData(nombreArchivo: string) {
   try {
@@ -19,8 +19,6 @@ async function jsonData(nombreArchivo: string) {
   }
 }
 
-
-
 export async function seedDatabase() {
   console.log("🌱 Iniciando seed...");
 
@@ -31,15 +29,17 @@ export async function seedDatabase() {
   const archivoSql = await jsonData("basededatosrelacionales.json");
   const archivoJs = await jsonData("js.json");
   const archivoNode = await jsonData("node.json");
+  const archivoMazo = await jsonData("mazos.json");
 
   // Validar que todos los archivos se leyeron correctamente
-  if (!archivoReact || !archivoTypescrip || !archivoSql || !archivoJs || !archivoNode) {
+  if (!archivoReact || !archivoTypescrip || !archivoSql || !archivoJs || !archivoNode || !archivoMazo) { // Se agregó archivoMazo a la validación
     console.error("Error leyendo archivos JSON:", {
       archivoReact: !!archivoReact,
       archivoTypescrip: !!archivoTypescrip,
       archivoSql: !!archivoSql,
       archivoJs: !!archivoJs,
       archivoNode: !!archivoNode,
+      archivoMazo: !!archivoMazo // Se agregó archivoMazo al log
     });
     return;
   }
@@ -80,13 +80,17 @@ export async function seedDatabase() {
 
   try {
     for (const pregunta of todasPreguntas) {
-      const preguntaCreada = await PreguntaService.crear(pregunta.pregunta, pregunta.respuesta);
-      preguntasCreadas.push({
+      const preguntaCreada = await PreguntaService.crear(pregunta.pregunta, pregunta.respuesta, pregunta.dificultad);
+      if (!preguntaCreada) {
+        console.warn(`No se pudo crear la pregunta: ${pregunta.pregunta}`);
+        continue;
+      }
+      preguntasCreadas.push({ // Se mejoró el acceso al ID de la pregunta creada
         ...pregunta,
-        id: preguntaCreada.dataValues.id
-      })
+        id: (preguntaCreada as any).id || preguntaCreada.dataValues?.id
+      });
     }
-    console.log(`Preguntas creadas: ${preguntasCreadas.length}`);
+    console.log(`Preguntas creadas: ${preguntasCreadas.length} 😎`);
   }
   catch (error) {
     console.error("Error al insertar preguntas:", error);
@@ -124,6 +128,37 @@ export async function seedDatabase() {
     console.error("Error en relaciones:", error)
   }
 
+
+  const mazosService = new MazosService()
+  const mazosEtiquetaService = new MazosEtiquetaService()
+
+
+  for (const mazo of archivoMazo.mazos) {
+    const crearMazo = await mazosService.crear(mazo.nombre, mazo.descripcion, mazo.url)
+    if (!crearMazo) { // Se agregó validación para mazo no creado
+      console.warn(`No se pudo crear el mazo: ${mazo.nombre}`);
+      continue;
+    }
+    for (const nombreEtiqueta of mazo.requeridas) {
+      const etiqueta = await etiquetaService.buscarEtiquetaPorNombre(nombreEtiqueta)
+      if (!etiqueta) {
+        console.warn(`⚠️  Etiqueta no encontrada: "${nombreEtiqueta}" — se omite`)
+        continue
+      }
+      await mazosEtiquetaService.agregarEtiquetaAlMazo(etiqueta.dataValues.id, crearMazo.dataValues.id, true)
+    }
+
+    for (const nombreEtiqueta of mazo.opcional ?? []) {
+      const etiqueta = await etiquetaService.buscarEtiquetaPorNombre(nombreEtiqueta)
+
+      if (!etiqueta) {
+        console.warn(`⚠️  Etiqueta no encontrada: "${nombreEtiqueta}" — se omite`)
+        continue
+      }
+
+      await mazosEtiquetaService.agregarEtiquetaAlMazo(etiqueta.dataValues.id, crearMazo.dataValues.id, false)
+    }
+  }
 
   console.log("🌱 Seed aplicado correctamente");
 }

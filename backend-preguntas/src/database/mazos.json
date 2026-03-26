@@ -1,0 +1,54 @@
+{
+    "mazos": [
+        {
+            "nombre": "Frontend con React",
+            "descripcion": "Enfrentate a una entrevista técnica de React con tiempo limitado. Respondé bajo presión, evaluá tu desempeño y obtené feedback para mejorar como desarrollador Frontend.",
+            "url": "",
+            "requeridas": [
+                "React"
+            ],
+            "opcional": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        },
+        {
+            "nombre": "Backend con node.js",
+            "descripcion": "Simulación de entrevista técnica en Node.js donde deberás resolver preguntas contra reloj. Demostrá tu manejo de APIs, asincronía y arquitectura backend, y recibí feedback para mejorar.",
+            "nivel": "",
+            "url": "",
+            "requeridas": [
+                "Node.js"
+            ],
+            "opcional": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        },
+        {
+            "nombre": "Base de datos SQL",
+            "descripcion": "Poné a prueba tus conocimientos en bases de datos SQL en una entrevista técnica simulada. Resolvé consultas bajo presión y obtené feedback sobre tu lógica y optimización.",
+            "nivel": "",
+            "url": "",
+            "requeridas": [
+                "SQL"
+            ],
+            "opcional": []
+        },
+        {
+            "nombre": "Fullstack con React",
+            "descripcion": "Simulación de entrevista técnica Fullstack que combina Frontend, Backend y bases de datos. Respondé preguntas con tiempo limitado y recibí feedback integral sobre tu desempeño.",
+            "nivel": "",
+            "url": "",
+            "requeridas": [
+                "React",
+                "Node.js",
+                "TypeScript"
+            ],
+            "opcional": [
+                "SQL",
+                "JavaScript"
+            ]
+        }
+    ]
+}

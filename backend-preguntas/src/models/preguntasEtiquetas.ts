@@ -1,10 +1,7 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "../databaseconexion/index.js";
 
-import Preguntas from "./preguntas.js";
-import Etiquetas from "./etiquetas.js";
-
-interface  PreguntasEtiquetasAttributes {
+interface PreguntasEtiquetasAttributes {
     id: number;
     preguntaId: number;
     etiquetaId: number;
@@ -17,16 +14,16 @@ interface PreguntasEtiquetasCreationAttributes
 class PreguntasEtiquetas
     extends Model<PreguntasEtiquetasAttributes, PreguntasEtiquetasCreationAttributes>
     implements PreguntasEtiquetasAttributes {
-     id!: number;
-     preguntaId!: number;
-     etiquetaId!: number;
+    id!: number;
+    preguntaId!: number;
+    etiquetaId!: number;
 }
 
 PreguntasEtiquetas.init(
     {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         preguntaId: { type: DataTypes.INTEGER, allowNull: false },
-        etiquetaId: {type: DataTypes.INTEGER, allowNull: false}
+        etiquetaId: { type: DataTypes.INTEGER, allowNull: false }
     },
     {
         sequelize,
@@ -36,16 +33,5 @@ PreguntasEtiquetas.init(
 );
 
 
-// ASOCIACIONES MANY TO MANY
-Preguntas.belongsToMany(Etiquetas, {
-    through: PreguntasEtiquetas,
-    foreignKey: "preguntaId",
-    otherKey: "etiquetaId"
-});
 
-Etiquetas.belongsToMany(Preguntas, {
-    through: PreguntasEtiquetas,
-    foreignKey: "etiquetaId",
-    otherKey: "preguntaId"
-});
 export default PreguntasEtiquetas;

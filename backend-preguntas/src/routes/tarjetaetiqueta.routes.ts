@@ -1,4 +1,4 @@
-import { traerPreguntasPorNombreEtiqueta, asignarEtiquetaATarjeta,listarTarjetasPorEtiquetaPorNombre } from "../controllers/tarjetaEtiquetaController.js";
+import { traerPreguntasPorNombreEtiqueta, asignarEtiquetaATarjeta, listarTarjetasPorEtiquetaPorNombre } from "../controllers/tarjetaEtiquetaController.js";
 
 import { Router } from "express";
 
