@@ -11,7 +11,7 @@ export default function Buscador({ buscar, setBuscar }: BuscadorProps) {
         <div className="relative w-full max-w-md">
             <input
                 type="search"
-                placeholder="Buscar..."
+                placeholder="Buscar por tema"
                 value={buscar}
                 onChange={(e) => setBuscar(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 rounded-xl bg-[var(--bg-card)] text-[var(--text-primary)] placeholder-[var(--placeholder)] border border-[var(--border-default)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition"
