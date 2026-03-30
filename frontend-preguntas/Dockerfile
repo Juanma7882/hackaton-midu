@@ -1,17 +1,18 @@
 # syntax=docker/dockerfile:1.7
-FROM node:20-alpine
+FROM node:20-alpine AS build
 
 WORKDIR /frontend
 
-# Copiar archivos de dependencias
 COPY package*.json ./
-
-# Instalar dependencias con cache reutilizable
 RUN --mount=type=cache,target=/root/.npm sh -c 'if [ -f package-lock.json ]; then npm ci; else npm install; fi'
-
-# Copiar el resto del código
 COPY . .
+RUN npm run build
 
-EXPOSE 3003
+FROM nginx:1.27-alpine
 
-CMD ["npm", "run", "dev"]
+COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+COPY --from=build /frontend/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

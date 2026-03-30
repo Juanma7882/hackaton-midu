@@ -22,8 +22,8 @@ services:
       database:
         condition: service_healthy
     build:
-      context: .
-      dockerfile: backend-preguntas/Dockerfile.root
+      context: ./backend-preguntas
+      dockerfile: Dockerfile.dev
     restart: always
     env_file:
       - ./.env
@@ -46,8 +46,8 @@ services:
       backend:
         condition: service_healthy
     build:
-      context: .
-      dockerfile: frontend-preguntas/Dockerfile.root
+      context: ./frontend-preguntas
+      dockerfile: Dockerfile.dev
     restart: always
     env_file:
       - ./.env
