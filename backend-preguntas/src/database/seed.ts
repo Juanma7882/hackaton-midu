@@ -19,8 +19,22 @@ async function jsonData(nombreArchivo: string) {
   }
 }
 
+function normalizarDificultad(dificultad: unknown) {
+  if (dificultad === "Facil" || dificultad === "Intermedio" || dificultad === "Avanzado") {
+    return dificultad;
+  }
+
+  return "Intermedio";
+}
+
 export async function seedDatabase() {
   console.log("🌱 Iniciando seed...");
+
+  const preguntasExistentes = await PreguntaService.listar();
+  if ((preguntasExistentes?.length ?? 0) > 0) {
+    console.log(`🌱 Seed omitido: ya existen ${preguntasExistentes?.length ?? 0} preguntas en la base de datos.`);
+    return;
+  }
 
   // ========= datos ========================================================================
 
@@ -78,9 +92,23 @@ export async function seedDatabase() {
     ...archivoTypescrip.preguntas,
   ];
 
+  const existingPreguntas = new Set(
+    (await PreguntaService.listar() ?? []).map((p: any) =>
+      typeof p?.get === "function" ? p.get("pregunta") : p?.pregunta
+    ).filter(Boolean)
+  );
+
   try {
     for (const pregunta of todasPreguntas) {
-      const preguntaCreada = await PreguntaService.crear(pregunta.pregunta, pregunta.respuesta, pregunta.dificultad);
+      if (existingPreguntas.has(pregunta.pregunta)) {
+        console.log(`Pregunta ya existe: ${pregunta.pregunta}`);
+        continue;
+      }
+      const preguntaCreada = await PreguntaService.crear(
+        pregunta.pregunta,
+        pregunta.respuesta,
+        normalizarDificultad(pregunta.dificultad)
+      );
       if (!preguntaCreada) {
         console.warn(`No se pudo crear la pregunta: ${pregunta.pregunta}`);
         continue;
@@ -89,6 +117,7 @@ export async function seedDatabase() {
         ...pregunta,
         id: (preguntaCreada as any).id || preguntaCreada.dataValues?.id
       });
+      existingPreguntas.add(pregunta.pregunta);
     }
     console.log(`Preguntas creadas: ${preguntasCreadas.length} 😎`);
   }

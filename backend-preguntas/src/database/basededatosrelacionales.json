@@ -72,12 +72,96 @@
                 "SQL",
                 "NoSQL"
             ]
+        },
+        {
+            "pregunta": "¿Para qué sirve EXPLAIN o EXPLAIN ANALYZE en SQL?",
+            "respuesta": "Sirve para inspeccionar el plan de ejecucion de una consulta. Permite ver si el motor hace table scans, usa indices, que joins elige y cual es el costo estimado. EXPLAIN ANALYZE ademas ejecuta la consulta y muestra tiempos reales, por lo que es clave para diagnosticar cuellos de botella y validar optimizaciones.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre un indice simple y un indice compuesto, y como influye el orden de las columnas?",
+            "respuesta": "Un indice simple cubre una sola columna y uno compuesto varias. En un indice compuesto el orden importa porque el motor puede aprovechar mejor el prefijo izquierdo del indice. Por eso conviene ordenar primero las columnas mas selectivas o las que aparecen antes en filtros, joins y ordenamientos frecuentes.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es una CTE (WITH) y cuando conviene usarla en lugar de una subconsulta anidada?",
+            "respuesta": "Una CTE es una expresion de tabla comun definida con WITH que permite nombrar un resultado intermedio dentro de una consulta. Conviene usarla cuando mejora la legibilidad, cuando reutilizas el mismo resultado varias veces o cuando necesitas consultas recursivas. No siempre mejora el rendimiento por si sola; depende del optimizador del motor.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué son las window functions y en que se diferencian de GROUP BY?",
+            "respuesta": "Las window functions calculan agregados o rankings sobre una ventana de filas relacionada con la fila actual sin colapsar el resultado. A diferencia de GROUP BY, que agrupa y reduce filas, funciones como ROW_NUMBER, RANK o SUM() OVER() conservan el detalle de cada registro y agregan informacion analitica por particion.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué niveles de aislamiento existen y que problemas evitan?",
+            "respuesta": "Los niveles mas comunes son Read Uncommitted, Read Committed, Repeatable Read y Serializable. A mayor aislamiento, menor concurrencia pero menos anomalas. Sirven para evitar problemas como dirty reads, non-repeatable reads y phantom reads, segun el nivel elegido y el motor de base de datos.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es una migracion de base de datos y por que conviene versionarla?",
+            "respuesta": "Una migracion es un cambio versionado del esquema o de datos de soporte, por ejemplo crear una tabla, agregar una columna o poblar catalogos. Versionarla permite aplicar cambios de forma ordenada entre entornos, revisar historico, automatizar despliegues y reducir errores manuales en equipo.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "SQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué significa consistencia eventual en NoSQL y cuando suele ser aceptable?",
+            "respuesta": "Significa que tras una escritura no todos los nodos o replicas reflejan el cambio de inmediato, pero convergen con el tiempo. Suele ser aceptable en sistemas distribuidos donde importa mas la disponibilidad y la latencia que leer el ultimo valor exacto en todo momento, como feeds, caches o analitica.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "NoSQL"
+            ]
+        },
+        {
+            "pregunta": "¿Cómo decidir entre datos embebidos y referencias en una base NoSQL orientada a documentos?",
+            "respuesta": "Conviene embeber cuando los datos se leen juntos, la cardinalidad es acotada y quieres evitar joins o consultas adicionales. Conviene referenciar cuando los datos crecen mucho, se reutilizan desde multiples documentos o deben actualizarse de forma independiente. La decision depende del patron real de lectura y escritura.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "NoSQL"
+            ]
+        },
+        {
+            "pregunta": "¿Cuándo conviene usar una base clave-valor frente a una base documental o relacional?",
+            "respuesta": "Conviene cuando el acceso principal se basa en una clave unica y necesitas lecturas y escrituras muy rapidas, como sesiones, caches o contadores. Si necesitas consultas complejas, joins o filtros ricos, una base documental o relacional suele ajustarse mejor.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "NoSQL"
+            ]
+        },
+        {
+            "pregunta": "¿Qué trade-offs introduce el particionamiento (sharding) en una base NoSQL?",
+            "respuesta": "El sharding mejora escalabilidad horizontal y distribuye carga, pero complica consultas globales, reequilibrado de datos, consistencia y diseño de claves. Elegir mal la shard key puede generar hotspots y desperdiciar la distribucion esperada.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "NoSQL"
+            ]
         }
     ],
     "etiquetas": [
         {
             "nombre": "SQL",
             "url": "/logos/sql.png"
+        },
+        {
+            "nombre": "NoSQL",
+            "url": "/logos/sql2.png"
         }
     ]
 }

@@ -25,7 +25,11 @@ Preguntas.init(
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         pregunta: { type: DataTypes.TEXT, allowNull: false },
         respuesta: { type: DataTypes.TEXT, allowNull: false },
-        dificultad: { type: DataTypes.ENUM("Facil", "Intermedio", "Avanzado"), allowNull: true }
+        dificultad: {
+            type: DataTypes.ENUM("Facil", "Intermedio", "Avanzado"),
+            allowNull: false,
+            defaultValue: "Intermedio"
+        }
     },
     {
         sequelize,

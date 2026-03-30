@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react'
 import useDebounce from '../hooks/useDebounce'
 import Tarjetas from '../component/Tarjetas'
 import { useNavigate } from 'react-router-dom'
+import type { Dificultad } from '../api/apis'
 
 function Home() {
     const [buscar, setBuscar] = useState<string>("")
-    const [etiquetasSeleccionadas, setEtiquetasSeleccionadas] = useState<string[]>([])
+    const [dificultadesSeleccionadas, setDificultadesSeleccionadas] = useState<Record<string, Dificultad>>({})
+    const [duracionMinutos, setDuracionMinutos] = useState<number>(15)
     const buscarDebounced = useDebounce<string>(buscar, 300);
     const navigate = useNavigate()
 
@@ -67,16 +69,33 @@ function Home() {
     }, [typing1Complete]);
 
     const toggleEtiqueta = (nombreEtiqueta: string) => {
-        setEtiquetasSeleccionadas((prev) => (
-            prev.includes(nombreEtiqueta)
-                ? prev.filter((etiqueta) => etiqueta !== nombreEtiqueta)
-                : [...prev, nombreEtiqueta]
-        ))
+        setDificultadesSeleccionadas((prev) => {
+            if (prev[nombreEtiqueta]) {
+                const next = { ...prev }
+                delete next[nombreEtiqueta]
+                return next
+            }
+
+            return {
+                ...prev,
+                [nombreEtiqueta]: "Intermedio"
+            }
+        })
+    }
+
+    const cambiarDificultad = (nombreEtiqueta: string, dificultad: Dificultad) => {
+        setDificultadesSeleccionadas((prev) => ({
+            ...prev,
+            [nombreEtiqueta]: dificultad,
+        }))
     }
 
     const irAPreguntas = () => {
+        const etiquetasSeleccionadas = Object.keys(dificultadesSeleccionadas)
         const searchParams = new URLSearchParams({
-            temas: etiquetasSeleccionadas.join(',')
+            temas: etiquetasSeleccionadas.join(','),
+            duracion: String(duracionMinutos),
+            dificultades: JSON.stringify(dificultadesSeleccionadas)
         })
 
         navigate(`/preguntas?${searchParams.toString()}`)
@@ -132,21 +151,41 @@ function Home() {
                     <div className='grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
                         <Tarjetas
                             filtro={buscarDebounced}
-                            etiquetasSeleccionadas={etiquetasSeleccionadas}
+                            dificultadesSeleccionadas={dificultadesSeleccionadas}
                             onToggleEtiqueta={toggleEtiqueta}
+                            onCambiarDificultad={cambiarDificultad}
                         />
                     </div>
                 </div>
 
                 {/* Action Button */}
                 <div className="mt-8 mb-16 flex flex-col items-center gap-4">
+                    <div className="w-full max-w-md flex flex-col gap-2">
+                        <label
+                            htmlFor="duracion-quiz"
+                            className="text-[var(--text-muted)] text-sm font-bold tracking-widest uppercase"
+                        >
+                            // DURACIÓN_DEL_QUIZ
+                        </label>
+                        <select
+                            id="duracion-quiz"
+                            value={duracionMinutos}
+                            onChange={(e) => setDuracionMinutos(Number(e.target.value))}
+                            className="cursor-pointer bg-transparent border border-[var(--border-default)] text-[var(--text-primary)] rounded-sm px-4 py-3 focus:outline-none focus:border-[var(--color-primary)]"
+                        >
+                            <option value={10} className="bg-black">10 minutos</option>
+                            <option value={15} className="bg-black">15 minutos</option>
+                            <option value={20} className="bg-black">20 minutos</option>
+                            <option value={30} className="bg-black">30 minutos</option>
+                        </select>
+                    </div>
                     <div className="text-[var(--text-muted)] text-sm font-medium">
-                        [{etiquetasSeleccionadas.length}] MÓDULOS_CARGADOS
+                        [{Object.keys(dificultadesSeleccionadas).length}] MÓDULOS_CARGADOS · [{duracionMinutos} MIN]
                     </div>
                     <button
                         type='button'
                         onClick={irAPreguntas}
-                        disabled={etiquetasSeleccionadas.length === 0}
+                        disabled={Object.keys(dificultadesSeleccionadas).length === 0}
                         className="group relative cursor-pointer text-xl md:text-2xl px-10 py-4 rounded-sm bg-[var(--bg-page)] font-bold tracking-widest transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-20 disabled:hover:scale-100 disabled:hover:shadow-none text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-black hover:shadow-[0_0_25px_rgba(33,255,0,0.8)] hover:-translate-y-1 overflow-hidden"
                     >
                         <span className="relative z-10">&gt; INICIAR_EVALUACIÓN</span>

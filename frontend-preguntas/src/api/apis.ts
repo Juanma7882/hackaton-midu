@@ -29,22 +29,6 @@ async function consumirApi<T>(url: string, options?: RequestInit): Promise<T> {
   return respuesta.json();
 }
 
-async function consumirApiConBody<T>(url: string, init: RequestInit): Promise<T> {
-  const respuesta = await fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      ...(init.headers ?? {}),
-    },
-    ...init,
-  });
-
-  if (!respuesta.ok) {
-    throw new Error(`Error HTTP: ${respuesta.status}`);
-  }
-  console.log(respuesta.json())
-  return respuesta.json();
-}
-
 // =======================
 // Tipos (ejemplo)
 // =======================
@@ -59,10 +43,13 @@ export interface Pregunta {
   id: number;
   pregunta: string;
   respuesta: string;
+  dificultad: "Facil" | "Intermedio" | "Avanzado";
   etiquetas?: Etiqueta[];
   /** Formato de la API tarjetaEtiquetas */
   Etiqueta?: Array<{ nombre: string }>;
 }
+
+export type Dificultad = "Facil" | "Intermedio" | "Avanzado";
 
 
 export interface ApiResponse<T> {
@@ -95,9 +82,13 @@ async function obtenerPreguntas(): Promise<Pregunta[]> {
   }
 }
 
-async function obtenerEtiquetaConPregunta(etiqueta: string): Promise<Pregunta[]> {
+async function obtenerEtiquetaConPregunta(
+  etiqueta: string,
+  dificultades?: Record<string, Dificultad>
+): Promise<Pregunta[]> {
   try {
-    const url = `${API_URLS.etiquetaPreguntas}/${etiqueta}`;
+    const query = dificultades ? `?dificultades=${encodeURIComponent(JSON.stringify(dificultades))}` : "";
+    const url = `${API_URLS.etiquetaPreguntas}/${etiqueta}${query}`;
     const rsp = await consumirApi<ApiResponse<Pregunta[]>>(url);
     return rsp.data;
   } catch (error) {
@@ -106,9 +97,16 @@ async function obtenerEtiquetaConPregunta(etiqueta: string): Promise<Pregunta[]>
   }
 }
 
-async function obtenerPreguntasPorEtiquetas(etiquetas: string[]): Promise<Pregunta[]> {
+async function obtenerPreguntasPorEtiquetas(
+  etiquetas: string[],
+  dificultades?: Record<string, Dificultad>
+): Promise<Pregunta[]> {
   try {
-    const url = `${API_URLS.etiquetaPreguntas}?etiquetas=${etiquetas.join(",")}`;
+    const params = new URLSearchParams({ etiquetas: etiquetas.join(",") });
+    if (dificultades) {
+      params.set("dificultades", JSON.stringify(dificultades));
+    }
+    const url = `${API_URLS.etiquetaPreguntas}?${params.toString()}`;
     const rsp = await consumirApi<ApiResponse<Pregunta[]>>(url);
     return rsp.data;
   } catch (error) {
@@ -145,12 +143,29 @@ export interface Evaluacion {
   esCorrecta: boolean;
   feedback: string;
   mejoras: string[];
+  pregunta?: string;
+}
+
+export interface QuizOverview {
+  puntuacionGeneral: number;
+  resumen: string;
+  fortalezas: string[];
+  cosasParaMejorar: string[];
+  temasARepasar: string[];
+  consejosGenerales: string[];
+  evaluaciones: Evaluacion[];
+  modelo: string;
+  procesadoLocal: boolean;
 }
 
 interface ResultadoEvaluacion {
   modelo: string;
   evaluaciones: Evaluacion[];
   uso?: { prompt_tokens?: number; completion_tokens?: number; total_tokens?: number };
+}
+
+interface ResumenQuizPayload {
+  preguntas: PreguntaAEvaluar[];
 }
 
 async function evaluarRespuestas(preguntas: PreguntaAEvaluar[]): Promise<ResultadoEvaluacion> {
@@ -161,6 +176,18 @@ async function evaluarRespuestas(preguntas: PreguntaAEvaluar[]): Promise<Resulta
     body: JSON.stringify({ preguntas }),
   });
   if (!rsp.success) throw new Error("Error en la evaluación");
+  return rsp.data;
+}
+
+async function generarResumenQuiz(payload: ResumenQuizPayload): Promise<QuizOverview> {
+  const url = `${API_URLS.evaluaciones}/openrouter/resumen-quiz`;
+  const rsp = await consumirApi<{ success: boolean; data: QuizOverview }>(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (!rsp.success) throw new Error("Error al generar el resumen del quiz");
   return rsp.data;
 }
 
@@ -261,4 +288,5 @@ export {
   obtenerEtiquetaConPregunta,
   obtenerPreguntasPorEtiquetas,
   evaluarRespuestas,
+  generarResumenQuiz,
 };

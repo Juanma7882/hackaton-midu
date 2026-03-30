@@ -259,6 +259,129 @@
                 "Node.js",
                 "Conceptos"
             ]
+        },
+        {
+            "pregunta": "¿Cuál es la diferencia entre 'npm install' y 'npm ci'?",
+            "respuesta": "'npm install' resuelve dependencias y puede actualizar el lockfile si es necesario. 'npm ci' instala exactamente lo que figura en package-lock.json, elimina node_modules antes de instalar y falla si el lockfile no coincide con package.json. Por eso es ideal para CI/CD y entornos donde se busca reproducibilidad.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Herramientas"
+            ]
+        },
+        {
+            "pregunta": "¿Para qué sirve 'npx' y en que casos es preferible a una instalacion global?",
+            "respuesta": "'npx' permite ejecutar binarios de paquetes npm sin instalarlos globalmente, usando la version local del proyecto o descargandolos de forma temporal. Es preferible cuando quieres evitar conflictos de version, mantener el entorno limpio o correr herramientas puntuales como create-vite, eslint o prisma.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Herramientas"
+            ]
+        },
+        {
+            "pregunta": "¿Qué problema resuelve un process manager como PM2 en una aplicacion Node.js?",
+            "respuesta": "Un process manager ayuda a mantener la aplicacion viva en produccion: reinicia procesos si caen, facilita logs, arranque al iniciar el servidor, manejo de multiples instancias y despliegues mas controlados. No reemplaza un buen monitoreo, pero mejora la operacion del servicio.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Herramientas",
+                "Arquitectura"
+            ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre microtasks y macrotasks en Node.js?",
+            "respuesta": "Las microtasks, como Promise callbacks y process.nextTick, se ejecutan antes de pasar a la siguiente fase visible del Event Loop. Las macrotasks incluyen timers, I/O callbacks o setImmediate. Entender esa prioridad ayuda a explicar el orden de ejecucion y a detectar bloqueos o starvation.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "Node.js",
+                "Event Loop",
+                "Asincronía"
+            ]
+        },
+        {
+            "pregunta": "¿Qué medidas basicas de seguridad conviene aplicar en una API Express expuesta a internet?",
+            "respuesta": "Conviene validar y sanear entradas, limitar tasa de peticiones, configurar CORS de forma explicita, usar cabeceras seguras con herramientas como helmet, evitar filtrar errores sensibles, proteger secretos en variables de entorno y mantener dependencias actualizadas. La seguridad debe cubrir tanto codigo como configuracion y operacion.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Express",
+                "Seguridad"
+            ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre un middleware normal y uno de manejo de errores en Express?",
+            "respuesta": "Un middleware normal recibe req, res y next. Uno de manejo de errores recibe err, req, res y next, y Express solo lo invoca cuando se propaga un error con next(err) o falla una ruta. Sirve para centralizar respuestas de error y evitar duplicacion.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Express"
+            ]
+        },
+        {
+            "pregunta": "¿Por qué conviene separar routers, controladores y servicios en una API Express?",
+            "respuesta": "Porque cada capa asume una responsabilidad distinta: rutas definen endpoints, controladores traducen HTTP a casos de uso y servicios encapsulan logica de negocio. Eso mejora mantenibilidad, testeo y escalabilidad del proyecto.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Express",
+                "Conceptos"
+            ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre require dinamico e import estatico al trabajar con modulos?",
+            "respuesta": "require puede evaluarse dinamicamente en tiempo de ejecucion y es propio de CommonJS. import estatico se analiza antes de ejecutar el modulo, habilita mejores optimizaciones y forma parte del sistema ES Modules. La eleccion afecta interoperabilidad, tooling y carga.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Módulos"
+            ]
+        },
+        {
+            "pregunta": "¿Qué problema resuelve el campo type en package.json al usar modulos?",
+            "respuesta": "Define como Node interpreta por defecto los archivos .js del proyecto. Con type module se tratan como ES Modules; sin eso, se asumen CommonJS. Evita ambiguedades y errores de importacion cuando combinas import/export con require/module.exports.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Módulos"
+            ]
+        },
+        {
+            "pregunta": "¿Qué rol cumple la fase poll dentro del Event Loop de Node.js?",
+            "respuesta": "La fase poll espera y procesa eventos de entrada/salida, como respuestas de red o archivos. Tambien decide si pasar a otras fases, por ejemplo ejecutar setImmediate o esperar nuevos eventos, por lo que es central para entender el orden real de ejecucion.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "Node.js",
+                "Event Loop"
+            ]
+        },
+        {
+            "pregunta": "¿Qué riesgos hay al bloquear el Event Loop con tareas intensivas de CPU?",
+            "respuesta": "Si el hilo principal queda ocupado calculando por mucho tiempo, la aplicacion deja de atender otras solicitudes y aumenta la latencia para todos los usuarios. Por eso tareas CPU-bound conviene moverlas a worker threads, colas o procesos separados.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Event Loop",
+                "Performance"
+            ]
+        },
+        {
+            "pregunta": "¿Qué buenas practicas conviene aplicar para manejar secretos en Node.js?",
+            "respuesta": "Conviene guardar secretos fuera del repositorio, usar variables de entorno o gestores dedicados, rotarlos periodicamente, limitar permisos y evitar imprimirlos en logs. Tambien es importante validar que existan al iniciar la aplicacion.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Seguridad"
+            ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre autenticacion y autorizacion en una API?",
+            "respuesta": "Autenticacion verifica quien es el usuario, por ejemplo con JWT o sesiones. Autorizacion determina que acciones puede realizar una vez autenticado, segun roles o permisos. Confundir ambas suele generar huecos de seguridad en endpoints protegidos.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "Node.js",
+                "Seguridad",
+                "Conceptos"
+            ]
         }
     ],
     "etiquetas": [
@@ -277,6 +400,30 @@
         {
             "nombre": "Performance",
             "url": "/logos/performance.png"
+        },
+        {
+            "nombre": "Herramientas",
+            "url": "/logos/nodejs.png"
+        },
+        {
+            "nombre": "Express",
+            "url": "/logos/nodejs.png"
+        },
+        {
+            "nombre": "Event Loop",
+            "url": "/logos/nodejs.png"
+        },
+        {
+            "nombre": "Módulos",
+            "url": "/logos/nodejs.png"
+        },
+        {
+            "nombre": "Seguridad",
+            "url": "/logos/nodejs.png"
+        },
+        {
+            "nombre": "Conceptos",
+            "url": "/logos/nodejs.png"
         }
     ]
 }

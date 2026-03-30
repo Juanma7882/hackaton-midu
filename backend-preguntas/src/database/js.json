@@ -283,6 +283,78 @@
                 "JavaScript",
                 "ES6"
             ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre map, filter y reduce?",
+            "respuesta": "map transforma cada elemento y devuelve un nuevo array del mismo largo. filter devuelve un subconjunto segun una condicion. reduce acumula los elementos para producir un unico valor o estructura final.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "JavaScript",
+                "Arrays"
+            ]
+        },
+        {
+            "pregunta": "¿Qué cuidados hay que tener al copiar arrays u objetos con spread?",
+            "respuesta": "El spread hace una copia superficial. Si el array u objeto contiene referencias anidadas, esas referencias se mantienen compartidas. Por eso cambios profundos pueden afectar al original si no haces una clonacion mas completa.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "JavaScript",
+                "Arrays"
+            ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre addEventListener y usar onclick?",
+            "respuesta": "addEventListener permite registrar multiples listeners, configurar opciones como capture o once y separar mejor la logica del marcado. onclick solo admite un handler por propiedad y suele ser menos flexible.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "JavaScript",
+                "Web APIs"
+            ]
+        },
+        {
+            "pregunta": "¿Para qué sirve MutationObserver en el navegador?",
+            "respuesta": "Sirve para observar cambios en el DOM, como nodos agregados, eliminados o cambios en atributos y texto. Es util cuando necesitas reaccionar a modificaciones dinamicas sin hacer polling constante.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "JavaScript",
+                "Web APIs"
+            ]
+        },
+        {
+            "pregunta": "¿Qué ventajas aporta usar Custom Elements junto con Shadow DOM?",
+            "respuesta": "Custom Elements permite definir etiquetas HTML propias con comportamiento reutilizable, y Shadow DOM encapsula estructura y estilos. Juntos ayudan a crear componentes independientes, mas faciles de reutilizar y menos propensos a colisiones de CSS o markup.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "JavaScript",
+                "Web Components"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es el ciclo de vida de un Web Component?",
+            "respuesta": "Es el conjunto de callbacks que se ejecutan cuando un componente se crea, se inserta en el DOM, se elimina o cambia de atributo. Ejemplos comunes son connectedCallback, disconnectedCallback y attributeChangedCallback.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "JavaScript",
+                "Web Components"
+            ]
+        },
+        {
+            "pregunta": "¿Por qué la inmutabilidad suele ser importante en programación funcional?",
+            "respuesta": "Porque evita efectos secundarios inesperados y hace que el comportamiento de las funciones sea mas predecible. Al no mutar datos compartidos, resulta mas facil razonar, testear y componer transformaciones de forma segura.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "JavaScript",
+                "Programación Funcional"
+            ]
+        },
+        {
+            "pregunta": "¿Qué es una funcion pura y por que es util?",
+            "respuesta": "Una funcion pura devuelve siempre el mismo resultado para los mismos argumentos y no produce efectos secundarios observables. Esto facilita pruebas, reutilizacion, memoizacion y composicion de logica.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "JavaScript",
+                "Programación Funcional"
+            ]
         }
     ],
     "etiquetas": [

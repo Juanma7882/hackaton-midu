@@ -255,6 +255,44 @@
             "etiquetas": [
                 "React"
             ]
+        },
+        {
+            "pregunta": "¿Qué diferencia hay entre un formulario controlado y uno no controlado en React?",
+            "respuesta": "En un formulario controlado el valor de cada campo vive en el estado de React y se actualiza mediante eventos. En uno no controlado el estado principal vive en el DOM y se accede con refs o al enviar el formulario. Los controlados dan mas trazabilidad y validacion declarativa; los no controlados pueden ser mas simples o performantes en casos concretos.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "React",
+                "Formularios"
+            ]
+        },
+        {
+            "pregunta": "¿Qué ventajas ofrece una libreria como React Hook Form frente a manejar cada input con useState?",
+            "respuesta": "React Hook Form reduce renders innecesarios, simplifica validaciones, manejo de errores, campos dinamicos y formularios grandes. Suele apoyarse mas en inputs no controlados y refs, por lo que escala mejor que una solucion donde cada cambio de cada input actualiza el estado del componente padre.",
+            "dificultad": "Avanzado",
+            "etiquetas": [
+                "React",
+                "Formularios",
+                "Performance"
+            ]
+        },
+        {
+            "pregunta": "¿Cómo manejar validaciones asincronas en un formulario React sin degradar la UX?",
+            "respuesta": "Conviene validar en momentos puntuales como blur o submit, mostrar estados de carga claros y evitar disparar peticiones en cada tecla sin control. Tambien ayuda usar debounce, cache de resultados y separar errores de cliente de errores del servidor.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "React",
+                "Formularios"
+            ]
+        },
+        {
+            "pregunta": "¿Qué estrategia conviene para formularios largos divididos en varios pasos?",
+            "respuesta": "Suele convenir centralizar el estado compartido, validar por seccion y persistir progreso parcial para no perder datos. Tambien es util desacoplar cada paso en componentes pequenos y definir claramente que campos dependen de otros.",
+            "dificultad": "Intermedio",
+            "etiquetas": [
+                "React",
+                "Formularios",
+                "Arquitectura"
+            ]
         }
     ],
     "etiquetas": [

@@ -1,17 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
-import { construirUrlAsset, obtenerEtiquetas, type Etiqueta } from "../api/apis";
+import { construirUrlAsset, obtenerEtiquetas, type Dificultad, type Etiqueta } from "../api/apis";
 import TarjetaComponent from "./TarjetaComponent";
 
 interface TarjetasProps {
     filtro: string;
-    etiquetasSeleccionadas: string[];
+    dificultadesSeleccionadas: Record<string, Dificultad>;
     onToggleEtiqueta: (nombreEtiqueta: string) => void;
+    onCambiarDificultad: (nombreEtiqueta: string, dificultad: Dificultad) => void;
 }
 
 export default function Tarjetas({
     filtro,
-    etiquetasSeleccionadas,
+    dificultadesSeleccionadas,
     onToggleEtiqueta,
+    onCambiarDificultad,
 }: TarjetasProps) {
     const [etiquetas, setEtiquetas] = useState<Etiqueta[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -27,7 +29,7 @@ export default function Tarjetas({
                 setLoading(false);
             }
         };
-        cargarEtiquetas();
+        void cargarEtiquetas();
     }, []);
 
     const etiquetasFiltradas = useMemo(() => etiquetas.filter((etiqueta) =>
@@ -53,19 +55,20 @@ export default function Tarjetas({
 
     return (
         <>
-            {etiquetasConImagenAñadida.map((etiqueta) => (
-                <button
-                    type="button"
-                    onClick={() => onToggleEtiqueta(etiqueta.nombre)}
-                    aria-pressed={etiquetasSeleccionadas.includes(etiqueta.nombre)}
-                    className="text-left"
-                    key={etiqueta.id}>
+            {etiquetasConImagenAñadida.map((etiqueta) => {
+                const seleccionada = Boolean(dificultadesSeleccionadas[etiqueta.nombre]);
+
+                return (
                     <TarjetaComponent
+                        key={etiqueta.id}
                         etiqueta={etiqueta}
-                        seleccionada={etiquetasSeleccionadas.includes(etiqueta.nombre)}
+                        seleccionada={seleccionada}
+                        dificultad={dificultadesSeleccionadas[etiqueta.nombre] ?? "Intermedio"}
+                        onToggle={() => onToggleEtiqueta(etiqueta.nombre)}
+                        onCambiarDificultad={(dificultad) => onCambiarDificultad(etiqueta.nombre, dificultad)}
                     />
-                </button>
-            ))}
+                );
+            })}
         </>
     );
 }
