@@ -6,8 +6,6 @@
 ./backend-preguntas/node_modules
 ./frontend-preguntas/node_modules/*
 ./backend-preguntas/node_modules/*
-./frontend-preguntas/package-lock.json
-./backend-preguntas/package-lock.json
 
 # Dependencias
 node_modules/

@@ -7,7 +7,7 @@ WORKDIR /frontend
 COPY package*.json ./
 
 # Instalar dependencias con cache reutilizable
-RUN --mount=type=cache,target=/root/.npm npm ci
+RUN --mount=type=cache,target=/root/.npm sh -c 'if [ -f package-lock.json ]; then npm ci; else npm install; fi'
 
 # Copiar el resto del código
 COPY . .
