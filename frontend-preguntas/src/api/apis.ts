@@ -1,8 +1,5 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
-if (!API_BASE_URL) {
-  throw new Error("Falta definir VITE_API_BASE_URL");
-}
+const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim() || "/api/";
+const API_BASE_URL = rawApiBaseUrl.endsWith("/") ? rawApiBaseUrl : `${rawApiBaseUrl}/`;
 
 const API_ORIGIN = new URL(API_BASE_URL, window.location.origin).origin;
 
