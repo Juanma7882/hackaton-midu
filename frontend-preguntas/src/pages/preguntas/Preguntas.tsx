@@ -8,13 +8,11 @@ export default function Preguntas() {
     const [evaluacion, setEvaluacion] = useState<Evaluacion | null>(null);
     const [evalLoading, setEvalLoading] = useState(false);
     const [evalError, setEvalError] = useState<string | null>(null);
-    const { slug } = useParams();
     const reset = () => {
         setEvaluacion(null);
         setEvalLoading(false);
         setEvalError(null);
     }
-    console.log("estamos en preguntas")
     const handleEvaluar = async (pregunta: Pregunta, respuestaUsuario: string) => {
         if (!respuestaUsuario.trim()) {
             setEvaluacion(null);

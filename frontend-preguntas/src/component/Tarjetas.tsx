@@ -26,7 +26,6 @@ export default function Tarjetas({ filtro, mazos, loading }: TarjetasProps) {
 
     const irAPreguntas = (mazo: Mazo, dificultad: string) => {
         const etiquetasSeleccionadas = etiquetasDelMazo(mazo.id);
-
         setQuiz({
             mazoId: mazo.id,
             dificultad,

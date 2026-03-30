@@ -19,7 +19,6 @@ function Home() {
             try {
                 const data = await obtenerMazo();
                 setMazos(data.mazos);
-                console.log(data.mazos);
             } catch (error) {
                 console.error("Error al obtener las etiquetas:", error);
             }

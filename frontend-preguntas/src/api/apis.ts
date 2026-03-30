@@ -12,6 +12,7 @@ const API_URLS = {
   etiquetaPreguntas: `${API_BASE_URL}tarjetaEtiquetas`,
   evaluaciones: `${API_BASE_URL}evaluaciones`,
   mazos: `${API_BASE_URL}mazo`,
+  mazoEspecifico: `${API_BASE_URL}mazo`
 };
 
 function construirUrlAsset(path: string): string {
@@ -57,6 +58,7 @@ export interface Pregunta {
   etiquetas?: Etiqueta[];
   /** Formato de la API tarjetaEtiquetas */
   Etiqueta?: Array<{ nombre: string }>;
+  dificultad?: string;
 }
 
 
@@ -99,6 +101,12 @@ export interface MazosResponse {
   total: number;
   mazos: Mazo[];
 }
+
+export interface ObtenerMazoEspeficiforResponse {
+  preguntas: Pregunta[];
+}
+
+
 // =======================
 // Funciones de API
 // =======================
@@ -114,6 +122,34 @@ async function obtenerMazo(): Promise<MazosResponse> {
     throw error;
   }
 }
+
+
+
+async function obtenerMazoEspecifico(
+  mazoId: number,
+  dificultad: string,
+  etiquetasId: number[]
+): Promise<ObtenerMazoEspeficiforResponse> {
+  try {
+    const params = new URLSearchParams();
+
+    params.append("dificultad", dificultad);
+
+    etiquetasId.forEach((id) => {
+      params.append("etiquetasSeleccionadas", String(id));
+    });
+
+    const urlCompleta = `${API_URLS.mazoEspecifico}/${mazoId}?${params.toString()}`;
+
+    const apiResponse = await consumirApi<Etiqueta>(urlCompleta);
+    return apiResponse;
+  } catch (error) {
+    console.error("Error al obtener el mazo", error);
+    throw error;
+  }
+}
+
+
 
 async function obtenerEtiquetas(): Promise<Etiqueta[]> {
   try {
@@ -301,4 +337,5 @@ export {
   obtenerPreguntasPorEtiquetas,
   evaluarRespuestas,
   obtenerMazo,
+  obtenerMazoEspecifico,
 };

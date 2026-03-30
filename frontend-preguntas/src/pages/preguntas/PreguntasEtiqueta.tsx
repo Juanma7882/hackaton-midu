@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
-import { obtenerEtiquetaConPregunta, obtenerPreguntasPorEtiquetas, type Pregunta } from "../../api/apis";
+import { useEffect, useState } from "react";
+import { obtenerMazoEspecifico, type Pregunta } from "../../api/apis";
+import { useNavigate } from "react-router-dom";
+import { useQuizStore } from "../../store/useQuizStore";
 
 interface PreguntasEtiquetaProps {
     onEvaluar?: (pregunta: Pregunta, respuestaUsuario: string) => void | Promise<void>;
     onCambioPregunta?: () => void;
 }
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 const BOTON = "cursor-pointer border border-[var(--border-default)] hover:border-[var(--border-accent)] px-5 py-3 rounded-lg transition-colors text-[var(--text-primary)]";
 
@@ -24,10 +25,16 @@ function EstadoVacio({ titulo, subtitulo }: { titulo: string; subtitulo?: string
 
 function PreguntasEtiqueta({ onEvaluar, onCambioPregunta }: PreguntasEtiquetaProps) {
     const [respuesta, setRespuesta] = useState<string>("");
-    const { nombre } = useParams<{ nombre: string }>();
-    const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
+    const mazoId = useQuizStore((state) => state.mazoId);
+    const dificultad = useQuizStore((state) => state.dificultad);
+    const etiquetasSeleccionadas = useQuizStore((state) => state.etiquetasSeleccionadas);
+
+    const [preguntas, setPreguntas] = useState<Pregunta[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [indice, setIndice] = useState(0);
+    const [respuestaVisible, setRespuestaVisible] = useState(false);
 
     const handleClickRespuesta = async () => {
         setRespuestaVisible((prev) => !prev);
@@ -37,32 +44,12 @@ function PreguntasEtiqueta({ onEvaluar, onCambioPregunta }: PreguntasEtiquetaPro
         }
     };
 
-
-    const [preguntas, setPreguntas] = useState<Pregunta[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [indice, setIndice] = useState(0);
-    const [respuestaVisible, setRespuestaVisible] = useState(false);
-
-    const etiquetas = useMemo(() => {
-        const temas = searchParams.get("temas");
-        if (!temas) return nombre ? [nombre] : [];
-        return temas.split(",").map((e) => e.trim()).filter(Boolean);
-    }, [nombre, searchParams]);
-
     useEffect(() => {
-        if (etiquetas.length === 0) {
-            setPreguntas([]);
-            setLoading(false);
-            return;
-        }
-
-        setLoading(true);
+        if (!mazoId) return
         const cargar = async () => {
             try {
-                const datos = etiquetas.length === 1 && nombre
-                    ? await obtenerEtiquetaConPregunta(etiquetas[0])
-                    : await obtenerPreguntasPorEtiquetas(etiquetas);
-                setPreguntas(datos);
+                const mazoConDiezPreguntas = await obtenerMazoEspecifico(mazoId, dificultad, etiquetasSeleccionadas);
+                setPreguntas(mazoConDiezPreguntas.preguntas);
                 setIndice(0);
                 setRespuesta("");
                 setRespuestaVisible(false);
@@ -75,7 +62,7 @@ function PreguntasEtiqueta({ onEvaluar, onCambioPregunta }: PreguntasEtiquetaPro
             }
         };
         cargar();
-    }, [etiquetas, nombre]);
+    }, [mazoId, dificultad, etiquetasSeleccionadas]);
 
     const anterior = () => {
         if (indice > 0) {
@@ -95,20 +82,23 @@ function PreguntasEtiqueta({ onEvaluar, onCambioPregunta }: PreguntasEtiquetaPro
     };
 
     if (loading) return <div className="text-[var(--text-primary)]">Cargando...</div>;
-    if (etiquetas.length === 0) return <EstadoVacio titulo="No has seleccionado ningún tema" />;
-    if (preguntas.length === 0) return <EstadoVacio titulo="No hay preguntas" subtitulo={`Temas: ${etiquetas.join(", ")}`} />;
+    if (!mazoId) {
+        return <EstadoVacio titulo="No seleccionaste ningún mazo" />;
+    }
 
+    if (preguntas.length === 0) {
+        return <EstadoVacio titulo="No hay preguntas disponibles" />;
+    }
     const actual = preguntas[indice];
     const temasActuales = (actual.Etiqueta ?? actual.etiquetas ?? []).map((e) => e.nombre);
-
     return (
         <div className="w-11/12 max-w-5xl border border-[var(--border-default)] rounded-lg p-5 sm:p-10 flex flex-col gap-8 text-[var(--text-body)]">
             <header className="flex flex-col gap-4">
-                <div className="flex flex-wrap gap-2 text-sm text-[var(--text-secondary)]">
-                    {etiquetas.map((e) => (
+                {/* <div className="flex flex-wrap gap-2 text-sm text-[var(--text-secondary)]">
+                    {preguntas.map((e) => (
                         <span key={e} className="rounded-full border border-[var(--border-default)] px-3 py-1">{e}</span>
                     ))}
-                </div>
+                </div> */}
                 <progress className="w-full h-2" value={indice + 1} max={preguntas.length} />
                 <span className="text-sm text-[var(--text-muted)]">Pregunta {indice + 1} de {preguntas.length}</span>
             </header>

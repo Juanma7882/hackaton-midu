@@ -2,7 +2,7 @@ import { create } from "zustand";
 import type { Mazo } from "../api/apis";
 
 interface QuizState {
-    mazoId: number | null;
+    mazoId: number;
     dificultad: string;
     etiquetasSeleccionadas: number[];
     mazo: Mazo | null;
