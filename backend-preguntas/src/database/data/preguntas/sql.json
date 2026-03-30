@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "SQL",
+    "url": "/logos/sql.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema resuelve joins en SQL?",
+      "respuesta": "Permiten combinar filas relacionadas de varias tablas sin duplicar toda la informacion en cada una. Se vuelve especialmente util cuando necesitas consultar entidades separadas pero conectadas por claves y preservar integridad relacional.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar joins y cuando no?",
+      "respuesta": "Conviene cuando necesitas consultar entidades separadas pero conectadas por claves y preservar integridad relacional. No conviene usarlo por inercia si traer demasiadas tablas sin necesidad o sustituir un mal modelo por consultas cada vez mas pesadas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con joins?",
+      "respuesta": "Un error comun es olvidar la condicion correcta de union y producir multiplicaciones de filas o resultados semanticos incorrectos. Para evitarlo, defines claves claras, entiendes la cardinalidad y verificas el numero esperado de filas despues de cada union.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia joins de subconsultas correlacionadas?",
+      "respuesta": "Los joins expresan relaciones de forma declarativa y suelen optimizarse mejor; las subconsultas correlacionadas pueden ser utiles en casos concretos pero a menudo son mas caras y menos transparentes. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta joins en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Bien usados resuelven lecturas complejas con precision; mal usados disparan el coste de CPU, I/O y memoria por explosiones combinatorias.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con joins?",
+      "respuesta": "Hay que revisar cardinalidad, nulls, filtros empujados y el plan de ejecucion para detectar joins innecesarios o mal ordenados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con joins?",
+      "respuesta": "Funcionan mejor junto con buenos indices de union, estadisticas actualizadas y modelos que evitan relaciones ambiguas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que joins esta mal implementado?",
+      "respuesta": "La consulta devuelve mas filas de las esperadas y luego intenta arreglarse con DISTINCT sin entender la causa raiz.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve indices B-tree en SQL?",
+      "respuesta": "Aceleran busquedas, ordenaciones y rangos sobre columnas con patrones de acceso selectivos y ordenables. Se vuelve especialmente util cuando filtras por igualdad o rango, haces joins por claves o necesitas ORDER BY eficiente sobre columnas frecuentes.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar indices B-tree y cuando no?",
+      "respuesta": "Conviene cuando filtras por igualdad o rango, haces joins por claves o necesitas ORDER BY eficiente sobre columnas frecuentes. No conviene usarlo por inercia si la tabla es pequena, la selectividad es bajisima o cada escritura extra penaliza mas que la mejora de lectura.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con indices B-tree?",
+      "respuesta": "Un error comun es crear muchos indices especulativos sin revisar si coinciden con consultas reales del sistema. Para evitarlo, partes del workload real, mides selectividad y eliges el orden de columnas segun filtros y ordenaciones dominantes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia indices B-tree de full table scan?",
+      "respuesta": "Un indice evita leer toda la tabla cuando la condicion es selectiva; un scan completo puede ser mejor si la consulta toca gran parte de las filas o el indice no ayuda. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta indices B-tree en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Puede reducir drasticamente latencia de lectura, pero aumenta coste de escritura, almacenamiento y mantenimiento de estadisticas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con indices B-tree?",
+      "respuesta": "Conviene mirar el plan, los predicados sargables y si la consulta realmente usa el indice o queda inutilizado por funciones o conversiones.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con indices B-tree?",
+      "respuesta": "Se combinan muy bien con indices compuestos y covering indexes cuando conoces el patron exacto de lectura.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que indices B-tree esta mal implementado?",
+      "respuesta": "Hay un indice sobre la columna correcta, pero la consulta sigue escaneando porque el predicado no es aprovechable.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve indices compuestos en SQL?",
+      "respuesta": "Cubren consultas que filtran u ordenan por varias columnas siguiendo un prefijo util de acceso. Se vuelve especialmente util cuando tienes consultas repetidas con varios filtros estables, como tenant_id mas estado o fecha.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar indices compuestos y cuando no?",
+      "respuesta": "Conviene cuando tienes consultas repetidas con varios filtros estables, como tenant_id mas estado o fecha. No conviene usarlo por inercia si se agregan columnas sin entender el orden ni el prefijo izquierdo que realmente podra usarse.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con indices compuestos?",
+      "respuesta": "Un error comun es poner primero una columna poco selectiva que inutiliza el indice para la consulta mas critica. Para evitarlo, ordenas columnas segun selectividad, igualdad previa y requisitos de ordenacion del workload dominante.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia indices compuestos de varios indices simples?",
+      "respuesta": "Varios indices simples no siempre equivalen a uno compuesto; el compuesto puede resolver filtro y orden con menos trabajo si refleja el patron real. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta indices compuestos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Cuando coincide con la consulta adecuada reduce lecturas y sorts; cuando no, solo agrega peso a escrituras y mantenimiento.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con indices compuestos?",
+      "respuesta": "Revisa si el plan usa el prefijo esperado y si algun filtro posterior queda fuera del tramo realmente indexado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con indices compuestos?",
+      "respuesta": "Son especialmente valiosos en sistemas multi-tenant, paginacion por cursor y consultas con ORDER BY estable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que indices compuestos esta mal implementado?",
+      "respuesta": "Existe un indice compuesto, pero cada nueva consulta exige otro casi igual porque no se penso desde patrones de acceso reales.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve normalizacion en SQL?",
+      "respuesta": "Reduce redundancia y anomalías de actualizacion separando hechos en tablas coherentes con dependencias claras. Se vuelve especialmente util cuando quieres integridad alta, cambios consistentes y evitar duplicar datos que evolucionan por separado.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar normalizacion y cuando no?",
+      "respuesta": "Conviene cuando quieres integridad alta, cambios consistentes y evitar duplicar datos que evolucionan por separado. No conviene usarlo por inercia si el modelo queda tan fragmentado que consultas criticas requieren demasiados joins para un caso de lectura dominante.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con normalizacion?",
+      "respuesta": "Un error comun es normalizar o desnormalizar por dogma sin medir el coste real de consulta y mantenimiento. Para evitarlo, equilibras integridad y rendimiento segun el dominio, documentando donde aceptas redundancia y por que.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia normalizacion de desnormalizacion?",
+      "respuesta": "La normalizacion prioriza consistencia y evita anomalías; la desnormalizacion prioriza ciertas lecturas a costa de duplicacion y complejidad de sincronizacion. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta normalizacion en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Un modelo bien normalizado simplifica cambios y reglas; uno excesivamente fragmentado puede penalizar consultas frecuentes.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con normalizacion?",
+      "respuesta": "Conviene buscar actualizaciones repetidas del mismo hecho, joins excesivos y discrepancias entre copias de un dato que deberia ser unico.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con normalizacion?",
+      "respuesta": "La decision madura suele mezclar normalizacion en escrituras y vistas materializadas o tablas derivadas para lecturas concretas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que normalizacion esta mal implementado?",
+      "respuesta": "Cambiar un dato de negocio obliga a tocar muchas filas o, en el extremo contrario, exige unir demasiadas tablas para responder una pregunta simple.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve transacciones en SQL?",
+      "respuesta": "Agrupan varias operaciones en una unidad atomica para preservar consistencia ante fallos o concurrencia. Se vuelve especialmente util cuando debes asegurar que varias escrituras ocurran juntas o no ocurran, como movimientos de saldo o reservas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar transacciones y cuando no?",
+      "respuesta": "Conviene cuando debes asegurar que varias escrituras ocurran juntas o no ocurran, como movimientos de saldo o reservas. No conviene usarlo por inercia si se abre una transaccion alrededor de trabajo lento o de I/O externo que solo mantiene bloqueos mas tiempo del necesario.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con transacciones?",
+      "respuesta": "Un error comun es hacer logica extensa dentro de la transaccion y aumentar contencion, deadlocks o tiempo de retencion de locks. Para evitarlo, mantienes la transaccion corta, con orden consistente de acceso y dejando fuera trabajo que no necesita atomicidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia transacciones de operaciones independientes?",
+      "respuesta": "Las operaciones independientes son mas simples pero pueden dejar el sistema en estados intermedios; la transaccion protege la invariancia a costa de mas coordinacion. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta transacciones en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Son criticas para consistencia, aunque mal delimitadas afectan throughput y aumentan conflictos entre sesiones.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con transacciones?",
+      "respuesta": "Debes revisar donde empieza y termina, que bloqueos toma y si el aislamiento elegido coincide con la anomalia que intentas evitar.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con transacciones?",
+      "respuesta": "Junto con claves unicas, retries y idempotencia permiten resolver muchos flujos criticos sin logica ad hoc frágil.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que transacciones esta mal implementado?",
+      "respuesta": "Las transacciones duran segundos, incluyen llamadas externas o fallan por deadlock con frecuencia creciente.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve niveles de aislamiento en SQL?",
+      "respuesta": "Controlan que anomalías de lectura y escritura acepta una transaccion bajo concurrencia. Se vuelve especialmente util cuando quieres equilibrar consistencia visible con throughput segun el riesgo de dirty reads, non repeatable reads o phantoms.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar niveles de aislamiento y cuando no?",
+      "respuesta": "Conviene cuando quieres equilibrar consistencia visible con throughput segun el riesgo de dirty reads, non repeatable reads o phantoms. No conviene usarlo por inercia si usar siempre el nivel mas alto sin medir si la contencion resultante es necesaria para el caso real.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con niveles de aislamiento?",
+      "respuesta": "Un error comun es asumir que una transaccion por si sola elimina cualquier anomalia, sin revisar el aislamiento efectivo del motor. Para evitarlo, eliges el nivel segun la invariancia a proteger y pruebas escenarios concurrentes con datos reales.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia niveles de aislamiento de serializacion estricta de la aplicacion?",
+      "respuesta": "El aislamiento delega al motor la gestion de conflictos; serializar todo en aplicacion simplifica razonamiento pero sacrifica escalabilidad y suele ser innecesario. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta niveles de aislamiento en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Define la correccion visible bajo carga concurrente y puede cambiar radicalmente el rendimiento del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con niveles de aislamiento?",
+      "respuesta": "Hay que reproducir carreras concretas, revisar bloqueos, snapshots y entender la implementacion del motor, no solo la teoria ANSI.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con niveles de aislamiento?",
+      "respuesta": "Snapshot isolation, retries conscientes y consultas bien indexadas suelen dar mejor equilibrio que subir ciegamente a serializable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que niveles de aislamiento esta mal implementado?",
+      "respuesta": "Aparecen saldos inconsistentes o resultados que cambian dentro de una misma operacion y el equipo no sabe que anomalia esta ocurriendo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve window functions en SQL?",
+      "respuesta": "Permiten calcular rankings, acumulados y comparaciones entre filas relacionadas sin colapsar el detalle de cada fila. Se vuelve especialmente util cuando necesitas top por grupo, running totals, lag o lead sin perder granularidad del resultado original.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar window functions y cuando no?",
+      "respuesta": "Conviene cuando necesitas top por grupo, running totals, lag o lead sin perder granularidad del resultado original. No conviene usarlo por inercia si se usan para consultas simples donde un GROUP BY basta y la complejidad extra no aporta nada.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con window functions?",
+      "respuesta": "Un error comun es confundir particion y orden, obteniendo calculos correctos sintacticamente pero equivocados semantica o temporalmente. Para evitarlo, defines claramente PARTITION BY, ORDER BY y el frame para que el calculo represente exactamente la ventana deseada.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia window functions de GROUP BY?",
+      "respuesta": "GROUP BY resume filas en una sola por grupo; las window functions calculan sobre grupos pero mantienen cada fila disponible en el resultado. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta window functions en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Resuelven analitica compleja con gran expresividad, aunque pueden ser costosas si ordenan mucho volumen sin indices ni particiones adecuadas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con window functions?",
+      "respuesta": "Conviene validar resultados con muestras pequenas y revisar el frame real, porque muchas sorpresas vienen de defaults no explicitados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con window functions?",
+      "respuesta": "Brillan al combinarse con CTEs y filtros posteriores para construir rankings, percentiles y deteccion de huecos de forma elegante.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que window functions esta mal implementado?",
+      "respuesta": "Se usa DISTINCT o subconsultas adicionales para arreglar resultados de una ventana mal definida en vez de corregir la particion o el frame.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve CTEs y subconsultas en SQL?",
+      "respuesta": "Ayudan a estructurar consultas complejas en bloques legibles y reutilizables dentro de una misma sentencia. Se vuelve especialmente util cuando quieres separar etapas de filtrado, agregacion o recursion para mejorar claridad y mantenimiento.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar CTEs y subconsultas y cuando no?",
+      "respuesta": "Conviene cuando quieres separar etapas de filtrado, agregacion o recursion para mejorar claridad y mantenimiento. No conviene usarlo por inercia si encadenar CTEs solo por estilo cuando una consulta mas directa seria mas facil de optimizar o leer.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con CTEs y subconsultas?",
+      "respuesta": "Un error comun es suponer que un CTE siempre se materializa o siempre se inlinea, sin conocer el comportamiento del motor usado. Para evitarlo, usas CTEs para expresar etapas con nombre y luego verificas el plan real en el motor concreto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia CTEs y subconsultas de subconsulta incrustada?",
+      "respuesta": "El CTE suele mejorar legibilidad y composicion; la subconsulta incrustada puede ser suficiente o incluso mas simple cuando el bloque solo se usa una vez. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta CTEs y subconsultas en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Mejoran mantenibilidad, aunque segun el motor tambien pueden afectar el plan de ejecucion y el coste final.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con CTEs y subconsultas?",
+      "respuesta": "La clave es mirar el plan y no asumir semanticas de optimizacion; a veces conviene reescribir para ayudar al optimizador.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con CTEs y subconsultas?",
+      "respuesta": "Los CTE recursivos son muy utiles para jerarquias, arboles y recorrido de grafos moderados dentro de SQL.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que CTEs y subconsultas esta mal implementado?",
+      "respuesta": "La consulta es legible, pero el rendimiento cae porque nadie reviso como el motor ejecuto realmente cada bloque.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve planes de ejecucion en SQL?",
+      "respuesta": "Muestran como el motor piensa resolver una consulta y donde espera gastar tiempo o leer filas. Se vuelve especialmente util cuando necesitas explicar por que una consulta es lenta o por que no usa un indice aparentemente adecuado.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar planes de ejecucion y cuando no?",
+      "respuesta": "Conviene cuando necesitas explicar por que una consulta es lenta o por que no usa un indice aparentemente adecuado. No conviene usarlo por inercia si optimizar solo por intuicion sin mirar filas estimadas, operaciones fisicas y costes del plan.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con planes de ejecucion?",
+      "respuesta": "Un error comun es centrarse en un nodo aislado y no entender el flujo completo desde escaneos iniciales hasta joins, sorts o agregaciones. Para evitarlo, comparas estimaciones con valores reales y buscas discrepancias de cardinalidad, filtros no sargables o operaciones costosas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia planes de ejecucion de pruebas de tiempo sin diagnostico?",
+      "respuesta": "Medir tiempos dice que algo va mal; el plan explica donde y por que, permitiendo atacar la causa raiz con mas precision. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta planes de ejecucion en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Es la herramienta principal para tuning serio, porque conecta consulta, estadisticas, indices y estrategia elegida por el optimizador.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con planes de ejecucion?",
+      "respuesta": "Hay que revisar scans, seeks, nested loop, hash join, sort y materializaciones junto con filas estimadas frente a reales.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con planes de ejecucion?",
+      "respuesta": "Su valor aumenta mucho cuando se combina con estadisticas actualizadas y conocimiento del modelo de datos, no solo de la sentencia.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que planes de ejecucion esta mal implementado?",
+      "respuesta": "Se agregan indices al azar cada vez que una consulta va lenta sin haber mirado antes el plan.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve bloqueos y deadlocks en SQL?",
+      "respuesta": "Gestionan acceso concurrente a los mismos recursos, pero tambien pueden provocar esperas circulares si se toman en orden distinto. Se vuelve especialmente util cuando tu sistema recibe muchas escrituras simultaneas o mezcla lecturas y actualizaciones sobre conjuntos similares de filas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar bloqueos y deadlocks y cuando no?",
+      "respuesta": "Conviene cuando tu sistema recibe muchas escrituras simultaneas o mezcla lecturas y actualizaciones sobre conjuntos similares de filas. No conviene usarlo por inercia si ignorar la concurrencia porque en desarrollo con baja carga casi nunca se manifiesta.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con bloqueos y deadlocks?",
+      "respuesta": "Un error comun es acceder a tablas o filas en orden variable entre transacciones que compiten por los mismos recursos. Para evitarlo, mantienes orden consistente, transacciones cortas y estrategia clara de retry para errores transitorios.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia bloqueos y deadlocks de control optimista en aplicacion?",
+      "respuesta": "Los locks del motor coordinan acceso en tiempo real; el control optimista delega conflicto a una comprobacion posterior y puede escalar mejor en baja contencion. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta bloqueos y deadlocks en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Afectan directamente latencia y throughput bajo concurrencia, y un deadlock frecuente es sintoma de diseno transaccional deficiente.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con bloqueos y deadlocks?",
+      "respuesta": "Debes capturar grafo de deadlock, identificar recursos y reconstruir el orden de operaciones de las sesiones implicadas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con bloqueos y deadlocks?",
+      "respuesta": "Indices adecuados, lotes pequenos y acceso ordenado suelen reducir mucho la probabilidad de bloqueos problemáticos.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que bloqueos y deadlocks esta mal implementado?",
+      "respuesta": "El sistema funciona bien con un usuario, pero bajo carga aparecen timeouts y abortos de transaccion aparentemente aleatorios.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve paginacion por cursor en SQL?",
+      "respuesta": "Permite recorrer conjuntos grandes de manera estable sin depender de offsets costosos o sensibles a inserciones. Se vuelve especialmente util cuando ofreces listas ordenadas que deben escalar bien y mantener consistencia razonable entre paginas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar paginacion por cursor y cuando no?",
+      "respuesta": "Conviene cuando ofreces listas ordenadas que deben escalar bien y mantener consistencia razonable entre paginas. No conviene usarlo por inercia si necesitas saltos arbitrarios a paginas concretas y el volumen o frecuencia no justifican la complejidad adicional.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con paginacion por cursor?",
+      "respuesta": "Un error comun es usar una columna no unica como cursor y generar duplicados o huecos entre paginas. Para evitarlo, ordenas por una clave estable y unica o por un par determinista que sirva de ancla para la siguiente pagina.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia paginacion por cursor de LIMIT con OFFSET?",
+      "respuesta": "OFFSET es simple pero empeora en paginas altas y sufre con inserciones; el cursor escala mejor y ofrece navegacion mas estable sobre datos cambiantes. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta paginacion por cursor en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Reduce trabajo innecesario en listados grandes y mejora experiencia en feeds o backoffices con mucho movimiento.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con paginacion por cursor?",
+      "respuesta": "Hay que verificar el criterio de orden, la serializacion del cursor y la coherencia cuando llegan filas nuevas entre peticiones.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con paginacion por cursor?",
+      "respuesta": "Se potencia con indices compuestos que cubren orden y filtros, especialmente en sistemas multi-tenant o por fecha.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que paginacion por cursor esta mal implementado?",
+      "respuesta": "Los usuarios ven elementos repetidos o faltantes al avanzar de pagina aunque la consulta parece correcta.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve particionamiento en SQL?",
+      "respuesta": "Divide tablas grandes en segmentos logicos para facilitar gestion, pruning y mantenimiento sobre grandes volumenes. Se vuelve especialmente util cuando manejas historicos extensos, datos por fecha o por clave natural que permiten recortar mucho el conjunto consultado.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar particionamiento y cuando no?",
+      "respuesta": "Conviene cuando manejas historicos extensos, datos por fecha o por clave natural que permiten recortar mucho el conjunto consultado. No conviene usarlo por inercia si particionar prematuramente tablas que aun no tienen tamano o patrones de acceso que lo justifiquen.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con particionamiento?",
+      "respuesta": "Un error comun es elegir una clave de particion que no coincide con las consultas reales y terminar consultando casi todas las particiones igual. Para evitarlo, alineas la clave con filtros dominantes y defines estrategia operativa de creacion, retencion y archivo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia particionamiento de tabla unica monolitica?",
+      "respuesta": "Una tabla unica simplifica operacion al principio; el particionamiento ayuda cuando tamano y mantenimiento hacen costoso tratar todo como un solo bloque. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta particionamiento en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Puede mejorar mucho mantenimiento y algunas consultas, pero no reemplaza a un buen modelado ni a indices adecuados.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con particionamiento?",
+      "respuesta": "Conviene revisar si realmente hay pruning de particiones y si los planes siguen degradandose por filtros o joins mal alineados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con particionamiento?",
+      "respuesta": "Brilla en historicos temporales cuando se combina con retencion por particion, carga por lotes y archivado sencillo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que particionamiento esta mal implementado?",
+      "respuesta": "La tabla esta particionada, pero cada consulta sigue tocando casi todas las particiones por usar filtros incompatibles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Por que una restriccion UNIQUE suele ser mejor que comprobar duplicados solo desde la aplicacion?",
+      "respuesta": "Porque la base de datos puede hacer cumplir la invariancia bajo concurrencia real. La aplicacion puede comprobar antes, pero dos peticiones simultaneas seguirian necesitando una garantia definitiva en el motor.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando tiene sentido usar una vista materializada?",
+      "respuesta": "Tiene sentido cuando una consulta costosa se lee muchas veces y tolera refresco diferido. Debe evaluarse el coste de actualizacion, la frescura aceptable y si el patron de lectura realmente lo compensa.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que riesgo hay en aplicar funciones sobre una columna filtrada dentro de WHERE?",
+      "respuesta": "Muchas veces vuelve el predicado no sargable e impide usar indices de forma eficiente. Suele ser mejor normalizar el dato antes o reescribir la condicion para comparar sobre el valor base.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "SQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que beneficio aporta modelar claves foraneas incluso si la aplicacion ya conoce las relaciones?",
+      "respuesta": "La clave foranea protege integridad a nivel de datos, evita referencias huérfanas y hace explicito el contrato entre tablas mas alla del codigo de una sola aplicacion.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "SQL"
+      ]
+    }
+  ]
+}

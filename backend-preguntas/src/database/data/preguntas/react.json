@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "React",
+    "url": "/logos/react.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema tecnico resuelve modelo declarativo y renderizado dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permite describir la UI como una funcion del estado en lugar de manipular el DOM manualmente Aporta mas valor cuando la interfaz cambia segun datos, permisos o interacciones complejas y necesitas consistencia visual y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar modelo declarativo y renderizado en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en derivar la vista desde props y estado, evitando sincronizaciones manuales del DOM El detalle que suele omitirse es introducir efectos o mutaciones para reflejar estado que React ya puede calcular al renderizar, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con modelo declarativo y renderizado y como lo evitarias?",
+      "respuesta": "Un error comun es pensar en pasos imperativos del DOM en vez de en estado y transiciones Para evitarlo conviene modelar la UI desde datos y mantener render puro siempre que sea posible, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta modelo declarativo y renderizado al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "renderizar de forma declarativa simplifica cambios, pero requiere vigilar recomputaciones innecesarias La mejora mas efectiva suele ser mover calculos fuera del render cuando son costosos y evitar estado derivado redundante, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con modelo declarativo y renderizado?",
+      "respuesta": "La estrategia es verificar que props y estado realmente representan la UI esperada y detectar mutaciones ocultas Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona modelo declarativo y renderizado con estado y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque el modelo declarativo depende de que el estado sea la fuente de verdad de la interfaz El trade-off principal es menos manipulación manual aporta coherencia, pero obliga a pensar mejor el modelado del estado, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si modelo declarativo y renderizado debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el cambio puede derivarse del estado actual o requiere integrar una API externa imperativa Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de modelo declarativo y renderizado en equipos grandes?",
+      "respuesta": "Una buena practica es separar componentes contenedores y presentacionales para mantener renders mas predecibles Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que modelo declarativo y renderizado se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es la UI solo se arregla tras forzar renders o tocar el DOM directamente Cuando eso ocurre, conviene revisar la fuente de verdad y eliminar sincronizaciones imperativas innecesarias antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve estado local y estado derivado dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permite conservar informacion entre renders y decidir que datos deben persistir o recalcularse Aporta mas valor cuando componentes con formularios, toggles, filtros o resultados que dependen de varias entradas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar estado local y estado derivado en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en guardar solo el minimo estado necesario y derivar el resto durante el render o con memoizacion El detalle que suele omitirse es persistir datos que realmente pueden calcularse desde props y otros estados, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con estado local y estado derivado y como lo evitarias?",
+      "respuesta": "Un error comun es duplicar la misma fuente de verdad en varios useState Para evitarlo conviene normalizar el estado y almacenar solo valores irreducibles, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta estado local y estado derivado al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "estado redundante provoca renders extra y bugs de sincronizacion mas que un coste puro de CPU La mejora mas efectiva suele ser reducir duplicacion y reagrupar cambios relacionados, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con estado local y estado derivado?",
+      "respuesta": "La estrategia es buscar divergencias entre valores que deberian representar la misma cosa Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona estado local y estado derivado con renderizado y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque un render declarativo sano depende de un estado minimo y consistente El trade-off principal es mas estado da comodidad puntual, pero incrementa superficie de inconsistencia, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si estado local y estado derivado debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el dato cambia por accion del usuario, viene de props o puede derivarse sin perdida Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de estado local y estado derivado en equipos grandes?",
+      "respuesta": "Una buena practica es usar reducers o modelos de dominio pequenos cuando varias transiciones comparten invariantes Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que estado local y estado derivado se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es dos partes de la UI muestran versiones distintas del mismo dato o requieren efectos para mantenerse sincronizadas Cuando eso ocurre, conviene eliminar estado derivado y consolidar la fuente de verdad antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve ciclo de render y reconciliacion dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Explica como React compara arboles virtuales para aplicar cambios minimos en la interfaz real Aporta mas valor cuando quieres entender por que un componente se vuelve a renderizar o conserva estado al cambiar listas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar ciclo de render y reconciliacion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar claves estables, componentes puros cuando toca y una estructura de arbol coherente El detalle que suele omitirse es usar index como key en listas que cambian de orden o se filtran, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con ciclo de render y reconciliacion y como lo evitarias?",
+      "respuesta": "Un error comun es atribuir cualquier problema visual a React sin revisar identidad y estructura del arbol Para evitarlo conviene pensar en identidad de elementos, no solo en su posicion, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta ciclo de render y reconciliacion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una reconciliacion bien guiada evita trabajo extra y preserva estado donde corresponde La mejora mas efectiva suele ser usar keys estables y reducir rerenders de ramas no afectadas, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con ciclo de render y reconciliacion?",
+      "respuesta": "La estrategia es inspeccionar que props cambian, que keys se regeneran y si el componente realmente necesita rerender Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona ciclo de render y reconciliacion con listas y keys y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque las keys son la pista principal para que React entienda identidad dentro de colecciones El trade-off principal es preservar estado mejora experiencia, pero puede mantener datos viejos si la identidad es incorrecta, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si ciclo de render y reconciliacion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si un nodo representa la misma entidad logica entre renders o una completamente nueva Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de ciclo de render y reconciliacion en equipos grandes?",
+      "respuesta": "Una buena practica es estructurar arboles para aislar identidad de filas, paneles o pestañas complejas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que ciclo de render y reconciliacion se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es inputs cambian de valor solos o se pierde estado al reordenar elementos Cuando eso ocurre, conviene revisar keys y la identidad real de cada elemento renderizado antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve efectos y sincronizacion con el exterior dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permite coordinar React con APIs externas como fetch, timers, suscripciones o librerias imperativas Aporta mas valor cuando el componente necesita hablar con algo fuera del arbol de render puro y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar efectos y sincronizacion con el exterior en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar efectos para sincronizar y limpiar recursos, no para calcular datos que pueden derivarse al render El detalle que suele omitirse es meter logica de negocio o derivaciones puras dentro de useEffect, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con efectos y sincronizacion con el exterior y como lo evitarias?",
+      "respuesta": "Un error comun es omitir dependencias o añadirlas sin entender por que el efecto se reejecuta Para evitarlo conviene separar claramente efectos de sincronizacion y calculos puros, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta efectos y sincronizacion con el exterior al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "efectos innecesarios disparan renders extra, peticiones duplicadas y estados intermedios confusos La mejora mas efectiva suele ser mover derivaciones al render y encapsular la sincronizacion externa en efectos pequeños, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con efectos y sincronizacion con el exterior?",
+      "respuesta": "La estrategia es preguntarte que recurso externo se sincroniza y cual debe ser la limpieza exacta Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona efectos y sincronizacion con el exterior con hooks y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque muchos hooks encapsulan justo patrones repetidos de efectos y limpieza El trade-off principal es los efectos dan poder de integracion, pero rompen facilmente la pureza si se abusa de ellos, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si efectos y sincronizacion con el exterior debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si existe un sistema externo real o solo un calculo que puede hacerse durante el render Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de efectos y sincronizacion con el exterior en equipos grandes?",
+      "respuesta": "Una buena practica es convertir efectos complejos en hooks especializados con contratos claros Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que efectos y sincronizacion con el exterior se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es peticiones duplicadas, bucles de render o estados que solo se corrigen tras varios efectos Cuando eso ocurre, conviene eliminar efectos no esenciales y dejar solo sincronizacion con sistemas externos antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve formularios controlados y no controlados dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Ayudan a decidir donde vive el valor de los inputs y como validar o enviar datos de usuario Aporta mas valor cuando construyes formularios simples, largos o de alto rendimiento con reglas dinamicas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar formularios controlados y no controlados en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar controlados cuando necesitas validacion y reactividad fina, y no controlados cuando importa simplicidad o rendimiento puntual El detalle que suele omitirse es controlar todos los inputs por defecto incluso cuando casi no se usa su valor hasta el submit, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con formularios controlados y no controlados y como lo evitarias?",
+      "respuesta": "Un error comun es mezclar ambos enfoques sin una frontera clara Para evitarlo conviene elegir estrategia por formulario y por tipo de interaccion, no por costumbre, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta formularios controlados y no controlados al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "formularios totalmente controlados pueden rerenderizar mucho si no se segmentan bien La mejora mas efectiva suele ser dividir componentes, usar librerias adecuadas o leer valores al enviar cuando basta con eso, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con formularios controlados y no controlados?",
+      "respuesta": "La estrategia es comprobar quien es la fuente de verdad del valor y en que momento se valida o transforma Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona formularios controlados y no controlados con estado local y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los formularios son un caso clasico donde almacenar demasiado estado genera ruido y renders extra El trade-off principal es control total frente a menos codigo y menor coste de render en ciertos casos, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si formularios controlados y no controlados debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es necesidad de validacion en tiempo real, cantidad de campos y frecuencia de actualizacion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de formularios controlados y no controlados en equipos grandes?",
+      "respuesta": "Una buena practica es combinar control parcial, validacion diferida y segmentacion por secciones del formulario Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve listas, keys e identidad dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permiten representar colecciones cambiantes sin perder estado ni provocar cambios visuales inesperados Aporta mas valor cuando renderizas tablas, cards, filtros, reordenamientos o paginacion con elementos interactivos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar listas, keys e identidad en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar keys estables basadas en identidad de negocio y no en posicion del array El detalle que suele omitirse es regenerar keys con Math.random o valores efimeros en cada render, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con listas, keys e identidad y como lo evitarias?",
+      "respuesta": "Un error comun es creer que la key solo sirve para evitar warnings Para evitarlo conviene pensar la key como contrato de identidad entre renders, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta listas, keys e identidad al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "keys correctas permiten preservar nodos y estado; keys inestables fuerzan desmontaje y trabajo extra La mejora mas efectiva suele ser usar ids persistentes y separar listas por tipo cuando la identidad cambia, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con listas, keys e identidad?",
+      "respuesta": "La estrategia es observar si el problema aparece al insertar, borrar o reordenar y revisar la key real de cada item Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona listas, keys e identidad con reconciliacion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque React decide que conservar o reemplazar en listas a partir de las keys El trade-off principal es ids estables simplifican reconciliacion, pero a veces exigen enriquecer el modelo de datos, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si listas, keys e identidad debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el elemento representa una entidad persistente o un valor puramente posicional Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de listas, keys e identidad en equipos grandes?",
+      "respuesta": "Una buena practica es modelar identidad separando dato de posicion para listas editables complejas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve estado compartido y context dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permite compartir datos entre ramas del arbol sin pasar props manualmente por muchos niveles Aporta mas valor cuando necesitas tema, sesion, permisos o configuracion accesible en varias zonas de la app y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar estado compartido y context en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar context para datos transversales y estables, dividiendo providers cuando los cambios no afectan a todos El detalle que suele omitirse es meter estado de alta frecuencia en un context enorme compartido por toda la app, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con estado compartido y context y como lo evitarias?",
+      "respuesta": "Un error comun es usar context como reemplazo automatico de cualquier prop drilling Para evitarlo conviene limitar el alcance del provider y separar lectura de escritura cuando conviene, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta estado compartido y context al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "cada cambio del valor puede rerenderizar muchos consumidores si el contexto esta demasiado amplio La mejora mas efectiva suele ser partir contextos por dominio y memoizar valores derivados del provider, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con estado compartido y context?",
+      "respuesta": "La estrategia es revisar que consumidores realmente usan el dato y si el valor cambia por identidad en cada render Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona estado compartido y context con memoizacion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la estabilidad referencial del valor del provider condiciona cuantos consumidores se rerenderizan El trade-off principal es menos prop drilling frente a mayor acoplamiento global si se usa sin criterio, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si estado compartido y context debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es alcance del dato, frecuencia de cambio y numero de consumidores reales Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de estado compartido y context en equipos grandes?",
+      "respuesta": "Una buena practica es combinar context fino con reducers o stores externos en dominios complejos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve memoizacion y rendimiento dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Ayuda a evitar trabajo repetido cuando ciertas props, calculos o callbacks no cambian realmente Aporta mas valor cuando la UI tiene listas pesadas, componentes costosos o re-renders frecuentes por cambios ajenos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar memoizacion y rendimiento en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en memoizar solo cuando existe un problema medido y la estabilidad referencial aporta una mejora real El detalle que suele omitirse es envolver todo con memo, useMemo o useCallback sin medir y aumentar complejidad inutil, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con memoizacion y rendimiento y como lo evitarias?",
+      "respuesta": "Un error comun es creer que memoizar siempre acelera la app Para evitarlo conviene perfilar primero y aplicar memoizacion de forma localizada, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta memoizacion y rendimiento al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "bien usada reduce renders costosos; mal usada añade comparaciones y codigo mas dificil de razonar La mejora mas efectiva suele ser asegurar props estables solo en fronteras que realmente lo necesiten, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con memoizacion y rendimiento?",
+      "respuesta": "La estrategia es medir que componente rerenderiza, por que props cambian y si el coste de render justifica memoizar Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona memoizacion y rendimiento con context y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque muchos problemas de rendimiento con context vienen de valores que cambian de identidad en cada render El trade-off principal es menos trabajo de render frente a mas complejidad conceptual y riesgo de dependencias mal definidas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si memoizacion y rendimiento debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es coste del render, frecuencia de cambio y facilidad de estabilizar referencias Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de memoizacion y rendimiento en equipos grandes?",
+      "respuesta": "Una buena practica es combinar memoizacion con segmentacion del arbol y virtualizacion de listas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve renderizado concurrente y transiciones dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permite priorizar actualizaciones y mantener la interfaz mas fluida bajo cargas de render mas pesadas Aporta mas valor cuando al escribir o filtrar listas grandes la interfaz se siente bloqueada o poco responsiva y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar renderizado concurrente y transiciones en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en marcar como transicion las actualizaciones no urgentes y separar lo inmediato de lo diferible El detalle que suele omitirse es esperar que concurrente arregle por si solo problemas causados por renders enormes o mala arquitectura, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con renderizado concurrente y transiciones y como lo evitarias?",
+      "respuesta": "Un error comun es mezclar actualizaciones urgentes y no urgentes en el mismo flujo sin prioridades claras Para evitarlo conviene identificar que feedback debe ser instantaneo y que resultado puede llegar un poco despues, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta renderizado concurrente y transiciones al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "mejora la percepcion de fluidez, aunque no elimina el coste real del trabajo pesado La mejora mas efectiva suele ser combinar prioridades con listas virtualizadas, memoizacion y menos trabajo por render, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con renderizado concurrente y transiciones?",
+      "respuesta": "La estrategia es medir que actualizacion bloquea la interaccion y clasificarla por urgencia de usuario Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona renderizado concurrente y transiciones con estado y render y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque las transiciones reordenan prioridad de actualizaciones, pero siguen dependiendo de un buen modelado de estado El trade-off principal es mejor experiencia interactiva frente a un flujo mental mas complejo sobre cuando se confirma cada cambio, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si renderizado concurrente y transiciones debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el usuario necesita feedback inmediato o solo el resultado final puede demorarse un poco Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de renderizado concurrente y transiciones en equipos grandes?",
+      "respuesta": "Una buena practica es usar transiciones para filtros, navegacion y vistas derivadas costosas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve server components y renderizado del servidor dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permiten mover parte del trabajo de datos y render fuera del cliente para mejorar carga inicial y reparto de responsabilidades Aporta mas valor cuando la aplicacion necesita entregar HTML util rapido y evitar enviar demasiado JavaScript al navegador y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar server components y renderizado del servidor en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en decidir que parte de la vista requiere interactividad cliente y que parte puede resolverse en servidor El detalle que suele omitirse es enviar al cliente componentes interactivos innecesarios que podrian ser estaticos o resueltos antes, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con server components y renderizado del servidor y como lo evitarias?",
+      "respuesta": "Un error comun es mezclar sin criterio responsabilidades de obtencion de datos y de interaccion Para evitarlo conviene separar claramente componentes de datos, layout y componentes interactivos, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta server components y renderizado del servidor al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "reducir JS cliente mejora carga y hydration, pero aumenta complejidad de fronteras entre servidor y cliente La mejora mas efectiva suele ser mover al servidor lo que no necesita eventos del navegador y mantener pequeñas las islas interactivas, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con server components y renderizado del servidor?",
+      "respuesta": "La estrategia es identificar si el fallo ocurre en render de servidor, serializacion o hidratacion del cliente Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona server components y renderizado del servidor con datos y fetch y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque el lugar donde obtienes datos cambia mucho cuando una parte del arbol vive en servidor El trade-off principal es menos JavaScript cliente frente a mas restricciones sobre que APIs y hooks pueden usarse en cada lado, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si server components y renderizado del servidor debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es necesidad de SEO, tiempo de carga inicial y nivel de interactividad real Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de server components y renderizado del servidor en equipos grandes?",
+      "respuesta": "Una buena practica es diseñar fronteras cliente-servidor por tipo de interaccion y coste de hidratacion Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve testing de componentes dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Permite validar comportamiento visible, accesibilidad y flujos de usuario sin depender de pruebas manuales Aporta mas valor cuando la UI cambia con frecuencia y quieres detectar regresiones en eventos, estados y render condicional y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar testing de componentes en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en probar el componente desde la perspectiva del usuario y no de detalles internos de implementacion El detalle que suele omitirse es acoplar los tests a nombres de estado, estructura del DOM o helpers privados, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con testing de componentes y como lo evitarias?",
+      "respuesta": "Un error comun es mockear demasiado hasta que el test ya no representa el uso real Para evitarlo conviene interactuar con la UI por roles, texto y acciones significativas, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta testing de componentes al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "tests realistas dan confianza aunque sean algo mas lentos; el exceso de detalle interno crea fragilidad La mejora mas efectiva suele ser mockear solo fronteras externas y reutilizar render helpers enfocados en comportamiento, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con testing de componentes?",
+      "respuesta": "La estrategia es comparar que ve el usuario, que evento dispara y que cambio observable deberia ocurrir Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona testing de componentes con accesibilidad y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque usar queries accesibles mejora tanto la calidad del test como la calidad real del componente El trade-off principal es mas realismo aporta confianza, pero exige mejores fixtures y menos dependencia de detalles internos, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si testing de componentes debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es riesgo del flujo, complejidad del estado y coste de una regresion en produccion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de testing de componentes en equipos grandes?",
+      "respuesta": "Una buena practica es combinar tests de componentes, contratos de hooks y pocos flujos end-to-end bien elegidos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve arquitectura de componentes dentro de React y en que escenario aporta mas valor?",
+      "respuesta": "Ayuda a dividir la UI en piezas cohesivas, reutilizables y faciles de evolucionar Aporta mas valor cuando la app crece y aparecen componentes enormes con muchas props y responsabilidades mezcladas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar arquitectura de componentes en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en separar componentes por responsabilidad, ownership de estado y nivel de reutilizacion real El detalle que suele omitirse es extraer componentes demasiado pronto sin una API clara ni un patron estable de uso, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con arquitectura de componentes y como lo evitarias?",
+      "respuesta": "Un error comun es crear componentes genericos de mas que nadie entiende ni sabe extender Para evitarlo conviene preferir abstracciones pequenas guiadas por casos reales repetidos, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta arquitectura de componentes al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una buena arquitectura no solo mejora mantenimiento; tambien facilita aislar renders y optimizar donde importa La mejora mas efectiva suele ser mantener fronteras claras entre datos, layout e interaccion, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con arquitectura de componentes?",
+      "respuesta": "La estrategia es detectar si el problema viene de una API de props excesiva o de estado mal ubicado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona arquitectura de componentes con estado compartido y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la arquitectura de componentes y el lugar donde vive el estado se condicionan mutuamente El trade-off principal es mas reutilizacion frente a APIs mas amplias y posible generalizacion prematura, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si arquitectura de componentes debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es frecuencia de repeticion, estabilidad del caso de uso y coste de cambiar la API Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de arquitectura de componentes en equipos grandes?",
+      "respuesta": "Una buena practica es diseñar componentes con slots o composicion antes que con largas listas de flags Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "React"
+      ]
+    }
+  ]
+}

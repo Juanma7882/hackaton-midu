@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "TypeScript",
+    "url": "/logos/typescript.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema resuelve inferencia de tipos en TypeScript?",
+      "respuesta": "Permite que el compilador deduzca tipos utiles sin anotar cada variable o retorno manualmente. Se vuelve especialmente util cuando el codigo ya expresa bien la intencion y quieres reducir ruido sin perder seguridad estatica.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar inferencia de tipos y cuando no?",
+      "respuesta": "Conviene cuando el codigo ya expresa bien la intencion y quieres reducir ruido sin perder seguridad estatica. No conviene usarlo por inercia si la inferencia termina en any, unknown demasiado amplio o tipos de retorno poco legibles para una API publica.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con inferencia de tipos?",
+      "respuesta": "Un error comun es confiar ciegamente en la inferencia en boundaries publicos y exportar tipos accidentales o demasiado especificos. Para evitarlo, anotas puntos de frontera como funciones publicas, hooks o librerias y dejas inferir el resto cuando mejora claridad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia inferencia de tipos de anotacion explicita de tipos?",
+      "respuesta": "La inferencia reduce boilerplate y sigue el codigo real; la anotacion explicita documenta mejor contratos estables y evita que cambios internos alteren APIs sin querer. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta inferencia de tipos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Bien usada acelera desarrollo y mantiene seguridad; mal usada hace que errores de diseño queden ocultos tras tipos demasiado anchos o implausibles.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con inferencia de tipos?",
+      "respuesta": "Hay que inspeccionar el tipo inferido real en el editor y revisar donde una union, literal o contextual typing se amplio mas de la cuenta.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con inferencia de tipos?",
+      "respuesta": "Es especialmente util junto con const assertions, satisfies y funciones genericas para conservar precision sin verbosidad.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que inferencia de tipos esta mal implementado?",
+      "respuesta": "Necesitas casteos frecuentes para usar valores que supuestamente ya estaban bien tipados.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve generics en TypeScript?",
+      "respuesta": "Permiten escribir funciones, tipos y clases reutilizables que preservan informacion de tipo entre entrada y salida. Se vuelve especialmente util cuando quieres abstraer estructuras o algoritmos sin perder relacion entre parametros, retorno y callbacks.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar generics y cuando no?",
+      "respuesta": "Conviene cuando quieres abstraer estructuras o algoritmos sin perder relacion entre parametros, retorno y callbacks. No conviene usarlo por inercia si la abstraccion no necesita parametrizacion real y un generic solo complica una API que podria usar tipos concretos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con generics?",
+      "respuesta": "Un error comun es crear generics demasiado amplios o con demasiados parametros que nadie puede inferir ni entender facilmente. Para evitarlo, mantienes pocos parametros, nombras bien sus restricciones y modelas relaciones reales, no flexibilidad vacia.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia generics de tipos concretos repetidos?",
+      "respuesta": "Los generics evitan duplicacion y conservan correlaciones de tipo; los tipos concretos son mas simples cuando la variabilidad es pequena o inexistente. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta generics en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Pueden elevar mucho la reutilizacion, pero una API generica mal disenada empeora DX y produce errores dificiles de interpretar.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con generics?",
+      "respuesta": "Conviene revisar que parametros se infieren, donde se rompen las restricciones y si un tipo auxiliar ayudaria a exponer mejor el error.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con generics?",
+      "respuesta": "Su mejor version aparece al combinar constraints, defaults y tipos condicionales para capturar contratos expresivos sin sacrificar usabilidad.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que generics esta mal implementado?",
+      "respuesta": "Los consumidores deben pasar tipos manualmente casi siempre o terminan usando as para poder llamar la funcion.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve uniones e intersecciones en TypeScript?",
+      "respuesta": "Modelan valores que pueden tomar varias formas y composiciones de contratos que deben cumplirse a la vez. Se vuelve especialmente util cuando trabajas con estados, respuestas de API o entidades que comparten partes pero no son identicas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar uniones e intersecciones y cuando no?",
+      "respuesta": "Conviene cuando trabajas con estados, respuestas de API o entidades que comparten partes pero no son identicas. No conviene usarlo por inercia si la union se vuelve tan amplia que deja de guiar al desarrollador o la interseccion mezcla modelos incompatibles.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con uniones e intersecciones?",
+      "respuesta": "Un error comun es olvidar discriminar correctamente una union y acceder a propiedades que no existen en todos los casos. Para evitarlo, usas discriminantes claros, ramas exhaustivas y compones intersecciones solo cuando la combinacion es semantica.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia uniones e intersecciones de herencia clasica?",
+      "respuesta": "Uniones e intersecciones modelan algebra de tipos a nivel declarativo; la herencia organiza comportamiento compartido pero no siempre expresa variantes de datos con la misma precision. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta uniones e intersecciones en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Permiten representar dominio de forma fiel, aunque una union mal cerrada o una interseccion imposible genera friccion y falsa seguridad.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con uniones e intersecciones?",
+      "respuesta": "Debes observar que rama reconoce el compilador despues de cada chequeo y si algun miembro de la union quedo imposible de alcanzar.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con uniones e intersecciones?",
+      "respuesta": "Brillan cuando se usan para state machines, resultados discriminados y composicion de capacidades independientes.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que uniones e intersecciones esta mal implementado?",
+      "respuesta": "Terminas comprobando propiedades opcionales por todos lados porque el modelo de union no esta bien delimitado.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve type narrowing en TypeScript?",
+      "respuesta": "Permite refinar un tipo amplio a otro mas preciso segun comprobaciones de flujo de control. Se vuelve especialmente util cuando manejas unknown, uniones o datos externos y necesitas seguridad antes de usar propiedades especificas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar type narrowing y cuando no?",
+      "respuesta": "Conviene cuando manejas unknown, uniones o datos externos y necesitas seguridad antes de usar propiedades especificas. No conviene usarlo por inercia si usas casts directos donde deberias demostrar con codigo que el valor realmente cumple el contrato.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con type narrowing?",
+      "respuesta": "Un error comun es escribir guardas de tipo que retornan true sin validar todas las propiedades necesarias. Para evitarlo, prefieres comprobaciones pequenas, composables y alineadas con la forma real del dato entrante.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia type narrowing de type assertion?",
+      "respuesta": "El narrowing demuestra al compilador algo que el flujo de codigo sostiene; la assertion solo lo afirma y puede esconder errores si el supuesto es falso. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta type narrowing en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Reduce runtime errors en bordes con datos inseguros, pero guardas incompletas crean una ilusion de seguridad dificil de detectar.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con type narrowing?",
+      "respuesta": "Conviene probar guardas con casos negativos, valores parciales y estructuras anidadas para ver si realmente filtran lo que prometen.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con type narrowing?",
+      "respuesta": "Se potencia con user defined type guards, funciones assert y patrones exhaustivos sobre discriminated unions.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que type narrowing esta mal implementado?",
+      "respuesta": "Aparecen assertions en cadena despues de una guarda porque esta no refina el tipo tanto como deberia.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve utility types en TypeScript?",
+      "respuesta": "Ofrecen bloques reutilizables para transformar tipos sin repetir definiciones manuales. Se vuelve especialmente util cuando necesitas derivar variantes como parciales, requeridas, omitidas o extraidas de un modelo base.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar utility types y cuando no?",
+      "respuesta": "Conviene cuando necesitas derivar variantes como parciales, requeridas, omitidas o extraidas de un modelo base. No conviene usarlo por inercia si encadenas utilidades de forma opaca hasta que el tipo final resulta casi imposible de leer.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con utility types?",
+      "respuesta": "Un error comun es usar Partial o Pick para representar reglas de negocio distintas sin documentar que invariantes se pierden. Para evitarlo, aplicas utilidades a tipos bien nombrados y defines aliases intermedios cuando la transformacion deja de ser obvia.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia utility types de tipos escritos a mano?",
+      "respuesta": "Las utility types reducen duplicacion y divergencias; escribir todo a mano puede ser mas claro si la variante ya no guarda una relacion mecanica con el tipo original. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta utility types en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Aceleran mantenimiento, aunque un abuso de transformaciones compuestas empeora legibilidad y mensajes de error.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con utility types?",
+      "respuesta": "Sirve expandir alias temporalmente y revisar que propiedades quedaron opcionales, requeridas o eliminadas despues de cada paso.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con utility types?",
+      "respuesta": "Funcionan muy bien junto con mapped y conditional types para construir DSLs internos y contratos derivados de forma consistente.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que utility types esta mal implementado?",
+      "respuesta": "Nadie del equipo puede explicar rapidamente de donde sale el tipo final de una API interna.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve mapped types en TypeScript?",
+      "respuesta": "Permiten transformar sistematicamente las propiedades de otro tipo siguiendo una regla declarativa. Se vuelve especialmente util cuando quieres recorrer claves para cambiar opcionalidad, mutabilidad o forma de valores de manera uniforme.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar mapped types y cuando no?",
+      "respuesta": "Conviene cuando quieres recorrer claves para cambiar opcionalidad, mutabilidad o forma de valores de manera uniforme. No conviene usarlo por inercia si la transformacion es puntual y un tipo explicito seria mas facil de entender que una metaprogramacion de tipos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con mapped types?",
+      "respuesta": "Un error comun es perder claves o modifiers por no considerar readonly, optional o key remapping correctamente. Para evitarlo, mantienes mapped types pequenos, con nombres claros y pruebas de tipo cuando son pieza central de una libreria.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia mapped types de utility types predefinidas?",
+      "respuesta": "Las utility types son casos listos para usar; los mapped types permiten construir transformaciones propias cuando esas utilidades no alcanzan. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta mapped types en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Dan mucho poder para modelar APIs sofisticadas, pero aumentan complejidad cognitiva si se vuelven demasiado abstractos.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con mapped types?",
+      "respuesta": "Debes verificar el conjunto final de claves y si alguna propiedad cambio de opcional a requerida por accidente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con mapped types?",
+      "respuesta": "Su combinacion con key remapping y template literal types permite generar contratos muy expresivos a partir de nombres de propiedades.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que mapped types esta mal implementado?",
+      "respuesta": "El tipo generado es correcto solo por casualidad y cualquier cambio pequeno en el origen lo rompe de forma inesperada.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve conditional types en TypeScript?",
+      "respuesta": "Modelan logica de tipos que depende de si otro tipo cumple o no cierta condicion. Se vuelve especialmente util cuando quieres expresar relaciones como extraer partes, bifurcar firmas o adaptar resultados segun la entrada.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar conditional types y cuando no?",
+      "respuesta": "Conviene cuando quieres expresar relaciones como extraer partes, bifurcar firmas o adaptar resultados segun la entrada. No conviene usarlo por inercia si la condicion no aporta valor real y termina ocultando una API que podria resolverse con sobrecargas simples.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con conditional types?",
+      "respuesta": "Un error comun es ignorar el efecto distributivo sobre uniones y sorprenderse con resultados mas amplios o fragmentados de lo esperado. Para evitarlo, documentas bien el caso verdadero y falso, y controlas distribucion usando tuplas cuando hace falta.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia conditional types de sobrecargas de funciones?",
+      "respuesta": "Las sobrecargas describen variaciones de llamada; los conditional types calculan el tipo resultante de forma programatica y reusable. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta conditional types en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Pueden capturar reglas de dominio muy finas, pero tambien producir errores de compilacion intimidantes si se anidan sin moderacion.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con conditional types?",
+      "respuesta": "Ayuda aislar cada rama en aliases pequenos y comprobar el comportamiento con ejemplos concretos de entrada.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con conditional types?",
+      "respuesta": "Son esenciales para utilidades avanzadas como inferencias selectivas, wrappers tipados y bibliotecas de alto nivel.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que conditional types esta mal implementado?",
+      "respuesta": "El equipo empieza a copiar tipos auxiliares sin entenderlos porque su comportamiento ya no es predecible.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve interfaces y type aliases en TypeScript?",
+      "respuesta": "Permiten describir contratos estructurales para objetos, funciones y composiciones de tipos. Se vuelve especialmente util cuando necesitas modelar datos, dependencias o superficies publicas de forma mantenible.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar interfaces y type aliases y cuando no?",
+      "respuesta": "Conviene cuando necesitas modelar datos, dependencias o superficies publicas de forma mantenible. No conviene usarlo por inercia si se elige uno por costumbre y se pierde la oportunidad de usar la herramienta mas clara para cada caso.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con interfaces y type aliases?",
+      "respuesta": "Un error comun es suponer que son identicos en todos los escenarios y olvidar diferencias como declaration merging o expresion de uniones. Para evitarlo, usas interfaces para contratos extensibles y types cuando necesitas uniones, primitivas o composiciones mas libres.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia interfaces y type aliases de clases?",
+      "respuesta": "Interfaces y type aliases describen forma; las clases ademas introducen implementacion, estado y comportamiento en runtime. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta interfaces y type aliases en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Elegir bien mejora claridad del dominio y de la API publica, aunque una mezcla arbitraria genera inconsistencia en la base de codigo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con interfaces y type aliases?",
+      "respuesta": "Conviene revisar si el problema es de extensibilidad, composicion o runtime porque eso suele revelar si la abstraccion elegida es la correcta.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con interfaces y type aliases?",
+      "respuesta": "Una convencion de equipo clara evita discusiones esteriles y ayuda a que los modelos sean mas faciles de explorar.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que interfaces y type aliases esta mal implementado?",
+      "respuesta": "El mismo tipo de entidad aparece a veces como interface y a veces como type sin una razon tecnica detras.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve tsconfig en modo estricto en TypeScript?",
+      "respuesta": "Activa verificaciones que descubren nulls, any implicitos y otros defectos antes de ejecutar. Se vuelve especialmente util cuando quieres que el compilador sea una barrera real contra errores y no solo un autocompletado mejorado.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar tsconfig en modo estricto y cuando no?",
+      "respuesta": "Conviene cuando quieres que el compilador sea una barrera real contra errores y no solo un autocompletado mejorado. No conviene usarlo por inercia si desactivar reglas por comodidad sin entender el error que estaban senalando.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con tsconfig en modo estricto?",
+      "respuesta": "Un error comun es habilitar strict pero silenciar todo con assertions, non null y any hasta perder el beneficio real. Para evitarlo, subes el nivel de exigencia gradualmente, corrigiendo causas raiz y no solo apagando sintomas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia tsconfig en modo estricto de configuracion laxa?",
+      "respuesta": "Una configuracion laxa facilita migraciones rapidas; el modo estricto detecta mas defectos y produce contratos mucho mas fiables a medio plazo. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta tsconfig en modo estricto en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Suele reducir bugs de integracion y refactor, aunque exige disciplina adicional al modelar entradas, nullabilidad y boundaries.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con tsconfig en modo estricto?",
+      "respuesta": "Hay que identificar que regla concreta falla, por que el compilador pierde informacion y si falta modelado, narrowing o reestructuracion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con tsconfig en modo estricto?",
+      "respuesta": "Combinado con noUncheckedIndexedAccess y exactOptionalPropertyTypes ayuda a exponer huecos de dominio que normalmente pasan desapercibidos.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que tsconfig en modo estricto esta mal implementado?",
+      "respuesta": "El proyecto compila solo porque esta lleno de as any, non-null assertions y suppressions dificilmente justificables.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve modulos y declaration files en TypeScript?",
+      "respuesta": "Permiten describir paquetes, globals o librerias JS sin tipos para integrarlas con seguridad razonable. Se vuelve especialmente util cuando consumes dependencias externas, APIs globales o codigo heredado que no expone definiciones suficientes.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar modulos y declaration files y cuando no?",
+      "respuesta": "Conviene cuando consumes dependencias externas, APIs globales o codigo heredado que no expone definiciones suficientes. No conviene usarlo por inercia si se escriben declaraciones vagas que terminan siendo peores que no tener tipos porque prometen contratos falsos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con modulos y declaration files?",
+      "respuesta": "Un error comun es declarar modulos completos como any en lugar de tipar solo la superficie realmente utilizada. Para evitarlo, modelas primero la parte minima consumida y vas refinando segun casos reales de uso.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia modulos y declaration files de tipado nativo del paquete?",
+      "respuesta": "Cuando el paquete trae tipos oficiales el mantenimiento es menor; los declaration files propios ofrecen control, pero tambien deuda si la libreria cambia. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta modulos y declaration files en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Una buena declaracion hace segura la integracion; una mala crea errores silenciosos porque el compilador confia en un contrato inventado.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con modulos y declaration files?",
+      "respuesta": "Revisa resolucion de modulos, exportaciones reales, default vs named imports y compatibilidad entre CommonJS y ESM.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con modulos y declaration files?",
+      "respuesta": "Es util apoyarse en tests de tipos para asegurar que las declaraciones siguen reflejando el comportamiento del paquete tras actualizaciones.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que modulos y declaration files esta mal implementado?",
+      "respuesta": "Los errores en runtime contradicen con frecuencia lo que los .d.ts aseguraban sobre el paquete.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve clases y modificadores de acceso en TypeScript?",
+      "respuesta": "Ayudan a encapsular estado y comportamiento cuando un modelo orientado a objetos aporta claridad al dominio. Se vuelve especialmente util cuando necesitas invariantes fuertes, metodos cohesivos o una API de instancia expresiva.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar clases y modificadores de acceso y cuando no?",
+      "respuesta": "Conviene cuando necesitas invariantes fuertes, metodos cohesivos o una API de instancia expresiva. No conviene usarlo por inercia si se usan clases por costumbre donde funciones puras y objetos planos serian mas simples y testeables.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con clases y modificadores de acceso?",
+      "respuesta": "Un error comun es confiar demasiado en private o protected como si dieran seguridad de runtime en todos los targets y patrones. Para evitarlo, usas clases solo donde encapsulan invariantes reales y mantienes constructores y jerarquias lo bastante pequenos para entenderlos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia clases y modificadores de acceso de objetos y funciones puras?",
+      "respuesta": "Las clases agrupan estado y comportamiento con una identidad clara; los objetos y funciones puras facilitan composicion, test y razonamiento sin efectos ocultos. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta clases y modificadores de acceso en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Pueden clarificar ciertos dominios, pero una jerarquia profunda o mutable suele dificultar extensibilidad y pruebas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con clases y modificadores de acceso?",
+      "respuesta": "Conviene inspeccionar orden de inicializacion, this, herencia y efectos laterales del constructor cuando algo se comporta distinto de lo esperado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con clases y modificadores de acceso?",
+      "respuesta": "Las clases funcionan mejor si exponen pocas mutaciones y usan fabricas o value objects para proteger invariantes complejas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que clases y modificadores de acceso esta mal implementado?",
+      "respuesta": "La logica relevante termina dispersa entre herencia, overrides y estados mutables imposibles de seguir mentalmente.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve tipado de asincronia en TypeScript?",
+      "respuesta": "Modela promesas, resultados de error y flujos async para que las llamadas encadenadas conserven contratos claros. Se vuelve especialmente util cuando trabajas con fetch, colas, reintentos o servicios donde el tipo del dato resuelto importa tanto como sus fallos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar tipado de asincronia y cuando no?",
+      "respuesta": "Conviene cuando trabajas con fetch, colas, reintentos o servicios donde el tipo del dato resuelto importa tanto como sus fallos. No conviene usarlo por inercia si se representa todo como Promise<any> y luego el valor resuelto pierde trazabilidad en toda la cadena.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con tipado de asincronia?",
+      "respuesta": "Un error comun es confundir el tipo de la promesa con el tipo del valor resuelto y mezclar errores excepcionales con resultados esperados de negocio. Para evitarlo, tipas el dato resuelto, separas errores recuperables y usas helpers que no diluyan la informacion original.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia tipado de asincronia de callbacks sin contratos fuertes?",
+      "respuesta": "El tipado async moderno conserva mejor la relacion entre entrada, espera y resultado; los callbacks tienden a ocultar estados y errores en firmas menos expresivas. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta tipado de asincronia en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Mejora integracion entre servicios y reduce errores por asumir formas incorrectas del dato una vez resuelto.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con tipado de asincronia?",
+      "respuesta": "Debes revisar inferencia de await, ramas de error, union de resultados y si alguna utilidad promisificada ensancho demasiado el tipo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con tipado de asincronia?",
+      "respuesta": "Se vuelve muy potente al combinar Result discriminados, generics y helpers que propaguen contexto sin caer en any.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que tipado de asincronia esta mal implementado?",
+      "respuesta": "Despues de varias llamadas async ya no queda claro que forma tiene el dato ni que errores deben manejarse.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene usar satisfies en lugar de una anotacion de tipo directa?",
+      "respuesta": "satisfies es util cuando quieres comprobar que un valor cumple un contrato sin ensanchar innecesariamente sus literales. Eso permite validar estructura y a la vez conservar la precision del valor original.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Por que un type assertion no equivale a una validacion real?",
+      "respuesta": "Porque solo cambia la forma en que el compilador mira el valor; no inspecciona el dato en runtime. Si el valor externo no cumple el contrato, el error aparecera despues, no en la linea de la assertion.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Que ventaja tiene modelar resultados con un union discriminada en vez de lanzar siempre excepciones?",
+      "respuesta": "Hace explicitos los caminos de exito y fallo en la firma, obliga a manejar ramas y evita esconder errores de negocio en un canal excepcional que muchas veces termina ignorado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    },
+    {
+      "pregunta": "¿Por que los tests de tipos pueden ser utiles en una libreria TypeScript?",
+      "respuesta": "Porque detectan regresiones en la API estatica aunque el codigo siga funcionando en runtime. Son especialmente valiosos cuando la libreria expone generics, utilidades avanzadas o declaraciones de terceros.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "TypeScript"
+      ]
+    }
+  ]
+}

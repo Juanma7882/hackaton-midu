@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Asincronía",
+    "url": "/logos/asincronia.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Qué problema resuelve los callbacks y cuándo se nota más su valor?",
+      "respuesta": "permiten diferir trabajo y notificar resultados cuando una operación termina Su valor se nota especialmente en se integran apis antiguas, eventos o librerías que todavía no exponen promesas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los callbacks a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten diferir trabajo y notificar resultados cuando una operación termina Para usarlo bien conviene entender que anidar callbacks sin estrategia clara degrada trazabilidad, propagación de errores y reutilización",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los callbacks?",
+      "respuesta": "Un error frecuente es asumir algo que anidar callbacks sin estrategia clara degrada trazabilidad, propagación de errores y reutilización La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los callbacks de el flujo secuencial bloqueante?",
+      "respuesta": "La diferencia clave es que permiten diferir trabajo y notificar resultados cuando una operación termina En cambio, el flujo bloqueante detiene la ejecución hasta terminar, mientras que un callback reanuda el trabajo más tarde con una función entregada por el consumidor",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los callbacks?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se integran apis antiguas, eventos o librerías que todavía no exponen promesas y recordar que anidar callbacks sin estrategia clara degrada trazabilidad, propagación de errores y reutilización",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los callbacks?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que anidar callbacks sin estrategia clara degrada trazabilidad, propagación de errores y reutilización o de una suposición incorrecta sobre los callbacks.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los callbacks y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten diferir trabajo y notificar resultados cuando una operación termina Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que anidar callbacks sin estrategia clara degrada trazabilidad, propagación de errores y reutilización",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los callbacks?",
+      "respuesta": "Encaja bien en un patrón donde se integran apis antiguas, eventos o librerías que todavía no exponen promesas Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las promesas y cuándo se nota más su valor?",
+      "respuesta": "representan el resultado futuro de una operación y modelan éxito o fallo de forma encadenable Su valor se nota especialmente en se coordinan peticiones, transformaciones y pasos dependientes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las promesas a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, representan el resultado futuro de una operación y modelan éxito o fallo de forma encadenable Para usarlo bien conviene entender que crear promesas sin devolverlas o mezclar then con estados externos suele romper el encadenamiento",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las promesas?",
+      "respuesta": "Un error frecuente es asumir algo que crear promesas sin devolverlas o mezclar then con estados externos suele romper el encadenamiento La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las promesas de los callbacks puros?",
+      "respuesta": "La diferencia clave es que representan el resultado futuro de una operación y modelan éxito o fallo de forma encadenable En cambio, un callback puro deja el control del flujo en la API productora, mientras que una promesa ofrece composición, encadenamiento y manejo centralizado de errores",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las promesas?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se coordinan peticiones, transformaciones y pasos dependientes y recordar que crear promesas sin devolverlas o mezclar then con estados externos suele romper el encadenamiento",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las promesas?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que crear promesas sin devolverlas o mezclar then con estados externos suele romper el encadenamiento o de una suposición incorrecta sobre las promesas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las promesas y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque representan el resultado futuro de una operación y modelan éxito o fallo de forma encadenable Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que crear promesas sin devolverlas o mezclar then con estados externos suele romper el encadenamiento",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las promesas?",
+      "respuesta": "Encaja bien en un patrón donde se coordinan peticiones, transformaciones y pasos dependientes Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las microtareas y macrotareas y cuándo se nota más su valor?",
+      "respuesta": "ordenan cuándo se ejecutan callbacks de promesas, timers y eventos dentro del ciclo del event loop Su valor se nota especialmente en importa el orden fino entre render, timers, promesas y eventos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las microtareas y macrotareas a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ordenan cuándo se ejecutan callbacks de promesas, timers y eventos dentro del ciclo del event loop Para usarlo bien conviene entender que programar demasiadas microtareas puede hambrunar otras tareas y degradar la respuesta de la interfaz",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las microtareas y macrotareas?",
+      "respuesta": "Un error frecuente es asumir algo que programar demasiadas microtareas puede hambrunar otras tareas y degradar la respuesta de la interfaz La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las microtareas y macrotareas de pensar que todo callback pendiente se ejecuta en el mismo orden y prioridad?",
+      "respuesta": "La diferencia clave es que ordenan cuándo se ejecutan callbacks de promesas, timers y eventos dentro del ciclo del event loop En cambio, no todas las colas se vacían igual; las microtareas se drenan antes de pasar a la siguiente macrotarea o a ciertas fases del entorno",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las microtareas y macrotareas?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando importa el orden fino entre render, timers, promesas y eventos y recordar que programar demasiadas microtareas puede hambrunar otras tareas y degradar la respuesta de la interfaz",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las microtareas y macrotareas?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que programar demasiadas microtareas puede hambrunar otras tareas y degradar la respuesta de la interfaz o de una suposición incorrecta sobre las microtareas y macrotareas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las microtareas y macrotareas y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ordenan cuándo se ejecutan callbacks de promesas, timers y eventos dentro del ciclo del event loop Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que programar demasiadas microtareas puede hambrunar otras tareas y degradar la respuesta de la interfaz",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las microtareas y macrotareas?",
+      "respuesta": "Encaja bien en un patrón donde importa el orden fino entre render, timers, promesas y eventos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve async/await y cuándo se nota más su valor?",
+      "respuesta": "permite escribir lógica asíncrona con una sintaxis lineal basada en promesas Su valor se nota especialmente en hay flujos con varios pasos dependientes y validaciones intermedias.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona async/await a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permite escribir lógica asíncrona con una sintaxis lineal basada en promesas Para usarlo bien conviene entender que await dentro de bucles independientes puede serializar trabajo que podría correr en paralelo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con async/await?",
+      "respuesta": "Un error frecuente es asumir algo que await dentro de bucles independientes puede serializar trabajo que podría correr en paralelo La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia async/await de encadenar then manualmente?",
+      "respuesta": "La diferencia clave es que permite escribir lógica asíncrona con una sintaxis lineal basada en promesas En cambio, then expresa composición funcional directa, mientras que async/await hace más legible el orden lógico y el manejo local de errores",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener async/await?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando hay flujos con varios pasos dependientes y validaciones intermedias y recordar que await dentro de bucles independientes puede serializar trabajo que podría correr en paralelo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con async/await?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que await dentro de bucles independientes puede serializar trabajo que podría correr en paralelo o de una suposición incorrecta sobre async/await.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece async/await y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permite escribir lógica asíncrona con una sintaxis lineal basada en promesas Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que await dentro de bucles independientes puede serializar trabajo que podría correr en paralelo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor async/await?",
+      "respuesta": "Encaja bien en un patrón donde hay flujos con varios pasos dependientes y validaciones intermedias Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Promise.all y otros combinadores y cuándo se nota más su valor?",
+      "respuesta": "coordinan múltiples promesas con reglas distintas de agregación, fallo y primera resolución Su valor se nota especialmente en se lanzan varias tareas concurrentes y se necesita una política explícita de resolución.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Promise.all y otros combinadores a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, coordinan múltiples promesas con reglas distintas de agregación, fallo y primera resolución Para usarlo bien conviene entender que elegir el combinador equivocado cambia semántica de error, latencia y cancelación observable",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Promise.all y otros combinadores?",
+      "respuesta": "Un error frecuente es asumir algo que elegir el combinador equivocado cambia semántica de error, latencia y cancelación observable La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Promise.all y otros combinadores de esperar cada promesa de forma aislada?",
+      "respuesta": "La diferencia clave es que coordinan múltiples promesas con reglas distintas de agregación, fallo y primera resolución En cambio, esperarlas por separado pierde información agregada y puede alargar el tiempo total, mientras que los combinadores codifican la estrategia de coordinación",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Promise.all y otros combinadores?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se lanzan varias tareas concurrentes y se necesita una política explícita de resolución y recordar que elegir el combinador equivocado cambia semántica de error, latencia y cancelación observable",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Promise.all y otros combinadores?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que elegir el combinador equivocado cambia semántica de error, latencia y cancelación observable o de una suposición incorrecta sobre Promise.all y otros combinadores.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Promise.all y otros combinadores y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque coordinan múltiples promesas con reglas distintas de agregación, fallo y primera resolución Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que elegir el combinador equivocado cambia semántica de error, latencia y cancelación observable",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Promise.all y otros combinadores?",
+      "respuesta": "Encaja bien en un patrón donde se lanzan varias tareas concurrentes y se necesita una política explícita de resolución Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve AbortController y cuándo se nota más su valor?",
+      "respuesta": "propaga una señal de cancelación cooperativa a fetch y otras APIs compatibles Su valor se nota especialmente en hay navegación rápida, búsquedas incrementales o tareas que dejan de tener sentido.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona AbortController a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, propaga una señal de cancelación cooperativa a fetch y otras apis compatibles Para usarlo bien conviene entender que cancelar requiere que la api escuche la señal; si no coopera, el trabajo puede seguir ejecutándose",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con AbortController?",
+      "respuesta": "Un error frecuente es asumir algo que cancelar requiere que la api escuche la señal; si no coopera, el trabajo puede seguir ejecutándose La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia AbortController de ignorar resultados tardíos sin cancelar nada?",
+      "respuesta": "La diferencia clave es que propaga una señal de cancelación cooperativa a fetch y otras apis compatibles En cambio, ignorar un resultado solo evita usarlo, mientras que cancelar puede ahorrar ancho de banda, trabajo y efectos posteriores",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener AbortController?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando hay navegación rápida, búsquedas incrementales o tareas que dejan de tener sentido y recordar que cancelar requiere que la api escuche la señal; si no coopera, el trabajo puede seguir ejecutándose",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con AbortController?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que cancelar requiere que la api escuche la señal; si no coopera, el trabajo puede seguir ejecutándose o de una suposición incorrecta sobre AbortController.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece AbortController y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque propaga una señal de cancelación cooperativa a fetch y otras apis compatibles Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que cancelar requiere que la api escuche la señal; si no coopera, el trabajo puede seguir ejecutándose",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor AbortController?",
+      "respuesta": "Encaja bien en un patrón donde hay navegación rápida, búsquedas incrementales o tareas que dejan de tener sentido Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los timeouts y la expiración y cuándo se nota más su valor?",
+      "respuesta": "ponen límites temporales a operaciones que podrían tardar indefinidamente Su valor se nota especialmente en hay dependencias remotas, reintentos o ui donde importa fallar rápido.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los timeouts y la expiración a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ponen límites temporales a operaciones que podrían tardar indefinidamente Para usarlo bien conviene entender que un timeout local no siempre detiene la operación real en el servidor o en otra capa del sistema",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los timeouts y la expiración?",
+      "respuesta": "Un error frecuente es asumir algo que un timeout local no siempre detiene la operación real en el servidor o en otra capa del sistema La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los timeouts y la expiración de esperar sin fecha límite?",
+      "respuesta": "La diferencia clave es que ponen límites temporales a operaciones que podrían tardar indefinidamente En cambio, esperar sin límite simplifica el flujo pero deja recursos ocupados, mientras que expirar permite recuperar control y aplicar fallback",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los timeouts y la expiración?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando hay dependencias remotas, reintentos o ui donde importa fallar rápido y recordar que un timeout local no siempre detiene la operación real en el servidor o en otra capa del sistema",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los timeouts y la expiración?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que un timeout local no siempre detiene la operación real en el servidor o en otra capa del sistema o de una suposición incorrecta sobre los timeouts y la expiración.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los timeouts y la expiración y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ponen límites temporales a operaciones que podrían tardar indefinidamente Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que un timeout local no siempre detiene la operación real en el servidor o en otra capa del sistema",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los timeouts y la expiración?",
+      "respuesta": "Encaja bien en un patrón donde hay dependencias remotas, reintentos o ui donde importa fallar rápido Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los reintentos y cuándo se nota más su valor?",
+      "respuesta": "reponen operaciones transitorias cuando un fallo es recuperable y la operación es segura de repetir Su valor se nota especialmente en hay redes inestables, límites temporales o dependencias externas intermitentes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los reintentos a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, reponen operaciones transitorias cuando un fallo es recuperable y la operación es segura de repetir Para usarlo bien conviene entender que si la operación no es idempotente, repetir puede duplicar efectos visibles o cargos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los reintentos?",
+      "respuesta": "Un error frecuente es asumir algo que si la operación no es idempotente, repetir puede duplicar efectos visibles o cargos La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los reintentos de repetir ciegamente cualquier error?",
+      "respuesta": "La diferencia clave es que reponen operaciones transitorias cuando un fallo es recuperable y la operación es segura de repetir En cambio, reintentar sin criterio puede amplificar el problema, mientras que una política correcta distingue fallos transitorios, permanentes e idempotencia",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los reintentos?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando hay redes inestables, límites temporales o dependencias externas intermitentes y recordar que si la operación no es idempotente, repetir puede duplicar efectos visibles o cargos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los reintentos?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que si la operación no es idempotente, repetir puede duplicar efectos visibles o cargos o de una suposición incorrecta sobre los reintentos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los reintentos y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque reponen operaciones transitorias cuando un fallo es recuperable y la operación es segura de repetir Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que si la operación no es idempotente, repetir puede duplicar efectos visibles o cargos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los reintentos?",
+      "respuesta": "Encaja bien en un patrón donde hay redes inestables, límites temporales o dependencias externas intermitentes Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve el control de concurrencia y cuándo se nota más su valor?",
+      "respuesta": "limita cuántas tareas asíncronas se ejecutan a la vez para equilibrar latencia, memoria y presión sobre recursos Su valor se nota especialmente en se procesan lotes, colas de trabajo o scrapers con muchas unidades pendientes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el control de concurrencia a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, limita cuántas tareas asíncronas se ejecutan a la vez para equilibrar latencia, memoria y presión sobre recursos Para usarlo bien conviene entender que un límite demasiado bajo desperdicia capacidad y uno demasiado alto convierte la concurrencia en contención",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el control de concurrencia?",
+      "respuesta": "Un error frecuente es asumir algo que un límite demasiado bajo desperdicia capacidad y uno demasiado alto convierte la concurrencia en contención La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el control de concurrencia de disparar todo en paralelo?",
+      "respuesta": "La diferencia clave es que limita cuántas tareas asíncronas se ejecutan a la vez para equilibrar latencia, memoria y presión sobre recursos En cambio, dispararlo todo minimiza espera solo en casos pequeños, mientras que un límite estable evita saturar CPU, red, disco o APIs externas",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el control de concurrencia?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se procesan lotes, colas de trabajo o scrapers con muchas unidades pendientes y recordar que un límite demasiado bajo desperdicia capacidad y uno demasiado alto convierte la concurrencia en contención",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el control de concurrencia?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que un límite demasiado bajo desperdicia capacidad y uno demasiado alto convierte la concurrencia en contención o de una suposición incorrecta sobre el control de concurrencia.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el control de concurrencia y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque limita cuántas tareas asíncronas se ejecutan a la vez para equilibrar latencia, memoria y presión sobre recursos Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que un límite demasiado bajo desperdicia capacidad y uno demasiado alto convierte la concurrencia en contención",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el control de concurrencia?",
+      "respuesta": "Encaja bien en un patrón donde se procesan lotes, colas de trabajo o scrapers con muchas unidades pendientes Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de el control de concurrencia suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que un límite demasiado bajo desperdicia capacidad y uno demasiado alto convierte la concurrencia en contención Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los iteradores asíncronos y cuándo se nota más su valor?",
+      "respuesta": "permiten consumir secuencias cuyos valores llegan con el tiempo usando for await...of Su valor se nota especialmente en hay paginación, streams, colas o datos producidos gradualmente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los iteradores asíncronos a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten consumir secuencias cuyos valores llegan con el tiempo usando for await...of Para usarlo bien conviene entender que si el consumidor es más lento que el productor y no se controla el flujo, aumenta el buffering",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los iteradores asíncronos?",
+      "respuesta": "Un error frecuente es asumir algo que si el consumidor es más lento que el productor y no se controla el flujo, aumenta el buffering La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los iteradores asíncronos de esperar un array completo antes de empezar a procesar?",
+      "respuesta": "La diferencia clave es que permiten consumir secuencias cuyos valores llegan con el tiempo usando for await...of En cambio, esperar todo retrasa el primer resultado, mientras que una secuencia asíncrona permite procesar por streaming",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los iteradores asíncronos?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando hay paginación, streams, colas o datos producidos gradualmente y recordar que si el consumidor es más lento que el productor y no se controla el flujo, aumenta el buffering",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los iteradores asíncronos?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que si el consumidor es más lento que el productor y no se controla el flujo, aumenta el buffering o de una suposición incorrecta sobre los iteradores asíncronos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los iteradores asíncronos y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten consumir secuencias cuyos valores llegan con el tiempo usando for await...of Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que si el consumidor es más lento que el productor y no se controla el flujo, aumenta el buffering",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los iteradores asíncronos?",
+      "respuesta": "Encaja bien en un patrón donde hay paginación, streams, colas o datos producidos gradualmente Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de los iteradores asíncronos suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que si el consumidor es más lento que el productor y no se controla el flujo, aumenta el buffering Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las condiciones de carrera y cuándo se nota más su valor?",
+      "respuesta": "aparecen cuando varios resultados asíncronos compiten por actualizar el mismo estado y el orden importa Su valor se nota especialmente en se actualiza una misma vista, cache o entidad desde múltiples operaciones concurrentes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las condiciones de carrera a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, aparecen cuando varios resultados asíncronos compiten por actualizar el mismo estado y el orden importa Para usarlo bien conviene entender que un resultado correcto pero antiguo puede sobrescribir uno más nuevo y dejar una ui inconsistente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las condiciones de carrera?",
+      "respuesta": "Un error frecuente es asumir algo que un resultado correcto pero antiguo puede sobrescribir uno más nuevo y dejar una ui inconsistente La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las condiciones de carrera de asumir que el último request iniciado es siempre el último en terminar?",
+      "respuesta": "La diferencia clave es que aparecen cuando varios resultados asíncronos compiten por actualizar el mismo estado y el orden importa En cambio, el orden de inicio no garantiza el de finalización; el diseño debe validar vigencia del resultado antes de aplicarlo",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las condiciones de carrera?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se actualiza una misma vista, cache o entidad desde múltiples operaciones concurrentes y recordar que un resultado correcto pero antiguo puede sobrescribir uno más nuevo y dejar una ui inconsistente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las condiciones de carrera?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que un resultado correcto pero antiguo puede sobrescribir uno más nuevo y dejar una ui inconsistente o de una suposición incorrecta sobre las condiciones de carrera.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las condiciones de carrera y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque aparecen cuando varios resultados asíncronos compiten por actualizar el mismo estado y el orden importa Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que un resultado correcto pero antiguo puede sobrescribir uno más nuevo y dejar una ui inconsistente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las condiciones de carrera?",
+      "respuesta": "Encaja bien en un patrón donde se actualiza una misma vista, cache o entidad desde múltiples operaciones concurrentes Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de las condiciones de carrera suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que un resultado correcto pero antiguo puede sobrescribir uno más nuevo y dejar una UI inconsistente Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve el backpressure y cuándo se nota más su valor?",
+      "respuesta": "coordina la velocidad entre productor y consumidor para que el sistema no acumule datos sin control Su valor se nota especialmente en se consumen streams, sockets, archivos grandes o pipelines continuos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el backpressure a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, coordina la velocidad entre productor y consumidor para que el sistema no acumule datos sin control Para usarlo bien conviene entender que si no se propaga la presión hacia atrás, el cuello de botella se desplaza y termina apareciendo como latencia o consumo excesivo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el backpressure?",
+      "respuesta": "Un error frecuente es asumir algo que si no se propaga la presión hacia atrás, el cuello de botella se desplaza y termina apareciendo como latencia o consumo excesivo La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el backpressure de dejar que el productor emita sin límites?",
+      "respuesta": "La diferencia clave es que coordina la velocidad entre productor y consumidor para que el sistema no acumule datos sin control En cambio, emitir sin límites simplifica al productor, mientras que gestionar presión protege memoria, throughput y estabilidad global",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el backpressure?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se consumen streams, sockets, archivos grandes o pipelines continuos y recordar que si no se propaga la presión hacia atrás, el cuello de botella se desplaza y termina apareciendo como latencia o consumo excesivo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el backpressure?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que si no se propaga la presión hacia atrás, el cuello de botella se desplaza y termina apareciendo como latencia o consumo excesivo o de una suposición incorrecta sobre el backpressure.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el backpressure y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque coordina la velocidad entre productor y consumidor para que el sistema no acumule datos sin control Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que si no se propaga la presión hacia atrás, el cuello de botella se desplaza y termina apareciendo como latencia o consumo excesivo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el backpressure?",
+      "respuesta": "Encaja bien en un patrón donde se consumen streams, sockets, archivos grandes o pipelines continuos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de el backpressure suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que si no se propaga la presión hacia atrás, el cuello de botella se desplaza y termina apareciendo como latencia o consumo excesivo Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Asincronía"
+      ]
+    }
+  ]
+}

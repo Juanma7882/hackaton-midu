@@ -246,6 +246,12 @@ function PreguntasEtiqueta({
                 <textarea
                     value={respuestaActual}
                     onChange={(e) => onRespuestaChange(actual.id, e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            e.preventDefault();
+                            handleBotonPrincipal();
+                        }
+                    }}
                     placeholder="Escribe tu respuesta"
                     rows={4}
                     disabled={quizFinalizado || finalizando}

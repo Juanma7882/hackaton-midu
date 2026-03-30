@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Web Components",
+    "url": "/logos/webcomponents.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Qué problema resuelve Custom Elements y cuándo se nota más su valor?",
+      "respuesta": "permiten registrar etiquetas HTML propias con comportamiento reutilizable y ciclo de vida definido Su valor se nota especialmente en se crean componentes compartidos entre apps o frameworks.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Custom Elements a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten registrar etiquetas html propias con comportamiento reutilizable y ciclo de vida definido Para usarlo bien conviene entender que definir tarde o redefinir nombres produce estados parciales y errores difíciles de diagnosticar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Custom Elements?",
+      "respuesta": "Un error frecuente es asumir algo que definir tarde o redefinir nombres produce estados parciales y errores difíciles de diagnosticar La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Custom Elements de widgets montados por convención sin contrato del navegador?",
+      "respuesta": "La diferencia clave es que permiten registrar etiquetas html propias con comportamiento reutilizable y ciclo de vida definido En cambio, un custom element tiene integración nativa con el parser y callbacks de ciclo de vida, mientras que un widget ad hoc depende de código externo para inicializarse",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Custom Elements?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se crean componentes compartidos entre apps o frameworks y recordar que definir tarde o redefinir nombres produce estados parciales y errores difíciles de diagnosticar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Custom Elements?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que definir tarde o redefinir nombres produce estados parciales y errores difíciles de diagnosticar o de una suposición incorrecta sobre Custom Elements.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Custom Elements y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten registrar etiquetas html propias con comportamiento reutilizable y ciclo de vida definido Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que definir tarde o redefinir nombres produce estados parciales y errores difíciles de diagnosticar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Custom Elements?",
+      "respuesta": "Encaja bien en un patrón donde se crean componentes compartidos entre apps o frameworks Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve el Shadow DOM y cuándo se nota más su valor?",
+      "respuesta": "encapsula estructura y estilos internos para reducir fugas y colisiones con el documento global Su valor se nota especialmente en se construyen librerías embebibles o interfaces donde importa aislar estilos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el Shadow DOM a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, encapsula estructura y estilos internos para reducir fugas y colisiones con el documento global Para usarlo bien conviene entender que el aislamiento no es absoluto; eventos, focus y apis de estilo tienen reglas especiales que conviene conocer",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el Shadow DOM?",
+      "respuesta": "Un error frecuente es asumir algo que el aislamiento no es absoluto; eventos, focus y apis de estilo tienen reglas especiales que conviene conocer La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el Shadow DOM de renderizar todo en el DOM light?",
+      "respuesta": "La diferencia clave es que encapsula estructura y estilos internos para reducir fugas y colisiones con el documento global En cambio, el DOM light comparte selectores y estructura con la página, mientras que Shadow DOM crea un límite de encapsulación controlado",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el Shadow DOM?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se construyen librerías embebibles o interfaces donde importa aislar estilos y recordar que el aislamiento no es absoluto; eventos, focus y apis de estilo tienen reglas especiales que conviene conocer",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el Shadow DOM?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que el aislamiento no es absoluto; eventos, focus y apis de estilo tienen reglas especiales que conviene conocer o de una suposición incorrecta sobre el Shadow DOM.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el Shadow DOM y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque encapsula estructura y estilos internos para reducir fugas y colisiones con el documento global Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que el aislamiento no es absoluto; eventos, focus y apis de estilo tienen reglas especiales que conviene conocer",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el Shadow DOM?",
+      "respuesta": "Encaja bien en un patrón donde se construyen librerías embebibles o interfaces donde importa aislar estilos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los slots y cuándo se nota más su valor?",
+      "respuesta": "permiten proyectar contenido externo dentro del componente manteniendo separación entre shell y contenido del consumidor Su valor se nota especialmente en se diseñan tarjetas, layouts y wrappers reutilizables.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los slots a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten proyectar contenido externo dentro del componente manteniendo separación entre shell y contenido del consumidor Para usarlo bien conviene entender que el contenido slotted vive en el dom light y eso afecta estilos, consulta y eventos observados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los slots?",
+      "respuesta": "Un error frecuente es asumir algo que el contenido slotted vive en el dom light y eso afecta estilos, consulta y eventos observados La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los slots de generar todo el markup internamente sin puntos de inserción?",
+      "respuesta": "La diferencia clave es que permiten proyectar contenido externo dentro del componente manteniendo separación entre shell y contenido del consumidor En cambio, sin slots el componente es rígido, mientras que la proyección permite composición flexible con contrato claro",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los slots?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se diseñan tarjetas, layouts y wrappers reutilizables y recordar que el contenido slotted vive en el dom light y eso afecta estilos, consulta y eventos observados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los slots?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que el contenido slotted vive en el dom light y eso afecta estilos, consulta y eventos observados o de una suposición incorrecta sobre los slots.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los slots y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten proyectar contenido externo dentro del componente manteniendo separación entre shell y contenido del consumidor Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que el contenido slotted vive en el dom light y eso afecta estilos, consulta y eventos observados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los slots?",
+      "respuesta": "Encaja bien en un patrón donde se diseñan tarjetas, layouts y wrappers reutilizables Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las plantillas con template y cuándo se nota más su valor?",
+      "respuesta": "permiten definir markup inerte reutilizable antes de clonarlo en instancias reales Su valor se nota especialmente en se crean componentes con estructura repetida y coste de creación predecible.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las plantillas con template a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten definir markup inerte reutilizable antes de clonarlo en instancias reales Para usarlo bien conviene entender que el contenido de template no participa en el dom hasta clonarse y eso cambia cuándo puede medirse o seleccionarse",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las plantillas con template?",
+      "respuesta": "Un error frecuente es asumir algo que el contenido de template no participa en el dom hasta clonarse y eso cambia cuándo puede medirse o seleccionarse La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las plantillas con template de construir el DOM nodo a nodo en cada render?",
+      "respuesta": "La diferencia clave es que permiten definir markup inerte reutilizable antes de clonarlo en instancias reales En cambio, construir nodo a nodo da control fino pero más ruido, mientras que template conserva una estructura base lista para clonar",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las plantillas con template?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se crean componentes con estructura repetida y coste de creación predecible y recordar que el contenido de template no participa en el dom hasta clonarse y eso cambia cuándo puede medirse o seleccionarse",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las plantillas con template?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que el contenido de template no participa en el dom hasta clonarse y eso cambia cuándo puede medirse o seleccionarse o de una suposición incorrecta sobre las plantillas con template.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las plantillas con template y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten definir markup inerte reutilizable antes de clonarlo en instancias reales Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que el contenido de template no participa en el dom hasta clonarse y eso cambia cuándo puede medirse o seleccionarse",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las plantillas con template?",
+      "respuesta": "Encaja bien en un patrón donde se crean componentes con estructura repetida y coste de creación predecible Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve atributos y propiedades y cuándo se nota más su valor?",
+      "respuesta": "representan dos capas distintas de estado: texto serializable en HTML y valores vivos en el objeto DOM Su valor se nota especialmente en se definen apis públicas claras para consumidores declarativos e imperativos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona atributos y propiedades a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, representan dos capas distintas de estado: texto serializable en html y valores vivos en el objeto dom Para usarlo bien conviene entender que reflejar estado en ambas direcciones sin cuidado puede causar bucles o incoherencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con atributos y propiedades?",
+      "respuesta": "Un error frecuente es asumir algo que reflejar estado en ambas direcciones sin cuidado puede causar bucles o incoherencia La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia atributos y propiedades de tratarlos como si siempre fueran intercambiables?",
+      "respuesta": "La diferencia clave es que representan dos capas distintas de estado: texto serializable en html y valores vivos en el objeto dom En cambio, algunos cambios de propiedad no reflejan a atributo y viceversa, por lo que la sincronización debe diseñarse conscientemente",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener atributos y propiedades?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se definen apis públicas claras para consumidores declarativos e imperativos y recordar que reflejar estado en ambas direcciones sin cuidado puede causar bucles o incoherencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con atributos y propiedades?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que reflejar estado en ambas direcciones sin cuidado puede causar bucles o incoherencia o de una suposición incorrecta sobre atributos y propiedades.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece atributos y propiedades y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque representan dos capas distintas de estado: texto serializable en html y valores vivos en el objeto dom Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que reflejar estado en ambas direcciones sin cuidado puede causar bucles o incoherencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor atributos y propiedades?",
+      "respuesta": "Encaja bien en un patrón donde se definen apis públicas claras para consumidores declarativos e imperativos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve observedAttributes y attributeChangedCallback y cuándo se nota más su valor?",
+      "respuesta": "permiten reaccionar a cambios en atributos observados del elemento Su valor se nota especialmente en se soporta configuración declarativa desde html o templates del servidor.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona observedAttributes y attributeChangedCallback a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten reaccionar a cambios en atributos observados del elemento Para usarlo bien conviene entender que este callback no cubre cambios directos de propiedades si no se reflejan a atributos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con observedAttributes y attributeChangedCallback?",
+      "respuesta": "Un error frecuente es asumir algo que este callback no cubre cambios directos de propiedades si no se reflejan a atributos La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia observedAttributes y attributeChangedCallback de leer atributos solo una vez al conectar el componente?",
+      "respuesta": "La diferencia clave es que permiten reaccionar a cambios en atributos observados del elemento En cambio, leer una sola vez pierde cambios posteriores, mientras que el callback hace explícita la sincronización reactiva",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener observedAttributes y attributeChangedCallback?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se soporta configuración declarativa desde html o templates del servidor y recordar que este callback no cubre cambios directos de propiedades si no se reflejan a atributos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con observedAttributes y attributeChangedCallback?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que este callback no cubre cambios directos de propiedades si no se reflejan a atributos o de una suposición incorrecta sobre observedAttributes y attributeChangedCallback.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece observedAttributes y attributeChangedCallback y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten reaccionar a cambios en atributos observados del elemento Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que este callback no cubre cambios directos de propiedades si no se reflejan a atributos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor observedAttributes y attributeChangedCallback?",
+      "respuesta": "Encaja bien en un patrón donde se soporta configuración declarativa desde html o templates del servidor Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los estilos con :host, ::part y CSS custom properties y cuándo se nota más su valor?",
+      "respuesta": "ofrecen mecanismos de tematización y exposición controlada de partes internas Su valor se nota especialmente en se publican componentes tematizables sin sacrificar aislamiento.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los estilos con :host, ::part y CSS custom properties a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ofrecen mecanismos de tematización y exposición controlada de partes internas Para usarlo bien conviene entender que exponer demasiadas partes o variables convierte la api visual en algo difícil de mantener",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los estilos con :host, ::part y CSS custom properties?",
+      "respuesta": "Un error frecuente es asumir algo que exponer demasiadas partes o variables convierte la api visual en algo difícil de mantener La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los estilos con :host, ::part y CSS custom properties de romper el encapsulamiento con selectores globales frágiles?",
+      "respuesta": "La diferencia clave es que ofrecen mecanismos de tematización y exposición controlada de partes internas En cambio, los selectores globales dependen de detalles internos, mientras que estas herramientas definen superficies públicas de estilo",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los estilos con :host, ::part y CSS custom properties?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se publican componentes tematizables sin sacrificar aislamiento y recordar que exponer demasiadas partes o variables convierte la api visual en algo difícil de mantener",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los estilos con :host, ::part y CSS custom properties?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que exponer demasiadas partes o variables convierte la api visual en algo difícil de mantener o de una suposición incorrecta sobre los estilos con :host, ::part y CSS custom properties.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los estilos con :host, ::part y CSS custom properties y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ofrecen mecanismos de tematización y exposición controlada de partes internas Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que exponer demasiadas partes o variables convierte la api visual en algo difícil de mantener",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los estilos con :host, ::part y CSS custom properties?",
+      "respuesta": "Encaja bien en un patrón donde se publican componentes tematizables sin sacrificar aislamiento Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los eventos en Web Components y cuándo se nota más su valor?",
+      "respuesta": "siguen propagándose, pero el retargeting y la opción composed alteran cómo se observan a través del shadow boundary Su valor se nota especialmente en se comunican acciones internas hacia la aplicación anfitriona.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los eventos en Web Components a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, siguen propagándose, pero el retargeting y la opción composed alteran cómo se observan a través del shadow boundary Para usarlo bien conviene entender que emitir eventos sin contrato de detalle y sin burbuja adecuada hace más difícil integrar el componente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los eventos en Web Components?",
+      "respuesta": "Un error frecuente es asumir algo que emitir eventos sin contrato de detalle y sin burbuja adecuada hace más difícil integrar el componente La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los eventos en Web Components de asumir que un evento custom sale del componente igual que un click normal?",
+      "respuesta": "La diferencia clave es que siguen propagándose, pero el retargeting y la opción composed alteran cómo se observan a través del shadow boundary En cambio, sin composed adecuado, un evento puede no cruzar el shadow root como espera el consumidor externo",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los eventos en Web Components?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se comunican acciones internas hacia la aplicación anfitriona y recordar que emitir eventos sin contrato de detalle y sin burbuja adecuada hace más difícil integrar el componente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los eventos en Web Components?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que emitir eventos sin contrato de detalle y sin burbuja adecuada hace más difícil integrar el componente o de una suposición incorrecta sobre los eventos en Web Components.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los eventos en Web Components y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque siguen propagándose, pero el retargeting y la opción composed alteran cómo se observan a través del shadow boundary Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que emitir eventos sin contrato de detalle y sin burbuja adecuada hace más difícil integrar el componente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los eventos en Web Components?",
+      "respuesta": "Encaja bien en un patrón donde se comunican acciones internas hacia la aplicación anfitriona Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la accesibilidad en componentes personalizados y cuándo se nota más su valor?",
+      "respuesta": "requiere exponer roles, nombres accesibles, foco y semántica equivalentes a controles nativos cuando aplica Su valor se nota especialmente en se construyen inputs, menús, diálogos o botones reutilizables.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la accesibilidad en componentes personalizados a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, requiere exponer roles, nombres accesibles, foco y semántica equivalentes a controles nativos cuando aplica Para usarlo bien conviene entender que replicar interacción de teclado, focus management y estados aria incompletamente genera barreras reales",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la accesibilidad en componentes personalizados?",
+      "respuesta": "Un error frecuente es asumir algo que replicar interacción de teclado, focus management y estados aria incompletamente genera barreras reales La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la accesibilidad en componentes personalizados de confiar en que una etiqueta personalizada ya es accesible por defecto?",
+      "respuesta": "La diferencia clave es que requiere exponer roles, nombres accesibles, foco y semántica equivalentes a controles nativos cuando aplica En cambio, los elementos nativos traen comportamiento accesible incorporado, mientras que un custom element debe implementarlo o delegarlo",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la accesibilidad en componentes personalizados?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se construyen inputs, menús, diálogos o botones reutilizables y recordar que replicar interacción de teclado, focus management y estados aria incompletamente genera barreras reales",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la accesibilidad en componentes personalizados?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que replicar interacción de teclado, focus management y estados aria incompletamente genera barreras reales o de una suposición incorrecta sobre la accesibilidad en componentes personalizados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la accesibilidad en componentes personalizados y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque requiere exponer roles, nombres accesibles, foco y semántica equivalentes a controles nativos cuando aplica Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que replicar interacción de teclado, focus management y estados aria incompletamente genera barreras reales",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la accesibilidad en componentes personalizados?",
+      "respuesta": "Encaja bien en un patrón donde se construyen inputs, menús, diálogos o botones reutilizables Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de la accesibilidad en componentes personalizados suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que replicar interacción de teclado, focus management y estados ARIA incompletamente genera barreras reales Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los elementos asociados a formularios y cuándo se nota más su valor?",
+      "respuesta": "permiten que un componente participe en formularios nativos usando ElementInternals Su valor se nota especialmente en se crean controles complejos que deben enviar datos y validar como un input real.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los elementos asociados a formularios a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten que un componente participe en formularios nativos usando elementinternals Para usarlo bien conviene entender que no todos los navegadores o flujos antiguos ofrecen el mismo nivel de soporte y hay que planificar fallback",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los elementos asociados a formularios?",
+      "respuesta": "Un error frecuente es asumir algo que no todos los navegadores o flujos antiguos ofrecen el mismo nivel de soporte y hay que planificar fallback La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los elementos asociados a formularios de sincronizar campos ocultos manualmente?",
+      "respuesta": "La diferencia clave es que permiten que un componente participe en formularios nativos usando elementinternals En cambio, los campos ocultos funcionan como parche, mientras que la asociación nativa integra validación, valor y estado con el formulario",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los elementos asociados a formularios?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se crean controles complejos que deben enviar datos y validar como un input real y recordar que no todos los navegadores o flujos antiguos ofrecen el mismo nivel de soporte y hay que planificar fallback",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los elementos asociados a formularios?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que no todos los navegadores o flujos antiguos ofrecen el mismo nivel de soporte y hay que planificar fallback o de una suposición incorrecta sobre los elementos asociados a formularios.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los elementos asociados a formularios y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten que un componente participe en formularios nativos usando elementinternals Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que no todos los navegadores o flujos antiguos ofrecen el mismo nivel de soporte y hay que planificar fallback",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los elementos asociados a formularios?",
+      "respuesta": "Encaja bien en un patrón donde se crean controles complejos que deben enviar datos y validar como un input real Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de los elementos asociados a formularios suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que no todos los navegadores o flujos antiguos ofrecen el mismo nivel de soporte y hay que planificar fallback Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve el rendimiento de renderizado y cuándo se nota más su valor?",
+      "respuesta": "depende de cuánto trabajo haga cada instancia al conectarse, renderizar y observar cambios Su valor se nota especialmente en se renderizan listas grandes o dashboards con muchos componentes simultáneos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el rendimiento de renderizado a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, depende de cuánto trabajo haga cada instancia al conectarse, renderizar y observar cambios Para usarlo bien conviene entender que recrear shadow trees completos y listeners por cada cambio pequeño suele ser más caro de lo necesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el rendimiento de renderizado?",
+      "respuesta": "Un error frecuente es asumir algo que recrear shadow trees completos y listeners por cada cambio pequeño suele ser más caro de lo necesario La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el rendimiento de renderizado de asumir que encapsular siempre sale gratis?",
+      "respuesta": "La diferencia clave es que depende de cuánto trabajo haga cada instancia al conectarse, renderizar y observar cambios En cambio, la encapsulación ayuda a mantenimiento, pero muchas instancias con lógica pesada pueden degradar TTI, memoria y actualizaciones",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el rendimiento de renderizado?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se renderizan listas grandes o dashboards con muchos componentes simultáneos y recordar que recrear shadow trees completos y listeners por cada cambio pequeño suele ser más caro de lo necesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el rendimiento de renderizado?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que recrear shadow trees completos y listeners por cada cambio pequeño suele ser más caro de lo necesario o de una suposición incorrecta sobre el rendimiento de renderizado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el rendimiento de renderizado y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque depende de cuánto trabajo haga cada instancia al conectarse, renderizar y observar cambios Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que recrear shadow trees completos y listeners por cada cambio pequeño suele ser más caro de lo necesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el rendimiento de renderizado?",
+      "respuesta": "Encaja bien en un patrón donde se renderizan listas grandes o dashboards con muchos componentes simultáneos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de el rendimiento de renderizado suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que recrear shadow trees completos y listeners por cada cambio pequeño suele ser más caro de lo necesario Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la interoperabilidad con frameworks y SSR y cuándo se nota más su valor?",
+      "respuesta": "marca cómo un componente se usa desde React, Vue, Angular o renderizado del servidor sin perder eventos ni propiedades Su valor se nota especialmente en se distribuyen design systems multiplataforma o componentes consumidos por equipos diversos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la interoperabilidad con frameworks y SSR a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, marca cómo un componente se usa desde react, vue, angular o renderizado del servidor sin perder eventos ni propiedades Para usarlo bien conviene entender que si el componente depende de upgrade tardío o propiedades complejas antes de definirse, la hidratación puede quedar desalineada",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la interoperabilidad con frameworks y SSR?",
+      "respuesta": "Un error frecuente es asumir algo que si el componente depende de upgrade tardío o propiedades complejas antes de definirse, la hidratación puede quedar desalineada La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la interoperabilidad con frameworks y SSR de suponer que cualquier framework lo trata igual que un elemento nativo?",
+      "respuesta": "La diferencia clave es que marca cómo un componente se usa desde react, vue, angular o renderizado del servidor sin perder eventos ni propiedades En cambio, muchos frameworks tienen matices para props, eventos custom y timing de hidratación, por lo que conviene diseñar una API explícita",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la interoperabilidad con frameworks y SSR?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se distribuyen design systems multiplataforma o componentes consumidos por equipos diversos y recordar que si el componente depende de upgrade tardío o propiedades complejas antes de definirse, la hidratación puede quedar desalineada",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la interoperabilidad con frameworks y SSR?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que si el componente depende de upgrade tardío o propiedades complejas antes de definirse, la hidratación puede quedar desalineada o de una suposición incorrecta sobre la interoperabilidad con frameworks y SSR.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la interoperabilidad con frameworks y SSR y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque marca cómo un componente se usa desde react, vue, angular o renderizado del servidor sin perder eventos ni propiedades Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que si el componente depende de upgrade tardío o propiedades complejas antes de definirse, la hidratación puede quedar desalineada",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la interoperabilidad con frameworks y SSR?",
+      "respuesta": "Encaja bien en un patrón donde se distribuyen design systems multiplataforma o componentes consumidos por equipos diversos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web Components"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de la interoperabilidad con frameworks y SSR suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que si el componente depende de upgrade tardío o propiedades complejas antes de definirse, la hidratación puede quedar desalineada Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web Components"
+      ]
+    }
+  ]
+}

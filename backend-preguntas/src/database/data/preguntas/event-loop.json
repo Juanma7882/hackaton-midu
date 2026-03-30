@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Event Loop",
+    "url": "/logos/nodejs.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que es fases del event loop y cuando conviene usarlo?",
+      "respuesta": "El event loop de node recorre fases como timers, pending callbacks, poll, check y close callbacks. Conviene usarlo cuando quieres entender en que momento se ejecuta cada callback.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver fases del event loop?",
+      "respuesta": "Ayuda a resolver suponer un orden de ejecucion incorrecto porque el event loop de Node recorre fases como timers, pending callbacks, poll, check y close callbacks.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce fases del event loop?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres entender en que momento se ejecuta cada callback, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar fases del event loop?",
+      "respuesta": "Un error comun es usarlo aunque memorizas fases sin relacionarlas con casos reales. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que fases del event loop esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que tests que dependen de ordenes no garantizados. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara fases del event loop con pensar que todo async cae en una sola cola?",
+      "respuesta": "Comparado con pensar que todo async cae en una sola cola, fases del event loop suele ofrecer una estructura mas explicita para quieres entender en que momento se ejecuta cada callback, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar fases del event loop?",
+      "respuesta": "Sirve medir trazas de orden, reproducibilidad de callbacks y ausencia de supuestos fragiles. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar fases del event loop?",
+      "respuesta": "No conviene usarlo cuando memorizas fases sin relacionarlas con casos reales. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde necesitas explicar por que dos callbacks no se disparan en el orden esperado, ¿como aporta fases del event loop?",
+      "respuesta": "Si necesitas explicar por que dos callbacks no se disparan en el orden esperado, fases del event loop ayuda porque el event loop de Node recorre fases como timers, pending callbacks, poll, check y close callbacks y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es microtasks y macrotasks y cuando conviene usarlo?",
+      "respuesta": "Las microtasks como promesas se vacian antes de avanzar a ciertas fases del loop, mientras timers e io siguen colas distintas. Conviene usarlo cuando quieres razonar sobre prioridad y timing real.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver microtasks y macrotasks?",
+      "respuesta": "Ayuda a resolver hambruna de tareas o ejecucion inesperada porque las microtasks como promesas se vacian antes de avanzar a ciertas fases del loop, mientras timers e IO siguen colas distintas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce microtasks y macrotasks?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres razonar sobre prioridad y timing real, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar microtasks y macrotasks?",
+      "respuesta": "Un error comun es usarlo aunque encadenas microtasks infinitas que bloquean progreso del loop. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que microtasks y macrotasks esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que bucles recursivos con Promise.resolve().then(...). Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara microtasks y macrotasks con tratar Promise.then y setTimeout como equivalentes?",
+      "respuesta": "Comparado con tratar Promise.then y setTimeout como equivalentes, microtasks y macrotasks suele ofrecer una estructura mas explicita para quieres razonar sobre prioridad y timing real, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar microtasks y macrotasks?",
+      "respuesta": "Sirve medir orden correcto entre callbacks y ausencia de starvation. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar microtasks y macrotasks?",
+      "respuesta": "No conviene usarlo cuando encadenas microtasks infinitas que bloquean progreso del loop. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde una promesa parece ejecutarse antes que un timeout de 0ms, ¿como aporta microtasks y macrotasks?",
+      "respuesta": "Si una promesa parece ejecutarse antes que un timeout de 0ms, microtasks y macrotasks ayuda porque las microtasks como promesas se vacian antes de avanzar a ciertas fases del loop, mientras timers e IO siguen colas distintas y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es timers y cuando conviene usarlo?",
+      "respuesta": "Settimeout y setinterval programan ejecucion futura pero no garantizan precision exacta al milisegundo. Conviene usarlo cuando quieres planificar reintentos, expiraciones o tareas periodicas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver timers?",
+      "respuesta": "Ayuda a resolver asumir timing exacto bajo carga porque setTimeout y setInterval programan ejecucion futura pero no garantizan precision exacta al milisegundo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce timers?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres planificar reintentos, expiraciones o tareas periodicas, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar timers?",
+      "respuesta": "Un error comun es usarlo aunque usas intervalos para trabajo pesado sin controlar solapamientos. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que timers esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que tareas periodicas que se pisan entre si cuando tardan mas que el intervalo. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara timers con cronometraje manual dentro de codigo bloqueante?",
+      "respuesta": "Comparado con cronometraje manual dentro de codigo bloqueante, timers suele ofrecer una estructura mas explicita para quieres planificar reintentos, expiraciones o tareas periodicas, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar timers?",
+      "respuesta": "Sirve medir drift, jitter y retraso acumulado bajo CPU o IO. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar timers?",
+      "respuesta": "No conviene usarlo cuando usas intervalos para trabajo pesado sin controlar solapamientos. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde un scheduler simple empieza a dispararse con retraso en produccion, ¿como aporta timers?",
+      "respuesta": "Si un scheduler simple empieza a dispararse con retraso en produccion, timers ayuda porque setTimeout y setInterval programan ejecucion futura pero no garantizan precision exacta al milisegundo y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es poll y check y cuando conviene usarlo?",
+      "respuesta": "La fase poll atiende muchos callbacks de io y check ejecuta setimmediate despues de poll. Conviene usarlo cuando quieres diferenciar comportamientos que parecen similares.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver poll y check?",
+      "respuesta": "Ayuda a resolver usar la API incorrecta para ceder control al loop porque la fase poll atiende muchos callbacks de IO y check ejecuta setImmediate despues de poll.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce poll y check?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres diferenciar comportamientos que parecen similares, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar poll y check?",
+      "respuesta": "Un error comun es usarlo aunque dependes de diferencias de timing como parte del contrato de negocio. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que poll y check esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que codigo que cambia de comportamiento segun si viene de una lectura de archivo. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara poll y check con confundir setImmediate con setTimeout(0)?",
+      "respuesta": "Comparado con confundir setImmediate con setTimeout(0), poll y check suele ofrecer una estructura mas explicita para quieres diferenciar comportamientos que parecen similares, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar poll y check?",
+      "respuesta": "Sirve medir orden observado tras IO y latencia de continuacion. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar poll y check?",
+      "respuesta": "No conviene usarlo cuando dependes de diferencias de timing como parte del contrato de negocio. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde quieres ejecutar trabajo justo despues de completar una operacion de IO, ¿como aporta poll y check?",
+      "respuesta": "Si quieres ejecutar trabajo justo despues de completar una operacion de IO, poll y check ayuda porque la fase poll atiende muchos callbacks de IO y check ejecuta setImmediate despues de poll y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es process.nextTick y cuando conviene usarlo?",
+      "respuesta": "Nexttick usa una cola especial que se procesa antes de otras microtasks y fases del loop. Conviene usarlo cuando necesitas ajustar APIs asincronas o diferir errores sin salir del stack actual.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver process.nextTick?",
+      "respuesta": "Ayuda a resolver starvation del loop si se abusa porque nextTick usa una cola especial que se procesa antes de otras microtasks y fases del loop.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce process.nextTick?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando necesitas ajustar APIs asincronas o diferir errores sin salir del stack actual, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar process.nextTick?",
+      "respuesta": "Un error comun es usarlo aunque encadenas nextTick recursivos en codigo caliente. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que process.nextTick esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que la aplicacion deja de atender IO pero sigue ejecutando callbacks nextTick. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara process.nextTick con setImmediate o Promise.resolve para diferimiento mas cooperativo?",
+      "respuesta": "Comparado con setImmediate o Promise.resolve para diferimiento mas cooperativo, process.nextTick suele ofrecer una estructura mas explicita para necesitas ajustar APIs asincronas o diferir errores sin salir del stack actual, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar process.nextTick?",
+      "respuesta": "Sirve medir event loop lag y profundidad de cascadas nextTick. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar process.nextTick?",
+      "respuesta": "No conviene usarlo cuando encadenas nextTick recursivos en codigo caliente. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es promesas en el loop y cuando conviene usarlo?",
+      "respuesta": "Las promesas interactuan con la cola de microtasks y su resolucion puede cambiar el orden aparente del flujo. Conviene usarlo cuando quieres mezclar async/await con timers e IO sin sorpresas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver promesas en el loop?",
+      "respuesta": "Ayuda a resolver rejections no manejadas y secuencias dificiles de predecir porque las promesas interactuan con la cola de microtasks y su resolucion puede cambiar el orden aparente del flujo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce promesas en el loop?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres mezclar async/await con timers e IO sin sorpresas, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar promesas en el loop?",
+      "respuesta": "Un error comun es usarlo aunque asumes que await siempre cede al loop de la misma manera en cualquier contexto. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que promesas en el loop esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que promesas creadas sin await ni catch. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara promesas en el loop con callbacks manuales?",
+      "respuesta": "Comparado con callbacks manuales, promesas en el loop suele ofrecer una estructura mas explicita para quieres mezclar async/await con timers e IO sin sorpresas, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar promesas en el loop?",
+      "respuesta": "Sirve medir orden de continuations, manejo de errores y paralelismo explicito. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar promesas en el loop?",
+      "respuesta": "No conviene usarlo cuando asumes que await siempre cede al loop de la misma manera en cualquier contexto. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es callbacks de IO y cuando conviene usarlo?",
+      "respuesta": "Muchas operaciones de red y filesystem completan en fases concretas segun su naturaleza y el estado del poll queue. Conviene usarlo cuando quieres explicar por que el IO no vuelve al instante.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver callbacks de IO?",
+      "respuesta": "Ayuda a resolver diagnosticos errados sobre latencia y orden porque muchas operaciones de red y filesystem completan en fases concretas segun su naturaleza y el estado del poll queue.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce callbacks de IO?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres explicar por que el IO no vuelve al instante, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar callbacks de IO?",
+      "respuesta": "Un error comun es usarlo aunque mezclas trabajo CPU pesado justo al recibir el callback. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que callbacks de IO esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que cada callback de IO desencadena procesamiento sin limites en el hilo principal. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara callbacks de IO con tratar todos los callbacks externos igual?",
+      "respuesta": "Comparado con tratar todos los callbacks externos igual, callbacks de IO suele ofrecer una estructura mas explicita para quieres explicar por que el IO no vuelve al instante, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar callbacks de IO?",
+      "respuesta": "Sirve medir tiempo en poll, backlog de callbacks y correlacion con carga de IO. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar callbacks de IO?",
+      "respuesta": "No conviene usarlo cuando mezclas trabajo CPU pesado justo al recibir el callback. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es worker pool de libuv y cuando conviene usarlo?",
+      "respuesta": "Libuv usa un pool de hilos para ciertas operaciones como filesystem, dns o crypto. Conviene usarlo cuando quieres entender que trabajo no corre realmente en el hilo JS.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver worker pool de libuv?",
+      "respuesta": "Ayuda a resolver saturar el pool y degradar latencia de otras tareas porque libuv usa un pool de hilos para ciertas operaciones como filesystem, DNS o crypto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce worker pool de libuv?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres entender que trabajo no corre realmente en el hilo JS, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar worker pool de libuv?",
+      "respuesta": "Un error comun es usarlo aunque subir el tamano del pool sin medir contencion de CPU. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que worker pool de libuv esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que operaciones crypto largas bloquean indirectamente otras tareas async. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara worker pool de libuv con pensar que todo async es gratis e infinito?",
+      "respuesta": "Comparado con pensar que todo async es gratis e infinito, worker pool de libuv suele ofrecer una estructura mas explicita para quieres entender que trabajo no corre realmente en el hilo JS, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar worker pool de libuv?",
+      "respuesta": "Sirve medir tiempo de cola, ocupacion del pool y event loop lag. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar worker pool de libuv?",
+      "respuesta": "No conviene usarlo cuando subir el tamano del pool sin medir contencion de CPU. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es bloqueo del hilo principal y cuando conviene usarlo?",
+      "respuesta": "Cualquier cpu intensa o bucle largo en javascript retrasa timers, io y respuestas porque el loop no avanza. Conviene usarlo cuando quieres mantener capacidad de respuesta.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver bloqueo del hilo principal?",
+      "respuesta": "Ayuda a resolver latencia espuria y timeouts en operaciones que no parecen relacionadas porque cualquier CPU intensa o bucle largo en JavaScript retrasa timers, IO y respuestas porque el loop no avanza.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce bloqueo del hilo principal?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres mantener capacidad de respuesta, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar bloqueo del hilo principal?",
+      "respuesta": "Un error comun es usarlo aunque subestimas el costo de parseos, compresion o loops grandes. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que bloqueo del hilo principal esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que un endpoint lento empeora todo el proceso. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara bloqueo del hilo principal con hacer calculo pesado inline en handlers?",
+      "respuesta": "Comparado con hacer calculo pesado inline en handlers, bloqueo del hilo principal suele ofrecer una estructura mas explicita para quieres mantener capacidad de respuesta, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar bloqueo del hilo principal?",
+      "respuesta": "Sirve medir event loop lag, tiempo por handler y uso de CPU del proceso. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar bloqueo del hilo principal?",
+      "respuesta": "No conviene usarlo cuando subestimas el costo de parseos, compresion o loops grandes. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es backpressure y streams y cuando conviene usarlo?",
+      "respuesta": "El event loop necesita cooperar con streams para no producir datos mas rapido de lo que se consumen. Conviene usarlo cuando manejas flujos grandes de lectura y escritura.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver backpressure y streams?",
+      "respuesta": "Ayuda a resolver buffers inflados, memoria alta y colas descontroladas porque el event loop necesita cooperar con streams para no producir datos mas rapido de lo que se consumen.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce backpressure y streams?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando manejas flujos grandes de lectura y escritura, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar backpressure y streams?",
+      "respuesta": "Un error comun es usarlo aunque empujas chunks sin respetar señales del consumidor. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que backpressure y streams esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que proceso con heap creciente durante transferencias prolongadas. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara backpressure y streams con ignorar el valor de retorno de write o el drenaje del stream?",
+      "respuesta": "Comparado con ignorar el valor de retorno de write o el drenaje del stream, backpressure y streams suele ofrecer una estructura mas explicita para manejas flujos grandes de lectura y escritura, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar backpressure y streams?",
+      "respuesta": "Sirve medir uso de memoria, throughput sostenido y frecuencia de drain. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar backpressure y streams?",
+      "respuesta": "No conviene usarlo cuando empujas chunks sin respetar señales del consumidor. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es medicion del loop y cuando conviene usarlo?",
+      "respuesta": "Medir event loop lag y utilizacion permite detectar bloqueo real en vez de sintomas indirectos. Conviene usarlo cuando quieres observabilidad operativa sobre la salud del runtime.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver medicion del loop?",
+      "respuesta": "Ayuda a resolver incidentes donde CPU, IO y latencia parecen contradecirse porque medir event loop lag y utilizacion permite detectar bloqueo real en vez de sintomas indirectos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce medicion del loop?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres observabilidad operativa sobre la salud del runtime, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar medicion del loop?",
+      "respuesta": "Un error comun es usarlo aunque recolectas metricas pero no defines umbrales ni acciones. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que medicion del loop esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que nadie sabe si la lentitud viene de red, DB o del propio proceso. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara medicion del loop con mirar solo tiempo total de respuesta?",
+      "respuesta": "Comparado con mirar solo tiempo total de respuesta, medicion del loop suele ofrecer una estructura mas explicita para quieres observabilidad operativa sobre la salud del runtime, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar medicion del loop?",
+      "respuesta": "Sirve medir lag, utilization, histogramas y correlacion con GC o dependencias. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar medicion del loop?",
+      "respuesta": "No conviene usarlo cuando recolectas metricas pero no defines umbrales ni acciones. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que es fairness y shutdown y cuando conviene usarlo?",
+      "respuesta": "Un uso sano del event loop implica repartir trabajo de forma cooperativa y terminar procesos sin dejar callbacks a medias. Conviene usarlo cuando quieres evitar starvation y cierres abruptos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver fairness y shutdown?",
+      "respuesta": "Ayuda a resolver tareas que monopolizan el loop o procesos que mueren con trabajo pendiente porque un uso sano del event loop implica repartir trabajo de forma cooperativa y terminar procesos sin dejar callbacks a medias.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce fairness y shutdown?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres evitar starvation y cierres abruptos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar fairness y shutdown?",
+      "respuesta": "Un error comun es usarlo aunque haces shutdown inmediato sin dejar de aceptar trafico primero. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que fairness y shutdown esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que colas internas que crecen indefinidamente o procesos que nunca terminan. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara fairness y shutdown con ignorar senales y colas internas?",
+      "respuesta": "Comparado con ignorar senales y colas internas, fairness y shutdown suele ofrecer una estructura mas explicita para quieres evitar starvation y cierres abruptos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar fairness y shutdown?",
+      "respuesta": "Sirve medir tiempo de drenado, callbacks pendientes y equidad entre tareas. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar fairness y shutdown?",
+      "respuesta": "No conviene usarlo cuando haces shutdown inmediato sin dejar de aceptar trafico primero. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Event Loop"
+      ]
+    }
+  ]
+}

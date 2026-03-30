@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Seguridad",
+    "url": "/logos/nodejs.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema tecnico resuelve validacion y sanitizacion de entradas dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Reduce el riesgo de inyecciones, datos inconsistentes y rutas de ejecucion no previstas Aporta mas valor cuando el sistema recibe datos desde formularios, APIs, cabeceras o integraciones externas poco confiables y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar validacion y sanitizacion de entradas en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en validar formato, longitud y semantica en el borde, y sanitizar solo cuando el contexto de salida lo exige El detalle que suele omitirse es confundir sanitizar con validar y pensar que una accion reemplaza a la otra, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con validacion y sanitizacion de entradas y como lo evitarias?",
+      "respuesta": "Un error comun es confiar en que el cliente ya hizo las verificaciones necesarias Para evitarlo conviene tratar toda entrada como no confiable y aplicar reglas por contexto, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta validacion y sanitizacion de entradas al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "validar temprano ahorra fallos posteriores y reduce superficies de ataque antes de llegar a recursos caros La mejora mas efectiva suele ser rechazar cuanto antes y reutilizar esquemas bien definidos, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con validacion y sanitizacion de entradas?",
+      "respuesta": "La estrategia es reproducir el payload exacto, revisar transformaciones de tipos y comprobar en que capa se pierde la restriccion Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona validacion y sanitizacion de entradas con inyeccion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque muchos ataques de inyeccion se vuelven imposibles si la entrada nunca cruza el borde con formato ambiguo El trade-off principal es reglas estrictas protegen mas, pero pueden dificultar compatibilidad con clientes legacy, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si validacion y sanitizacion de entradas debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es riesgo del dato, contexto de uso y coste operativo de rechazar entradas dudosas Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de validacion y sanitizacion de entradas en equipos grandes?",
+      "respuesta": "Una buena practica es modelar esquemas reutilizables por endpoint y salida para reforzar contratos de extremo a extremo Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que validacion y sanitizacion de entradas se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es errores de parseo, consultas malformadas o comportamientos distintos segun el cliente que envia los datos Cuando eso ocurre, conviene mover validacion al borde, tipar el contrato y eliminar conversiones implicitas tardias antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve autenticacion dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Permite verificar la identidad del usuario o del sistema que intenta acceder a recursos protegidos Aporta mas valor cuando existen cuentas, sesiones, tokens o integraciones entre servicios con distintos niveles de confianza y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar autenticacion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en elegir un mecanismo adecuado, proteger credenciales en transito y validar de forma consistente el contexto autenticado El detalle que suele omitirse es olvidar politicas de expiracion, rotacion y revocacion de credenciales, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con autenticacion y como lo evitarias?",
+      "respuesta": "Un error comun es considerar autenticado a un cliente solo por presentar un identificador Para evitarlo conviene verificar pruebas de posesion o firma y limitar el contexto derivado a lo necesario, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta autenticacion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "consultas de identidad innecesarias añaden latencia; un buen diseño minimiza I/O por request La mejora mas efectiva suele ser usar claims o sesiones bien modeladas y cachear validaciones segun el riesgo, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con autenticacion?",
+      "respuesta": "La estrategia es comprobar credencial, expiracion, emisor, audiencia, reloj del sistema y contexto de transporte Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona autenticacion con autorizacion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque autenticar responde quien eres; autorizar responde que puedes hacer con esa identidad El trade-off principal es mecanismos mas fuertes suelen agregar friccion de uso y complejidad operativa, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si autenticacion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es riesgo de la operacion, tipo de cliente y necesidad de revocacion inmediata Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de autenticacion en equipos grandes?",
+      "respuesta": "Una buena practica es combinar autenticacion fuerte con contexto adaptativo y eventos auditables Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que autenticacion se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es usuarios autenticados aparecen con permisos erraticos o tokens validos dejan de ser verificables en ciertos entornos Cuando eso ocurre, conviene normalizar el flujo de identidad y revisar expiracion, firma y origen en un solo punto antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve autorizacion dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Determina si una identidad autenticada puede ejecutar una accion sobre un recurso concreto Aporta mas valor cuando hay roles, pertenencia a organizaciones, ownership de datos o reglas contextuales finas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar autorizacion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en separar permisos por capacidad y evaluar reglas con el minimo contexto necesario del recurso El detalle que suele omitirse es comprobar solo el rol global e ignorar pertenencia o ownership del recurso, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con autorizacion y como lo evitarias?",
+      "respuesta": "Un error comun es esparcir reglas de permisos por controladores y consultas individuales Para evitarlo conviene centralizar politicas y hacerlas reutilizables y testeables, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta autorizacion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "consultar permisos de forma naive puede disparar multiples accesos a datos por request La mejora mas efectiva suele ser precargar contexto del recurso y evaluar politicas en memoria cuando sea viable, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con autorizacion?",
+      "respuesta": "La estrategia es identificar la politica exacta aplicada, el recurso evaluado y los atributos de identidad usados Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona autorizacion con modelado de roles y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque roles simples rara vez bastan cuando la autorizacion depende del contexto del recurso El trade-off principal es reglas finas mejoran seguridad, pero aumentan complejidad y necesidad de pruebas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si autorizacion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es sensibilidad del recurso, variabilidad de permisos y trazabilidad requerida Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de autorizacion en equipos grandes?",
+      "respuesta": "Una buena practica es usar permisos por capacidad y evaluaciones declarativas registradas para auditoria Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que autorizacion se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es usuarios con el mismo rol obtienen resultados distintos sin explicacion clara o se filtran datos de otro tenant Cuando eso ocurre, conviene centralizar politicas, añadir auditoria de decisiones y probar casos cruzados de recurso e identidad antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve gestion de secretos dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Protege claves, tokens, contraseñas y certificados frente a exposicion accidental o uso indebido Aporta mas valor cuando la aplicacion depende de APIs externas, bases de datos o servicios internos autenticados y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar gestion de secretos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en almacenar secretos fuera del codigo, rotarlos y limitar su alcance por entorno y servicio El detalle que suele omitirse es dejar secretos en logs, archivos de ejemplo o variables compartidas sin control de acceso, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con gestion de secretos y como lo evitarias?",
+      "respuesta": "Un error comun es reutilizar la misma credencial para desarrollo, staging y produccion Para evitarlo conviene segmentar por entorno, principio de minimo privilegio y caducidad definida, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta gestion de secretos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "la carga segura de secretos suele costar poco comparada con el impacto de una filtracion La mejora mas efectiva suele ser cargar una vez por ciclo de vida o cachear de forma controlada cuando el proveedor lo permita, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con gestion de secretos?",
+      "respuesta": "La estrategia es revisar de donde se resuelve cada secreto, quien puede leerlo y si hay valores fallback inseguros Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona gestion de secretos con rotacion de credenciales y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque gestionar secretos bien implica poder reemplazarlos sin interrupciones largas ni cambios manuales fragiles El trade-off principal es mas controles de acceso y rotacion mejoran seguridad, pero suben complejidad operativa, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si gestion de secretos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es criticidad del secreto, frecuencia de cambio y blast radius de una exposicion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de gestion de secretos en equipos grandes?",
+      "respuesta": "Una buena practica es usar identidades de servicio efimeras y eliminar secretos de larga duracion cuando sea posible Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que gestion de secretos se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es el mismo secreto aparece en varios servicios, pipelines o entornos y nadie sabe su origen exacto Cuando eso ocurre, conviene inventariar secretos, segmentarlos por servicio y planificar rotacion automatizada antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve proteccion contra inyeccion dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Evita que datos de entrada alteren consultas, comandos o plantillas mas alla de lo previsto Aporta mas valor cuando construyes SQL, consultas NoSQL, comandos de shell o contenido HTML a partir de entradas externas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar proteccion contra inyeccion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar APIs parametrizadas, listas permitidas y escapado especifico del contexto de salida El detalle que suele omitirse es olvidar superficies menos obvias como ordenamientos, nombres de campos o filtros dinamicos, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con proteccion contra inyeccion y como lo evitarias?",
+      "respuesta": "Un error comun es concatenar strings confiando en validaciones superficiales Para evitarlo conviene separar datos de instrucciones y modelar filtros permitidos explicitamente, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta proteccion contra inyeccion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "la parametrizacion suele ser mas segura y tambien mas estable para caches de consultas La mejora mas efectiva suele ser normalizar consultas y limitar construccion dinamica a fragmentos controlados, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con proteccion contra inyeccion?",
+      "respuesta": "La estrategia es comparar la entrada cruda con la sentencia resultante o la estructura final que recibe el motor Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona proteccion contra inyeccion con validacion y sanitizacion de entradas y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque validar reduce combinaciones invalidas, pero la defensa real depende del contexto donde se usa el dato El trade-off principal es whitelists estrictas reducen flexibilidad, pero simplifican mucho la superficie de ataque, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si proteccion contra inyeccion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es motor objetivo, expresividad requerida por la consulta y riesgo del recurso atacado Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de proteccion contra inyeccion en equipos grandes?",
+      "respuesta": "Una buena practica es modelar filtros con AST o builders seguros en lugar de strings manuales Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve seguridad web y cabeceras HTTP dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Mitiga vectores comunes del navegador como XSS, clickjacking, sniffing de tipos o fugas de origen Aporta mas valor cuando sirves contenido a navegadores o expones endpoints consumidos desde frontends web y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar seguridad web y cabeceras HTTP en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir cabeceras como CSP, X-Frame-Options o equivalentes modernos, y politicas CORS acordes al uso real El detalle que suele omitirse es copiar configuraciones de cabeceras sin entender su impacto en scripts, iframes o recursos externos, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con seguridad web y cabeceras HTTP y como lo evitarias?",
+      "respuesta": "Un error comun es permitir origenes demasiado amplios por conveniencia temporal Para evitarlo conviene partir de una politica minima y abrir solo lo imprescindible, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta seguridad web y cabeceras HTTP al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "las cabeceras casi no penalizan rendimiento, pero previenen fallos graves de seguridad en cliente La mejora mas efectiva suele ser consolidar politicas y evitar excepciones dispersas por endpoint, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con seguridad web y cabeceras HTTP?",
+      "respuesta": "La estrategia es usar herramientas del navegador para ver que politica bloquea cada recurso y por que Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona seguridad web y cabeceras HTTP con cookies y sesiones y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sameSite, CORS y politicas del navegador determinan si una cookie se envia o si un origen puede leer respuestas El trade-off principal es politicas estrictas elevan seguridad, pero pueden romper integraciones existentes si no se planifican, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si seguridad web y cabeceras HTTP debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es tipo de cliente web, recursos externos realmente necesarios y sensibilidad de la sesion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de seguridad web y cabeceras HTTP en equipos grandes?",
+      "respuesta": "Una buena practica es desplegar CSP con reportes antes de imponerla en modo bloqueante Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve cifrado en transito y en reposo dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Protege datos frente a interceptacion, manipulacion o lectura no autorizada en almacenamiento Aporta mas valor cuando manejas datos sensibles, integraciones externas o requisitos normativos de proteccion y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar cifrado en transito y en reposo en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en forzar TLS en transito y cifrar almacenamiento o campos sensibles segun el modelo de amenaza El detalle que suele omitirse es pensar que cifrar el disco basta para cualquier caso de acceso indebido interno, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con cifrado en transito y en reposo y como lo evitarias?",
+      "respuesta": "Un error comun es usar algoritmos o modos inseguros por compatibilidad historica Para evitarlo conviene elegir primitivas modernas y delegar cuando sea posible en librerias y servicios auditados, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta cifrado en transito y en reposo al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "el cifrado tiene coste, pero en la mayoria de sistemas es asumible frente al riesgo mitigado La mejora mas efectiva suele ser aplicar cifrado donde agrega valor real y gestionar claves eficientemente, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con cifrado en transito y en reposo?",
+      "respuesta": "La estrategia es verificar certificados, cadenas de confianza, suites aceptadas y proceso de derivacion o almacenamiento de claves Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona cifrado en transito y en reposo con gestion de secretos y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sin una gestion correcta de claves, el cifrado pierde gran parte de su utilidad practica El trade-off principal es mas proteccion criptografica implica mas complejidad de claves, rotacion y recuperacion ante incidentes, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si cifrado en transito y en reposo debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es sensibilidad de los datos, atacante esperado y obligaciones de cumplimiento Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de cifrado en transito y en reposo en equipos grandes?",
+      "respuesta": "Una buena practica es separar claves por dominio de datos y planificar rotacion sin reescrituras riesgosas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve rate limiting y mitigacion de abuso dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Reduce la superficie de fuerza bruta, scraping agresivo y consumo abusivo de recursos Aporta mas valor cuando expones endpoints publicos o acciones sensibles como login, recuperacion o busquedas costosas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar rate limiting y mitigacion de abuso en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir limites por identidad, IP o ruta y responder con estados y ventanas de reintento coherentes El detalle que suele omitirse es aplicar el mismo limite a todos los endpoints sin considerar su coste ni su riesgo, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con rate limiting y mitigacion de abuso y como lo evitarias?",
+      "respuesta": "Un error comun es confiar solo en la IP cuando hay proxys, NAT o usuarios legitimos compartiendo origen Para evitarlo conviene combinar varias claves de limitacion y distinguir rutas criticas de las normales, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta rate limiting y mitigacion de abuso al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "limitar antes reduce carga aguas abajo y protege dependencias mas caras La mejora mas efectiva suele ser colocar la defensa en capas tempranas y usar stores rapidos para contadores, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con rate limiting y mitigacion de abuso?",
+      "respuesta": "La estrategia es inspeccionar la clave usada para contar, la ventana temporal y si el proxy entrega la IP correcta Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona rate limiting y mitigacion de abuso con autenticacion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque login, refresh y recovery son puntos naturales donde un limite bien calibrado aporta mucho valor El trade-off principal es limites severos reducen abuso, pero pueden castigar a usuarios legitimos en picos o redes compartidas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si rate limiting y mitigacion de abuso debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es coste del endpoint, valor del objetivo y capacidad de distinguir usuarios reales de actores maliciosos Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de rate limiting y mitigacion de abuso en equipos grandes?",
+      "respuesta": "Una buena practica es combinar limites estaticos con senales adaptativas de riesgo Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve auditoria y logging seguro dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Permite reconstruir acciones relevantes sin exponer datos sensibles innecesarios en registros Aporta mas valor cuando necesitas investigar incidentes, accesos indebidos o acciones administrativas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar auditoria y logging seguro en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en registrar eventos de seguridad con actor, recurso, accion, resultado y contexto minimo relevante El detalle que suele omitirse es guardar secretos, tokens o datos personales completos por comodidad de depuracion, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con auditoria y logging seguro y como lo evitarias?",
+      "respuesta": "Un error comun es mezclar logs de negocio y seguridad sin prioridades ni retencion diferenciadas Para evitarlo conviene definir eventos auditables concretos y politicas de redaccion y retencion, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta auditoria y logging seguro al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "auditar mas aumenta almacenamiento, pero reduce tiempo de investigacion y blast radius operativo La mejora mas efectiva suele ser estructurar eventos y registrar solo lo necesario para atribucion y analisis, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con auditoria y logging seguro?",
+      "respuesta": "La estrategia es seguir un identificador de correlacion y confirmar integridad, orden temporal y fuente del evento Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona auditoria y logging seguro con respuesta a incidentes y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sin eventos auditables fiables, la respuesta a incidentes se apoya en conjeturas El trade-off principal es mas detalle ayuda a investigar, pero aumenta riesgos de privacidad y coste de retencion, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si auditoria y logging seguro debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es obligaciones regulatorias, valor forense y sensibilidad de los datos implicados Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de auditoria y logging seguro en equipos grandes?",
+      "respuesta": "Una buena practica es firmar o proteger logs criticos contra manipulacion y accesos no autorizados Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve dependencias y cadena de suministro dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Reduce el riesgo de introducir vulnerabilidades o codigo malicioso a traves de paquetes de terceros Aporta mas valor cuando el proyecto consume muchas dependencias directas e indirectas del ecosistema abierto y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar dependencias y cadena de suministro en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en minimizar dependencias, fijar versiones razonables, revisar advisories y actualizar con criterio El detalle que suele omitirse es añadir paquetes pequenos sin considerar su mantenimiento, permisos o transitive risk, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con dependencias y cadena de suministro y como lo evitarias?",
+      "respuesta": "Un error comun es actualizar a ciegas o ignorar vulnerabilidades porque no fallan tests funcionales Para evitarlo conviene evaluar criticidad, actividad del mantenedor y superficie real de uso del paquete, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta dependencias y cadena de suministro al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "menos dependencias simplifican instalacion, build y auditoria, ademas de reducir superficie de ataque La mejora mas efectiva suele ser eliminar paquetes redundantes y preferir estandares o utilidades propias muy pequenas cuando conviene, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con dependencias y cadena de suministro?",
+      "respuesta": "La estrategia es identificar si la vulnerabilidad afecta el codigo ejecutado en tu contexto y si existe mitigacion temporal Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona dependencias y cadena de suministro con publicacion de artefactos y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la seguridad no termina al instalar: tambien importa que artefactos produces y desde que pipeline El trade-off principal es menos dependencias reducen riesgo, pero pueden aumentar codigo propio a mantener, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si dependencias y cadena de suministro debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es criticidad del sistema, frecuencia de uso del paquete y disponibilidad de alternativas maduras Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de dependencias y cadena de suministro en equipos grandes?",
+      "respuesta": "Una buena practica es combinar escaneo de dependencias con politicas de aprobacion y procedencia verificable Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve sesiones, CSRF y manejo de cookies dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Protege flujos autenticados en navegador frente a uso involuntario de la sesion desde otro sitio Aporta mas valor cuando la autenticacion depende de cookies que el navegador envia automaticamente y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar sesiones, CSRF y manejo de cookies en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en combinar cookies con atributos correctos y defensas CSRF adecuadas al tipo de peticion El detalle que suele omitirse es pensar que CORS por si solo evita CSRF, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con sesiones, CSRF y manejo de cookies y como lo evitarias?",
+      "respuesta": "Un error comun es usar cookies de sesion sin revisar sameSite, path, dominio y renovacion tras login Para evitarlo conviene evaluar el modelo de cliente y aplicar tokens anti-CSRF o politicas sameSite apropiadas, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta sesiones, CSRF y manejo de cookies al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "la proteccion CSRF tiene coste minimo comparado con el daño potencial de ejecutar acciones en nombre del usuario La mejora mas efectiva suele ser verificar tokens solo en operaciones mutantes y mantener el flujo de sesion simple, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con sesiones, CSRF y manejo de cookies?",
+      "respuesta": "La estrategia es comprobar si la cookie se envia, desde que origen y si el token anti-CSRF coincide con la sesion esperada Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona sesiones, CSRF y manejo de cookies con seguridad web y cabeceras HTTP y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sameSite, origenes permitidos y cabeceras del navegador condicionan el riesgo real del flujo El trade-off principal es mas proteccion puede complicar integraciones entre dominios o apps embebidas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si sesiones, CSRF y manejo de cookies debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es tipo de cliente, dominio de despliegue y sensibilidad de las acciones mutantes Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de sesiones, CSRF y manejo de cookies en equipos grandes?",
+      "respuesta": "Una buena practica es separar cookies por finalidad y regenerar identificadores de sesion tras eventos sensibles Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve respuesta a incidentes y endurecimiento dentro de Seguridad y en que escenario aporta mas valor?",
+      "respuesta": "Prepara al sistema y al equipo para contener, analizar y corregir fallos de seguridad con menos impacto Aporta mas valor cuando operas servicios en produccion y asumes que tarde o temprano habra alertas o comportamientos sospechosos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar respuesta a incidentes y endurecimiento en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir runbooks, aislamiento, rotacion de credenciales, evidencias y pasos de recuperacion El detalle que suele omitirse es no practicar los procedimientos hasta el momento real del incidente, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con respuesta a incidentes y endurecimiento y como lo evitarias?",
+      "respuesta": "Un error comun es centrarse solo en prevenir y no en detectar y responder Para evitarlo conviene tratar la seguridad como capacidad operacional continua y no como checklist puntual, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta respuesta a incidentes y endurecimiento al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "el endurecimiento preventivo y la respuesta preparada reducen tiempo de exposicion y recuperacion La mejora mas efectiva suele ser automatizar deteccion basica, rotacion y revocacion donde el riesgo lo justifique, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con respuesta a incidentes y endurecimiento?",
+      "respuesta": "La estrategia es correlacionar alertas, logs, cambios recientes y alcance real del incidente antes de aplicar medidas irreversibles Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona respuesta a incidentes y endurecimiento con auditoria y logging seguro y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sin evidencias confiables, responder rapido puede empeorar la situacion o destruir rastros utiles El trade-off principal es controles mas estrictos mejoran postura, pero añaden friccion operativa y de despliegue, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si respuesta a incidentes y endurecimiento debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es criticidad del servicio, capacidad del equipo y tiempo objetivo de contencion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de respuesta a incidentes y endurecimiento en equipos grandes?",
+      "respuesta": "Una buena practica es hacer ejercicios de mesa y postmortems de seguridad orientados a acciones concretas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Seguridad"
+      ]
+    }
+  ]
+}

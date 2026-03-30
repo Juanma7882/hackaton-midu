@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Hooks",
+    "url": "/logos/hooks.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema tecnico resuelve useState dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite almacenar estado local entre renders con una API simple orientada a transiciones de interfaz Aporta mas valor cuando necesitas toggles, formularios, filtros o estados pequeños acoplados a un componente y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useState en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en guardar el minimo estado posible y usar actualizaciones funcionales cuando el nuevo valor depende del anterior El detalle que suele omitirse es leer un valor cerrado por closure y actualizarlo como si siempre fuese el ultimo, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useState y como lo evitarias?",
+      "respuesta": "Un error comun es usar muchos states redundantes que representan la misma fuente de verdad Para evitarlo conviene normalizar el estado y agruparlo solo cuando los cambios estan realmente relacionados, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useState al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "demasiados estados derivados producen renders y sincronizaciones innecesarias La mejora mas efectiva suele ser eliminar duplicacion y calcular durante el render lo que no necesita persistencia, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useState?",
+      "respuesta": "La estrategia es revisar si el valor actualizado depende del anterior y si el cierre usado es el esperado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useState con useReducer y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque cuando las transiciones del estado son numerosas o complejas, useReducer suele expresar mejor la logica El trade-off principal es useState es muy simple, pero escala peor cuando hay muchas invariantes y acciones relacionadas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useState debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es numero de transiciones, complejidad del estado y necesidad de expresar reglas de dominio Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useState en equipos grandes?",
+      "respuesta": "Una buena practica es usar setters funcionales y estado minimo para evitar bugs de cierres y duplicacion Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que useState se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es varios setState deben mantenerse sincronizados manualmente o aparecen valores desfasados Cuando eso ocurre, conviene reducir estado derivado y pasar a actualizaciones funcionales o reducer cuando haga falta antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useEffect dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite sincronizar el componente con sistemas externos despues del render, como red, timers o suscripciones Aporta mas valor cuando debes cargar datos, registrar listeners o coordinar recursos fuera del flujo puro de render y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useEffect en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar efectos pequeños con dependencias claras y una limpieza que deshaga exactamente la sincronizacion creada El detalle que suele omitirse es usar useEffect para calcular datos puros que podrian resolverse durante el render, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useEffect y como lo evitarias?",
+      "respuesta": "Un error comun es ocultar dependencias reales para evitar reejecuciones y terminar con estado inconsistente Para evitarlo conviene tratar el array de dependencias como descripcion honesta de lo que usa el efecto, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useEffect al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "efectos innecesarios provocan peticiones duplicadas, suscripciones sobrantes y trabajo extra tras cada render La mejora mas efectiva suele ser mover calculos puros fuera del efecto y encapsular la sincronizacion externa en hooks o helpers, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useEffect?",
+      "respuesta": "La estrategia es preguntar que sistema externo se sincroniza, cuando debe limpiarse y por que se dispara la reejecucion Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useEffect con useRef y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque useRef permite conservar valores mutables estables que ayudan a coordinar efectos sin disparar renders El trade-off principal es da acceso al mundo externo, pero aumenta el riesgo de efectos acoplados y bucles de render, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useEffect debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si existe un recurso externo real o si solo falta modelar mejor el estado y el render Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useEffect en equipos grandes?",
+      "respuesta": "Una buena practica es dividir efectos por responsabilidad y usar cancelacion o abortos en trabajo asincrono Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que useEffect se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es el componente re-renderiza en bucle o repite side effects al cambiar dependencias relacionadas Cuando eso ocurre, conviene separar responsabilidades, declarar dependencias honestas y limpiar recursos correctamente antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useMemo dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite cachear el resultado de un calculo costoso mientras sus dependencias no cambian Aporta mas valor cuando hay transformaciones de listas, derivaciones pesadas o valores que deben mantener identidad estable y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useMemo en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en memoizar solo calculos medidos como costosos o valores cuya referencia estable realmente evita trabajo aguas abajo El detalle que suele omitirse es usar useMemo por defecto incluso con calculos triviales, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useMemo y como lo evitarias?",
+      "respuesta": "Un error comun es olvidar que el propio useMemo tiene coste y complejidad de dependencias Para evitarlo conviene aplicarlo solo donde el ahorro supera claramente el coste conceptual y de comparacion, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useMemo al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "bien usado reduce trabajo repetido; mal usado vuelve el codigo mas rigido sin mejora sensible La mejora mas efectiva suele ser perfilar antes y eliminar memoizaciones decorativas, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useMemo?",
+      "respuesta": "La estrategia es comprobar si el calculo es realmente caro y si alguna dependencia cambia de identidad en cada render Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useMemo con React.memo y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque a menudo useMemo se usa para estabilizar props que reciben componentes memoizados El trade-off principal es menos recomputacion frente a mayor complejidad y riesgo de dependencias mal declaradas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useMemo debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es coste del calculo, frecuencia de render y necesidad de identidad estable Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useMemo en equipos grandes?",
+      "respuesta": "Una buena practica es combinar memoizacion con normalizacion de datos y segmentacion del arbol Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que useMemo se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es los renders siguen costando casi lo mismo aunque se añadan memoizaciones por todas partes Cuando eso ocurre, conviene medir cuellos de botella reales y retirar memoizaciones que no aportan ahorro tangible antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useCallback dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite mantener estable la referencia de una funcion entre renders cuando eso importa para hijos o efectos Aporta mas valor cuando pasas callbacks a componentes memoizados o a hooks que dependen de identidad estable y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useCallback en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usarlo solo cuando la estabilidad de la funcion evita trabajo real o resuelve un contrato de dependencias El detalle que suele omitirse es envolver todos los handlers solo por intuicion de rendimiento, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useCallback y como lo evitarias?",
+      "respuesta": "Un error comun es creer que useCallback hace la funcion mas rapida de ejecutar Para evitarlo conviene tratarlo como herramienta de identidad referencial, no como optimizacion universal, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useCallback al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "puede evitar renders de hijos o re-suscripciones, pero añade ruido si nada depende de la referencia La mejora mas efectiva suele ser aplicarlo en fronteras donde la referencia estable tenga consumidores reales, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useCallback?",
+      "respuesta": "La estrategia es identificar quien observa la identidad de la funcion y si las dependencias cambian de todos modos Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useCallback con useMemo y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque ambos hooks persiguen estabilidad referencial, uno para valores y otro para funciones El trade-off principal es menos churn de referencias frente a mas dependencia mental del array de deps, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useCallback debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es existencia de componentes memoizados, efectos sensibles o APIs que comparan callbacks por referencia Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useCallback en equipos grandes?",
+      "respuesta": "Una buena practica es reducir dependencias moviendo logica al callback updater o a funciones puras externas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que useCallback se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es hijos memoizados siguen rerenderizando por handlers recreados o efectos se resuscriben innecesariamente Cuando eso ocurre, conviene estabilizar solo los callbacks observados por memoizacion o efectos antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useRef dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite conservar un valor mutable estable entre renders sin disparar renderizados adicionales Aporta mas valor cuando necesitas acceder a un nodo DOM, guardar un id de timer o comparar valores anteriores y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useRef en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar refs para datos mutables que no pertenecen a la salida visual y para puentes con APIs imperativas El detalle que suele omitirse es guardar en ref datos que deberian estar en estado porque afectan a la UI, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useRef y como lo evitarias?",
+      "respuesta": "Un error comun es mutar ref esperando que React vuelva a renderizar Para evitarlo conviene separar claramente datos visuales del estado y datos operativos mutables de la ref, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useRef al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "evita renders innecesarios para metadatos internos, pero puede esconder flujos si se usa como escape general La mejora mas efectiva suele ser reservarla para coordinar efectos, elementos DOM o valores de proceso, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useRef?",
+      "respuesta": "La estrategia es comprobar si el valor en ref debe verse en pantalla o solo soporta logica interna Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useRef con useEffect y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque muchos efectos usan refs para acceder al ultimo valor o recurso sin resuscribirse por cada cambio El trade-off principal es mas control imperativo frente a menos visibilidad declarativa del flujo, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useRef debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el dato debe disparar render o solo persistir entre ejecuciones del componente Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useRef en equipos grandes?",
+      "respuesta": "Una buena practica es usar refs para integrar APIs imperativas sin contaminar el modelo declarativo Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useReducer dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite modelar transiciones de estado complejas mediante acciones explicitas y una funcion reductora pura Aporta mas valor cuando varios cambios dependen del estado previo y existen invariantes que quieres centralizar y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useReducer en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir acciones semanticas y un reducer que mantenga juntas las reglas del dominio local El detalle que suele omitirse es usar reducers para estados triviales donde solo añade ceremonias, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useReducer y como lo evitarias?",
+      "respuesta": "Un error comun es meter efectos secundarios dentro del reducer Para evitarlo conviene mantenerlo puro y despachar acciones que describan intencion, no implementacion incidental, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useReducer al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "no acelera por si solo, pero reduce bugs y rerenders derivados de transiciones mal coordinadas La mejora mas efectiva suele ser combinarlo con context o memoizacion solo cuando el problema lo justifica, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useReducer?",
+      "respuesta": "La estrategia es seguir la secuencia de acciones y verificar que cada una preserve las invariantes del estado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useReducer con useState y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque ambos gestionan estado local, pero useReducer expresa mejor multiples transiciones relacionadas El trade-off principal es mas estructura y trazabilidad frente a mas codigo y abstraccion inicial, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useReducer debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es numero de acciones, complejidad de invariantes y necesidad de pruebas del flujo de estado Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useReducer en equipos grandes?",
+      "respuesta": "Una buena practica es modelar estados imposibles como casos no representables dentro del reducer Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useContext dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite leer valores compartidos por un provider sin pasar props por muchos niveles intermedios Aporta mas valor cuando varias ramas necesitan tema, idioma, sesion o configuracion global controlada y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useContext en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en mantener contextos pequeños, con significado claro y providers lo mas cerca posible de sus consumidores El detalle que suele omitirse es poner en un solo contexto datos de alta y baja frecuencia de cambio, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useContext y como lo evitarias?",
+      "respuesta": "Un error comun es tratar useContext como store global universal Para evitarlo conviene separar dominios y exponer solo la API minima necesaria, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useContext al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "un contexto amplio rerenderiza demasiados consumidores cuando cambia cualquier parte del valor La mejora mas efectiva suele ser partir providers y memoizar el valor entregado cuando su identidad importa, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useContext?",
+      "respuesta": "La estrategia es revisar que cambia en el provider y cuantos consumidores se ven afectados realmente Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useContext con memoizacion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la estabilidad referencial del valor del provider es clave para que el contexto no propague renders innecesarios El trade-off principal es menos prop drilling frente a mayor acoplamiento y alcance de re-render si se sobredimensiona, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useContext debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es alcance del dato, frecuencia de cambio y numero de consumidores Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useContext en equipos grandes?",
+      "respuesta": "Una buena practica es exponer hooks de lectura y escritura separados para contextos con mucha actividad Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useLayoutEffect dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permite ejecutar logica despues del render pero antes de que el navegador pinte, util para medir o ajustar layout Aporta mas valor cuando necesitas leer medidas del DOM o aplicar correcciones visuales sin parpadeos perceptibles y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useLayoutEffect en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usarlo solo en trabajo de layout verdaderamente necesario y mantenerlo muy breve El detalle que suele omitirse es sustituir useEffect por useLayoutEffect sin necesidad real, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useLayoutEffect y como lo evitarias?",
+      "respuesta": "Un error comun es hacer trabajo pesado dentro de un hook que bloquea el pintado Para evitarlo conviene reservarlo para medicion o sincronizacion visual que no puede esperar al paint, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useLayoutEffect al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "si se abusa de el, bloquea el render del navegador y degrada la fluidez La mejora mas efectiva suele ser mover todo lo no visual a useEffect y minimizar operaciones de medida, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useLayoutEffect?",
+      "respuesta": "La estrategia es comprobar si el problema es un flicker visual real o solo una suposicion sobre el timing Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useLayoutEffect con useEffect y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque ambos sincronizan efectos, pero useLayoutEffect corre antes de pintar y por eso debe usarse con mas cautela El trade-off principal es control visual preciso frente a mayor riesgo de bloquear el frame, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useLayoutEffect debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el usuario percibe un salto de layout que no puede tolerarse tras el paint Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useLayoutEffect en equipos grandes?",
+      "respuesta": "Una buena practica es medir una vez, cachear resultado y evitar recalculos de layout innecesarios Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve useImperativeHandle y forwardRef dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permiten exponer una API imperativa controlada desde un componente hijo hacia un padre Aporta mas valor cuando un padre necesita enfocar, resetear o disparar una accion concreta de un componente encapsulado y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar useImperativeHandle y forwardRef en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en exponer un contrato pequeno y estable en lugar de filtrar toda la implementacion interna El detalle que suele omitirse es usar refs imperativas cuando una prop declarativa resolveria mejor el problema, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con useImperativeHandle y forwardRef y como lo evitarias?",
+      "respuesta": "Un error comun es exponer demasiados metodos y acoplar al padre con detalles internos del hijo Para evitarlo conviene mantener la API imperativa minima y orientada a casos que realmente lo requieren, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta useImperativeHandle y forwardRef al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "su impacto directo es bajo, pero el exceso de control imperativo complica la mantenibilidad La mejora mas efectiva suele ser preferir flujo declarativo y usar imperativo solo en foco, medicion o integracion externa, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con useImperativeHandle y forwardRef?",
+      "respuesta": "La estrategia es verificar si el metodo expuesto representa una capacidad estable o un detalle temporal de implementacion Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona useImperativeHandle y forwardRef con useRef y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la referencia sirve como canal, pero useImperativeHandle decide exactamente que se expone al exterior El trade-off principal es mas encapsulacion frente a una pequeña API imperativa que rompe parcialmente el modelo declarativo, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si useImperativeHandle y forwardRef debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si la accion no puede expresarse comodamente como cambio de props o estado Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de useImperativeHandle y forwardRef en equipos grandes?",
+      "respuesta": "Una buena practica es envolver widgets imperativos de terceros tras una API minima y estable Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve custom hooks dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Permiten reutilizar logica con estado y efectos sin repetir implementacion en multiples componentes Aporta mas valor cuando varios componentes comparten patrones de datos, suscripcion, formulario o integracion externa y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar custom hooks en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en extraer un hook cuando existe un patron repetido con una entrada y salida bien definidas El detalle que suele omitirse es crear hooks demasiado genericos sin un contrato claro ni casos reales repetidos, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con custom hooks y como lo evitarias?",
+      "respuesta": "Un error comun es usar custom hooks como simple movimiento de codigo sin mejorar la abstraccion Para evitarlo conviene diseñar hooks alrededor de una capacidad concreta y no de todas las variantes imaginables, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta custom hooks al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "un hook no mejora rendimiento por si solo, pero centraliza optimizaciones y reduce errores repetidos La mejora mas efectiva suele ser mantener interfaces pequeñas y reutilizar internamente la composicion de hooks nativos, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con custom hooks?",
+      "respuesta": "La estrategia es mirar si el hook realmente encapsula una unidad de comportamiento o solo oculta complejidad accidental Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona custom hooks con reglas de hooks y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los custom hooks deben respetar las mismas reglas de orden y pureza que cualquier hook nativo El trade-off principal es mas reutilizacion y consistencia frente a nuevas capas de abstraccion que hay que nombrar y mantener, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si custom hooks debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es repeticion real, estabilidad del caso de uso y claridad de la API resultante Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de custom hooks en equipos grandes?",
+      "respuesta": "Una buena practica es componer hooks pequenos por capacidad en vez de crear hooks monoliticos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve reglas de hooks y cierres dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Garantizan que React asocie cada hook al mismo orden de llamada y evitan bugs por valores capturados incorrectamente Aporta mas valor cuando aparecen dependencias omitidas, hooks condicionales o callbacks que leen datos antiguos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar reglas de hooks y cierres en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en llamar hooks siempre al mismo nivel y entender que cada render crea nuevos cierres sobre props y estado El detalle que suele omitirse es pensar que una funcion dentro del componente siempre ve los valores mas recientes sin condicion, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con reglas de hooks y cierres y como lo evitarias?",
+      "respuesta": "Un error comun es invocar hooks dentro de condiciones, bucles o helpers normales Para evitarlo conviene modelar ramas en el render y extraer hooks o componentes cuando una condicion complica el orden de llamadas, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta reglas de hooks y cierres al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "los errores de cierres no suelen ser de CPU, pero crean comportamientos inconsistentes y muy costosos de depurar La mejora mas efectiva suele ser usar dependencias honestas, refs cuando toca y funciones updater para estados previos, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con reglas de hooks y cierres?",
+      "respuesta": "La estrategia es revisar que valor captura cada callback y si el orden de hooks se mantiene igual en todos los renders Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona reglas de hooks y cierres con useEffect y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque muchos bugs de useEffect nacen de no entender cierres y arrays de dependencias El trade-off principal es seguir reglas estrictas simplifica el runtime, pero obliga a una disciplina clara de estructura, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si reglas de hooks y cierres debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el flujo puede representarse declarativamente sin romper el orden fijo de hooks Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de reglas de hooks y cierres en equipos grandes?",
+      "respuesta": "Una buena practica es reformular logica condicional en hooks especializados o componentes separados Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve hooks de rendimiento y concurrencia dentro de Hooks y en que escenario aporta mas valor?",
+      "respuesta": "Incluyen herramientas como useTransition o useDeferredValue para priorizar trabajo y mantener la UI responsiva Aporta mas valor cuando actualizaciones pesadas bloquean escritura, filtros o navegacion visual en componentes complejos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar hooks de rendimiento y concurrencia en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en marcar como diferibles los cambios no urgentes y separar claramente feedback inmediato de resultados costosos El detalle que suele omitirse es esperar que estos hooks sustituyan una mala estructura de estado o listas gigantes sin virtualizar, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con hooks de rendimiento y concurrencia y como lo evitarias?",
+      "respuesta": "Un error comun es aplicar concurrencia sin distinguir que actualizacion necesita respuesta inmediata del usuario Para evitarlo conviene usar primero modelado de estado sano y despues ajustar prioridad donde existe dolor real, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta hooks de rendimiento y concurrencia al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "mejoran la fluidez percibida, pero no eliminan el coste total del trabajo pesado La mejora mas efectiva suele ser combinar prioridad de actualizaciones con memoizacion, segmentacion y virtualizacion, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con hooks de rendimiento y concurrencia?",
+      "respuesta": "La estrategia es medir que parte bloquea la interaccion y si el problema es prioridad o exceso puro de trabajo Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona hooks de rendimiento y concurrencia con memoizacion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la concurrencia funciona mejor cuando el trabajo costoso ya esta razonablemente contenido El trade-off principal es mejor respuesta de interfaz frente a un modelo mental mas complejo sobre estados pendientes, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si hooks de rendimiento y concurrencia debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el usuario necesita continuidad en la interaccion mientras se calcula un resultado no urgente Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de hooks de rendimiento y concurrencia en equipos grandes?",
+      "respuesta": "Una buena practica es usar transiciones en busquedas, filtrados y navegacion con feedback de estado pendiente Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Hooks"
+      ]
+    }
+  ]
+}

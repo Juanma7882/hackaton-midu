@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Arrays",
+    "url": "/logos/arrays.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Qué problema resuelve los métodos mutables y cuándo se nota más su valor?",
+      "respuesta": "modifican el array original y por tanto cambian la referencia compartida entre consumidores Su valor se nota especialmente en se mantienen estructuras compartidas, estado de ui o pipelines de transformación.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los métodos mutables a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, modifican el array original y por tanto cambian la referencia compartida entre consumidores Para usarlo bien conviene entender que mutar un array reutilizado en otra parte puede introducir efectos laterales difíciles de rastrear",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los métodos mutables?",
+      "respuesta": "Un error frecuente es asumir algo que mutar un array reutilizado en otra parte puede introducir efectos laterales difíciles de rastrear La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los métodos mutables de los métodos no mutables?",
+      "respuesta": "La diferencia clave es que modifican el array original y por tanto cambian la referencia compartida entre consumidores En cambio, los métodos no mutables devuelven una nueva colección, mientras que los mutables alteran el dato base y sus alias",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los métodos mutables?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se mantienen estructuras compartidas, estado de ui o pipelines de transformación y recordar que mutar un array reutilizado en otra parte puede introducir efectos laterales difíciles de rastrear",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los métodos mutables?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que mutar un array reutilizado en otra parte puede introducir efectos laterales difíciles de rastrear o de una suposición incorrecta sobre los métodos mutables.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los métodos mutables y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque modifican el array original y por tanto cambian la referencia compartida entre consumidores Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que mutar un array reutilizado en otra parte puede introducir efectos laterales difíciles de rastrear",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los métodos mutables?",
+      "respuesta": "Encaja bien en un patrón donde se mantienen estructuras compartidas, estado de ui o pipelines de transformación Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve map, filter y reduce y cuándo se nota más su valor?",
+      "respuesta": "permiten expresar transformación, selección y acumulación de forma declarativa Su valor se nota especialmente en se procesan listas de resultados, normalización de datos o estadísticas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona map, filter y reduce a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten expresar transformación, selección y acumulación de forma declarativa Para usarlo bien conviene entender que usar reduce para todo puede volver opaco un código que sería más claro con operaciones separadas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con map, filter y reduce?",
+      "respuesta": "Un error frecuente es asumir algo que usar reduce para todo puede volver opaco un código que sería más claro con operaciones separadas La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia map, filter y reduce de los bucles imperativos tradicionales?",
+      "respuesta": "La diferencia clave es que permiten expresar transformación, selección y acumulación de forma declarativa En cambio, los bucles dan control fino de cada paso, mientras que estos métodos hacen explícita la intención de la operación sobre la colección",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener map, filter y reduce?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se procesan listas de resultados, normalización de datos o estadísticas y recordar que usar reduce para todo puede volver opaco un código que sería más claro con operaciones separadas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con map, filter y reduce?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que usar reduce para todo puede volver opaco un código que sería más claro con operaciones separadas o de una suposición incorrecta sobre map, filter y reduce.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece map, filter y reduce y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten expresar transformación, selección y acumulación de forma declarativa Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que usar reduce para todo puede volver opaco un código que sería más claro con operaciones separadas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor map, filter y reduce?",
+      "respuesta": "Encaja bien en un patrón donde se procesan listas de resultados, normalización de datos o estadísticas Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve sort y cuándo se nota más su valor?",
+      "respuesta": "ordena elementos in place y depende de un comparador correcto para producir resultados consistentes Su valor se nota especialmente en se ordenan listados, rankings o vistas con múltiples criterios.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona sort a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ordena elementos in place y depende de un comparador correcto para producir resultados consistentes Para usarlo bien conviene entender que un comparador no transitivo o con efectos laterales puede generar resultados difíciles de explicar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con sort?",
+      "respuesta": "Un error frecuente es asumir algo que un comparador no transitivo o con efectos laterales puede generar resultados difíciles de explicar La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia sort de suponer que los números se ordenan bien sin comparador?",
+      "respuesta": "La diferencia clave es que ordena elementos in place y depende de un comparador correcto para producir resultados consistentes En cambio, sin comparador, sort convierte a string y usa orden lexicográfico, lo que no coincide con el orden numérico esperado",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener sort?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se ordenan listados, rankings o vistas con múltiples criterios y recordar que un comparador no transitivo o con efectos laterales puede generar resultados difíciles de explicar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con sort?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que un comparador no transitivo o con efectos laterales puede generar resultados difíciles de explicar o de una suposición incorrecta sobre sort.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece sort y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ordena elementos in place y depende de un comparador correcto para producir resultados consistentes Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que un comparador no transitivo o con efectos laterales puede generar resultados difíciles de explicar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor sort?",
+      "respuesta": "Encaja bien en un patrón donde se ordenan listados, rankings o vistas con múltiples criterios Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los arrays dispersos y cuándo se nota más su valor?",
+      "respuesta": "pueden tener huecos reales entre índices y no equivalen exactamente a elementos undefined explícitos Su valor se nota especialmente en se consumen datos legacy o se trabaja con apis que crean índices salteados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los arrays dispersos a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, pueden tener huecos reales entre índices y no equivalen exactamente a elementos undefined explícitos Para usarlo bien conviene entender que contar longitud no implica que todos los índices tengan valor asignado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los arrays dispersos?",
+      "respuesta": "Un error frecuente es asumir algo que contar longitud no implica que todos los índices tengan valor asignado La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los arrays dispersos de un array denso con undefined en posiciones existentes?",
+      "respuesta": "La diferencia clave es que pueden tener huecos reales entre índices y no equivalen exactamente a elementos undefined explícitos En cambio, un hueco no siempre es visitado por todos los métodos igual que un valor undefined guardado de verdad",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los arrays dispersos?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se consumen datos legacy o se trabaja con apis que crean índices salteados y recordar que contar longitud no implica que todos los índices tengan valor asignado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los arrays dispersos?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que contar longitud no implica que todos los índices tengan valor asignado o de una suposición incorrecta sobre los arrays dispersos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los arrays dispersos y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque pueden tener huecos reales entre índices y no equivalen exactamente a elementos undefined explícitos Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que contar longitud no implica que todos los índices tengan valor asignado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los arrays dispersos?",
+      "respuesta": "Encaja bien en un patrón donde se consumen datos legacy o se trabaja con apis que crean índices salteados Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve slice y splice y cuándo se nota más su valor?",
+      "respuesta": "se parecen por nombre pero una operación copia y la otra inserta o elimina mutando Su valor se nota especialmente en se recortan listas, se reemplazan rangos o se implementan editores simples.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona slice y splice a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, se parecen por nombre pero una operación copia y la otra inserta o elimina mutando Para usarlo bien conviene entender que confundir ambas en estado compartido suele provocar cambios invisibles hasta que otra capa observa la referencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con slice y splice?",
+      "respuesta": "Un error frecuente es asumir algo que confundir ambas en estado compartido suele provocar cambios invisibles hasta que otra capa observa la referencia La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia slice y splice de tratarlas como equivalentes?",
+      "respuesta": "La diferencia clave es que se parecen por nombre pero una operación copia y la otra inserta o elimina mutando En cambio, slice genera una porción sin tocar el original, mientras que splice edita la colección existente",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener slice y splice?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se recortan listas, se reemplazan rangos o se implementan editores simples y recordar que confundir ambas en estado compartido suele provocar cambios invisibles hasta que otra capa observa la referencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con slice y splice?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que confundir ambas en estado compartido suele provocar cambios invisibles hasta que otra capa observa la referencia o de una suposición incorrecta sobre slice y splice.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece slice y splice y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque se parecen por nombre pero una operación copia y la otra inserta o elimina mutando Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que confundir ambas en estado compartido suele provocar cambios invisibles hasta que otra capa observa la referencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor slice y splice?",
+      "respuesta": "Encaja bien en un patrón donde se recortan listas, se reemplazan rangos o se implementan editores simples Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve flat y flatMap y cuándo se nota más su valor?",
+      "respuesta": "simplifican el aplanado de estructuras anidadas superficiales y la transformación con expansión Su valor se nota especialmente en se normalizan respuestas agrupadas o se expanden relaciones uno a muchos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona flat y flatMap a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, simplifican el aplanado de estructuras anidadas superficiales y la transformación con expansión Para usarlo bien conviene entender que su profundidad por defecto es limitada y no resuelve cualquier estructura arbitraria",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con flat y flatMap?",
+      "respuesta": "Un error frecuente es asumir algo que su profundidad por defecto es limitada y no resuelve cualquier estructura arbitraria La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia flat y flatMap de anidar map seguido de concatenaciones manuales?",
+      "respuesta": "La diferencia clave es que simplifican el aplanado de estructuras anidadas superficiales y la transformación con expansión En cambio, las técnicas manuales son más verbosas y propensas a errores de profundidad, mientras que estas APIs expresan el objetivo directamente",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener flat y flatMap?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se normalizan respuestas agrupadas o se expanden relaciones uno a muchos y recordar que su profundidad por defecto es limitada y no resuelve cualquier estructura arbitraria",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con flat y flatMap?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que su profundidad por defecto es limitada y no resuelve cualquier estructura arbitraria o de una suposición incorrecta sobre flat y flatMap.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece flat y flatMap y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque simplifican el aplanado de estructuras anidadas superficiales y la transformación con expansión Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que su profundidad por defecto es limitada y no resuelve cualquier estructura arbitraria",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor flat y flatMap?",
+      "respuesta": "Encaja bien en un patrón donde se normalizan respuestas agrupadas o se expanden relaciones uno a muchos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las búsquedas con find, some e includes y cuándo se nota más su valor?",
+      "respuesta": "modelan intenciones distintas: recuperar un elemento, comprobar una condición o verificar pertenencia Su valor se nota especialmente en se validan permisos, se detectan duplicados o se localiza una entidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las búsquedas con find, some e includes a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, modelan intenciones distintas: recuperar un elemento, comprobar una condición o verificar pertenencia Para usarlo bien conviene entender que find devuelve el elemento, no su índice, y includes usa samevaluezero en vez de una lógica personalizada",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las búsquedas con find, some e includes?",
+      "respuesta": "Un error frecuente es asumir algo que find devuelve el elemento, no su índice, y includes usa samevaluezero en vez de una lógica personalizada La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las búsquedas con find, some e includes de usar siempre indexOf?",
+      "respuesta": "La diferencia clave es que modelan intenciones distintas: recuperar un elemento, comprobar una condición o verificar pertenencia En cambio, indexOf depende de igualdad estricta y posición, mientras que estas APIs comunican mejor la intención y cubren más casos",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las búsquedas con find, some e includes?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se validan permisos, se detectan duplicados o se localiza una entidad y recordar que find devuelve el elemento, no su índice, y includes usa samevaluezero en vez de una lógica personalizada",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las búsquedas con find, some e includes?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que find devuelve el elemento, no su índice, y includes usa samevaluezero en vez de una lógica personalizada o de una suposición incorrecta sobre las búsquedas con find, some e includes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las búsquedas con find, some e includes y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque modelan intenciones distintas: recuperar un elemento, comprobar una condición o verificar pertenencia Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que find devuelve el elemento, no su índice, y includes usa samevaluezero en vez de una lógica personalizada",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las búsquedas con find, some e includes?",
+      "respuesta": "Encaja bien en un patrón donde se validan permisos, se detectan duplicados o se localiza una entidad Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la copia superficial de arrays y cuándo se nota más su valor?",
+      "respuesta": "duplica la estructura externa pero mantiene las mismas referencias internas para objetos y subarrays Su valor se nota especialmente en se actualiza estado inmutable, se reordenan datos o se preserva historial.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la copia superficial de arrays a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, duplica la estructura externa pero mantiene las mismas referencias internas para objetos y subarrays Para usarlo bien conviene entender que modificar un objeto interno después de copiar el array puede afectar a la copia y al original al mismo tiempo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la copia superficial de arrays?",
+      "respuesta": "Un error frecuente es asumir algo que modificar un objeto interno después de copiar el array puede afectar a la copia y al original al mismo tiempo La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la copia superficial de arrays de la clonación profunda?",
+      "respuesta": "La diferencia clave es que duplica la estructura externa pero mantiene las mismas referencias internas para objetos y subarrays En cambio, la clonación profunda recrea anidados, mientras que una copia superficial solo rompe el alias del primer nivel",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la copia superficial de arrays?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se actualiza estado inmutable, se reordenan datos o se preserva historial y recordar que modificar un objeto interno después de copiar el array puede afectar a la copia y al original al mismo tiempo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la copia superficial de arrays?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que modificar un objeto interno después de copiar el array puede afectar a la copia y al original al mismo tiempo o de una suposición incorrecta sobre la copia superficial de arrays.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la copia superficial de arrays y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque duplica la estructura externa pero mantiene las mismas referencias internas para objetos y subarrays Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que modificar un objeto interno después de copiar el array puede afectar a la copia y al original al mismo tiempo",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la copia superficial de arrays?",
+      "respuesta": "Encaja bien en un patrón donde se actualiza estado inmutable, se reordenan datos o se preserva historial Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la complejidad de operaciones en arrays y cuándo se nota más su valor?",
+      "respuesta": "varía según si se recorre, inserta al principio, se busca secuencialmente o se accede por índice Su valor se nota especialmente en se diseñan estructuras de datos o rutas críticas con mucho volumen.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la complejidad de operaciones en arrays a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, varía según si se recorre, inserta al principio, se busca secuencialmente o se accede por índice Para usarlo bien conviene entender que una elección cómoda para pocas filas puede volverse costosa cuando la colección crece o se reordena continuamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la complejidad de operaciones en arrays?",
+      "respuesta": "Un error frecuente es asumir algo que una elección cómoda para pocas filas puede volverse costosa cuando la colección crece o se reordena continuamente La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la complejidad de operaciones en arrays de asumir que todas las operaciones son prácticamente O(1)?",
+      "respuesta": "La diferencia clave es que varía según si se recorre, inserta al principio, se busca secuencialmente o se accede por índice En cambio, el acceso por índice suele ser muy eficiente, pero inserciones, borrados y búsquedas dependen del trabajo real que deba hacerse",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la complejidad de operaciones en arrays?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se diseñan estructuras de datos o rutas críticas con mucho volumen y recordar que una elección cómoda para pocas filas puede volverse costosa cuando la colección crece o se reordena continuamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la complejidad de operaciones en arrays?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que una elección cómoda para pocas filas puede volverse costosa cuando la colección crece o se reordena continuamente o de una suposición incorrecta sobre la complejidad de operaciones en arrays.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la complejidad de operaciones en arrays y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque varía según si se recorre, inserta al principio, se busca secuencialmente o se accede por índice Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que una elección cómoda para pocas filas puede volverse costosa cuando la colección crece o se reordena continuamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la complejidad de operaciones en arrays?",
+      "respuesta": "Encaja bien en un patrón donde se diseñan estructuras de datos o rutas críticas con mucho volumen Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de la complejidad de operaciones en arrays suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que una elección cómoda para pocas filas puede volverse costosa cuando la colección crece o se reordena continuamente Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la deduplicación y cuándo se nota más su valor?",
+      "respuesta": "requiere definir qué significa que dos elementos sean iguales antes de eliminar repetidos Su valor se nota especialmente en se limpian resultados de api, tags, ids o combinaciones de filtros.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la deduplicación a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, requiere definir qué significa que dos elementos sean iguales antes de eliminar repetidos Para usarlo bien conviene entender que si la igualdad real es estructural o basada en una clave, hace falta una estrategia explícita",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la deduplicación?",
+      "respuesta": "Un error frecuente es asumir algo que si la igualdad real es estructural o basada en una clave, hace falta una estrategia explícita La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la deduplicación de asumir que Set resuelve cualquier duplicado?",
+      "respuesta": "La diferencia clave es que requiere definir qué significa que dos elementos sean iguales antes de eliminar repetidos En cambio, Set funciona muy bien con primitivas y referencias idénticas, pero no deduplica objetos equivalentes por contenido",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la deduplicación?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se limpian resultados de api, tags, ids o combinaciones de filtros y recordar que si la igualdad real es estructural o basada en una clave, hace falta una estrategia explícita",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la deduplicación?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que si la igualdad real es estructural o basada en una clave, hace falta una estrategia explícita o de una suposición incorrecta sobre la deduplicación.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la deduplicación y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque requiere definir qué significa que dos elementos sean iguales antes de eliminar repetidos Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que si la igualdad real es estructural o basada en una clave, hace falta una estrategia explícita",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la deduplicación?",
+      "respuesta": "Encaja bien en un patrón donde se limpian resultados de api, tags, ids o combinaciones de filtros Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de la deduplicación suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que si la igualdad real es estructural o basada en una clave, hace falta una estrategia explícita Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las transformaciones inmutables y cuándo se nota más su valor?",
+      "respuesta": "permiten actualizar arrays sin alterar la referencia original y facilitan comparar cambios Su valor se nota especialmente en se trabaja con reducers, stores o componentes que dependen de identidad referencial.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las transformaciones inmutables a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten actualizar arrays sin alterar la referencia original y facilitan comparar cambios Para usarlo bien conviene entender que crear demasiadas copias intermedias también tiene coste y conviene equilibrar claridad con rendimiento",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las transformaciones inmutables?",
+      "respuesta": "Un error frecuente es asumir algo que crear demasiadas copias intermedias también tiene coste y conviene equilibrar claridad con rendimiento La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las transformaciones inmutables de editar directamente el mismo array?",
+      "respuesta": "La diferencia clave es que permiten actualizar arrays sin alterar la referencia original y facilitan comparar cambios En cambio, editar directamente puede ser válido en código local, pero en arquitecturas reactivas complica detección de cambios y trazabilidad",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las transformaciones inmutables?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se trabaja con reducers, stores o componentes que dependen de identidad referencial y recordar que crear demasiadas copias intermedias también tiene coste y conviene equilibrar claridad con rendimiento",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las transformaciones inmutables?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que crear demasiadas copias intermedias también tiene coste y conviene equilibrar claridad con rendimiento o de una suposición incorrecta sobre las transformaciones inmutables.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las transformaciones inmutables y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten actualizar arrays sin alterar la referencia original y facilitan comparar cambios Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que crear demasiadas copias intermedias también tiene coste y conviene equilibrar claridad con rendimiento",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las transformaciones inmutables?",
+      "respuesta": "Encaja bien en un patrón donde se trabaja con reducers, stores o componentes que dependen de identidad referencial Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de las transformaciones inmutables suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que crear demasiadas copias intermedias también tiene coste y conviene equilibrar claridad con rendimiento Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los TypedArrays y cuándo se nota más su valor?",
+      "respuesta": "ofrecen vistas sobre memoria binaria para datos numéricos homogéneos con tamaño fijo Su valor se nota especialmente en se procesan buffers, audio, imágenes, webgl o protocolos binarios.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los TypedArrays a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ofrecen vistas sobre memoria binaria para datos numéricos homogéneos con tamaño fijo Para usarlo bien conviene entender que no soportan la misma flexibilidad semántica que un array estándar y su longitud no crece dinámicamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los TypedArrays?",
+      "respuesta": "Un error frecuente es asumir algo que no soportan la misma flexibilidad semántica que un array estándar y su longitud no crece dinámicamente La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los TypedArrays de los arrays normales?",
+      "respuesta": "La diferencia clave es que ofrecen vistas sobre memoria binaria para datos numéricos homogéneos con tamaño fijo En cambio, los arrays normales son flexibles y heterogéneos, mientras que los TypedArrays priorizan representación compacta y operaciones binarias",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los TypedArrays?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se procesan buffers, audio, imágenes, webgl o protocolos binarios y recordar que no soportan la misma flexibilidad semántica que un array estándar y su longitud no crece dinámicamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los TypedArrays?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que no soportan la misma flexibilidad semántica que un array estándar y su longitud no crece dinámicamente o de una suposición incorrecta sobre los TypedArrays.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los TypedArrays y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ofrecen vistas sobre memoria binaria para datos numéricos homogéneos con tamaño fijo Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que no soportan la misma flexibilidad semántica que un array estándar y su longitud no crece dinámicamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los TypedArrays?",
+      "respuesta": "Encaja bien en un patrón donde se procesan buffers, audio, imágenes, webgl o protocolos binarios Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arrays"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de los TypedArrays suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que no soportan la misma flexibilidad semántica que un array estándar y su longitud no crece dinámicamente Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arrays"
+      ]
+    }
+  ]
+}
