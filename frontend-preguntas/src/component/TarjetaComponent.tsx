@@ -1,62 +1,70 @@
-import type { Dificultad, Etiqueta } from "../api/apis";
+import type { Dificultad, Etiqueta, Mazo } from "../api/apis";
+import { useState } from "react";
+import type { Mazo } from "../api/apis";
+import { getColorEtiqueta } from "../constans/etiquetaColores";
 
 const DIFICULTADES: Dificultad[] = ["Facil", "Intermedio", "Avanzado"];
 
 interface TarjetaComponentProps {
-    etiqueta: Etiqueta;
-    seleccionada: boolean;
-    dificultad: Dificultad;
-    onToggle: () => void;
-    onCambiarDificultad: (dificultad: Dificultad) => void;
+    mazo: Mazo;
+    onSeleccionar: (dificultad: string) => void;
 }
 
-export default function TarjetaComponent({
-    etiqueta,
-    seleccionada,
-    dificultad,
-    onToggle,
-    onCambiarDificultad,
-}: TarjetaComponentProps) {
+const COLORES_DIFICULTAD: Record<string, string> = {
+    Facil: "text-green-500",
+    Intermedio: "text-yellow-500",
+    Avanzado: "text-red-500",
+};
+
+export default function TarjetaComponent({ mazo, onSeleccionar }: TarjetaComponentProps) {
+    const [dificultad, setDificultad] = useState<string>("Facil");
     return (
         <div
+            onClick={() => onSeleccionar(dificultad)}
             className={[
-                "border px-4 py-5 transition-all duration-200",
-                seleccionada
-                    ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-[0_0_0_1px_var(--color-primary)]"
-                    : "border-[var(--border-default)] hover:border-[var(--text-primary)] hover:bg-[var(--bg-card)]",
+                "rounded-xl border px-4 py-5 text-center transition-all duration-200",
+                "cursor-pointer select-none",
+                "border-dotted border-[var(--border-default)] text-[var(--text-primary)]",
+                "hover:border-[var(--text-primary)] hover:bg-[var(--bg-card)]",
             ].join(" ")}
         >
-            <button
-                type="button"
-                onClick={onToggle}
-                aria-pressed={seleccionada}
-                className="w-full cursor-pointer select-none text-center"
-            >
-                <h2 className={[
-                    "mt-1 text-2xl md:text-3xl capitalize",
-                    seleccionada ? "text-[var(--color-primary)]" : "text-[var(--text-primary)]",
-                ].join(" ")}>
-                    {etiqueta.nombre}
-                </h2>
-            </button>
+            <div className="flex items-center justify-between gap-3 text-sm uppercase tracking-[0.2em] text-[var(--text-muted)]">
+                <span className="flex items-center gap-1">
+                    nivel:
+                    <select
+                        onClick={(e) => e.stopPropagation()}
+                        value={dificultad}
+                        onChange={(e) => setDificultad(e.target.value)}
+                        className={[
+                            "bg-white dark:bg-black",
+                            " border-zinc-300 dark:border-gray-900",
+                            "rounded px-1 py-0.5 text-xs uppercase tracking-widest",
+                            "outline-none cursor-pointer",
+                            COLORES_DIFICULTAD[dificultad],
+                        ].join(" ")}
+                    >
+                        <option value="Facil">Fácil</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Avanzado">Avanzado</option>
+                    </select>
+                </span>
+            </div>
 
-            <div className="mt-4 border-t border-[var(--border-default)] pt-4">
-                <label className="block text-xs uppercase tracking-[0.24em] text-[var(--text-muted)]">
-                    Dificultad
-                </label>
-                <select
-                    value={dificultad}
-                    disabled={!seleccionada}
-                    onClick={(event) => event.stopPropagation()}
-                    onChange={(event) => onCambiarDificultad(event.target.value as Dificultad)}
-                    className="mt-2 w-full cursor-pointer rounded border border-[var(--border-default)] bg-transparent px-3 py-2 text-sm text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-45"
-                >
-                    {DIFICULTADES.map((opcion) => (
-                        <option key={opcion} value={opcion} className="bg-black text-white">
-                            {opcion}
-                        </option>
-                    ))}
-                </select>
+            <h2 className="mt-3 text-left text-2xl md:text-3xl">{mazo.nombre}</h2>
+            <p className="mt-1 text-sm text-left text-[var(--text-muted)]">{mazo.descripcion}</p>
+
+            <div className="mt-3 flex flex-wrap justify-start items-center gap-2">
+                {mazo.etiquetas.map((etiqueta) => (
+                    <span
+                        key={etiqueta.id}
+                        className={[
+                            "rounded-full border px-2.5 py-0.5 text-xs font-mono font-semibold tracking-wide",
+                            getColorEtiqueta(etiqueta.nombre),
+                        ].join(" ")}
+                    >
+                        {etiqueta.nombre}
+                    </span>
+                ))}
             </div>
         </div>
     );

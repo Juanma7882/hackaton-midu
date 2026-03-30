@@ -11,6 +11,7 @@ const API_URLS = {
   preguntas: `${API_BASE_URL}preguntas`,
   etiquetaPreguntas: `${API_BASE_URL}tarjetaEtiquetas`,
   evaluaciones: `${API_BASE_URL}evaluaciones`,
+  mazos: `${API_BASE_URL}mazo`,
 };
 
 function construirUrlAsset(path: string): string {
@@ -26,18 +27,28 @@ async function consumirApi<T>(url: string, options?: RequestInit): Promise<T> {
     throw new Error(`Error HTTP: ${respuesta.status}`);
   }
 
-  return respuesta.json();
+  return respuesta.json() as Promise<T>;
 }
+
+// async function consumirApiConBody<T>(url: string, init: RequestInit): Promise<T> {
+//   const respuesta = await fetch(url, {
+//     headers: {
+//       "Content-Type": "application/json",
+//       ...(init.headers ?? {}),
+//     },
+//     ...init,
+//   });
+
+//   if (!respuesta.ok) {
+//     throw new Error(`Error HTTP: ${respuesta.status}`);
+//   }
+//   console.log(respuesta.json())
+//   return respuesta.json();
+// }
 
 // =======================
 // Tipos (ejemplo)
 // =======================
-export interface Etiqueta {
-  id: number;
-  nombre: string;
-  url: string;
-  pathCompletoUrl: string;
-}
 
 export interface Pregunta {
   id: number;
@@ -60,9 +71,53 @@ export interface ApiResponse<T> {
   error: string | null;
 }
 
+
+// =======================
+// Relación intermedia
+export interface MazoEtiqueta {
+  id: number;
+  opcional: boolean;
+}
+
+// =======================
+export interface Etiqueta {
+  id: number;
+  nombre: string;
+  url?: string;
+  pathCompletoUrl?: string;
+  MazoEtiquetas?: MazoEtiqueta;
+}
+
+// =======================
+export interface Mazo {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  url: string;
+  etiquetas: Etiqueta[];
+}
+
+// =======================
+export interface MazosResponse {
+  total: number;
+  mazos: Mazo[];
+}
 // =======================
 // Funciones de API
 // =======================
+
+
+
+async function obtenerMazo(): Promise<MazosResponse> {
+  try {
+    const apiResponse = await consumirApi<MazosResponse>(API_URLS.mazos);
+    return apiResponse;
+  } catch (error) {
+    console.error("Error al obtener el mazo", error);
+    throw error;
+  }
+}
+
 async function obtenerEtiquetas(): Promise<Etiqueta[]> {
   try {
     const ApiResponse = await consumirApi<ApiResponse<Etiqueta[]>>(API_URLS.etiquetas);
@@ -289,4 +344,5 @@ export {
   obtenerPreguntasPorEtiquetas,
   evaluarRespuestas,
   generarResumenQuiz,
+  obtenerMazo,
 };
