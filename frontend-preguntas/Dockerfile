@@ -4,13 +4,13 @@ FROM node:20-alpine
 WORKDIR /frontend
 
 # Copiar archivos de dependencias
-COPY package*.json ./
+COPY frontend-preguntas/package*.json ./
 
 # Instalar dependencias con cache reutilizable
 RUN --mount=type=cache,target=/root/.npm npm ci
 
 # Copiar el resto del código
-COPY . .
+COPY frontend-preguntas/ .
 
 EXPOSE 3003
 
