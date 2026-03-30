@@ -1,18 +1,37 @@
-const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim() || "/api/";
-const API_BASE_URL = rawApiBaseUrl.endsWith("/") ? rawApiBaseUrl : `${rawApiBaseUrl}/`;
+function normalizarApiBaseUrl(value?: string): string {
+  const rawValue = value?.trim();
 
-const API_ORIGIN = new URL(API_BASE_URL, window.location.origin).origin;
+  if (!rawValue) {
+    return "/api/";
+  }
+
+  if (/^https?:\/\//i.test(rawValue)) {
+    return rawValue.endsWith("/") ? rawValue : `${rawValue}/`;
+  }
+
+  const withoutLeadingDots = rawValue.replace(/^\.?\//, "");
+  const rootRelativeValue = rawValue.startsWith("/") ? rawValue : `/${withoutLeadingDots}`;
+
+  return rootRelativeValue.endsWith("/") ? rootRelativeValue : `${rootRelativeValue}/`;
+}
+
+const API_BASE_URL = normalizarApiBaseUrl(import.meta.env.VITE_API_BASE_URL);
+const API_BASE = new URL(API_BASE_URL, window.location.origin);
+
+function construirApiUrl(path: string): string {
+  return new URL(path, API_BASE).toString();
+}
 
 const API_URLS = {
-  etiquetas: `${API_BASE_URL}etiquetas`,
-  preguntas: `${API_BASE_URL}preguntas`,
-  etiquetaPreguntas: `${API_BASE_URL}tarjetaEtiquetas`,
-  evaluaciones: `${API_BASE_URL}evaluaciones`,
-  mazos: `${API_BASE_URL}mazo`,
+  etiquetas: construirApiUrl("etiquetas"),
+  preguntas: construirApiUrl("preguntas"),
+  etiquetaPreguntas: construirApiUrl("tarjetaEtiquetas"),
+  evaluaciones: construirApiUrl("evaluaciones"),
+  mazos: construirApiUrl("mazo"),
 };
 
 function construirUrlAsset(path: string): string {
-  return new URL(path, API_ORIGIN).toString();
+  return new URL(path, API_BASE).toString();
 }
 
 // =======================
