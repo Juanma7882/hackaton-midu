@@ -1,19 +1,20 @@
 import Buscador from '../component/Buscador'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useDebounce from '../hooks/useDebounce'
 import Tarjetas from '../component/Tarjetas'
 import { useNavigate } from 'react-router-dom'
 import type { Dificultad, Mazo } from '../api/apis'
 import { obtenerMazo } from '../api/apis'
-import { getColorEtiqueta } from '../constans/etiquetaColores'
 
 function Home() {
     const [buscar, setBuscar] = useState<string>("")
-    const [dificultadesSeleccionadas, setDificultadesSeleccionadas] = useState<Record<string, Dificultad>>({})
     const [duracionMinutos, setDuracionMinutos] = useState<number>(15)
+    const [selectedMazoId, setSelectedMazoId] = useState<number | null>(null)
+    const [dificultadPorMazo, setDificultadPorMazo] = useState<Record<number, Dificultad>>({})
     const buscarDebounced = useDebounce<string>(buscar, 300);
+    const navigate = useNavigate()
     const [mazos, setMazos] = useState<Mazo[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [, setLoading] = useState<boolean>(true);
 
 
 
@@ -32,22 +33,6 @@ function Home() {
         };
         cargarEtiquetas();
     }, []);
-
-
-    // 1. Extraer etiquetas únicas de todos los mazos
-    const etiquetasUnicas = useMemo(() => {
-        const todas = mazos.flatMap((mazo) => mazo.etiquetas);
-        const unicas = new Map(todas.map((e) => [e.id, e]));
-        return Array.from(unicas.values());
-    }, [mazos]);
-
-    // 2. Filtrar mazos según etiquetas seleccionadas
-    const mazosFiltradosPorEtiqueta = useMemo(() => {
-        if (etiquetasSeleccionadas.length === 0) return mazos;
-        return mazos.filter((mazo) =>
-            mazo.etiquetas.some((e) => etiquetasSeleccionadas.includes(e.nombre))
-        );
-    }, [mazos, etiquetasSeleccionadas]);
 
     const texto1 = "Plataforma interactiva de pruebas técnicas."
     const texto2 = "Selecciona los módulos a cargar y ejecuta el test de evaluación para comprobar tus habilidades en código."
@@ -105,44 +90,42 @@ function Home() {
         return () => clearInterval(interval);
     }, [typing1Complete]);
 
-    const toggleEtiqueta = (nombreEtiqueta: string) => {
-        setDificultadesSeleccionadas((prev) => {
-            if (prev[nombreEtiqueta]) {
-                const next = { ...prev }
-                delete next[nombreEtiqueta]
-                return next
-            }
+    const slugify = (text: string) =>
+        text
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^\w-]+/g, "");
 
-            return {
-                ...prev,
-                [nombreEtiqueta]: "Intermedio"
-            }
-        })
+    const seleccionarMazo = (mazoId: number) => {
+        setSelectedMazoId(mazoId)
     }
 
-    const cambiarDificultad = (nombreEtiqueta: string, dificultad: Dificultad) => {
-        setDificultadesSeleccionadas((prev) => ({
+    const cambiarDificultadMazo = (mazoId: number, dificultad: Dificultad) => {
+        setDificultadPorMazo((prev) => ({
             ...prev,
-            [nombreEtiqueta]: dificultad,
+            [mazoId]: dificultad,
         }))
     }
 
     const irAPreguntas = () => {
-        const etiquetasSeleccionadas = Object.keys(dificultadesSeleccionadas)
+        if (selectedMazoId === null) return;
+
+        const mazo = mazos.find((item) => item.id === selectedMazoId)
+        if (!mazo) return;
+
+        const dificultadSeleccionada = dificultadPorMazo[selectedMazoId] ?? "Intermedio"
+        const temas = mazo.etiquetas.map((e) => e.nombre);
+        const dificultades = Object.fromEntries(temas.map((t) => [t, dificultadSeleccionada]));
         const searchParams = new URLSearchParams({
-            temas: etiquetasSeleccionadas.join(','),
+            temas: temas.join(','),
             duracion: String(duracionMinutos),
-            dificultades: JSON.stringify(dificultadesSeleccionadas)
+            dificultades: JSON.stringify(dificultades)
         })
-
-
-
+        navigate(`/preguntas/${slugify(mazo.nombre)}?${searchParams.toString()}`)
+    }
 
     return (
         <>
-            <div className='text-3xl pt-8 md:text-5xl font-bold tracking-tight drop-shadow-[0_0_15px_rgba(33,255,0,0.4)] font-mono'> <span className="text-[var(--text-primary)]">Interview</span>
-                <span className="text-[var(--color-primary)]">_Quiz</span>
-            </div>
             <main className="flex flex-col items-center p-4 md:p-8 m-0 w-full min-h-screen bg-[var(--bg-page)] text-[var(--text-primary)] font-mono">
                 <div className="absolute inset-0 bg-[var(--color-primary)] opacity-5 blur-[100px] pointer-events-none"></div>
                 <div
@@ -170,7 +153,7 @@ function Home() {
 
                 {/* Content Section */}
                 <section
-                    className={`w-full max-w-6xl flex flex-col gap-3 items-center transition-all duration-700 ${showSelector ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none hidden'}`}
+                    className={`w-full flex flex-col gap-3 items-center transition-all duration-700 ${showSelector ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none hidden'}`}
                 >
 
                     {/* Search Bar Wrapper */}
@@ -185,38 +168,13 @@ function Home() {
                     <div className='grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
                         <Tarjetas
                             filtro={buscarDebounced}
-                            dificultadesSeleccionadas={dificultadesSeleccionadas}
-                            onToggleEtiqueta={toggleEtiqueta}
-                            onCambiarDificultad={cambiarDificultad}
+                            mazos={mazos}
+                            selectedMazoId={selectedMazoId}
+                            dificultadPorMazo={dificultadPorMazo}
+                            onSeleccionarMazo={seleccionarMazo}
+                            onCambiarDificultadMazo={cambiarDificultadMazo}
                         />
                     </div>
-                </div>
-
-                {/* Action Button */}
-                <div className="mt-8 mb-16 flex flex-col items-center gap-4">
-                    {!loading && (
-                        <div className="w-full flex flex-wrap justify-center gap-2">
-                            {etiquetasUnicas.map((etiqueta) => {
-                                const seleccionada = Object.keys(dificultadesSeleccionadas).includes(etiqueta.nombre);
-                                return (
-                                    <button
-                                        key={etiqueta.id}
-                                        type="button"
-                                        onClick={() => toggleEtiqueta(etiqueta.nombre)}
-                                        className={[
-                                            "rounded-full border px-3 py-1 text-xs font-mono font-semibold tracking-wide transition-all duration-200 cursor-pointer",
-                                            getColorEtiqueta(etiqueta.nombre),
-                                            seleccionada
-                                                ? `${getColorEtiqueta(etiqueta.nombre)} border-3 border-[var(--color-primary)] text-white`
-                                                : `${getColorEtiqueta(etiqueta.nombre)}   text-[var(--text-muted)] `,
-                                        ].join(" ")}
-                                    >
-                                        {(etiqueta.nombre)}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    )}
                     <div className="w-full max-w-md flex flex-col gap-2">
                         <label
                             htmlFor="duracion-quiz"
@@ -230,6 +188,7 @@ function Home() {
                             onChange={(e) => setDuracionMinutos(Number(e.target.value))}
                             className="cursor-pointer bg-transparent border border-[var(--border-default)] text-[var(--text-primary)] rounded-sm px-4 py-3 focus:outline-none focus:border-[var(--color-primary)]"
                         >
+                            <option value={0} className="bg-black">Sin tiempo</option>
                             <option value={10} className="bg-black">10 minutos</option>
                             <option value={15} className="bg-black">15 minutos</option>
                             <option value={20} className="bg-black">20 minutos</option>
@@ -237,20 +196,20 @@ function Home() {
                         </select>
                     </div>
                     <div className="text-[var(--text-muted)] text-sm font-medium">
-                        [{Object.keys(dificultadesSeleccionadas).length}] MÓDULOS_CARGADOS · [{duracionMinutos} MIN]
+                        {duracionMinutos === 0 ? "[SIN TIEMPO]" : `[${duracionMinutos} MIN]`}
                     </div>
                     <button
                         type='button'
                         onClick={irAPreguntas}
-                        disabled={Object.keys(dificultadesSeleccionadas).length === 0}
+                        disabled={selectedMazoId === null}
                         className="group relative cursor-pointer text-xl md:text-2xl px-10 py-4 rounded-sm bg-[var(--bg-page)] font-bold tracking-widest transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-20 disabled:hover:scale-100 disabled:hover:shadow-none text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-black hover:shadow-[0_0_25px_rgba(33,255,0,0.8)] hover:-translate-y-1 overflow-hidden"
                     >
-                        <span className="relative z-10">&gt; INICIAR_EVALUACIÓN</span>
+                        <span className="relative z-10">&gt; COMENZAR_QUIZ</span>
                         <div className="absolute inset-0 bg-[var(--color-primary)] opacity-0 group-hover:opacity-20 transition-opacity blur-md pointer-events-none"></div>
                     </button>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+        </>
     )
 }
 

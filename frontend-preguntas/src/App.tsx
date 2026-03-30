@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="w-full min-h-screen flex justify-center items-center gap-3 flex-col bg-[var(--bg-page)]">
       <Routes>
-        <Route path='/' element={<Home />} />
         <Route element={<Layout />}>
+          <Route path='/' element={<Home />} />
           <Route path='/preguntas/:slug' element={<Preguntas />} />
         </Route>
       </Routes>

@@ -1,13 +1,12 @@
-import type { Dificultad, Etiqueta, Mazo } from "../api/apis";
-import { useState } from "react";
-import type { Mazo } from "../api/apis";
+import type { Dificultad, Mazo } from "../api/apis";
 import { getColorEtiqueta } from "../constans/etiquetaColores";
-
-const DIFICULTADES: Dificultad[] = ["Facil", "Intermedio", "Avanzado"];
 
 interface TarjetaComponentProps {
     mazo: Mazo;
-    onSeleccionar: (dificultad: string) => void;
+    seleccionada: boolean;
+    dificultad: Dificultad;
+    onSeleccionar: () => void;
+    onCambiarDificultad: (dificultad: Dificultad) => void;
 }
 
 const COLORES_DIFICULTAD: Record<string, string> = {
@@ -16,16 +15,22 @@ const COLORES_DIFICULTAD: Record<string, string> = {
     Avanzado: "text-red-500",
 };
 
-export default function TarjetaComponent({ mazo, onSeleccionar }: TarjetaComponentProps) {
-    const [dificultad, setDificultad] = useState<string>("Facil");
+export default function TarjetaComponent({
+    mazo,
+    seleccionada,
+    dificultad,
+    onSeleccionar,
+    onCambiarDificultad,
+}: TarjetaComponentProps) {
     return (
         <div
-            onClick={() => onSeleccionar(dificultad)}
+            onClick={onSeleccionar}
             className={[
-                "rounded-xl border px-4 py-5 text-center transition-all duration-200",
+                "border px-5 py-5 text-center transition-all duration-200 w-full max-w-none min-w-0",
                 "cursor-pointer select-none",
                 "border-dotted border-[var(--border-default)] text-[var(--text-primary)]",
-                "hover:border-[var(--text-primary)] hover:bg-[var(--bg-card)]",
+                "hover:border-[var(--text-primary)] hover:bg-[var(--bg-card)] w-full",
+                seleccionada ? "border-[var(--color-primary)] shadow-[0_0_15px_rgba(33,255,0,0.3)]" : "",
             ].join(" ")}
         >
             <div className="flex items-center justify-between gap-3 text-sm uppercase tracking-[0.2em] text-[var(--text-muted)]">
@@ -34,7 +39,7 @@ export default function TarjetaComponent({ mazo, onSeleccionar }: TarjetaCompone
                     <select
                         onClick={(e) => e.stopPropagation()}
                         value={dificultad}
-                        onChange={(e) => setDificultad(e.target.value)}
+                        onChange={(e) => onCambiarDificultad(e.target.value as Dificultad)}
                         className={[
                             "bg-white dark:bg-black",
                             " border-zinc-300 dark:border-gray-900",

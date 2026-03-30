@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+import sequelize from "../databaseconexion/index.js";
 
 import Etiquetas from "../models/etiquetas.js";
 import MazoEtiquetas from "../models/mazoEtiquetas.js";
@@ -269,6 +270,99 @@ async function sincronizarMazos(mazosSeed: MazoSeed[]) {
   return { mazosPorNombre, creados, actualizados };
 }
 
+function combinarOpcional(actual: unknown, siguiente: unknown) {
+  if (actual === false || siguiente === false) {
+    return false;
+  }
+
+  if (actual === true || siguiente === true) {
+    return true;
+  }
+
+  return null;
+}
+
+async function deduplicarMazosExistentes() {
+  return sequelize.transaction(async (transaction) => {
+    const mazosExistentes = await Mazos.findAll({
+      order: [["id", "ASC"]],
+      transaction,
+    });
+
+    const grupos = new Map<string, InstanceType<typeof Mazos>[]>();
+
+    for (const mazo of mazosExistentes) {
+      const nombre = normalizarNombre(String(mazo.get("nombre") ?? ""));
+      if (!nombre) continue;
+
+      const grupo = grupos.get(nombre) ?? [];
+      grupo.push(mazo);
+      grupos.set(nombre, grupo);
+    }
+
+    let mazosEliminados = 0;
+    let relacionesMovidas = 0;
+    let relacionesEliminadas = 0;
+
+    for (const grupo of grupos.values()) {
+      if (grupo.length <= 1) continue;
+
+      const [mazoCanonico, ...duplicados] = grupo;
+      const mazoCanonicoId = Number(mazoCanonico.get("id"));
+
+      for (const mazoDuplicado of duplicados) {
+        const mazoDuplicadoId = Number(mazoDuplicado.get("id"));
+        const relaciones = await MazoEtiquetas.findAll({
+          where: { mazoId: mazoDuplicadoId },
+          order: [["id", "ASC"]],
+          transaction,
+        });
+
+        for (const relacion of relaciones) {
+          const etiquetaId = Number(relacion.get("etiquetaId"));
+          const relacionCanonica = await MazoEtiquetas.findOne({
+            where: {
+              mazoId: mazoCanonicoId,
+              etiquetaId,
+            },
+            transaction,
+          });
+
+          if (relacionCanonica) {
+            const opcionalCombinado = combinarOpcional(
+              relacionCanonica.get("opcional"),
+              relacion.get("opcional")
+            );
+
+            if (relacionCanonica.get("opcional") !== opcionalCombinado) {
+              await relacionCanonica.update({ opcional: opcionalCombinado }, { transaction });
+            }
+
+            await relacion.destroy({ transaction });
+            relacionesEliminadas += 1;
+            continue;
+          }
+
+          await relacion.update({ mazoId: mazoCanonicoId }, { transaction });
+          relacionesMovidas += 1;
+        }
+
+        await mazoDuplicado.destroy({ transaction });
+        mazosEliminados += 1;
+      }
+    }
+
+    return { mazosEliminados, relacionesMovidas, relacionesEliminadas };
+  });
+}
+
+async function asegurarIndiceUnicoMazos() {
+  await sequelize.query(`
+    CREATE UNIQUE INDEX IF NOT EXISTS mazos_nombre_normalizado_uidx
+    ON mazos ((lower(btrim(nombre))));
+  `);
+}
+
 async function sincronizarRelacionesMazoEtiqueta(
   mazosSeed: MazoSeed[],
   mazosPorNombre: Map<string, InstanceType<typeof Mazos>>,
@@ -372,6 +466,8 @@ export async function seedDatabase() {
     preguntasResultado.preguntasPorTexto,
     etiquetasResultado.etiquetasPorNombre
   );
+  const deduplicacionMazosResultado = await deduplicarMazosExistentes();
+  await asegurarIndiceUnicoMazos();
   const mazosResultado = await sincronizarMazos(mazosSeed);
   const relacionesMazoEtiquetaResultado = await sincronizarRelacionesMazoEtiqueta(
     mazosSeed,
@@ -387,6 +483,9 @@ export async function seedDatabase() {
   console.log(`Etiquetas actualizadas: ${etiquetasResultado.actualizadas}`);
   console.log(`Preguntas creadas: ${preguntasResultado.creadas}`);
   console.log(`Relaciones pregunta-etiqueta creadas: ${relacionesPreguntaEtiquetaResultado.creadas}`);
+  console.log(`Mazos duplicados eliminados: ${deduplicacionMazosResultado.mazosEliminados}`);
+  console.log(`Relaciones mazo-etiqueta movidas: ${deduplicacionMazosResultado.relacionesMovidas}`);
+  console.log(`Relaciones mazo-etiqueta duplicadas eliminadas: ${deduplicacionMazosResultado.relacionesEliminadas}`);
   console.log(`Mazos creados: ${mazosResultado.creados}`);
   console.log(`Mazos actualizados: ${mazosResultado.actualizados}`);
   console.log(`Relaciones mazo-etiqueta creadas: ${relacionesMazoEtiquetaResultado.creadas}`);

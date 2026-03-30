@@ -57,10 +57,11 @@ function PreguntasEtiqueta({
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const duracionMinutos = Number(searchParams.get("duracion") ?? 15);
+    const sinTiempo = duracionMinutos === 0;
     const duracionSegundos = Number.isFinite(duracionMinutos) && duracionMinutos > 0
         ? duracionMinutos * 60
         : 15 * 60;
-    const [tiempoRestante, setTiempoRestante] = useState(duracionSegundos);
+    const [tiempoRestante, setTiempoRestante] = useState(sinTiempo ? 0 : duracionSegundos);
     const [preguntas, setPreguntas] = useState<Pregunta[]>([]);
     const [loading, setLoading] = useState(true);
     const [indice, setIndice] = useState(0);
@@ -86,12 +87,12 @@ function PreguntasEtiqueta({
     }, [searchParams]);
 
     useEffect(() => {
-        setTiempoRestante(duracionSegundos);
+        setTiempoRestante(sinTiempo ? 0 : duracionSegundos);
         autoFinalizadoRef.current = false;
-    }, [duracionSegundos]);
+    }, [duracionSegundos, sinTiempo]);
 
     useEffect(() => {
-        if (tiempoRestante <= 0 || quizFinalizado) return;
+        if (sinTiempo || tiempoRestante <= 0 || quizFinalizado) return;
 
         const interval = window.setInterval(() => {
             setTiempoRestante((prev) => {
@@ -105,10 +106,10 @@ function PreguntasEtiqueta({
         }, 1000);
 
         return () => window.clearInterval(interval);
-    }, [tiempoRestante, quizFinalizado]);
+    }, [sinTiempo, tiempoRestante, quizFinalizado]);
 
     useEffect(() => {
-        if (tiempoRestante > 0 || preguntas.length === 0 || quizFinalizado || autoFinalizadoRef.current) {
+        if (sinTiempo || tiempoRestante > 0 || preguntas.length === 0 || quizFinalizado || autoFinalizadoRef.current) {
             return;
         }
 
@@ -117,7 +118,7 @@ function PreguntasEtiqueta({
             elapsedSeconds: duracionSegundos - tiempoRestante,
             totalSeconds: duracionSegundos,
         });
-    }, [duracionSegundos, onFinalizarQuiz, preguntas, quizFinalizado, tiempoRestante]);
+    }, [duracionSegundos, onFinalizarQuiz, preguntas, quizFinalizado, sinTiempo, tiempoRestante]);
 
     useEffect(() => {
         if (etiquetas.length === 0) {
@@ -214,21 +215,21 @@ function PreguntasEtiqueta({
                             <span key={e} className="rounded-full border border-[var(--border-default)] px-3 py-1">{e}</span>
                         ))}
                     </div>
-                    <div className={`flex flex-row border px-4 py-3 text-right ${tiempoRestante === 0
+                    {!sinTiempo && <div className={`flex flex-row border px-4 py-3 text-right ${tiempoRestante === 0
                         ? "border-red-500/60 text-red-400"
                         : tiempoCritico
                             ? "border-amber-500/60 text-amber-300"
                             : "border-[var(--border-default)] text-[var(--text-primary)]"
                         }`}>
                         <p className="mt-1 font-mono text-2xl font-bold">{tiempoFormateado}</p>
-                    </div>
+                    </div>}
                 </div>
                 <progress className="w-full h-2" value={indice + 1} max={preguntas.length} />
                 <div className="flex flex-col gap-1 text-sm text-[var(--text-muted)] md:flex-row md:items-center md:justify-between">
                     <span>Pregunta {indice + 1} de {preguntas.length}</span>
-                    <span>{duracionMinutos} MIN.</span>
+                    <span>{sinTiempo ? "SIN LIMITE" : `${duracionMinutos} MIN.`}</span>
                 </div>
-                {tiempoRestante === 0 && (
+                {!sinTiempo && tiempoRestante === 0 && (
                         <p className="text-sm text-red-400">
                             El tiempo del test se agoto. Se genera el analisis final automaticamente.
                         </p>
