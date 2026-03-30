@@ -1,9 +1,14 @@
 import { Router } from "express";
-import { evaluarRespuestasConOpenRouter, streamOpenRouterChat } from "../controllers/evaluacionesController.js";
+import {
+  evaluarRespuestasConIA,
+  generarResumenQuizConIA,
+  streamLocalChat,
+} from "../controllers/evaluacionesController.js";
 
 const router = Router();
 
-router.post("/openrouter", evaluarRespuestasConOpenRouter);
-router.post("/openrouter/stream", streamOpenRouterChat);
+router.post("/openrouter", evaluarRespuestasConIA);
+router.post("/openrouter/resumen-quiz", generarResumenQuizConIA);
+router.post("/openrouter/stream", streamLocalChat);
 
 export default router;

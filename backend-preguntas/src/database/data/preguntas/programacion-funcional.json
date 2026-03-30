@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Programación Funcional",
+    "url": ""
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que es funciones puras y cuando conviene usarlo?",
+      "respuesta": "Una funcion pura siempre produce la misma salida para los mismos argumentos y no genera efectos observables. Conviene usarlo cuando quieres razonamiento local, pruebas simples y composicion segura.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver funciones puras?",
+      "respuesta": "Ayuda a resolver la imprevisibilidad causada por estado compartido y efectos ocultos porque una funcion pura siempre produce la misma salida para los mismos argumentos y no genera efectos observables.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce funciones puras?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres razonamiento local, pruebas simples y composicion segura, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar funciones puras?",
+      "respuesta": "Un error comun es usarlo aunque tu operacion depende esencialmente de tiempo, IO o estado externo sin encapsularlo. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que funciones puras esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que lee variables globales, escribe logs o modifica argumentos de entrada. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara funciones puras con metodos con estado mutable?",
+      "respuesta": "Comparado con metodos con estado mutable, funciones puras suele ofrecer una estructura mas explicita para quieres razonamiento local, pruebas simples y composicion segura, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar funciones puras?",
+      "respuesta": "Sirve medir pruebas deterministas, facilidad de memoizacion y ausencia de mocks globales. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar funciones puras?",
+      "respuesta": "No conviene usarlo cuando tu operacion depende esencialmente de tiempo, IO o estado externo sin encapsularlo. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes recalcular precios en distintos servicios y necesitas resultados consistentes, ¿como aporta funciones puras?",
+      "respuesta": "Si debes recalcular precios en distintos servicios y necesitas resultados consistentes, funciones puras ayuda porque una funcion pura siempre produce la misma salida para los mismos argumentos y no genera efectos observables y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es inmutabilidad y cuando conviene usarlo?",
+      "respuesta": "La inmutabilidad evita modificar estructuras existentes y fuerza a crear nuevas versiones de los datos. Conviene usarlo cuando trabajas con transformaciones encadenadas, concurrencia o debugging complejo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver inmutabilidad?",
+      "respuesta": "Ayuda a resolver los bugs por aliasing y mutaciones que rompen invariantes porque la inmutabilidad evita modificar estructuras existentes y fuerza a crear nuevas versiones de los datos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce inmutabilidad?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando trabajas con transformaciones encadenadas, concurrencia o debugging complejo, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar inmutabilidad?",
+      "respuesta": "Un error comun es usarlo aunque el costo de copiar estructuras es critico y no cuentas con estructuras persistentes. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que inmutabilidad esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que una funcion cambia propiedades de objetos que no creo. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara inmutabilidad con objetos compartidos que se editan in place?",
+      "respuesta": "Comparado con objetos compartidos que se editan in place, inmutabilidad suele ofrecer una estructura mas explicita para trabajas con transformaciones encadenadas, concurrencia o debugging complejo, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar inmutabilidad?",
+      "respuesta": "Sirve medir menor cantidad de side effects, diffs claros y menor acoplamiento temporal. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar inmutabilidad?",
+      "respuesta": "No conviene usarlo cuando el costo de copiar estructuras es critico y no cuentas con estructuras persistentes. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde varios modulos consumen el mismo objeto de configuracion durante una peticion, ¿como aporta inmutabilidad?",
+      "respuesta": "Si varios modulos consumen el mismo objeto de configuracion durante una peticion, inmutabilidad ayuda porque la inmutabilidad evita modificar estructuras existentes y fuerza a crear nuevas versiones de los datos y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es composicion de funciones y cuando conviene usarlo?",
+      "respuesta": "La composicion conecta salidas y entradas de funciones pequenas para construir pipelines declarativos. Conviene usarlo cuando quieres dividir logica en pasos reutilizables y expresivos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver composicion de funciones?",
+      "respuesta": "Ayuda a resolver la logica monolitica con muchas ramas y baja reutilizacion porque la composicion conecta salidas y entradas de funciones pequenas para construir pipelines declarativos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce composicion de funciones?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres dividir logica en pasos reutilizables y expresivos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar composicion de funciones?",
+      "respuesta": "Un error comun es usarlo aunque las etapas tienen contratos inestables o demasiados parametros contextuales. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que composicion de funciones esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que helpers que solo existen porque una funcion gigante no se puede partir mejor. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara composicion de funciones con funciones largas con pasos internos acoplados?",
+      "respuesta": "Comparado con funciones largas con pasos internos acoplados, composicion de funciones suele ofrecer una estructura mas explicita para quieres dividir logica en pasos reutilizables y expresivos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar composicion de funciones?",
+      "respuesta": "Sirve medir pocas ramas por funcion, reutilizacion de helpers y facilidad para reordenar pasos. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar composicion de funciones?",
+      "respuesta": "No conviene usarlo cuando las etapas tienen contratos inestables o demasiados parametros contextuales. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes normalizar, validar y enriquecer datos antes de persistirlos, ¿como aporta composicion de funciones?",
+      "respuesta": "Si debes normalizar, validar y enriquecer datos antes de persistirlos, composicion de funciones ayuda porque la composicion conecta salidas y entradas de funciones pequenas para construir pipelines declarativos y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es currying y aplicacion parcial y cuando conviene usarlo?",
+      "respuesta": "El currying transforma funciones de varios argumentos en secuencias de funciones unarias y la aplicacion parcial fija parte del contexto. Conviene usarlo cuando quieres especializar reglas y construir APIs composables.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver currying y aplicacion parcial?",
+      "respuesta": "Ayuda a resolver la repeticion de argumentos de contexto y configuracion porque el currying transforma funciones de varios argumentos en secuencias de funciones unarias y la aplicacion parcial fija parte del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce currying y aplicacion parcial?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres especializar reglas y construir APIs composables, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar currying y aplicacion parcial?",
+      "respuesta": "Un error comun es usarlo aunque tu equipo no distingue bien entre aridad, currying real y simples closures. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que currying y aplicacion parcial esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que se repiten argumentos como locale, logger o estrategia en muchas llamadas. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara currying y aplicacion parcial con pasar el mismo objeto de opciones en cada llamada?",
+      "respuesta": "Comparado con pasar el mismo objeto de opciones en cada llamada, currying y aplicacion parcial suele ofrecer una estructura mas explicita para quieres especializar reglas y construir APIs composables, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar currying y aplicacion parcial?",
+      "respuesta": "Sirve medir menos duplicacion de parametros y funciones especializadas faciles de reutilizar. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar currying y aplicacion parcial?",
+      "respuesta": "No conviene usarlo cuando tu equipo no distingue bien entre aridad, currying real y simples closures. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde necesitas crear validadores por pais sin duplicar toda la logica, ¿como aporta currying y aplicacion parcial?",
+      "respuesta": "Si necesitas crear validadores por pais sin duplicar toda la logica, currying y aplicacion parcial ayuda porque el currying transforma funciones de varios argumentos en secuencias de funciones unarias y la aplicacion parcial fija parte del contexto y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es funciones de orden superior y cuando conviene usarlo?",
+      "respuesta": "Una funcion de orden superior recibe funciones, devuelve funciones o ambas cosas. Conviene usarlo cuando quieres abstraer comportamiento comun como validacion, retries o decoracion.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver funciones de orden superior?",
+      "respuesta": "Ayuda a resolver la duplicacion de patrones de control alrededor de la logica principal porque una funcion de orden superior recibe funciones, devuelve funciones o ambas cosas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce funciones de orden superior?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres abstraer comportamiento comun como validacion, retries o decoracion, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar funciones de orden superior?",
+      "respuesta": "Un error comun es usarlo aunque la abstraccion termina ocultando demasiado flujo de negocio. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que funciones de orden superior esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que muchas funciones hacen lo mismo salvo por una operacion interna. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara funciones de orden superior con copiar y pegar estructuras de control en cada caso?",
+      "respuesta": "Comparado con copiar y pegar estructuras de control en cada caso, funciones de orden superior suele ofrecer una estructura mas explicita para quieres abstraer comportamiento comun como validacion, retries o decoracion, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar funciones de orden superior?",
+      "respuesta": "Sirve medir menor codigo repetido y wrappers faciles de probar. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar funciones de orden superior?",
+      "respuesta": "No conviene usarlo cuando la abstraccion termina ocultando demasiado flujo de negocio. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es map, filter y reduce y cuando conviene usarlo?",
+      "respuesta": "Estas operaciones permiten transformar, seleccionar y acumular colecciones de forma declarativa. Conviene usarlo cuando procesas listas y quieres expresar la intencion sin bucles imperativos detallados.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver map, filter y reduce?",
+      "respuesta": "Ayuda a resolver el codigo de iteracion con estado acumulado y ramas mezcladas porque estas operaciones permiten transformar, seleccionar y acumular colecciones de forma declarativa.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce map, filter y reduce?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando procesas listas y quieres expresar la intencion sin bucles imperativos detallados, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar map, filter y reduce?",
+      "respuesta": "Un error comun es usarlo aunque la coleccion es enorme y cada paso extra genera costos de memoria que importan. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que map, filter y reduce esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que bucles con acumuladores, flags y mutaciones que ocultan la intencion. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara map, filter y reduce con for con variables mutables y contadores manuales?",
+      "respuesta": "Comparado con for con variables mutables y contadores manuales, map, filter y reduce suele ofrecer una estructura mas explicita para procesas listas y quieres expresar la intencion sin bucles imperativos detallados, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar map, filter y reduce?",
+      "respuesta": "Sirve medir pipelines legibles, menor estado temporal y resultados faciles de verificar. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar map, filter y reduce?",
+      "respuesta": "No conviene usarlo cuando la coleccion es enorme y cada paso extra genera costos de memoria que importan. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es recursividad y cuando conviene usarlo?",
+      "respuesta": "La recursividad resuelve un problema en terminos de versiones mas pequenas del mismo. Conviene usarlo cuando trabajas con estructuras arboladas, recorridos o definiciones inductivas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver recursividad?",
+      "respuesta": "Ayuda a resolver la dificultad de expresar jerarquias complejas con bucles planos porque la recursividad resuelve un problema en terminos de versiones mas pequenas del mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce recursividad?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando trabajas con estructuras arboladas, recorridos o definiciones inductivas, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar recursividad?",
+      "respuesta": "Un error comun es usarlo aunque la profundidad puede desbordar la pila y el lenguaje no optimiza tail calls. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que recursividad esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que casos base incompletos o recursion mezclada con mutacion externa. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara recursividad con pilas manuales o bucles con mucho estado auxiliar?",
+      "respuesta": "Comparado con pilas manuales o bucles con mucho estado auxiliar, recursividad suele ofrecer una estructura mas explicita para trabajas con estructuras arboladas, recorridos o definiciones inductivas, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar recursividad?",
+      "respuesta": "Sirve medir claridad del caso base, profundidad acotada y equivalencia con datos recursivos. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar recursividad?",
+      "respuesta": "No conviene usarlo cuando la profundidad puede desbordar la pila y el lenguaje no optimiza tail calls. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es lazy evaluation y cuando conviene usarlo?",
+      "respuesta": "La evaluacion perezosa retrasa el calculo hasta que el resultado es necesario. Conviene usarlo cuando trabajas con pipelines costosos, colecciones grandes o datos potencialmente infinitos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver lazy evaluation?",
+      "respuesta": "Ayuda a resolver el trabajo innecesario y la memoria ocupada por resultados intermedios porque la evaluacion perezosa retrasa el calculo hasta que el resultado es necesario.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce lazy evaluation?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando trabajas con pipelines costosos, colecciones grandes o datos potencialmente infinitos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar lazy evaluation?",
+      "respuesta": "Un error comun es usarlo aunque el diferimiento complica demasiado el debugging o hace opaco el costo real. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que lazy evaluation esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que se calculan listas completas aunque solo se consume una parte. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara lazy evaluation con evaluar todo eager desde el inicio?",
+      "respuesta": "Comparado con evaluar todo eager desde el inicio, lazy evaluation suele ofrecer una estructura mas explicita para trabajas con pipelines costosos, colecciones grandes o datos potencialmente infinitos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar lazy evaluation?",
+      "respuesta": "Sirve medir menos asignaciones temporales, menor tiempo de respuesta parcial y consumo estable. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar lazy evaluation?",
+      "respuesta": "No conviene usarlo cuando el diferimiento complica demasiado el debugging o hace opaco el costo real. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es funtores y monadas y cuando conviene usarlo?",
+      "respuesta": "Son abstracciones para mapear y encadenar computaciones dentro de un contexto como opcion, error o asincronia. Conviene usarlo cuando quieres componer operaciones contextuales sin ifs ni manejo manual repetitivo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver funtores y monadas?",
+      "respuesta": "Ayuda a resolver la explosion de condicionales para valores opcionales, errores o async porque son abstracciones para mapear y encadenar computaciones dentro de un contexto como opcion, error o asincronia.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce funtores y monadas?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres componer operaciones contextuales sin ifs ni manejo manual repetitivo, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar funtores y monadas?",
+      "respuesta": "Un error comun es usarlo aunque el equipo no comparte un vocabulario funcional minimo y la abstraccion tapa el dominio. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que funtores y monadas esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que codigo lleno de null checks, unwraps y control de flujo repetido. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara funtores y monadas con anidar ifs, try/catch y verificaciones null en cada paso?",
+      "respuesta": "Comparado con anidar ifs, try/catch y verificaciones null en cada paso, funtores y monadas suele ofrecer una estructura mas explicita para quieres componer operaciones contextuales sin ifs ni manejo manual repetitivo, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar funtores y monadas?",
+      "respuesta": "Sirve medir pipelines lineales, menos branching accidental y manejo uniforme del contexto. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar funtores y monadas?",
+      "respuesta": "No conviene usarlo cuando el equipo no comparte un vocabulario funcional minimo y la abstraccion tapa el dominio. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es tipos algebraicos de datos y cuando conviene usarlo?",
+      "respuesta": "Los adt modelan alternativas y composiciones de forma explicita, por ejemplo result, option o uniones discriminadas. Conviene usarlo cuando quieres representar estados validos del dominio sin combinaciones ambiguas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver tipos algebraicos de datos?",
+      "respuesta": "Ayuda a resolver los objetos parcialmente validos y los flags contradictorios porque los ADT modelan alternativas y composiciones de forma explicita, por ejemplo Result, Option o uniones discriminadas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce tipos algebraicos de datos?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres representar estados validos del dominio sin combinaciones ambiguas, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar tipos algebraicos de datos?",
+      "respuesta": "Un error comun es usarlo aunque el modelo es tan simple que una union o enum agrega mas ruido que valor. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que tipos algebraicos de datos esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que objetos con campos que solo aplican a veces y validaciones dispersas. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara tipos algebraicos de datos con booleans sueltos y objetos con propiedades opcionales inconsistenes?",
+      "respuesta": "Comparado con booleans sueltos y objetos con propiedades opcionales inconsistenes, tipos algebraicos de datos suele ofrecer una estructura mas explicita para quieres representar estados validos del dominio sin combinaciones ambiguas, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar tipos algebraicos de datos?",
+      "respuesta": "Sirve medir exhaustividad en pattern matching y menor cantidad de estados imposibles. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar tipos algebraicos de datos?",
+      "respuesta": "No conviene usarlo cuando el modelo es tan simple que una union o enum agrega mas ruido que valor. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es manejo funcional de errores y cuando conviene usarlo?",
+      "respuesta": "El manejo funcional de errores trata el error como dato y hace explicito el flujo de falla. Conviene usarlo cuando quieres evitar excepciones sorpresivas y componer errores de forma predecible.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver manejo funcional de errores?",
+      "respuesta": "Ayuda a resolver el control de flujo escondido en excepciones lanzadas desde capas inferiores porque el manejo funcional de errores trata el error como dato y hace explicito el flujo de falla.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce manejo funcional de errores?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres evitar excepciones sorpresivas y componer errores de forma predecible, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar manejo funcional de errores?",
+      "respuesta": "Un error comun es usarlo aunque interactuas con APIs que ya usan excepciones como contrato dominante y no puedes aislarlas. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que manejo funcional de errores esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que capturas generales que silencian contexto o mezclan errores tecnicos y de dominio. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara manejo funcional de errores con throw/catch disperso en muchas capas?",
+      "respuesta": "Comparado con throw/catch disperso en muchas capas, manejo funcional de errores suele ofrecer una estructura mas explicita para quieres evitar excepciones sorpresivas y componer errores de forma predecible, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar manejo funcional de errores?",
+      "respuesta": "Sirve medir firmas explicitas, pruebas de ramas de error y logs mas consistentes. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar manejo funcional de errores?",
+      "respuesta": "No conviene usarlo cuando interactuas con APIs que ya usan excepciones como contrato dominante y no puedes aislarlas. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que es gestion de efectos y cuando conviene usarlo?",
+      "respuesta": "La programacion funcional suele empujar los efectos hacia los bordes y mantener el nucleo de negocio puro. Conviene usarlo cuando quieres aislar IO, logging, reloj, random o acceso a red.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver gestion de efectos?",
+      "respuesta": "Ayuda a resolver la imposibilidad de probar reglas de negocio sin montar infraestructura porque la programacion funcional suele empujar los efectos hacia los bordes y mantener el nucleo de negocio puro.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce gestion de efectos?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres aislar IO, logging, reloj, random o acceso a red, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar gestion de efectos?",
+      "respuesta": "Un error comun es usarlo aunque la capa de abstraccion sobre efectos es mas compleja que el problema a resolver. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que gestion de efectos esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que funciones de negocio crean clientes HTTP o leen el reloj directamente. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara gestion de efectos con mezclar consultas externas dentro de cada funcion de dominio?",
+      "respuesta": "Comparado con mezclar consultas externas dentro de cada funcion de dominio, gestion de efectos suele ofrecer una estructura mas explicita para quieres aislar IO, logging, reloj, random o acceso a red, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar gestion de efectos?",
+      "respuesta": "Sirve medir nucleo testeable sin mocks pesados y adaptadores claros en los bordes. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar gestion de efectos?",
+      "respuesta": "No conviene usarlo cuando la capa de abstraccion sobre efectos es mas compleja que el problema a resolver. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Programación Funcional"
+      ]
+    }
+  ]
+}

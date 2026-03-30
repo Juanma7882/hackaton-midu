@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import openRouterEvaluationService from "../services/openRouterEvaluationService.js";
+import localEvaluationService from "../services/localEvaluationService.js";
 
-export const evaluarRespuestasConOpenRouter = async (req: Request, res: Response) => {
+export const evaluarRespuestasConIA = async (req: Request, res: Response) => {
     try {
         const preguntas = Array.isArray(req.body?.preguntas) ? req.body.preguntas : [];
 
@@ -14,7 +14,7 @@ export const evaluarRespuestasConOpenRouter = async (req: Request, res: Response
             });
         }
 
-        const resultado = await openRouterEvaluationService.evaluarPreguntas(preguntas);
+        const resultado = await localEvaluationService.evaluarPreguntas(preguntas);
 
         return res.status(200).json({
             success: true,
@@ -23,17 +23,17 @@ export const evaluarRespuestasConOpenRouter = async (req: Request, res: Response
             error: null,
         });
     } catch (error: any) {
-        console.error("Error al evaluar respuestas con OpenRouter:", error);
+        console.error("Error al evaluar respuestas localmente:", error);
         return res.status(500).json({
             success: false,
-            message: "No se pudo evaluar las respuestas con OpenRouter",
+            message: "No se pudo evaluar las respuestas localmente",
             data: null,
             error: process.env.NODE_ENV === "development" ? error.message : undefined,
         });
     }
 };
 
-export const streamOpenRouterChat = async (req: Request, res: Response) => {
+export const streamLocalChat = async (req: Request, res: Response) => {
     try {
         const messages = Array.isArray(req.body?.messages) ? req.body.messages : [];
         const model = typeof req.body?.model === "string" ? req.body.model : undefined;
@@ -48,7 +48,7 @@ export const streamOpenRouterChat = async (req: Request, res: Response) => {
             });
         }
 
-        const { stream, model: modeloUsado } = await openRouterEvaluationService.crearStreamChat({
+        const { stream, model: modeloUsado } = await localEvaluationService.crearStreamChat({
             messages,
             model,
             temperature,
@@ -85,12 +85,12 @@ export const streamOpenRouterChat = async (req: Request, res: Response) => {
 
         res.end();
     } catch (error: any) {
-        console.error("Error al abrir stream con OpenRouter:", error);
+        console.error("Error al abrir stream local:", error);
 
         if (!res.headersSent) {
             return res.status(500).json({
                 success: false,
-                message: "No se pudo iniciar el stream con OpenRouter",
+                message: "No se pudo iniciar el stream local",
                 data: null,
                 error: process.env.NODE_ENV === "development" ? error.message : undefined,
             });
@@ -98,5 +98,38 @@ export const streamOpenRouterChat = async (req: Request, res: Response) => {
 
         res.write(`event: error\ndata: ${JSON.stringify({ message: error.message })}\n\n`);
         res.end();
+    }
+};
+
+export const generarResumenQuizConIA = async (req: Request, res: Response) => {
+    try {
+        const preguntas = Array.isArray(req.body?.preguntas) ? req.body.preguntas : [];
+        const evaluaciones = Array.isArray(req.body?.evaluaciones) ? req.body.evaluaciones : [];
+
+        if (preguntas.length === 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Debes enviar al menos una pregunta para resumir",
+                data: null,
+                error: null,
+            });
+        }
+
+        const resultado = await localEvaluationService.generarResumenQuiz(preguntas, evaluaciones);
+
+        return res.status(200).json({
+            success: true,
+            message: "Resumen del quiz generado correctamente",
+            data: resultado,
+            error: null,
+        });
+    } catch (error: any) {
+        console.error("Error al generar resumen del quiz local:", error);
+        return res.status(500).json({
+            success: false,
+            message: "No se pudo generar el resumen del quiz local",
+            data: null,
+            error: process.env.NODE_ENV === "development" ? error.message : undefined,
+        });
     }
 };

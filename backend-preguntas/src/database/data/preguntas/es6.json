@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "ES6",
+    "url": "/logos/es6.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Qué problema resuelve let y const y cuándo se nota más su valor?",
+      "respuesta": "introducen variables de bloque con reglas de inicialización y reasignación más predecibles que var Su valor se nota especialmente en se refactoriza código legacy o se modela intención de mutabilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona let y const a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, introducen variables de bloque con reglas de inicialización y reasignación más predecibles que var Para usarlo bien conviene entender que const bloquea la reasignación de la referencia, pero no vuelve inmutable el objeto apuntado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con let y const?",
+      "respuesta": "Un error frecuente es asumir algo que const bloquea la reasignación de la referencia, pero no vuelve inmutable el objeto apuntado La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia let y const de var?",
+      "respuesta": "La diferencia clave es que introducen variables de bloque con reglas de inicialización y reasignación más predecibles que var En cambio, var tiene scope de función y comportamientos históricos de hoisting más permisivos, mientras que let y const reducen ambigüedad de alcance",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener let y const?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se refactoriza código legacy o se modela intención de mutabilidad y recordar que const bloquea la reasignación de la referencia, pero no vuelve inmutable el objeto apuntado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con let y const?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que const bloquea la reasignación de la referencia, pero no vuelve inmutable el objeto apuntado o de una suposición incorrecta sobre let y const.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece let y const y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque introducen variables de bloque con reglas de inicialización y reasignación más predecibles que var Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que const bloquea la reasignación de la referencia, pero no vuelve inmutable el objeto apuntado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor let y const?",
+      "respuesta": "Encaja bien en un patrón donde se refactoriza código legacy o se modela intención de mutabilidad Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las arrow functions y cuándo se nota más su valor?",
+      "respuesta": "ofrecen una sintaxis compacta y capturan this de forma léxica Su valor se nota especialmente en se escriben callbacks cortos, transformaciones y cierres sobre el contexto exterior.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las arrow functions a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ofrecen una sintaxis compacta y capturan this de forma léxica Para usarlo bien conviene entender que usar arrow como método de objeto suele sorprender porque no enlaza this al receptor",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las arrow functions?",
+      "respuesta": "Un error frecuente es asumir algo que usar arrow como método de objeto suele sorprender porque no enlaza this al receptor La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las arrow functions de las funciones tradicionales?",
+      "respuesta": "La diferencia clave es que ofrecen una sintaxis compacta y capturan this de forma léxica En cambio, las funciones tradicionales crean su propio this dinámico y pueden usarse como constructores, mientras que las arrow no",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las arrow functions?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se escriben callbacks cortos, transformaciones y cierres sobre el contexto exterior y recordar que usar arrow como método de objeto suele sorprender porque no enlaza this al receptor",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las arrow functions?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que usar arrow como método de objeto suele sorprender porque no enlaza this al receptor o de una suposición incorrecta sobre las arrow functions.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las arrow functions y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ofrecen una sintaxis compacta y capturan this de forma léxica Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que usar arrow como método de objeto suele sorprender porque no enlaza this al receptor",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las arrow functions?",
+      "respuesta": "Encaja bien en un patrón donde se escriben callbacks cortos, transformaciones y cierres sobre el contexto exterior Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los template literals y cuándo se nota más su valor?",
+      "respuesta": "permiten interpolación, saltos de línea y composición avanzada de strings Su valor se nota especialmente en se generan mensajes, sql parametrizado en capas seguras o fragmentos html controlados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los template literals a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten interpolación, saltos de línea y composición avanzada de strings Para usarlo bien conviene entender que interpolar datos sin sanitizar sigue siendo peligroso si luego se insertan en html o consultas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los template literals?",
+      "respuesta": "Un error frecuente es asumir algo que interpolar datos sin sanitizar sigue siendo peligroso si luego se insertan en html o consultas La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los template literals de la concatenación con +?",
+      "respuesta": "La diferencia clave es que permiten interpolación, saltos de línea y composición avanzada de strings En cambio, la concatenación obliga a fragmentar más el texto, mientras que los template literals expresan mejor estructuras y placeholders",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los template literals?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se generan mensajes, sql parametrizado en capas seguras o fragmentos html controlados y recordar que interpolar datos sin sanitizar sigue siendo peligroso si luego se insertan en html o consultas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los template literals?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que interpolar datos sin sanitizar sigue siendo peligroso si luego se insertan en html o consultas o de una suposición incorrecta sobre los template literals.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los template literals y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten interpolación, saltos de línea y composición avanzada de strings Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que interpolar datos sin sanitizar sigue siendo peligroso si luego se insertan en html o consultas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los template literals?",
+      "respuesta": "Encaja bien en un patrón donde se generan mensajes, sql parametrizado en capas seguras o fragmentos html controlados Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la destructuración y cuándo se nota más su valor?",
+      "respuesta": "extrae valores de arrays y objetos con una sintaxis declarativa y combinable Su valor se nota especialmente en se consumen respuestas de api, parámetros de función y resultados compuestos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la destructuración a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, extrae valores de arrays y objetos con una sintaxis declarativa y combinable Para usarlo bien conviene entender que desestructurar rutas inexistentes sin valores por defecto puede lanzar errores o producir undefined inesperado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la destructuración?",
+      "respuesta": "Un error frecuente es asumir algo que desestructurar rutas inexistentes sin valores por defecto puede lanzar errores o producir undefined inesperado La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la destructuración de acceder manualmente a cada índice o propiedad?",
+      "respuesta": "La diferencia clave es que extrae valores de arrays y objetos con una sintaxis declarativa y combinable En cambio, el acceso manual es más verboso y fácil de desalinear, mientras que la destructuración documenta la forma esperada de los datos",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la destructuración?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se consumen respuestas de api, parámetros de función y resultados compuestos y recordar que desestructurar rutas inexistentes sin valores por defecto puede lanzar errores o producir undefined inesperado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la destructuración?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que desestructurar rutas inexistentes sin valores por defecto puede lanzar errores o producir undefined inesperado o de una suposición incorrecta sobre la destructuración.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la destructuración y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque extrae valores de arrays y objetos con una sintaxis declarativa y combinable Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que desestructurar rutas inexistentes sin valores por defecto puede lanzar errores o producir undefined inesperado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la destructuración?",
+      "respuesta": "Encaja bien en un patrón donde se consumen respuestas de api, parámetros de función y resultados compuestos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve spread y rest y cuándo se nota más su valor?",
+      "respuesta": "expanden o agrupan elementos en llamadas, literales y parámetros Su valor se nota especialmente en se clonan estructuras superficiales, se combinan opciones o se definen apis flexibles.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona spread y rest a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, expanden o agrupan elementos en llamadas, literales y parámetros Para usarlo bien conviene entender que la copia con spread es superficial y no aísla objetos anidados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con spread y rest?",
+      "respuesta": "Un error frecuente es asumir algo que la copia con spread es superficial y no aísla objetos anidados La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia spread y rest de manipular argumentos con apply o arrays manuales?",
+      "respuesta": "La diferencia clave es que expanden o agrupan elementos en llamadas, literales y parámetros En cambio, las técnicas antiguas requieren más ceremonias, mientras que spread y rest unifican composición y recolección de valores",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener spread y rest?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se clonan estructuras superficiales, se combinan opciones o se definen apis flexibles y recordar que la copia con spread es superficial y no aísla objetos anidados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con spread y rest?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que la copia con spread es superficial y no aísla objetos anidados o de una suposición incorrecta sobre spread y rest.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece spread y rest y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque expanden o agrupan elementos en llamadas, literales y parámetros Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que la copia con spread es superficial y no aísla objetos anidados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor spread y rest?",
+      "respuesta": "Encaja bien en un patrón donde se clonan estructuras superficiales, se combinan opciones o se definen apis flexibles Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve las clases y cuándo se nota más su valor?",
+      "respuesta": "aportan una sintaxis declarativa sobre la herencia prototipal existente Su valor se nota especialmente en se construyen modelos con instancia, invariantes y jerarquías controladas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona las clases a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, aportan una sintaxis declarativa sobre la herencia prototipal existente Para usarlo bien conviene entender que pensar en clases como si fueran idénticas a otros lenguajes puede ocultar matices de this, prototipos y campos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con las clases?",
+      "respuesta": "Un error frecuente es asumir algo que pensar en clases como si fueran idénticas a otros lenguajes puede ocultar matices de this, prototipos y campos La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia las clases de las funciones constructoras y prototypes manuales?",
+      "respuesta": "La diferencia clave es que aportan una sintaxis declarativa sobre la herencia prototipal existente En cambio, la semántica base sigue siendo prototipal, pero la sintaxis de clases ordena constructores, métodos y herencia de forma más legible",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener las clases?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se construyen modelos con instancia, invariantes y jerarquías controladas y recordar que pensar en clases como si fueran idénticas a otros lenguajes puede ocultar matices de this, prototipos y campos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con las clases?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que pensar en clases como si fueran idénticas a otros lenguajes puede ocultar matices de this, prototipos y campos o de una suposición incorrecta sobre las clases.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece las clases y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque aportan una sintaxis declarativa sobre la herencia prototipal existente Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que pensar en clases como si fueran idénticas a otros lenguajes puede ocultar matices de this, prototipos y campos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor las clases?",
+      "respuesta": "Encaja bien en un patrón donde se construyen modelos con instancia, invariantes y jerarquías controladas Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los módulos ES6 y cuándo se nota más su valor?",
+      "respuesta": "formalizan dependencias estáticas y exportaciones reutilizables entre archivos Su valor se nota especialmente en se comparte código entre frontend, backend y herramientas modernas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los módulos ES6 a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, formalizan dependencias estáticas y exportaciones reutilizables entre archivos Para usarlo bien conviene entender que mezclar sistemas de módulos sin entender la interoperabilidad puede producir imports inesperados o defaults confusos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los módulos ES6?",
+      "respuesta": "Un error frecuente es asumir algo que mezclar sistemas de módulos sin entender la interoperabilidad puede producir imports inesperados o defaults confusos La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los módulos ES6 de CommonJS?",
+      "respuesta": "La diferencia clave es que formalizan dependencias estáticas y exportaciones reutilizables entre archivos En cambio, CommonJS resuelve en tiempo de ejecución con require, mientras que ES modules exponen estructura estática útil para análisis y optimización",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los módulos ES6?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se comparte código entre frontend, backend y herramientas modernas y recordar que mezclar sistemas de módulos sin entender la interoperabilidad puede producir imports inesperados o defaults confusos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los módulos ES6?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que mezclar sistemas de módulos sin entender la interoperabilidad puede producir imports inesperados o defaults confusos o de una suposición incorrecta sobre los módulos ES6.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los módulos ES6 y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque formalizan dependencias estáticas y exportaciones reutilizables entre archivos Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que mezclar sistemas de módulos sin entender la interoperabilidad puede producir imports inesperados o defaults confusos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los módulos ES6?",
+      "respuesta": "Encaja bien en un patrón donde se comparte código entre frontend, backend y herramientas modernas Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Symbol y cuándo se nota más su valor?",
+      "respuesta": "crea identificadores únicos útiles para metaprogramación y propiedades no colisionables Su valor se nota especialmente en se extienden objetos o protocolos sin contaminar nombres públicos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Symbol a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, crea identificadores únicos útiles para metaprogramación y propiedades no colisionables Para usarlo bien conviene entender que las propiedades symbol no aparecen en ciertos recorridos habituales y eso puede esconder comportamiento relevante",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Symbol?",
+      "respuesta": "Un error frecuente es asumir algo que las propiedades symbol no aparecen en ciertos recorridos habituales y eso puede esconder comportamiento relevante La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Symbol de usar strings como claves normales?",
+      "respuesta": "La diferencia clave es que crea identificadores únicos útiles para metaprogramación y propiedades no colisionables En cambio, las strings pueden chocar accidentalmente, mientras que un Symbol conserva identidad única aunque comparta descripción textual",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Symbol?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se extienden objetos o protocolos sin contaminar nombres públicos y recordar que las propiedades symbol no aparecen en ciertos recorridos habituales y eso puede esconder comportamiento relevante",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Symbol?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que las propiedades symbol no aparecen en ciertos recorridos habituales y eso puede esconder comportamiento relevante o de una suposición incorrecta sobre Symbol.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Symbol y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque crea identificadores únicos útiles para metaprogramación y propiedades no colisionables Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que las propiedades symbol no aparecen en ciertos recorridos habituales y eso puede esconder comportamiento relevante",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Symbol?",
+      "respuesta": "Encaja bien en un patrón donde se extienden objetos o protocolos sin contaminar nombres públicos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Map y Set y cuándo se nota más su valor?",
+      "respuesta": "proveen colecciones optimizadas para claves arbitrarias y valores únicos Su valor se nota especialmente en se implementan caches, índices, tablas de búsqueda y deduplicación.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Map y Set a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, proveen colecciones optimizadas para claves arbitrarias y valores únicos Para usarlo bien conviene entender que comparan objetos por identidad de referencia, no por igualdad estructural",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Map y Set?",
+      "respuesta": "Un error frecuente es asumir algo que comparan objetos por identidad de referencia, no por igualdad estructural La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Map y Set de objetos y arrays tradicionales?",
+      "respuesta": "La diferencia clave es que proveen colecciones optimizadas para claves arbitrarias y valores únicos En cambio, los objetos convierten claves a strings y los arrays no modelan unicidad semántica, mientras que Map y Set sí",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Map y Set?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se implementan caches, índices, tablas de búsqueda y deduplicación y recordar que comparan objetos por identidad de referencia, no por igualdad estructural",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Map y Set?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que comparan objetos por identidad de referencia, no por igualdad estructural o de una suposición incorrecta sobre Map y Set.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Map y Set y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque proveen colecciones optimizadas para claves arbitrarias y valores únicos Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que comparan objetos por identidad de referencia, no por igualdad estructural",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Map y Set?",
+      "respuesta": "Encaja bien en un patrón donde se implementan caches, índices, tablas de búsqueda y deduplicación Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de Map y Set suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que comparan objetos por identidad de referencia, no por igualdad estructural Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los generadores y cuándo se nota más su valor?",
+      "respuesta": "permiten pausar y reanudar funciones para producir secuencias de valores bajo demanda Su valor se nota especialmente en se recorren secuencias grandes, pipelines perezosos o máquinas de estado simples.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los generadores a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten pausar y reanudar funciones para producir secuencias de valores bajo demanda Para usarlo bien conviene entender que su control de flujo es potente, pero mezclar yield con estado mutable complica razonamiento y depuración",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los generadores?",
+      "respuesta": "Un error frecuente es asumir algo que su control de flujo es potente, pero mezclar yield con estado mutable complica razonamiento y depuración La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los generadores de devolver una colección completa de una sola vez?",
+      "respuesta": "La diferencia clave es que permiten pausar y reanudar funciones para producir secuencias de valores bajo demanda En cambio, devolver todo consume memoria por adelantado, mientras que un generador entrega valores conforme se solicitan",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los generadores?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se recorren secuencias grandes, pipelines perezosos o máquinas de estado simples y recordar que su control de flujo es potente, pero mezclar yield con estado mutable complica razonamiento y depuración",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los generadores?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que su control de flujo es potente, pero mezclar yield con estado mutable complica razonamiento y depuración o de una suposición incorrecta sobre los generadores.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los generadores y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten pausar y reanudar funciones para producir secuencias de valores bajo demanda Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que su control de flujo es potente, pero mezclar yield con estado mutable complica razonamiento y depuración",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los generadores?",
+      "respuesta": "Encaja bien en un patrón donde se recorren secuencias grandes, pipelines perezosos o máquinas de estado simples Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de los generadores suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que su control de flujo es potente, pero mezclar yield con estado mutable complica razonamiento y depuración Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Proxy y Reflect y cuándo se nota más su valor?",
+      "respuesta": "habilitan interceptar operaciones sobre objetos y reenviarlas con semántica controlada Su valor se nota especialmente en se crean validaciones, observabilidad, acceso virtual o apis reactivas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Proxy y Reflect a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, habilitan interceptar operaciones sobre objetos y reenviarlas con semántica controlada Para usarlo bien conviene entender que interceptar demasiadas operaciones añade coste mental y puede romper invariantes del lenguaje si no se respetan",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Proxy y Reflect?",
+      "respuesta": "Un error frecuente es asumir algo que interceptar demasiadas operaciones añade coste mental y puede romper invariantes del lenguaje si no se respetan La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Proxy y Reflect de modificar manualmente cada punto de acceso?",
+      "respuesta": "La diferencia clave es que habilitan interceptar operaciones sobre objetos y reenviarlas con semántica controlada En cambio, modificar cada punto dispersa la lógica, mientras que Proxy centraliza interceptación y Reflect ayuda a preservar el comportamiento esperado",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Proxy y Reflect?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se crean validaciones, observabilidad, acceso virtual o apis reactivas y recordar que interceptar demasiadas operaciones añade coste mental y puede romper invariantes del lenguaje si no se respetan",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Proxy y Reflect?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que interceptar demasiadas operaciones añade coste mental y puede romper invariantes del lenguaje si no se respetan o de una suposición incorrecta sobre Proxy y Reflect.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Proxy y Reflect y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque habilitan interceptar operaciones sobre objetos y reenviarlas con semántica controlada Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que interceptar demasiadas operaciones añade coste mental y puede romper invariantes del lenguaje si no se respetan",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Proxy y Reflect?",
+      "respuesta": "Encaja bien en un patrón donde se crean validaciones, observabilidad, acceso virtual o apis reactivas Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de Proxy y Reflect suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que interceptar demasiadas operaciones añade coste mental y puede romper invariantes del lenguaje si no se respetan Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los parámetros por defecto y cuándo se nota más su valor?",
+      "respuesta": "permiten inicializar argumentos cuando el llamador no proporciona valor o envía undefined Su valor se nota especialmente en se diseñan funciones con opciones opcionales y contratos claros.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los parámetros por defecto a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten inicializar argumentos cuando el llamador no proporciona valor o envía undefined Para usarlo bien conviene entender que null no activa el valor por defecto y esa diferencia genera bugs si se confunden ausencia y nulidad",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los parámetros por defecto?",
+      "respuesta": "Un error frecuente es asumir algo que null no activa el valor por defecto y esa diferencia genera bugs si se confunden ausencia y nulidad La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los parámetros por defecto de asignar fallback manual dentro de la función?",
+      "respuesta": "La diferencia clave es que permiten inicializar argumentos cuando el llamador no proporciona valor o envía undefined En cambio, el fallback manual mezcla validación con cuerpo principal, mientras que los parámetros por defecto declaran la intención en la firma",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los parámetros por defecto?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se diseñan funciones con opciones opcionales y contratos claros y recordar que null no activa el valor por defecto y esa diferencia genera bugs si se confunden ausencia y nulidad",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los parámetros por defecto?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que null no activa el valor por defecto y esa diferencia genera bugs si se confunden ausencia y nulidad o de una suposición incorrecta sobre los parámetros por defecto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los parámetros por defecto y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten inicializar argumentos cuando el llamador no proporciona valor o envía undefined Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que null no activa el valor por defecto y esa diferencia genera bugs si se confunden ausencia y nulidad",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los parámetros por defecto?",
+      "respuesta": "Encaja bien en un patrón donde se diseñan funciones con opciones opcionales y contratos claros Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "ES6"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de los parámetros por defecto suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que null no activa el valor por defecto y esa diferencia genera bugs si se confunden ausencia y nulidad Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "ES6"
+      ]
+    }
+  ]
+}

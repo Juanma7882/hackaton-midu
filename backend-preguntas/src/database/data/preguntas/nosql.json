@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "NoSQL",
+    "url": "/logos/sql2.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema resuelve modelado orientado a consultas en NoSQL?",
+      "respuesta": "Parte de los patrones de acceso reales para decidir forma, particion y duplicacion del dato en lugar de normalizar por defecto. Se vuelve especialmente util cuando conoces bien como se leera y escribira la informacion y quieres optimizar para esos caminos principales.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar modelado orientado a consultas y cuando no?",
+      "respuesta": "Conviene cuando conoces bien como se leera y escribira la informacion y quieres optimizar para esos caminos principales. No conviene usarlo por inercia si disenar colecciones o tablas sin conocer el workload, esperando que luego el motor resuelva cualquier consulta arbitraria.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con modelado orientado a consultas?",
+      "respuesta": "Un error comun es copiar un modelo relacional casi literal en una base NoSQL y sufrir consultas ineficientes o joins de aplicacion constantes. Para evitarlo, empiezas por historias de lectura y escritura, y a partir de ellas defines documentos, claves y duplicaciones justificadas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia modelado orientado a consultas de modelado relacional normalizado?",
+      "respuesta": "El modelado NoSQL suele priorizar patrones de acceso y distribucion; el relacional prioriza integridad global y flexibilidad declarativa de consulta. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta modelado orientado a consultas en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Si acierta con el workload, reduce latencia y complejidad operativa de lectura; si no, obliga a costosas migraciones o consultas torpes.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con modelado orientado a consultas?",
+      "respuesta": "Hay que revisar si las consultas reales coinciden con el modelo previsto y donde aparecen fan-out, lecturas excesivas o duplicaciones dificiles de mantener.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con modelado orientado a consultas?",
+      "respuesta": "Conviene versionar el modelo y medir accesos antes de congelarlo, porque en NoSQL cambiar la forma del dato suele ser mas costoso que en SQL.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que modelado orientado a consultas esta mal implementado?",
+      "respuesta": "Cada nueva consulta importante exige escanear grandes conjuntos o armar joins en la aplicacion.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve documentos embebidos en NoSQL?",
+      "respuesta": "Permiten guardar juntos datos que se leen y actualizan como una sola unidad natural. Se vuelve especialmente util cuando la cardinalidad es acotada, la lectura conjunta es frecuente y quieres evitar consultas adicionales.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar documentos embebidos y cuando no?",
+      "respuesta": "Conviene cuando la cardinalidad es acotada, la lectura conjunta es frecuente y quieres evitar consultas adicionales. No conviene usarlo por inercia si la coleccion anidada crece sin limite o se reutiliza desde muchos agregados distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con documentos embebidos?",
+      "respuesta": "Un error comun es embeber listas enormes o datos con ciclo de vida independiente solo para evitar una referencia. Para evitarlo, embebes solo lo que tiene alta localidad de acceso y controlas tamano maximo del documento.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia documentos embebidos de referencias entre documentos?",
+      "respuesta": "Embebido favorece lecturas compactas y atomicidad local; las referencias reducen duplicacion y permiten evolucion independiente de subentidades. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta documentos embebidos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Mejora mucho lecturas frecuentes, pero puede disparar escrituras pesadas, conflictos y limites de tamano si se usa sin criterio.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con documentos embebidos?",
+      "respuesta": "Debes observar crecimiento del documento, frecuencia de reescritura y si alguna subestructura ya justifica separacion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con documentos embebidos?",
+      "respuesta": "Funciona muy bien para snapshots o value objects pequenos que rara vez se actualizan por separado.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que documentos embebidos esta mal implementado?",
+      "respuesta": "Un solo cambio menor obliga a reescribir documentos enormes o a truncar datos por limites del motor.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve referencias entre documentos en NoSQL?",
+      "respuesta": "Desacoplan entidades cuando su tamano, reutilizacion o ciclo de vida hacen inconveniente el embebido. Se vuelve especialmente util cuando varios documentos apuntan a la misma entidad o necesitas actualizar una parte sin tocar el agregado completo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar referencias entre documentos y cuando no?",
+      "respuesta": "Conviene cuando varios documentos apuntan a la misma entidad o necesitas actualizar una parte sin tocar el agregado completo. No conviene usarlo por inercia si cada lectura importante requiere encadenar demasiadas consultas para recomponer una vista basica del negocio.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con referencias entre documentos?",
+      "respuesta": "Un error comun es referenciar todo por reflejo y terminar recreando joins manuales en la aplicacion para cualquier pantalla. Para evitarlo, referencias solo cuando el desacoplamiento aporta valor real y la latencia adicional es aceptable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia referencias entre documentos de documentos embebidos?",
+      "respuesta": "Las referencias priorizan reutilizacion y actualizacion independiente; el embebido prioriza localidad y simplicidad de lectura. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta referencias entre documentos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Pueden hacer el modelo mas flexible, pero tambien mas costoso de leer y mas fragil si faltan estrategias de consistencia.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con referencias entre documentos?",
+      "respuesta": "Conviene medir cuantas lecturas encadenadas requiere un caso real y si alguna puede resolverse con duplicacion controlada.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con referencias entre documentos?",
+      "respuesta": "A menudo se combinan con proyecciones denormalizadas para lectura y entidades canonicas mas pequenas para escritura.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que referencias entre documentos esta mal implementado?",
+      "respuesta": "La aplicacion hace cascadas de consultas para mostrar una vista sencilla y la latencia acumulada se vuelve dominante.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve claves de particion en NoSQL?",
+      "respuesta": "Distribuyen carga y datos entre nodos, determinando escalabilidad horizontal y hotspots. Se vuelve especialmente util cuando tu base reparte datos por shard o particion y la clave elegida decide donde caen lecturas y escrituras.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar claves de particion y cuando no?",
+      "respuesta": "Conviene cuando tu base reparte datos por shard o particion y la clave elegida decide donde caen lecturas y escrituras. No conviene usarlo por inercia si elegir una clave monotona o de baja cardinalidad que concentre trafico en pocos nodos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con claves de particion?",
+      "respuesta": "Un error comun es pensar solo en identidad funcional y no en distribucion, rango de crecimiento y patron temporal de acceso. Para evitarlo, eliges una clave con buena cardinalidad y alineada con consultas principales, evitando concentraciones previsibles.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia claves de particion de clave solo funcional?",
+      "respuesta": "Una clave funcional identifica bien el dato; una buena clave de particion ademas equilibra carga y reduce contencion entre nodos. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta claves de particion en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Es probablemente la decision de diseno mas importante en sistemas distribuidos NoSQL, porque condiciona rendimiento y operacion futura.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con claves de particion?",
+      "respuesta": "Hay que mirar distribucion por nodo, colas, latencia por particion y si las consultas cruzan demasiados shards.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con claves de particion?",
+      "respuesta": "Tecnicas como bucketing o claves compuestas ayudan a repartir picos temporales sin perder capacidad de consulta.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que claves de particion esta mal implementado?",
+      "respuesta": "Un subconjunto pequeno de particiones recibe casi todo el trafico y define la latencia global del sistema.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve replicacion en NoSQL?",
+      "respuesta": "Mantiene copias del dato para mejorar disponibilidad, tolerancia a fallos y proximidad geografica. Se vuelve especialmente util cuando quieres seguir operando ante caidas de nodos o acercar lecturas a distintas regiones.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar replicacion y cuando no?",
+      "respuesta": "Conviene cuando quieres seguir operando ante caidas de nodos o acercar lecturas a distintas regiones. No conviene usarlo por inercia si asumir que mas replicas resuelven por si solas cualquier problema de rendimiento o consistencia.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con replicacion?",
+      "respuesta": "Un error comun es ignorar el retraso entre replicas y sorprenderse con lecturas desactualizadas en operaciones sensibles. Para evitarlo, defines que rutas exigen lectura fresca, que replicas sirven trafico y que nivel de quorum requiere cada caso.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia replicacion de unica copia primaria?",
+      "respuesta": "La replicacion mejora disponibilidad y lectura distribuida; una sola copia simplifica consistencia pero crea un punto mas fragil de fallo y saturacion. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta replicacion en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Eleva resiliencia, aunque introduce complejidad de reconciliacion, failover y staleness visible para la aplicacion.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con replicacion?",
+      "respuesta": "Conviene monitorizar lag de replica, elecciones de lider y comportamiento de clientes durante failover o reconexion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con replicacion?",
+      "respuesta": "Su valor crece cuando se combina con politicas de lectura por consistencia y estrategias claras de recuperacion tras particiones.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que replicacion esta mal implementado?",
+      "respuesta": "El sistema parece disponible, pero ciertos usuarios leen datos viejos sin que el equipo lo haya contemplado en el diseno.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve consistencia eventual en NoSQL?",
+      "respuesta": "Permite priorizar disponibilidad y baja latencia aceptando que las replicas converjan con retraso. Se vuelve especialmente util cuando tu dominio tolera leer un valor ligeramente desactualizado durante un tiempo corto.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar consistencia eventual y cuando no?",
+      "respuesta": "Conviene cuando tu dominio tolera leer un valor ligeramente desactualizado durante un tiempo corto. No conviene usarlo por inercia si la operacion requiere saldo exacto, unicidad global inmediata o reglas donde una lectura vieja rompe invariantes criticas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con consistencia eventual?",
+      "respuesta": "Un error comun es adoptarla sin definir que partes del negocio toleran staleness y cuales no. Para evitarlo, identificas rutas criticas, usas quorums o lecturas fuertes donde hace falta y documentas el comportamiento esperado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia consistencia eventual de consistencia fuerte?",
+      "respuesta": "La consistencia eventual acepta ventanas temporales de divergencia para ganar disponibilidad y latencia; la fuerte reduce esas sorpresas a costa de mas coordinacion. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta consistencia eventual en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Puede hacer viable la escala global, pero exige que producto y backend entiendan los efectos visibles de la convergencia tardia.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con consistencia eventual?",
+      "respuesta": "Hay que medir retrasos de propagacion, conflicto de versiones y rutas donde una lectura antigua genera errores de negocio.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con consistencia eventual?",
+      "respuesta": "Patternes como read repair, version vectors o write reconciliation ayudan a mantener el sistema saludable bajo particiones.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que consistencia eventual esta mal implementado?",
+      "respuesta": "El equipo discute bugs de negocio que en realidad son lecturas antiguas no contempladas en los requisitos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve indices secundarios en NoSQL?",
+      "respuesta": "Ofrecen consultas por atributos que no forman parte de la clave principal del modelo. Se vuelve especialmente util cuando necesitas buscar por email, estado o fecha sin redisenar toda la clave primaria.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar indices secundarios y cuando no?",
+      "respuesta": "Conviene cuando necesitas buscar por email, estado o fecha sin redisenar toda la clave primaria. No conviene usarlo por inercia si usarlos como sustituto general de un modelado orientado a consultas cuando el workload depende de ellos para casi todo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con indices secundarios?",
+      "respuesta": "Un error comun es suponer que tienen el mismo coste y consistencia que un acceso por clave primaria en cualquier motor NoSQL. Para evitarlo, los usas de forma selectiva, entendiendo latencia, coste de mantenimiento y posible retraso de actualizacion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia indices secundarios de acceso por clave primaria?",
+      "respuesta": "La clave primaria suele dar acceso mas predecible y barato; un indice secundario aporta flexibilidad pero puede costar mas y ser menos consistente segun el motor. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta indices secundarios en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Pueden desbloquear casos de uso importantes, aunque tambien introducir cuellos de botella o sorpresas de consistencia.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con indices secundarios?",
+      "respuesta": "Revisa cardinalidad, selectividad, coste de escritura y si el indice realmente cubre la consulta o termina escaneando demasiado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con indices secundarios?",
+      "respuesta": "En algunos motores conviene crear proyecciones especificas en lugar de depender siempre de indices secundarios generales.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que indices secundarios esta mal implementado?",
+      "respuesta": "Una coleccion funciona bien por id, pero cualquier busqueda secundaria degrada mucho la latencia o el coste.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve transacciones y atomicidad en NoSQL?",
+      "respuesta": "Definen hasta donde el motor garantiza que varias mutaciones ocurran juntas y con visibilidad coherente. Se vuelve especialmente util cuando necesitas actualizar varios campos o items manteniendo invariantes de negocio bajo concurrencia.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar transacciones y atomicidad y cuando no?",
+      "respuesta": "Conviene cuando necesitas actualizar varios campos o items manteniendo invariantes de negocio bajo concurrencia. No conviene usarlo por inercia si asumir soporte transaccional amplio porque el sistema se parece a una base relacional en la superficie.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con transacciones y atomicidad?",
+      "respuesta": "Un error comun es disenar procesos que dependen de multi-document transactions costosas cuando una atomicidad local o un flujo compensatorio bastaria. Para evitarlo, aprovechas atomicidad nativa local y reservas transacciones distribuidas para casos donde el dominio lo exige de verdad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia transacciones y atomicidad de sagas o compensaciones?",
+      "respuesta": "Las transacciones buscan todo o nada inmediato; las sagas dividen el flujo en pasos con compensacion y suelen escalar mejor en sistemas distribuidos. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta transacciones y atomicidad en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Marcan la frontera de lo que puede resolverse de forma simple frente a lo que necesita coordinacion explicita en aplicacion.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con transacciones y atomicidad?",
+      "respuesta": "Conviene revisar alcance real de la atomicidad, reintentos, idempotencia y que pasa cuando un paso intermedio falla.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con transacciones y atomicidad?",
+      "respuesta": "Un buen diseno de agregados reduce mucho la necesidad de transacciones multi-entidad en entornos NoSQL.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que transacciones y atomicidad esta mal implementado?",
+      "respuesta": "Cada nueva regla de negocio acaba exigiendo coordinacion compleja porque el modelo no respeto fronteras de atomicidad.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve evolucion de esquema en NoSQL?",
+      "respuesta": "Permite introducir nuevas versiones de documentos o items sin detener el sistema ni reescribirlo todo de una vez. Se vuelve especialmente util cuando tu aplicacion convive con datos historicos y despliegues escalonados que leeran distintas formas del mismo registro.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar evolucion de esquema y cuando no?",
+      "respuesta": "Conviene cuando tu aplicacion convive con datos historicos y despliegues escalonados que leeran distintas formas del mismo registro. No conviene usarlo por inercia si confiar en que schema-less significa no pensar nunca mas en compatibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con evolucion de esquema?",
+      "respuesta": "Un error comun es romper lectores antiguos con documentos nuevos o asumir que todos los registros viejos ya fueron migrados. Para evitarlo, versionas el payload, soportas lectura tolerante y migras de forma progresiva con observabilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia evolucion de esquema de migracion bloqueante unica?",
+      "respuesta": "La evolucion progresiva reduce riesgo y downtime; una migracion unica puede ser mas simple conceptualmente pero exige ventanas mas peligrosas y coordinacion total. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta evolucion de esquema en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Es decisiva para poder desplegar con seguridad en sistemas vivos con mucho historico y multiples consumidores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con evolucion de esquema?",
+      "respuesta": "Debes identificar que version lee cada servicio, cuantos datos siguen en esquema antiguo y donde fallan los parseos tolerantes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con evolucion de esquema?",
+      "respuesta": "Patrones como expand-and-contract y backfills idempotentes ayudan a cambiar modelos sin interrumpir la operacion.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que evolucion de esquema esta mal implementado?",
+      "respuesta": "Cada cambio de esquema obliga a una migracion urgente y rompe consumidores que no actualizan al mismo ritmo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve TTL y expiracion en NoSQL?",
+      "respuesta": "Permiten que datos temporales caduquen automaticamente sin procesos manuales de limpieza intensiva. Se vuelve especialmente util cuando guardas sesiones, caches, tokens, eventos efimeros o datos cuya vida util es claramente limitada.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar TTL y expiracion y cuando no?",
+      "respuesta": "Conviene cuando guardas sesiones, caches, tokens, eventos efimeros o datos cuya vida util es claramente limitada. No conviene usarlo por inercia si usar TTL sobre datos con requisitos legales o de auditoria que exigen borrado controlado y trazable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con TTL y expiracion?",
+      "respuesta": "Un error comun es asumir que la expiracion ocurre exactamente en el segundo esperado y basar reglas criticas en esa precision. Para evitarlo, tratas TTL como politica eventual de limpieza y no como reloj exacto para decisiones de negocio sensibles.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia TTL y expiracion de jobs de limpieza manual?",
+      "respuesta": "TTL simplifica operacion y descarga limpieza al motor; los jobs manuales ofrecen mas control cuando necesitas lotes, auditoria o condiciones complejas. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta TTL y expiracion en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Reduce deuda operativa y tamano del dataset, aunque puede sorprender si se interpreta como garantia temporal precisa.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con TTL y expiracion?",
+      "respuesta": "Conviene medir retraso real de expiracion, carga del cluster y si existen consultas que siguen contando datos proximos a caducar.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con TTL y expiracion?",
+      "respuesta": "Es muy util junto con caches de segundo nivel, colas temporales y ventanas de retencion simples.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que TTL y expiracion esta mal implementado?",
+      "respuesta": "La aplicacion depende de que un dato desaparezca al instante y falla cuando el motor lo elimina unos minutos despues.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve agregaciones precomputadas en NoSQL?",
+      "respuesta": "Reducen el coste de consultas repetidas guardando resultados listos para leer o faciles de actualizar incrementalmente. Se vuelve especialmente util cuando necesitas dashboards, contadores o vistas resumidas que se consultan mucho mas de lo que cambian.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar agregaciones precomputadas y cuando no?",
+      "respuesta": "Conviene cuando necesitas dashboards, contadores o vistas resumidas que se consultan mucho mas de lo que cambian. No conviene usarlo por inercia si precomputar sin comprender frescura requerida ni coste de mantener la vista derivada consistente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con agregaciones precomputadas?",
+      "respuesta": "Un error comun es olvidar que una vista agregada tambien es un dato que necesita estrategia de actualizacion, recuperacion y backfill. Para evitarlo, defines fuente de verdad, mecanismo de refresco y tolerancia a retraso para cada agregacion derivada.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia agregaciones precomputadas de agregacion al vuelo?",
+      "respuesta": "Agregar al vuelo ofrece frescura maxima pero puede costar mucho; precomputar reduce latencia a cambio de mas complejidad de mantenimiento y posible desfase. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta agregaciones precomputadas en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Puede abaratar enormemente lecturas analiticas o paneles operativos, pero si se desactualiza erosiona confianza en el sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con agregaciones precomputadas?",
+      "respuesta": "Hay que comparar cifra derivada con fuente original, revisar lag de procesamiento y detectar perdidas o duplicados de eventos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con agregaciones precomputadas?",
+      "respuesta": "Se potencia con event sourcing ligero, colas idempotentes y replays para reconstruir vistas sin perder consistencia.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que agregaciones precomputadas esta mal implementado?",
+      "respuesta": "Los contadores o dashboards ya no coinciden con la realidad y nadie sabe reconstruirlos con seguridad.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve bases de grafos en NoSQL?",
+      "respuesta": "Optimizan recorridos y relaciones profundas donde el valor principal esta en las conexiones entre entidades. Se vuelve especialmente util cuando modelas redes sociales, recomendaciones, permisos complejos o dependencias con saltos variables.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar bases de grafos y cuando no?",
+      "respuesta": "Conviene cuando modelas redes sociales, recomendaciones, permisos complejos o dependencias con saltos variables. No conviene usarlo por inercia si el problema real se reduce a accesos por clave simples y se introduce un grafo sin necesidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con bases de grafos?",
+      "respuesta": "Un error comun es usar un grafo para todo, incluso datos tabulares o de documento donde la relacion profunda rara vez importa. Para evitarlo, eliges grafo cuando las preguntas clave son sobre caminos, vecinos o patrones de relacion, no solo sobre atributos aislados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia bases de grafos de documentos o tablas por clave?",
+      "respuesta": "Un grafo destaca en traversals complejos; documentos y tablas suelen ser mas simples y eficientes cuando el acceso principal no depende de recorrer muchas aristas. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta bases de grafos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Puede simplificar dramaticamente consultas relacionales profundas, aunque anade una tecnologia especializada con su propio coste operativo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con bases de grafos?",
+      "respuesta": "Debes observar cardinalidad de aristas, longitud media de recorridos y si algun patron puede derivar en explosiones de camino.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con bases de grafos?",
+      "respuesta": "Los grafos brillan con modelos de permisos, deteccion de fraude y recomendacion cuando la estructura de relacion es el dato dominante.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que bases de grafos esta mal implementado?",
+      "respuesta": "Se adopto una base de grafos, pero la mayoria de consultas siguen siendo simples lecturas por id o listados planos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Por que en NoSQL suele hablarse mas de patrones de acceso que de normalizacion canonica?",
+      "respuesta": "Porque muchos motores sacrifican joins flexibles y consistencia global fuerte para ganar escala o disponibilidad. Eso obliga a diseñar la forma del dato pensando antes en como se consulta y distribuye.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que ventaja tiene usar operaciones idempotentes en sistemas NoSQL distribuidos?",
+      "respuesta": "Ayuda a tolerar reintentos, duplicados de mensajes y fallos parciales sin corromper el estado. Es especialmente importante cuando el cliente no puede saber con certeza si una escritura llego o no al cluster.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene duplicar datos de forma deliberada en NoSQL?",
+      "respuesta": "Conviene cuando esa duplicacion reduce de forma clara el coste de las lecturas dominantes y existe una estrategia explicita para mantener coherencia suficiente entre copias.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    },
+    {
+      "pregunta": "¿Que riesgo operativo aparece al elegir un motor NoSQL solo por moda?",
+      "respuesta": "Que el equipo termine aceptando limitaciones de consulta, consistencia u operacion que no encajan con el dominio. La eleccion debe responder al workload y no al atractivo de la etiqueta NoSQL.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "NoSQL"
+      ]
+    }
+  ]
+}

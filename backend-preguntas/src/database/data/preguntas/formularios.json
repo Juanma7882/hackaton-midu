@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Formularios",
+    "url": "/logos/formularios.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema resuelve estado controlado en Formularios?",
+      "respuesta": "Permite que la UI, la validacion y el envio dependan de una unica fuente de verdad en memoria. Se vuelve especialmente util cuando necesitas reaccionar al cambio de cada campo, mostrar errores en tiempo real o derivar otros valores a partir del formulario.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar estado controlado y cuando no?",
+      "respuesta": "Conviene cuando necesitas reaccionar al cambio de cada campo, mostrar errores en tiempo real o derivar otros valores a partir del formulario. No conviene usarlo por inercia si el formulario es muy grande, casi no tiene logica en vivo y leer el DOM es suficiente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con estado controlado?",
+      "respuesta": "Un error comun es actualizar todo el objeto del formulario en cada pulsacion sin aislar cambios por campo. Para evitarlo, separas el estado por secciones o usas actualizaciones inmutables y memoizacion para limitar renders.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia estado controlado de estado no controlado?",
+      "respuesta": "El estado controlado guarda el valor en el framework y facilita validaciones reactivas; el no controlado delega el valor al DOM y suele tener menos coste de render. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta estado controlado en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Da mucho control sobre UX y reglas de negocio, pero si cada tecla dispara recalculos pesados puede volver lento el formulario.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con estado controlado?",
+      "respuesta": "Conviene inspeccionar el estado por campo, medir renders y comprobar si algun valor derivado cambia mas veces de las necesarias.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con estado controlado?",
+      "respuesta": "Combina bien con reducers, componentes de campo memoizados y validacion diferida para mantener escalabilidad en formularios largos.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que estado controlado esta mal implementado?",
+      "respuesta": "Cada pulsacion provoca latencia visible o hace que campos no relacionados se vuelvan a renderizar sin necesidad.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve estado no controlado en Formularios?",
+      "respuesta": "Reduce la cantidad de estado de aplicacion cuando solo necesitas leer valores al enviar o en puntos concretos. Se vuelve especialmente util cuando quieres formularios sencillos, integraciones con elementos nativos o menor complejidad para inputs que no requieren reaccion inmediata.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar estado no controlado y cuando no?",
+      "respuesta": "Conviene cuando quieres formularios sencillos, integraciones con elementos nativos o menor complejidad para inputs que no requieren reaccion inmediata. No conviene usarlo por inercia si debes calcular dependencias entre campos, validar en vivo o sincronizar el valor con otros componentes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con estado no controlado?",
+      "respuesta": "Un error comun es mezclar lecturas directas del DOM con estado parcial y terminar con dos fuentes de verdad inconsistentes. Para evitarlo, defines claramente que campos viven en refs o en el DOM y cuales si requieren estado controlado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia estado no controlado de estado controlado?",
+      "respuesta": "El enfoque no controlado minimiza renders y boilerplate, mientras que el controlado simplifica logica reactiva y trazabilidad de cambios. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta estado no controlado en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Puede mejorar rendimiento base, pero complica ciertas validaciones y reduce visibilidad sobre el valor actual mientras el usuario escribe.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con estado no controlado?",
+      "respuesta": "Hay que revisar refs, valores por defecto y el momento exacto en que se lee el valor, sobre todo en reseteos y rehidratacion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con estado no controlado?",
+      "respuesta": "Es util combinarlo con FormData nativa y validaciones al submit cuando el objetivo principal es simplicidad operativa.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que estado no controlado esta mal implementado?",
+      "respuesta": "Aparecen diferencias entre lo que muestra el input y lo que cree la aplicacion al enviar o resetear.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve validacion sincrona en Formularios?",
+      "respuesta": "Permite detectar reglas locales de formato, obligatoriedad y consistencia sin depender de una llamada remota. Se vuelve especialmente util cuando necesitas feedback inmediato sobre longitud, formato, rangos o campos requeridos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar validacion sincrona y cuando no?",
+      "respuesta": "Conviene cuando necesitas feedback inmediato sobre longitud, formato, rangos o campos requeridos. No conviene usarlo por inercia si la regla depende de datos del servidor, de permisos o de condiciones externas que cambian en tiempo real.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con validacion sincrona?",
+      "respuesta": "Un error comun es ejecutar validaciones agresivas en cada tecla y mostrar errores demasiado pronto, penalizando la UX. Para evitarlo, eliges disparadores claros como blur, submit o debounce y diferencias entre estado invalido y estado aun incompleto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia validacion sincrona de validacion asincrona?",
+      "respuesta": "La validacion sincrona resuelve reglas locales con latencia cero; la asincrona consulta sistemas externos y debe manejar espera, cancelacion y posibles carreras. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta validacion sincrona en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Mejora la percepcion de calidad porque el usuario corrige antes, pero una mala estrategia de disparo puede hacer el formulario intrusivo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con validacion sincrona?",
+      "respuesta": "Conviene registrar que regla fallo, con que valor y en que evento se evaluo para reproducir errores de UX o de borde.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con validacion sincrona?",
+      "respuesta": "Suele combinarse con esquemas declarativos y normalizacion previa para evitar validar representaciones inconsistentes del mismo dato.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que validacion sincrona esta mal implementado?",
+      "respuesta": "El usuario ve errores por campos que todavia no ha terminado de rellenar o mensajes que cambian de forma erratica.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve validacion asincrona en Formularios?",
+      "respuesta": "Sirve para comprobar condiciones que solo conoce el servidor, como unicidad, disponibilidad o reglas de negocio centralizadas. Se vuelve especialmente util cuando debes verificar datos contra una API, una base de datos o un servicio externo antes de confirmar el envio.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar validacion asincrona y cuando no?",
+      "respuesta": "Conviene cuando debes verificar datos contra una API, una base de datos o un servicio externo antes de confirmar el envio. No conviene usarlo por inercia si la regla puede resolverse localmente y la llamada remota solo anade latencia y complejidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con validacion asincrona?",
+      "respuesta": "Un error comun es no cancelar peticiones obsoletas y mostrar el resultado de una respuesta vieja sobre un valor mas nuevo. Para evitarlo, usas debounce, tokens de cancelacion y marcas el estado pendiente por campo para evitar condiciones de carrera.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia validacion asincrona de validacion sincrona?",
+      "respuesta": "La validacion asincrona amplia el alcance de las reglas, pero exige manejar latencia, estados intermedios y orden de respuestas, algo que la sincrona no necesita. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta validacion asincrona en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Bien hecha aumenta confianza antes del submit; mal hecha produce parpadeos, errores falsos y bloqueos innecesarios del flujo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con validacion asincrona?",
+      "respuesta": "Debes inspeccionar tiempos de respuesta, cancelaciones, reintentos y que valor estaba vigente cuando llego cada respuesta.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con validacion asincrona?",
+      "respuesta": "Funciona mejor si cacheas validaciones repetidas y separas errores de red de errores de negocio para no confundir al usuario.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que validacion asincrona esta mal implementado?",
+      "respuesta": "Aparecen mensajes de error sobre valores que ya fueron corregidos o el boton queda bloqueado sin causa visible.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve esquemas declarativos en Formularios?",
+      "respuesta": "Centralizan reglas de forma reutilizable y permiten compartir validacion entre cliente, servidor o tests. Se vuelve especialmente util cuando quieres que la definicion de tipos, transformaciones y reglas viva en un unico sitio mantenible.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar esquemas declarativos y cuando no?",
+      "respuesta": "Conviene cuando quieres que la definicion de tipos, transformaciones y reglas viva en un unico sitio mantenible. No conviene usarlo por inercia si el formulario es minimo y la abstraccion del esquema costaria mas que validar a mano.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con esquemas declarativos?",
+      "respuesta": "Un error comun es duplicar reglas en componentes y en el esquema hasta que ambos dejan de coincidir. Para evitarlo, usas el esquema como fuente principal y dejas en la vista solo la presentacion del error y el disparo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia esquemas declarativos de validaciones ad hoc en componentes?",
+      "respuesta": "Los esquemas declarativos favorecen consistencia y reutilizacion; las validaciones ad hoc pueden ser rapidas al inicio pero escalan peor y se duplican con facilidad. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta esquemas declarativos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Mejoran mantenibilidad y permiten evolucionar reglas con menos regresiones, aunque pueden anadir una capa extra de transformacion que conviene medir.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con esquemas declarativos?",
+      "respuesta": "Hay que revisar el orden de transformaciones, defaults y coerciones porque un fallo suele venir de la entrada normalizada, no del mensaje final.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con esquemas declarativos?",
+      "respuesta": "Son muy potentes si se combinan con inferencia de tipos y parseo seguro para evitar que el formulario opere sobre datos ambiguos.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que esquemas declarativos esta mal implementado?",
+      "respuesta": "La misma entrada pasa en una pantalla y falla en otra porque cada componente implemento su propia version de la regla.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve campos dinamicos en Formularios?",
+      "respuesta": "Permiten modelar listas, secciones repetibles y estructuras condicionales que cambian segun el usuario. Se vuelve especialmente util cuando necesitas agregar telefonos, integrantes, direcciones o bloques dependientes de una seleccion previa.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar campos dinamicos y cuando no?",
+      "respuesta": "Conviene cuando necesitas agregar telefonos, integrantes, direcciones o bloques dependientes de una seleccion previa. No conviene usarlo por inercia si la estructura es fija y agregar abstracciones dinamicas solo complica el render y la validacion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con campos dinamicos?",
+      "respuesta": "Un error comun es usar indices como identificador estable y perder foco, errores o valores al insertar o eliminar elementos. Para evitarlo, asignas ids persistentes por item y desacoplas el orden visible de la identidad logica del campo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia campos dinamicos de campos estaticos?",
+      "respuesta": "Los campos dinamicos aportan flexibilidad estructural, mientras que los estaticos simplifican validacion, layout y trazabilidad del estado. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta campos dinamicos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Aumentan expresividad del formulario, pero tambien el riesgo de errores de reconciliacion, validacion parcial y serializacion incorrecta.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con campos dinamicos?",
+      "respuesta": "Conviene seguir altas, bajas y reordenamientos con ids reales para detectar cuando un campo hereda accidentalmente estado de otro.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con campos dinamicos?",
+      "respuesta": "Se suelen combinar con validacion por colecciones, limites de cardinalidad y normalizacion antes de persistir.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que campos dinamicos esta mal implementado?",
+      "respuesta": "Al borrar o mover una fila cambian mensajes de error o valores en una posicion distinta de la esperada.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve formularios multipaso en Formularios?",
+      "respuesta": "Dividen un flujo largo en etapas para reducir carga cognitiva y mejorar la tasa de finalizacion. Se vuelve especialmente util cuando el formulario tiene muchas secciones o dependencias y mostrar todo a la vez resulta abrumador.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar formularios multipaso y cuando no?",
+      "respuesta": "Conviene cuando el formulario tiene muchas secciones o dependencias y mostrar todo a la vez resulta abrumador. No conviene usarlo por inercia si el formulario es corto y partirlo en pasos solo introduce navegacion innecesaria.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con formularios multipaso?",
+      "respuesta": "Un error comun es validar cada paso sin conservar contexto y terminar bloqueando al usuario por datos que aun no vio. Para evitarlo, defines el criterio de avance por paso, guardas progreso y permites volver sin perder datos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia formularios multipaso de formulario de una sola pantalla?",
+      "respuesta": "El multipaso reduce densidad visual y permite guiar decisiones; la pantalla unica ofrece vision global y menos friccion de navegacion. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta formularios multipaso en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Puede mejorar conversion si la secuencia es clara, pero empeora UX si cada paso añade latencia, incertidumbre o demasiados clics.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con formularios multipaso?",
+      "respuesta": "Hay que inspeccionar persistencia entre pasos, reglas que dependen de datos futuros y el historial de navegacion del usuario.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con formularios multipaso?",
+      "respuesta": "Funciona mejor con guardado parcial, reanudacion y analitica por paso para localizar abandonos o validaciones confusas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que formularios multipaso esta mal implementado?",
+      "respuesta": "El usuario vuelve atras y encuentra datos perdidos, errores descontextualizados o pasos que cambian sin explicacion.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve accesibilidad de formularios en Formularios?",
+      "respuesta": "Garantiza que etiquetas, mensajes y controles sean utilizables con teclado, lectores de pantalla y ayudas tecnicas. Se vuelve especialmente util cuando quieres que el formulario sea operable y comprensible para distintos perfiles y contextos de uso.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar accesibilidad de formularios y cuando no?",
+      "respuesta": "Conviene cuando quieres que el formulario sea operable y comprensible para distintos perfiles y contextos de uso. No conviene usarlo por inercia si nunca deberia descartarse por completo; solo cambian las tecnicas segun la complejidad del control.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con accesibilidad de formularios?",
+      "respuesta": "Un error comun es confiar solo en color o placeholders y no asociar correctamente labels, ayudas y errores al control. Para evitarlo, usas labels explicitas, foco gestionado, mensajes anunciables y orden de tabulacion coherente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia accesibilidad de formularios de solo validacion visual?",
+      "respuesta": "La accesibilidad va mas alla de mostrar estados visuales: exige semantica, navegacion por teclado y relacion programatica entre controles y mensajes. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta accesibilidad de formularios en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Mejora inclusividad y tambien reduce errores generales de UX, porque un formulario claro para ayudas tecnicas suele ser mas claro para todos.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con accesibilidad de formularios?",
+      "respuesta": "Debes probar teclado, lector de pantalla, anuncios de error y movimiento de foco despues de validaciones o cambios dinamicos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con accesibilidad de formularios?",
+      "respuesta": "Es clave combinar atributos ARIA solo donde hagan falta con HTML semantico correcto para no crear ruido adicional.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que accesibilidad de formularios esta mal implementado?",
+      "respuesta": "El foco se pierde, los errores no se anuncian o un usuario no puede entender que campo fallo sin mirar la pantalla.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve carga de archivos en Formularios?",
+      "respuesta": "Permite adjuntar binarios y metadatos dentro de un flujo de envio con controles de tamano, tipo y progreso. Se vuelve especialmente util cuando el usuario debe subir imagenes, documentos o lotes de archivos como parte del proceso.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar carga de archivos y cuando no?",
+      "respuesta": "Conviene cuando el usuario debe subir imagenes, documentos o lotes de archivos como parte del proceso. No conviene usarlo por inercia si el caso se resuelve mejor con referencias a recursos ya existentes o con una carga previa independiente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con carga de archivos?",
+      "respuesta": "Un error comun es validar solo la extension del archivo y asumir que el contenido real coincide con ella. Para evitarlo, verificas tipo MIME, tamano, limites por lote y revalidas en el servidor antes de procesar.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia carga de archivos de envio de campos de texto simples?",
+      "respuesta": "Los archivos requieren manejar streaming, progreso, limites de tamano y seguridad binaria, cosas que no aparecen en campos textuales normales. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta carga de archivos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Es uno de los puntos mas sensibles en UX y seguridad porque afecta tiempos de espera, ancho de banda y superficie de ataque.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con carga de archivos?",
+      "respuesta": "Conviene revisar multipart, codificacion, reintentos, errores de proxy y la diferencia entre fallo de carga y fallo de validacion del contenido.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con carga de archivos?",
+      "respuesta": "Se beneficia de cargas resumibles, almacenamiento temporal y procesamiento asincrono para no bloquear la respuesta final.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que carga de archivos esta mal implementado?",
+      "respuesta": "El usuario cree que el archivo se envio, pero el backend lo rechaza tarde o sin un mensaje accionable.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve normalizacion de datos en Formularios?",
+      "respuesta": "Convierte entradas heterogeneas en una representacion coherente antes de validar o persistir. Se vuelve especialmente util cuando recibes telefonos, fechas, importes o textos con formatos distintos segun pais, teclado o copy paste.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar normalizacion de datos y cuando no?",
+      "respuesta": "Conviene cuando recibes telefonos, fechas, importes o textos con formatos distintos segun pais, teclado o copy paste. No conviene usarlo por inercia si el dato ya llega en un formato canonico estricto y cualquier transformacion adicional seria riesgosa.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con normalizacion de datos?",
+      "respuesta": "Un error comun es mezclar normalizacion y validacion de forma opaca hasta no saber si fallo el formato original o la regla de negocio. Para evitarlo, separas parseo, limpieza y validacion, y mantienes visible el valor original cuando eso mejora la explicacion del error.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia normalizacion de datos de validar texto en bruto?",
+      "respuesta": "Normalizar primero reduce falsos negativos por diferencias cosmeticas; validar texto en bruto puede ser mas simple pero castiga entradas razonables. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta normalizacion de datos en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Aumenta consistencia aguas abajo y simplifica persistencia, aunque una normalizacion agresiva puede alterar datos validos si no esta bien definida.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con normalizacion de datos?",
+      "respuesta": "Hay que comparar valor original, valor transformado y regla aplicada para descubrir en que etapa se introdujo la discrepancia.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con normalizacion de datos?",
+      "respuesta": "Suele combinarse con formatos canonicos internos y adaptadores de presentacion por locale para no perder precision ni contexto.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que normalizacion de datos esta mal implementado?",
+      "respuesta": "Dos entradas equivalentes producen resultados distintos o el usuario no reconoce el valor que finalmente se guarda.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve manejo del submit en Formularios?",
+      "respuesta": "Orquesta validacion final, bloqueo de doble envio, estados de carga y feedback despues de enviar. Se vuelve especialmente util cuando quieres que el envio sea robusto incluso con latencia, reintentos o acciones repetidas por parte del usuario.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar manejo del submit y cuando no?",
+      "respuesta": "Conviene cuando quieres que el envio sea robusto incluso con latencia, reintentos o acciones repetidas por parte del usuario. No conviene usarlo por inercia si nunca debe omitirse, pero puede ser minimo si el flujo es local y sin efectos externos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con manejo del submit?",
+      "respuesta": "Un error comun es permitir varios submits simultaneos o no distinguir entre error recuperable, validacion y exito parcial. Para evitarlo, deshabilitas acciones conflictivas durante el envio, haces idempotente la operacion y comunicas claramente el resultado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia manejo del submit de solo capturar el click del boton?",
+      "respuesta": "Manejar bien el submit implica ciclo completo de red, transiciones y errores; capturar un click solo dispara el proceso sin gobernarlo. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta manejo del submit en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Tiene efecto directo en integridad de datos y percepcion de fiabilidad, especialmente en compras, registros o tareas costosas.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con manejo del submit?",
+      "respuesta": "Revisa tiempos, reintentos, estados de boton, dobles clicks y si la operacion del backend soporta repeticion segura.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con manejo del submit?",
+      "respuesta": "Mejora mucho con colas de acciones, idempotency keys y feedback optimista solo cuando el dominio lo permite.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que manejo del submit esta mal implementado?",
+      "respuesta": "Aparecen registros duplicados, toasts contradictorios o el usuario no sabe si debe volver a intentar.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema resuelve seguridad en formularios en Formularios?",
+      "respuesta": "Protege el flujo de entrada frente a CSRF, XSS reflejado, abuso automatizado y manipulado de payloads. Se vuelve especialmente util cuando el formulario crea o modifica datos sensibles, autentica usuarios o acepta contenido de terceros.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando conviene aplicar seguridad en formularios y cuando no?",
+      "respuesta": "Conviene cuando el formulario crea o modifica datos sensibles, autentica usuarios o acepta contenido de terceros. No conviene usarlo por inercia si no existe un caso donde pueda ignorarse; solo cambia la profundidad de controles segun el riesgo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al trabajar con seguridad en formularios?",
+      "respuesta": "Un error comun es confiar en validaciones del cliente y asumir que el payload recibido respeta restricciones visibles en la UI. Para evitarlo, revalidas todo en servidor, escapas salidas, proteges sesion y limitas abuso con controles adecuados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿En que se diferencia seguridad en formularios de solo validacion de UX?",
+      "respuesta": "La seguridad no busca solo ayudar al usuario legitimo; asume entradas maliciosas, automatizacion y manipulado deliberado del request. La eleccion correcta depende del patron de acceso, del coste de cambio y de las garantias que necesitas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como impacta seguridad en formularios en rendimiento, mantenibilidad o UX?",
+      "respuesta": "Un fallo aqui compromete datos, cuentas o disponibilidad, incluso si el formulario parece funcionar bien para usuarios normales.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Como probar o depurar problemas relacionados con seguridad en formularios?",
+      "respuesta": "Conviene revisar payload real, cabeceras, origen de la peticion, tokens y logs de rechazos para diferenciar ataque de error legitimo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron o practica avanzada suele combinarse bien con seguridad en formularios?",
+      "respuesta": "Se complementa con rate limiting, antifraude, politicas de contenido y almacenamiento seguro de adjuntos o borradores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal suele indicar que seguridad en formularios esta mal implementado?",
+      "respuesta": "El backend acepta campos invisibles, valores fuera de rango o peticiones repetidas sin controles adicionales.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Por que conviene separar estado de UI y estado de dominio en formularios complejos?",
+      "respuesta": "Separar ambos evita que detalles como foco, touched o loading contaminen el payload final. Tambien permite resetear la interfaz sin perder datos de negocio ni mezclar errores visuales con validaciones persistentes.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que ventaja tiene registrar metricas de abandono por campo o por paso?",
+      "respuesta": "Permite detectar fricciones reales: validaciones demasiado estrictas, etiquetas confusas, campos costosos de completar o dependencias que rompen el flujo. Sin esa telemetria es facil optimizar lo incorrecto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando tiene sentido guardar un borrador de formulario?",
+      "respuesta": "Tiene sentido cuando el flujo es largo, sensible a interrupciones o requiere informacion que el usuario no siempre tiene a mano. Debe definirse bien que se guarda, por cuanto tiempo y como se protege ese estado.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Formularios"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio ayuda a decidir entre validar al cambiar, al perder foco o al enviar?",
+      "respuesta": "Depende del coste cognitivo de la regla y del impacto del error. Reglas basicas toleran validacion inmediata; reglas ruidosas suelen ir mejor al blur; y validaciones globales o caras suelen reservarse para el submit.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Formularios"
+      ]
+    }
+  ]
+}

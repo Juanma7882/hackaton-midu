@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Performance",
+    "url": "/logos/performance.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que es latencia y throughput y cuando conviene usarlo?",
+      "respuesta": "Latencia mide el tiempo por operacion y throughput la cantidad de trabajo por unidad de tiempo. Conviene usarlo cuando quieres optimizar segun la experiencia del usuario o la capacidad del sistema.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver latencia y throughput?",
+      "respuesta": "Ayuda a resolver mejorar una metrica a costa de degradar la otra sin notarlo porque latencia mide el tiempo por operacion y throughput la cantidad de trabajo por unidad de tiempo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce latencia y throughput?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres optimizar segun la experiencia del usuario o la capacidad del sistema, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar latencia y throughput?",
+      "respuesta": "Un error comun es usarlo aunque celebras un throughput alto aunque la cola y la latencia exploten. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que latencia y throughput esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que solo se reporta el promedio de respuesta. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara latencia y throughput con mirar solo promedios generales?",
+      "respuesta": "Comparado con mirar solo promedios generales, latencia y throughput suele ofrecer una estructura mas explicita para quieres optimizar segun la experiencia del usuario o la capacidad del sistema, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar latencia y throughput?",
+      "respuesta": "Sirve medir p50, p95, p99, RPS y saturacion de recursos. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar latencia y throughput?",
+      "respuesta": "No conviene usarlo cuando celebras un throughput alto aunque la cola y la latencia exploten. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde una API soporta mas trafico pero ahora el p99 es inaceptable, ¿como aporta latencia y throughput?",
+      "respuesta": "Si una API soporta mas trafico pero ahora el p99 es inaceptable, latencia y throughput ayuda porque latencia mide el tiempo por operacion y throughput la cantidad de trabajo por unidad de tiempo y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es profiling y cuando conviene usarlo?",
+      "respuesta": "Perfilar identifica donde se consume realmente cpu, memoria o tiempo de wall clock. Conviene usarlo cuando quieres optimizar cuellos de botella reales y no intuitivos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver profiling?",
+      "respuesta": "Ayuda a resolver microoptimizaciones sobre codigo irrelevante porque perfilar identifica donde se consume realmente CPU, memoria o tiempo de wall clock.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce profiling?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres optimizar cuellos de botella reales y no intuitivos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar profiling?",
+      "respuesta": "Un error comun es usarlo aunque optimizas antes de tener una linea base reproducible. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que profiling esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que se cambian estructuras de datos sin evidencia de hotspots. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara profiling con adivinar basandote en percepciones?",
+      "respuesta": "Comparado con adivinar basandote en percepciones, profiling suele ofrecer una estructura mas explicita para quieres optimizar cuellos de botella reales y no intuitivos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar profiling?",
+      "respuesta": "Sirve medir flamegraphs, heap snapshots y tiempo acumulado por funcion. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar profiling?",
+      "respuesta": "No conviene usarlo cuando optimizas antes de tener una linea base reproducible. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde una tarea nocturna tarda 40 minutos y nadie sabe por que, ¿como aporta profiling?",
+      "respuesta": "Si una tarea nocturna tarda 40 minutos y nadie sabe por que, profiling ayuda porque perfilar identifica donde se consume realmente CPU, memoria o tiempo de wall clock y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es complejidad algoritmica y cuando conviene usarlo?",
+      "respuesta": "La eleccion del algoritmo domina el rendimiento mucho mas que pequeños ajustes de sintaxis. Conviene usarlo cuando trabajas con volumen creciente de datos o combinaciones costosas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver complejidad algoritmica?",
+      "respuesta": "Ayuda a resolver tiempos explosivos al escalar el tamaño de entrada porque la eleccion del algoritmo domina el rendimiento mucho mas que pequeños ajustes de sintaxis.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce complejidad algoritmica?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando trabajas con volumen creciente de datos o combinaciones costosas, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar complejidad algoritmica?",
+      "respuesta": "Un error comun es usarlo aunque ignoras costos constantes cuando el dataset real es pequeno. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que complejidad algoritmica esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que bucles anidados sobre colecciones grandes sin necesidad. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara complejidad algoritmica con parches locales sobre un algoritmo inadecuado?",
+      "respuesta": "Comparado con parches locales sobre un algoritmo inadecuado, complejidad algoritmica suele ofrecer una estructura mas explicita para trabajas con volumen creciente de datos o combinaciones costosas, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar complejidad algoritmica?",
+      "respuesta": "Sirve medir crecimiento con N, complejidad temporal y espacial observada en benchmarks. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar complejidad algoritmica?",
+      "respuesta": "No conviene usarlo cuando ignoras costos constantes cuando el dataset real es pequeno. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde una validacion pasa de mil a un millon de registros, ¿como aporta complejidad algoritmica?",
+      "respuesta": "Si una validacion pasa de mil a un millon de registros, complejidad algoritmica ayuda porque la eleccion del algoritmo domina el rendimiento mucho mas que pequeños ajustes de sintaxis y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es cache y localidad y cuando conviene usarlo?",
+      "respuesta": "Cachear evita recomputar o releer datos, y la localidad mejora el acceso eficiente a memoria y almacenamiento. Conviene usarlo cuando muchas operaciones reutilizan datos o resultados recientes.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver cache y localidad?",
+      "respuesta": "Ayuda a resolver repetir trabajo caro de CPU, disco o red porque cachear evita recomputar o releer datos, y la localidad mejora el acceso eficiente a memoria y almacenamiento.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce cache y localidad?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando muchas operaciones reutilizan datos o resultados recientes, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar cache y localidad?",
+      "respuesta": "Un error comun es usarlo aunque la cache se vuelve fuente de datos stale y errores dificiles. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que cache y localidad esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que mismas claves solicitadas de forma repetitiva con respuesta identica. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara cache y localidad con resolver todo desde origen cada vez?",
+      "respuesta": "Comparado con resolver todo desde origen cada vez, cache y localidad suele ofrecer una estructura mas explicita para muchas operaciones reutilizan datos o resultados recientes, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar cache y localidad?",
+      "respuesta": "Sirve medir hit ratio, tiempo de reconstruccion y costo de invalidacion. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar cache y localidad?",
+      "respuesta": "No conviene usarlo cuando la cache se vuelve fuente de datos stale y errores dificiles. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde un endpoint arma siempre la misma agregacion para muchos usuarios, ¿como aporta cache y localidad?",
+      "respuesta": "Si un endpoint arma siempre la misma agregacion para muchos usuarios, cache y localidad ayuda porque cachear evita recomputar o releer datos, y la localidad mejora el acceso eficiente a memoria y almacenamiento y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es concurrencia y paralelismo y cuando conviene usarlo?",
+      "respuesta": "Concurrencia organiza muchas tareas y paralelismo las ejecuta simultaneamente cuando hay recursos. Conviene usarlo cuando quieres aumentar utilizacion sin bloquear operaciones independientes.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver concurrencia y paralelismo?",
+      "respuesta": "Ayuda a resolver esperas innecesarias o CPU ociosa porque concurrencia organiza muchas tareas y paralelismo las ejecuta simultaneamente cuando hay recursos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce concurrencia y paralelismo?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres aumentar utilizacion sin bloquear operaciones independientes, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar concurrencia y paralelismo?",
+      "respuesta": "Un error comun es usarlo aunque añades paralelismo a tareas con fuerte contencion o dependencia secuencial. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que concurrencia y paralelismo esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que await serial o locks que convierten el sistema en embudo. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara concurrencia y paralelismo con procesar todo secuencialmente?",
+      "respuesta": "Comparado con procesar todo secuencialmente, concurrencia y paralelismo suele ofrecer una estructura mas explicita para quieres aumentar utilizacion sin bloquear operaciones independientes, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar concurrencia y paralelismo?",
+      "respuesta": "Sirve medir uso de CPU, colas de trabajo, tiempo bloqueado y speedup real. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar concurrencia y paralelismo?",
+      "respuesta": "No conviene usarlo cuando añades paralelismo a tareas con fuerte contencion o dependencia secuencial. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es IO y batching y cuando conviene usarlo?",
+      "respuesta": "Agrupar operaciones reduce viajes de red, syscalls y overhead por unidad de trabajo. Conviene usarlo cuando tu sistema realiza muchas llamadas pequenas a BD, disco o servicios.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver IO y batching?",
+      "respuesta": "Ayuda a resolver la latencia acumulada por chatty calls porque agrupar operaciones reduce viajes de red, syscalls y overhead por unidad de trabajo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce IO y batching?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando tu sistema realiza muchas llamadas pequenas a BD, disco o servicios, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar IO y batching?",
+      "respuesta": "Un error comun es usarlo aunque lotes enormes que disparan memoria, locks o timeouts. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que IO y batching esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que bucles que hacen queries o requests individuales. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara IO y batching con hacer una llamada por elemento?",
+      "respuesta": "Comparado con hacer una llamada por elemento, IO y batching suele ofrecer una estructura mas explicita para tu sistema realiza muchas llamadas pequenas a BD, disco o servicios, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar IO y batching?",
+      "respuesta": "Sirve medir cantidad de round trips, tiempo por lote y saturacion de destino. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar IO y batching?",
+      "respuesta": "No conviene usarlo cuando lotes enormes que disparan memoria, locks o timeouts. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es memoria y garbage collection y cuando conviene usarlo?",
+      "respuesta": "El rendimiento cae cuando se asigna demasiado, se retienen objetos o el gc entra con frecuencia. Conviene usarlo cuando observas pausas, crecimiento de heap o consumo irregular.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver memoria y garbage collection?",
+      "respuesta": "Ayuda a resolver latencia por recoleccion y OOM por retencion innecesaria porque el rendimiento cae cuando se asigna demasiado, se retienen objetos o el GC entra con frecuencia.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce memoria y garbage collection?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando observas pausas, crecimiento de heap o consumo irregular, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar memoria y garbage collection?",
+      "respuesta": "Un error comun es usarlo aunque optimizas memoria eliminando claridad donde el problema real es IO. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que memoria y garbage collection esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que caches sin limite, listeners no removidos o copias repetidas de objetos grandes. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara memoria y garbage collection con centrarte solo en CPU sin mirar asignaciones?",
+      "respuesta": "Comparado con centrarte solo en CPU sin mirar asignaciones, memoria y garbage collection suele ofrecer una estructura mas explicita para observas pausas, crecimiento de heap o consumo irregular, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar memoria y garbage collection?",
+      "respuesta": "Sirve medir heap usage, frecuencia de GC, objetos vivos y tasa de asignacion. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar memoria y garbage collection?",
+      "respuesta": "No conviene usarlo cuando optimizas memoria eliminando claridad donde el problema real es IO. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es base de datos e indices y cuando conviene usarlo?",
+      "respuesta": "Muchas veces el cuello de botella esta en queries, planes de ejecucion e indices mal elegidos. Conviene usarlo cuando tu app depende fuertemente de lecturas y escrituras persistentes.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver base de datos e indices?",
+      "respuesta": "Ayuda a resolver scans costosos, joins mal filtrados y lock contention porque muchas veces el cuello de botella esta en queries, planes de ejecucion e indices mal elegidos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce base de datos e indices?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando tu app depende fuertemente de lecturas y escrituras persistentes, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar base de datos e indices?",
+      "respuesta": "Un error comun es usarlo aunque agregar indices sin medir impacto en escrituras y mantenimiento. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que base de datos e indices esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que consultas frecuentes por columnas no indexadas o N+1 queries. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara base de datos e indices con optimizar la aplicacion sin revisar el motor de datos?",
+      "respuesta": "Comparado con optimizar la aplicacion sin revisar el motor de datos, base de datos e indices suele ofrecer una estructura mas explicita para tu app depende fuertemente de lecturas y escrituras persistentes, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar base de datos e indices?",
+      "respuesta": "Sirve medir EXPLAIN, tiempo por query, rows examined y ratio de cache hit del motor. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar base de datos e indices?",
+      "respuesta": "No conviene usarlo cuando agregar indices sin medir impacto en escrituras y mantenimiento. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es red y serializacion y cuando conviene usarlo?",
+      "respuesta": "El tamaño de payload, protocolo y formato de serializacion afectan latencia y cpu. Conviene usarlo cuando envias grandes volumenes entre servicios o al cliente.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver red y serializacion?",
+      "respuesta": "Ayuda a resolver gastar tiempo en parsear y mover datos innecesarios porque el tamaño de payload, protocolo y formato de serializacion afectan latencia y CPU.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce red y serializacion?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando envias grandes volumenes entre servicios o al cliente, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar red y serializacion?",
+      "respuesta": "Un error comun es usarlo aunque comprimir respuestas minusculas o serializar varias veces lo mismo. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que red y serializacion esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que objetos gigantes enviados cuando solo se consumen pocos campos. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara red y serializacion con payloads verbosos sin compresion ni filtrado?",
+      "respuesta": "Comparado con payloads verbosos sin compresion ni filtrado, red y serializacion suele ofrecer una estructura mas explicita para envias grandes volumenes entre servicios o al cliente, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar red y serializacion?",
+      "respuesta": "Sirve medir bytes por respuesta, tiempo de parseo y compresion efectiva. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar red y serializacion?",
+      "respuesta": "No conviene usarlo cuando comprimir respuestas minusculas o serializar varias veces lo mismo. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es benchmarks confiables y cuando conviene usarlo?",
+      "respuesta": "Un benchmark util controla ruido, calentamiento y datos representativos. Conviene usarlo cuando quieres comparar alternativas sin autoengañarte.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver benchmarks confiables?",
+      "respuesta": "Ayuda a resolver sacar conclusiones a partir de pruebas no reproducibles porque un benchmark util controla ruido, calentamiento y datos representativos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce benchmarks confiables?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres comparar alternativas sin autoengañarte, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar benchmarks confiables?",
+      "respuesta": "Un error comun es usarlo aunque medir en entornos distintos y asumir comparabilidad. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que benchmarks confiables esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que resultados dramaticos que nadie puede reproducir. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara benchmarks confiables con ejecutar una sola vez y decidir por intuicion?",
+      "respuesta": "Comparado con ejecutar una sola vez y decidir por intuicion, benchmarks confiables suele ofrecer una estructura mas explicita para quieres comparar alternativas sin autoengañarte, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar benchmarks confiables?",
+      "respuesta": "Sirve medir varianza, muestras suficientes, warmup y baseline estable. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar benchmarks confiables?",
+      "respuesta": "No conviene usarlo cuando medir en entornos distintos y asumir comparabilidad. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es presupuestos de rendimiento y cuando conviene usarlo?",
+      "respuesta": "Definir budgets de tiempo, memoria y payload orienta decisiones antes de que el sistema se degrade. Conviene usarlo cuando quieres prevenir regresiones en features futuras.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver presupuestos de rendimiento?",
+      "respuesta": "Ayuda a resolver cada equipo optimiza cosas distintas sin un objetivo comun porque definir budgets de tiempo, memoria y payload orienta decisiones antes de que el sistema se degrade.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce presupuestos de rendimiento?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres prevenir regresiones en features futuras, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar presupuestos de rendimiento?",
+      "respuesta": "Un error comun es usarlo aunque fijas objetivos irreales que bloquean entrega sin valor. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que presupuestos de rendimiento esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que no existe un umbral claro para rechazar una regresion. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara presupuestos de rendimiento con reaccionar solo cuando ya hay incidentes?",
+      "respuesta": "Comparado con reaccionar solo cuando ya hay incidentes, presupuestos de rendimiento suele ofrecer una estructura mas explicita para quieres prevenir regresiones en features futuras, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar presupuestos de rendimiento?",
+      "respuesta": "Sirve medir SLOs, budgets por endpoint y alertas de regresion. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar presupuestos de rendimiento?",
+      "respuesta": "No conviene usarlo cuando fijas objetivos irreales que bloquean entrega sin valor. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que es capacity planning y cuando conviene usarlo?",
+      "respuesta": "Planificar capacidad estima cuando recursos y arquitectura dejaran de soportar la carga esperada. Conviene usarlo cuando tu trafico crece o tiene picos previsibles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver capacity planning?",
+      "respuesta": "Ayuda a resolver incidentes por saturacion evitables porque planificar capacidad estima cuando recursos y arquitectura dejaran de soportar la carga esperada.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce capacity planning?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando tu trafico crece o tiene picos previsibles, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar capacity planning?",
+      "respuesta": "Un error comun es usarlo aunque proyectas linealmente sin considerar cambios de patron o hotspots. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que capacity planning esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que no sabes cual recurso se agotara primero bajo carga. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara capacity planning con escalar solo despues del fallo?",
+      "respuesta": "Comparado con escalar solo despues del fallo, capacity planning suele ofrecer una estructura mas explicita para tu trafico crece o tiene picos previsibles, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar capacity planning?",
+      "respuesta": "Sirve medir uso de CPU, memoria, colas, picos historicos y margen de crecimiento. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Performance"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar capacity planning?",
+      "respuesta": "No conviene usarlo cuando proyectas linealmente sin considerar cambios de patron o hotspots. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Performance"
+      ]
+    }
+  ]
+}

@@ -50,7 +50,9 @@ class MazosEtiquetaService {
     async obtenerMazosConSusEtiquetas() {
         try {
             const { count, rows } = await Mazos.findAndCountAll({
+                distinct: true,
                 attributes: ["id", "nombre", "descripcion", "url"],
+                order: [["id", "ASC"]],
                 include: [{
                     model: Etiquetas,
                     as: "etiquetas", // 🔥 CLAVE

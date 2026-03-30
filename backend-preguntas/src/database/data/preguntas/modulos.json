@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Módulos",
+    "url": "/logos/nodejs.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema tecnico resuelve CommonJS frente a ES Modules dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Define como se importan y exportan dependencias y condiciona compatibilidad, tooling y carga de archivos Aporta mas valor cuando combinas librerias antiguas con codigo moderno y necesitas interoperabilidad predecible y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar CommonJS frente a ES Modules en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en elegir un sistema principal, declarar el tipo de paquete y aislar puentes de interoperabilidad donde hagan falta El detalle que suele omitirse es suponer que default y named exports se comportan igual en ambos sistemas, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con CommonJS frente a ES Modules y como lo evitarias?",
+      "respuesta": "Un error comun es mezclar require e import sin entender como resuelve Node cada archivo Para evitarlo conviene definir una estrategia de modulo por proyecto y documentar excepciones, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta CommonJS frente a ES Modules al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "la diferencia principal no suele ser CPU sino complejidad de carga, tooling y errores de resolucion La mejora mas efectiva suele ser reducir puentes innecesarios y mantener una topologia de imports consistente, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con CommonJS frente a ES Modules?",
+      "respuesta": "La estrategia es revisar package.json, extension del archivo, stack de resolucion y forma exacta del objeto exportado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona CommonJS frente a ES Modules con resolucion de dependencias y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque el sistema de modulos cambia como Node interpreta rutas, extensiones y campos de package.json El trade-off principal es ESM alinea mejor con el ecosistema moderno, pero CommonJS sigue siendo mas simple en algunos entornos heredados, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si CommonJS frente a ES Modules debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es compatibilidad con dependencias, herramientas y formato de distribucion objetivo Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de CommonJS frente a ES Modules en equipos grandes?",
+      "respuesta": "Una buena practica es publicar paquetes duales solo cuando entiendes claramente las rutas de export y las condiciones de entorno Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que CommonJS frente a ES Modules se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es aparecen errores de importacion ambiguos, wrappers innecesarios y dudas constantes sobre default exports Cuando eso ocurre, conviene fijar una estrategia unica por paquete y encapsular la interoperabilidad en pocos puntos antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve resolucion de dependencias dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Permite localizar el archivo correcto segun la ruta pedida, el tipo de modulo y los metadatos del paquete Aporta mas valor cuando usas imports relativos, absolutos, subpaths o paquetes con multiples entradas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar resolucion de dependencias en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en apoyarte en exports e imports definidos de forma explicita y evitar accesos internos no publicos El detalle que suele omitirse es depender de archivos privados del paquete que pueden cambiar sin aviso, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con resolucion de dependencias y como lo evitarias?",
+      "respuesta": "Un error comun es usar rutas profundas por comodidad en lugar de una API publica estable Para evitarlo conviene consumir solo entradas documentadas y mantener alias controlados por el proyecto, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta resolucion de dependencias al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "resoluciones ambiguas complican bundling, caching y trazabilidad de errores La mejora mas efectiva suele ser hacer las rutas explicitas y limitar los puntos de entrada de cada paquete, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con resolucion de dependencias?",
+      "respuesta": "La estrategia es seguir el algoritmo de resolucion, revisar campos exports/main y comprobar la extension real del archivo objetivo Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona resolucion de dependencias con package.json y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque campos como type, main, module y exports definen que archivo se considera publico y en que contexto El trade-off principal es mas encapsulacion protege el paquete, pero exige disenar mejor su API publica, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si resolucion de dependencias debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es estabilidad de la interfaz, tooling objetivo y necesidad de compatibilidad con runtimes distintos Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de resolucion de dependencias en equipos grandes?",
+      "respuesta": "Una buena practica es diseñar subpath exports claros para separar API publica, utilidades internas y builds por entorno Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que resolucion de dependencias se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es cambios pequeños rompen imports en muchos sitios o el equipo no sabe que entradas son soportadas Cuando eso ocurre, conviene reducir accesos profundos y declarar exportaciones oficiales con tests de consumo antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve exports e imports condicionales dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Permiten servir archivos distintos segun runtime, tipo de importacion o entorno de ejecucion Aporta mas valor cuando publicas un paquete que necesita variantes para Node, navegador, desarrollo o produccion y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar exports e imports condicionales en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir condiciones minimas y mutuamente claras en exports, evitando matrices innecesarias El detalle que suele omitirse es no probar cada condicion real desde un consumidor externo, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con exports e imports condicionales y como lo evitarias?",
+      "respuesta": "Un error comun es crear demasiadas ramas de resolucion que nadie comprende ni mantiene Para evitarlo conviene mantener pocas condiciones bien justificadas y documentadas, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta exports e imports condicionales al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una matriz compleja no impacta mucho en runtime, pero si en soporte y depuracion del paquete La mejora mas efectiva suele ser reducir variantes y generar builds claros por entorno objetivo, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con exports e imports condicionales?",
+      "respuesta": "La estrategia es inspeccionar como resuelve el consumidor real y no solo el proyecto donde se desarrolla el paquete Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona exports e imports condicionales con publicacion de paquetes y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque las condiciones forman parte del contrato publico que reciben usuarios y herramientas El trade-off principal es mas variantes dan flexibilidad, pero multiplican pruebas y compatibilidad a sostener, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si exports e imports condicionales debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es diferencias reales de plataforma y coste de mantener builds separados Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de exports e imports condicionales en equipos grandes?",
+      "respuesta": "Una buena practica es combinar exports condicionales con tipados y artefactos coherentes por plataforma Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que exports e imports condicionales se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es los consumidores reportan errores distintos segun bundler o runtime para el mismo paquete Cuando eso ocurre, conviene revisar condiciones, probar desde proyectos de ejemplo y simplificar la superficie publicada antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve ciclos de dependencias dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Describe cuando dos modulos se importan mutuamente y aparecen estados parciales o acoplamiento dificil de mantener Aporta mas valor cuando la base de codigo crece y las responsabilidades entre capas se vuelven difusas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar ciclos de dependencias en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en romper el ciclo extrayendo interfaces, eventos o un modulo intermedio de dominio comun El detalle que suele omitirse es confundir que el codigo compila con que el orden de inicializacion es seguro, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con ciclos de dependencias y como lo evitarias?",
+      "respuesta": "Un error comun es resolver el ciclo añadiendo imports dinamicos sin arreglar la arquitectura Para evitarlo conviene revisar dependencias por capas y aplicar direccion unica de imports, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta ciclos de dependencias al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "el problema principal es la inicializacion parcial y la fragilidad, no tanto la velocidad pura La mejora mas efectiva suele ser separar contratos de implementaciones y reducir dependencias cruzadas, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con ciclos de dependencias?",
+      "respuesta": "La estrategia es buscar valores undefined al importar, seguir el orden de carga y dibujar el grafo minimo implicado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona ciclos de dependencias con arquitectura por capas y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los ciclos suelen revelar limites de modulo mal definidos o dependencias invertidas accidentalmente El trade-off principal es romper ciclos mejora claridad, pero puede requerir introducir abstractions o eventos adicionales, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si ciclos de dependencias debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es quien debe conocer a quien y que dependencias son realmente estables Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de ciclos de dependencias en equipos grandes?",
+      "respuesta": "Una buena practica es hacer analisis del grafo de imports en CI para impedir nuevos ciclos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que ciclos de dependencias se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es exports incompletos, imports undefined y necesidad de conocer demasiados detalles de otro modulo Cuando eso ocurre, conviene extraer contratos o servicios neutrales y restaurar una direccion clara de dependencias antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve modulos dinamicos e importacion diferida dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Permiten cargar codigo solo cuando hace falta y reducir coste inicial o dependencias opcionales Aporta mas valor cuando ciertas funciones pesadas se usan rara vez o solo en flujos concretos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar modulos dinamicos e importacion diferida en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar importacion diferida en fronteras bien definidas y manejar errores de carga explicitamente El detalle que suele omitirse es no considerar que el primer uso tendra latencia adicional, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con modulos dinamicos e importacion diferida y como lo evitarias?",
+      "respuesta": "Un error comun es convertir imports normales en dinamicos por moda y sin medicion Para evitarlo conviene aplicar carga diferida solo a codigo realmente opcional o costoso, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta modulos dinamicos e importacion diferida al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "reduce tiempo de inicio, pero puede mover latencia al primer acceso de la funcionalidad La mejora mas efectiva suele ser precargar donde tenga sentido y cachear el modulo una vez cargado, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con modulos dinamicos e importacion diferida?",
+      "respuesta": "La estrategia es simular el primer uso en frio y revisar errores de ruta, permisos y empaquetado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona modulos dinamicos e importacion diferida con bundling y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los imports dinamicos influyen en como se dividen chunks o se empaqueta el codigo El trade-off principal es menos coste inicial frente a mas complejidad en flujo y errores de carga tardia, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si modulos dinamicos e importacion diferida debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es frecuencia de uso, peso del modulo y tolerancia a latencia puntual Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de modulos dinamicos e importacion diferida en equipos grandes?",
+      "respuesta": "Una buena practica es combinar importacion diferida con puntos de extension o plugins controlados Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve singleton y cache de modulos dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Explica que un modulo suele evaluarse una vez y su estado exportado puede compartirse entre consumidores Aporta mas valor cuando mantienes conexiones, configuraciones o registries accesibles desde varios archivos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar singleton y cache de modulos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en exportar factories o instancias solo cuando el estado compartido es intencional y seguro El detalle que suele omitirse es asumir que reimportar reinicia el modulo o su estado, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con singleton y cache de modulos y como lo evitarias?",
+      "respuesta": "Un error comun es guardar estado mutable global sin controlar concurrencia ni ciclo de vida Para evitarlo conviene encapsular mutaciones y permitir reseteo explicito en pruebas o reinicializaciones, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta singleton y cache de modulos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "compartir una instancia evita recreaciones costosas, pero un singleton mal diseñado acopla demasiado La mejora mas efectiva suele ser usar estado compartido solo para recursos realmente caros o globales, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con singleton y cache de modulos?",
+      "respuesta": "La estrategia es identificar si el fallo viene de estado persistente entre imports, tests o requests Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona singleton y cache de modulos con testing y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque el cache del modulo puede contaminar pruebas si no se aisla o reinicia adecuadamente El trade-off principal es instancia unica simplifica acceso, pero reduce explicitud y dificulta testear, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si singleton y cache de modulos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es coste de construccion, necesidad de compartir estado y facilidad para inyectar dependencias Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de singleton y cache de modulos en equipos grandes?",
+      "respuesta": "Una buena practica es exponer factories con cache controlada en lugar de singletons opacos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve package.json y metadatos dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Centraliza la configuracion publica del paquete, incluyendo entradas, scripts, dependencias y condiciones de resolucion Aporta mas valor cuando distribuyes codigo reutilizable o mantienes varios entornos de ejecucion en el mismo proyecto y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar package.json y metadatos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en declarar campos minimos y coherentes, priorizando claridad sobre compatibilidad historica innecesaria El detalle que suele omitirse es dejar dependencias mal clasificadas entre dependencies, peerDependencies y devDependencies, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con package.json y metadatos y como lo evitarias?",
+      "respuesta": "Un error comun es usar package.json como cajon de sastre sin revisar su impacto en consumidores Para evitarlo conviene tratar cada campo publico como parte del contrato del paquete, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta package.json y metadatos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "metadatos correctos no aceleran el negocio, pero reducen errores de instalacion y resolucion costosos La mejora mas efectiva suele ser limpiar campos obsoletos y publicar solo lo necesario, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con package.json y metadatos?",
+      "respuesta": "La estrategia es comparar el manifiesto publicado con el local y revisar que archivos y entradas llegan realmente al registry Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona package.json y metadatos con publicacion y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque un paquete mal descrito en package.json se instala o resuelve distinto a lo esperado por los usuarios El trade-off principal es mas compatibilidad con legados implica mantener mas campos y rutas historicas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si package.json y metadatos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es quienes consumen el paquete y que tooling necesitan de verdad Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de package.json y metadatos en equipos grandes?",
+      "respuesta": "Una buena practica es mantener manifests por paquete coherentes en monorepos y validarlos automaticamente Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve alias y subpaths internos dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Permiten reducir rutas frágiles y expresar mejor la intencion de cada dependencia interna Aporta mas valor cuando el proyecto tiene estructura profunda y los imports relativos se vuelven ilegibles y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar alias y subpaths internos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en declarar alias consistentes entre runtime, tests, TypeScript y bundler El detalle que suele omitirse es configurar alias en un solo sitio y olvidar herramientas secundarias, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con alias y subpaths internos y como lo evitarias?",
+      "respuesta": "Un error comun es usar demasiados alias distintos sin criterio comun Para evitarlo conviene elegir pocos prefijos claros y alinearlos con la arquitectura del proyecto, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta alias y subpaths internos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "el beneficio principal es mantenibilidad, aunque tambien reduce errores por rutas mal construidas La mejora mas efectiva suele ser limitar alias a fronteras de dominio estables y no a carpetas transitorias, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con alias y subpaths internos?",
+      "respuesta": "La estrategia es verificar que el alias existe en todas las herramientas que ejecutan o compilan el codigo Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona alias y subpaths internos con resolucion de dependencias y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los alias son una capa adicional sobre el sistema de resolucion y deben reflejar la topologia real del proyecto El trade-off principal es imports mas legibles frente a configuracion adicional en varias herramientas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si alias y subpaths internos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es profundidad del arbol, frecuencia de movimientos de carpetas y numero de herramientas involucradas Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de alias y subpaths internos en equipos grandes?",
+      "respuesta": "Una buena practica es usar subpath imports oficiales del runtime cuando sea viable para reducir deuda de tooling Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve modulos en monorepos dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Ayudan a organizar multiples paquetes con limites claros y reutilizacion interna controlada Aporta mas valor cuando varios servicios o apps comparten utilidades, tipos o componentes publicados localmente y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar modulos en monorepos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir paquetes pequenos con API publica clara, versionado interno y dependencias explicitas El detalle que suele omitirse es permitir imports por rutas relativas cruzando paquetes sin pasar por la API publica, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con modulos en monorepos y como lo evitarias?",
+      "respuesta": "Un error comun es usar el monorepo para esconder acoplamientos en vez de modelarlos Para evitarlo conviene forzar consumo por entradas publicas y mantener ownership por paquete, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta modulos en monorepos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una buena modularidad acelera builds incrementales y reduce impacto de cambios aislados La mejora mas efectiva suele ser cortar dependencias innecesarias y aprovechar cache de tareas por paquete, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con modulos en monorepos?",
+      "respuesta": "La estrategia es identificar si el error viene del paquete fuente, de la version vinculada o del pipeline del workspace Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona modulos en monorepos con publicacion local y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque el monorepo exige coherencia entre resolucion local, empaquetado y consumo publicado El trade-off principal es mas reutilizacion centralizada frente a mas disciplina para evitar acoplamiento transversal, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si modulos en monorepos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es frecuencia de cambio compartido, ownership de equipos y necesidades de release Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de modulos en monorepos en equipos grandes?",
+      "respuesta": "Una buena practica es aplicar reglas de dependencias entre paquetes y chequeos automaticos de API publica Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve testing e aislamiento de modulos dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Permite probar comportamiento sin que el sistema de imports arrastre estado o dependencias no deseadas Aporta mas valor cuando los modulos crean conexiones, leen configuracion o ejecutan codigo al importarse y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar testing e aislamiento de modulos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en mover efectos secundarios a funciones de inicializacion y permitir inyeccion de dependencias El detalle que suele omitirse es mockear un modulo sin comprender cuando fue evaluado realmente, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con testing e aislamiento de modulos y como lo evitarias?",
+      "respuesta": "Un error comun es hacer demasiado trabajo en el top-level del archivo Para evitarlo conviene mantener imports puros y dejar inicializacion para el borde de la aplicacion, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta testing e aislamiento de modulos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "modulos puros aceleran tests y reducen fallos por orden de carga La mejora mas efectiva suele ser separar definicion de comportamiento e inicializacion con side effects, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con testing e aislamiento de modulos?",
+      "respuesta": "La estrategia es revisar el momento de importacion, el cache del runner y el estado que persiste entre pruebas Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona testing e aislamiento de modulos con singleton y cache de modulos y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque el cache del modulo puede hacer que un mock o una configuracion previa contamine otros casos El trade-off principal es mas inyeccion aumenta testabilidad, pero tambien la cantidad de piezas explicitas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si testing e aislamiento de modulos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es coste de efectos secundarios y necesidad de reproducibilidad en pruebas Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de testing e aislamiento de modulos en equipos grandes?",
+      "respuesta": "Una buena practica es diseñar modulos puros y contenedores de arranque separados Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve publicacion y distribucion de paquetes dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Convierte modulos locales en artefactos reutilizables con contratos de consumo claros Aporta mas valor cuando quieres compartir utilidades internas o librerias publicas sin exponer implementacion privada y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar publicacion y distribucion de paquetes en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en publicar solo archivos necesarios, definir exports estables y probar el paquete ya empacado El detalle que suele omitirse es no verificar que el tarball publicado contiene exactamente lo que el consumidor necesita, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con publicacion y distribucion de paquetes y como lo evitarias?",
+      "respuesta": "Un error comun es publicar codigo fuente o archivos internos que luego no quieres soportar Para evitarlo conviene controlar files, exports y tipados como parte del release, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta publicacion y distribucion de paquetes al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una distribucion limpia reduce tamano de instalacion y errores de consumo La mejora mas efectiva suele ser excluir archivos superfluos y empaquetar builds especificos cuando aportan valor real, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con publicacion y distribucion de paquetes?",
+      "respuesta": "La estrategia es instalar el paquete empacado en un proyecto sandbox y validar imports, tipos y runtime Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona publicacion y distribucion de paquetes con package.json y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la publicacion materializa en el registry exactamente lo que describe el manifiesto El trade-off principal es mas encapsulacion reduce superficie de soporte, pero obliga a planificar bien la API publica, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si publicacion y distribucion de paquetes debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es audiencia del paquete, compatibilidad requerida y coste de mantener rutas historicas Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de publicacion y distribucion de paquetes en equipos grandes?",
+      "respuesta": "Una buena practica es automatizar validacion del paquete empacado antes de cada release Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve arquitectura modular dentro de Módulos y en que escenario aporta mas valor?",
+      "respuesta": "Permite dividir el sistema en unidades cohesivas con responsabilidades y dependencias comprensibles Aporta mas valor cuando el proyecto crece y ya no basta con organizar archivos por tipo tecnico y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar arquitectura modular en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en agrupar por dominio o capacidad, publicar contratos minimos y evitar dependencias transversales opacas El detalle que suele omitirse es confundir carpetas con limites reales de modulo, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con arquitectura modular y como lo evitarias?",
+      "respuesta": "Un error comun es llamar modulo a cualquier carpeta sin definir su API ni ownership Para evitarlo conviene expresar entradas publicas, reglas de dependencia y lenguaje comun por modulo, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta arquitectura modular al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una arquitectura modular no acelera el CPU directamente, pero acelera cambios seguros y reduce errores sistémicos La mejora mas efectiva suele ser mantener alta cohesion y bajo acoplamiento entre modulos, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con arquitectura modular?",
+      "respuesta": "La estrategia es seguir el flujo entre modulos y comprobar si la direccion de dependencias coincide con el modelo esperado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona arquitectura modular con ciclos de dependencias y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque cuando la arquitectura modular falla, aparecen ciclos, imports profundos y responsabilidades mezcladas El trade-off principal es mas limites mejoran mantenibilidad, pero exigen disciplina y contratos mas explicitos, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si arquitectura modular debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es ritmo de cambio, ownership de equipos y complejidad del dominio Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de arquitectura modular en equipos grandes?",
+      "respuesta": "Una buena practica es medir dependencias entre modulos y hacerlas visibles en revisiones y CI Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Módulos"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Arquitectura",
+    "url": "/logos/arquitectura.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que es separacion por capas y cuando conviene usarlo?",
+      "respuesta": "Organiza presentacion, aplicacion, dominio e infraestructura con responsabilidades distintas. Conviene usarlo cuando quieres reducir acoplamiento y facilitar cambios localizados.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver separacion por capas?",
+      "respuesta": "Ayuda a resolver la mezcla de reglas de negocio con detalles de framework o persistencia porque organiza presentacion, aplicacion, dominio e infraestructura con responsabilidades distintas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce separacion por capas?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres reducir acoplamiento y facilitar cambios localizados, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar separacion por capas?",
+      "respuesta": "Un error comun es usarlo aunque conviertes las capas en un ritual burocratico sin beneficios reales. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que separacion por capas esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que controladores con SQL, validacion de negocio y mapeo mezclados. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara separacion por capas con codigo anemico centrado en controladores y repositorios sin frontera clara?",
+      "respuesta": "Comparado con codigo anemico centrado en controladores y repositorios sin frontera clara, separacion por capas suele ofrecer una estructura mas explicita para quieres reducir acoplamiento y facilitar cambios localizados, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar separacion por capas?",
+      "respuesta": "Sirve medir dependencias dirigidas hacia adentro y cambios acotados por capa. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar separacion por capas?",
+      "respuesta": "No conviene usarlo cuando conviertes las capas en un ritual burocratico sin beneficios reales. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes cambiar de base de datos sin reescribir casos de uso, ¿como aporta separacion por capas?",
+      "respuesta": "Si debes cambiar de base de datos sin reescribir casos de uso, separacion por capas ayuda porque organiza presentacion, aplicacion, dominio e infraestructura con responsabilidades distintas y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es acoplamiento y cohesion y cuando conviene usarlo?",
+      "respuesta": "Una buena arquitectura busca modulos con alta cohesion interna y bajo acoplamiento externo. Conviene usarlo cuando quieres que los cambios en un modulo no rompan otros.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver acoplamiento y cohesion?",
+      "respuesta": "Ayuda a resolver el efecto cascada cuando cualquier ajuste obliga a tocar media codebase porque una buena arquitectura busca modulos con alta cohesion interna y bajo acoplamiento externo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce acoplamiento y cohesion?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres que los cambios en un modulo no rompan otros, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar acoplamiento y cohesion?",
+      "respuesta": "Un error comun es usarlo aunque fragmentas demasiado y creas piezas diminutas que no cuentan una historia. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que acoplamiento y cohesion esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que un modulo conoce detalles internos de varios otros. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara acoplamiento y cohesion con modulos que se llaman entre si sin contratos claros?",
+      "respuesta": "Comparado con modulos que se llaman entre si sin contratos claros, acoplamiento y cohesion suele ofrecer una estructura mas explicita para quieres que los cambios en un modulo no rompan otros, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar acoplamiento y cohesion?",
+      "respuesta": "Sirve medir numero de dependencias directas, cambios por feature y estabilidad de interfaces. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar acoplamiento y cohesion?",
+      "respuesta": "No conviene usarlo cuando fragmentas demasiado y creas piezas diminutas que no cuentan una historia. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde un cambio pequeño en facturacion obliga a editar envio, pagos y reportes, ¿como aporta acoplamiento y cohesion?",
+      "respuesta": "Si un cambio pequeño en facturacion obliga a editar envio, pagos y reportes, acoplamiento y cohesion ayuda porque una buena arquitectura busca modulos con alta cohesion interna y bajo acoplamiento externo y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es arquitectura hexagonal y cuando conviene usarlo?",
+      "respuesta": "Ports and adapters aisla el dominio de bases de datos, colas y frameworks. Conviene usarlo cuando quieres testear logica sin infraestructura y sustituir adaptadores con bajo riesgo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver arquitectura hexagonal?",
+      "respuesta": "Ayuda a resolver la dependencia estructural del negocio respecto a tecnologia concreta porque ports and adapters aisla el dominio de bases de datos, colas y frameworks.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce arquitectura hexagonal?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres testear logica sin infraestructura y sustituir adaptadores con bajo riesgo, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar arquitectura hexagonal?",
+      "respuesta": "Un error comun es usarlo aunque añades puertos para todo aunque no exista variacion real del adaptador. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que arquitectura hexagonal esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que entidades que importan clientes HTTP o tipos del ORM. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara arquitectura hexagonal con servicios donde el framework dicta todo el modelo?",
+      "respuesta": "Comparado con servicios donde el framework dicta todo el modelo, arquitectura hexagonal suele ofrecer una estructura mas explicita para quieres testear logica sin infraestructura y sustituir adaptadores con bajo riesgo, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar arquitectura hexagonal?",
+      "respuesta": "Sirve medir casos de uso puros, puertos estables y tests del dominio sin mocks pesados. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar arquitectura hexagonal?",
+      "respuesta": "No conviene usarlo cuando añades puertos para todo aunque no exista variacion real del adaptador. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes exponer el mismo caso de uso por API y por cola de mensajes, ¿como aporta arquitectura hexagonal?",
+      "respuesta": "Si debes exponer el mismo caso de uso por API y por cola de mensajes, arquitectura hexagonal ayuda porque ports and adapters aisla el dominio de bases de datos, colas y frameworks y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es monolito modular y cuando conviene usarlo?",
+      "respuesta": "Un monolito modular mantiene despliegue unico pero con fronteras de dominio bien definidas. Conviene usarlo cuando tu producto aun evoluciona rapido y prefieres simplicidad operativa.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver monolito modular?",
+      "respuesta": "Ayuda a resolver el salto prematuro a microservicios con alto costo de coordinacion porque un monolito modular mantiene despliegue unico pero con fronteras de dominio bien definidas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce monolito modular?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando tu producto aun evoluciona rapido y prefieres simplicidad operativa, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar monolito modular?",
+      "respuesta": "Un error comun es usarlo aunque todo termina en un package shared comun que rompe los limites. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que monolito modular esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que imports transversales entre modulos que saltan las APIs internas. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara monolito modular con microservicios tempranos?",
+      "respuesta": "Comparado con microservicios tempranos, monolito modular suele ofrecer una estructura mas explicita para tu producto aun evoluciona rapido y prefieres simplicidad operativa, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar monolito modular?",
+      "respuesta": "Sirve medir tiempo de entrega, trazabilidad de cambios y poca dependencia circular entre modulos. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar monolito modular?",
+      "respuesta": "No conviene usarlo cuando todo termina en un package shared comun que rompe los limites. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde tu equipo es pequeno y el dominio todavia cambia cada mes, ¿como aporta monolito modular?",
+      "respuesta": "Si tu equipo es pequeno y el dominio todavia cambia cada mes, monolito modular ayuda porque un monolito modular mantiene despliegue unico pero con fronteras de dominio bien definidas y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es microservicios y cuando conviene usarlo?",
+      "respuesta": "Dividen el sistema en servicios desplegables por separado alrededor de capacidades concretas. Conviene usarlo cuando necesitas autonomia de despliegue, escalado diferenciado o limites de dominio maduros.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver microservicios?",
+      "respuesta": "Ayuda a resolver los cuellos de coordinacion de un sistema demasiado grande para evolucionar junto porque dividen el sistema en servicios desplegables por separado alrededor de capacidades concretas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce microservicios?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando necesitas autonomia de despliegue, escalado diferenciado o limites de dominio maduros, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar microservicios?",
+      "respuesta": "Un error comun es usarlo aunque la principal motivacion es moda o tamaño del equipo insuficiente. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que microservicios esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que servicios diminutos que comparten base de datos y releases sincronizados. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara microservicios con monolito unico?",
+      "respuesta": "Comparado con monolito unico, microservicios suele ofrecer una estructura mas explicita para necesitas autonomia de despliegue, escalado diferenciado o limites de dominio maduros, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar microservicios?",
+      "respuesta": "Sirve medir independencia de despliegue, ownership claro y costo aceptable de comunicacion. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar microservicios?",
+      "respuesta": "No conviene usarlo cuando la principal motivacion es moda o tamaño del equipo insuficiente. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es DDD y bounded contexts y cuando conviene usarlo?",
+      "respuesta": "Ddd ayuda a modelar el lenguaje del negocio y delimitar contextos con significados propios. Conviene usarlo cuando el dominio es complejo y los terminos cambian segun el area.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver DDD y bounded contexts?",
+      "respuesta": "Ayuda a resolver modelos globales que mezclan conceptos incompatibles porque DDD ayuda a modelar el lenguaje del negocio y delimitar contextos con significados propios.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce DDD y bounded contexts?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando el dominio es complejo y los terminos cambian segun el area, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar DDD y bounded contexts?",
+      "respuesta": "Un error comun es usarlo aunque usas DDD como receta ceremonial en dominios simples. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que DDD y bounded contexts esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que la misma entidad significa cosas distintas para ventas y operaciones. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara DDD y bounded contexts con un esquema unico para todo el negocio?",
+      "respuesta": "Comparado con un esquema unico para todo el negocio, DDD y bounded contexts suele ofrecer una estructura mas explicita para el dominio es complejo y los terminos cambian segun el area, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar DDD y bounded contexts?",
+      "respuesta": "Sirve medir lenguaje ubicuo consistente y pocos mapeos ambiguos entre modulos. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar DDD y bounded contexts?",
+      "respuesta": "No conviene usarlo cuando usas DDD como receta ceremonial en dominios simples. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es CQRS y cuando conviene usarlo?",
+      "respuesta": "Cqrs separa modelos de escritura y lectura cuando sus necesidades difieren significativamente. Conviene usarlo cuando las lecturas exigen vistas optimizadas y la escritura protege invariantes complejas.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver CQRS?",
+      "respuesta": "Ayuda a resolver un mismo modelo intenta servir consultas rapidas y transacciones ricas a la vez porque CQRS separa modelos de escritura y lectura cuando sus necesidades difieren significativamente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce CQRS?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando las lecturas exigen vistas optimizadas y la escritura protege invariantes complejas, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar CQRS?",
+      "respuesta": "Un error comun es usarlo aunque aplicas CQRS en dominios simples y multiplicas complejidad operativa. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que CQRS esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que entidades llenas de campos solo para presentar reportes. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara CQRS con CRUD simetrico con una sola representacion?",
+      "respuesta": "Comparado con CRUD simetrico con una sola representacion, CQRS suele ofrecer una estructura mas explicita para las lecturas exigen vistas optimizadas y la escritura protege invariantes complejas, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar CQRS?",
+      "respuesta": "Sirve medir consultas simples, comandos con reglas claras y menor contorsion del modelo. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar CQRS?",
+      "respuesta": "No conviene usarlo cuando aplicas CQRS en dominios simples y multiplicas complejidad operativa. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es event sourcing y cuando conviene usarlo?",
+      "respuesta": "Persiste cambios como secuencia de eventos en vez de solo guardar estado actual. Conviene usarlo cuando necesitas auditoria completa, reconstruccion historica o integracion basada en eventos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver event sourcing?",
+      "respuesta": "Ayuda a resolver la perdida del contexto temporal y del por que cambio algo porque persiste cambios como secuencia de eventos en vez de solo guardar estado actual.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce event sourcing?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando necesitas auditoria completa, reconstruccion historica o integracion basada en eventos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar event sourcing?",
+      "respuesta": "Un error comun es usarlo aunque tu equipo no puede asumir versionado de eventos ni operaciones de replay. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que event sourcing esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que se usa event sourcing pero luego se muta el estado por fuera del stream. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara event sourcing con tablas con ultimo estado?",
+      "respuesta": "Comparado con tablas con ultimo estado, event sourcing suele ofrecer una estructura mas explicita para necesitas auditoria completa, reconstruccion historica o integracion basada en eventos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar event sourcing?",
+      "respuesta": "Sirve medir eventos versionados, replay fiable y proyecciones reconstruibles. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar event sourcing?",
+      "respuesta": "No conviene usarlo cuando tu equipo no puede asumir versionado de eventos ni operaciones de replay. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es consistencia y sagas y cuando conviene usarlo?",
+      "respuesta": "En sistemas distribuidos la consistencia suele coordinarse con compensaciones y mensajes, no con una sola transaccion acid. Conviene usarlo cuando una operacion atraviesa varios servicios con fallos parciales posibles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver consistencia y sagas?",
+      "respuesta": "Ayuda a resolver el mito de la transaccion global barata y fiable porque en sistemas distribuidos la consistencia suele coordinarse con compensaciones y mensajes, no con una sola transaccion ACID.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce consistencia y sagas?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando una operacion atraviesa varios servicios con fallos parciales posibles, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar consistencia y sagas?",
+      "respuesta": "Un error comun es usarlo aunque las compensaciones de negocio son imposibles o demasiado costosas. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que consistencia y sagas esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que pasos distribuidos sin correlacion, sin timeout y sin estrategia de rollback. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara consistencia y sagas con bloquear recursos remotos esperando confirmaciones de todos?",
+      "respuesta": "Comparado con bloquear recursos remotos esperando confirmaciones de todos, consistencia y sagas suele ofrecer una estructura mas explicita para una operacion atraviesa varios servicios con fallos parciales posibles, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar consistencia y sagas?",
+      "respuesta": "Sirve medir idempotencia, reintentos seguros y estados de compensacion visibles. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar consistencia y sagas?",
+      "respuesta": "No conviene usarlo cuando las compensaciones de negocio son imposibles o demasiado costosas. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es escalabilidad y cache y cuando conviene usarlo?",
+      "respuesta": "Escalar bien implica entender lecturas calientes, afinidad de datos y niveles de cache. Conviene usarlo cuando quieres absorber crecimiento sin multiplicar linealmente el costo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver escalabilidad y cache?",
+      "respuesta": "Ayuda a resolver latencias altas por repetir computo o consultas identicas porque escalar bien implica entender lecturas calientes, afinidad de datos y niveles de cache.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce escalabilidad y cache?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres absorber crecimiento sin multiplicar linealmente el costo, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar escalabilidad y cache?",
+      "respuesta": "Un error comun es usarlo aunque cacheas datos sin politica de expiracion ni coherencia. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que escalabilidad y cache esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que la base de datos recibe constantemente las mismas consultas de solo lectura. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara escalabilidad y cache con solo agregar mas replicas sin estrategia de datos?",
+      "respuesta": "Comparado con solo agregar mas replicas sin estrategia de datos, escalabilidad y cache suele ofrecer una estructura mas explicita para quieres absorber crecimiento sin multiplicar linealmente el costo, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar escalabilidad y cache?",
+      "respuesta": "Sirve medir hit ratio, invalidacion correcta y degradacion controlada con cache fria. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar escalabilidad y cache?",
+      "respuesta": "No conviene usarlo cuando cacheas datos sin politica de expiracion ni coherencia. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es resiliencia y cuando conviene usarlo?",
+      "respuesta": "Timeouts, retries, circuit breakers y bulkheads reducen el impacto de fallos parciales. Conviene usarlo cuando dependes de servicios externos o internos poco predecibles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver resiliencia?",
+      "respuesta": "Ayuda a resolver el colapso en cascada por esperar demasiado o reintentar mal porque timeouts, retries, circuit breakers y bulkheads reducen el impacto de fallos parciales.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce resiliencia?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando dependes de servicios externos o internos poco predecibles, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar resiliencia?",
+      "respuesta": "Un error comun es usarlo aunque reintentas operaciones no idempotentes sin proteccion. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que resiliencia esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que timeouts infinitos o retries anidados en varias capas. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara resiliencia con llamadas remotas sin limites?",
+      "respuesta": "Comparado con llamadas remotas sin limites, resiliencia suele ofrecer una estructura mas explicita para dependes de servicios externos o internos poco predecibles, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar resiliencia?",
+      "respuesta": "Sirve medir tasa de timeout, exito tras retry y saturacion por dependencia. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar resiliencia?",
+      "respuesta": "No conviene usarlo cuando reintentas operaciones no idempotentes sin proteccion. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que es contratos y versionado y cuando conviene usarlo?",
+      "respuesta": "Las interfaces entre componentes deben evolucionar sin romper consumidores existentes. Conviene usarlo cuando expones APIs o eventos consumidos por varios equipos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver contratos y versionado?",
+      "respuesta": "Ayuda a resolver romper clientes por cambios no coordinados porque las interfaces entre componentes deben evolucionar sin romper consumidores existentes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce contratos y versionado?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando expones APIs o eventos consumidos por varios equipos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar contratos y versionado?",
+      "respuesta": "Un error comun es usarlo aunque versionas por cualquier cambio trivial y multiplicas mantenimiento. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que contratos y versionado esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que campos renombrados sin periodo de transicion ni telemetria de uso. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara contratos y versionado con cambiar payloads sin estrategia de compatibilidad?",
+      "respuesta": "Comparado con cambiar payloads sin estrategia de compatibilidad, contratos y versionado suele ofrecer una estructura mas explicita para expones APIs o eventos consumidos por varios equipos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar contratos y versionado?",
+      "respuesta": "Sirve medir compatibilidad hacia atras, contratos testeados y deprecaciones planificadas. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar contratos y versionado?",
+      "respuesta": "No conviene usarlo cuando versionas por cualquier cambio trivial y multiplicas mantenimiento. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Arquitectura"
+      ]
+    }
+  ]
+}

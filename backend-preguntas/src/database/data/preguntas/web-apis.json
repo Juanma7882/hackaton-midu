@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Web APIs",
+    "url": "/logos/webapis.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Qué problema resuelve el sistema de eventos del DOM y cuándo se nota más su valor?",
+      "respuesta": "permite que elementos y documentos reaccionen a interacción y cambios mediante captura, target y burbuja Su valor se nota especialmente en se gestionan formularios, listas dinámicas y componentes con delegación de eventos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el sistema de eventos del DOM a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permite que elementos y documentos reaccionen a interacción y cambios mediante captura, target y burbuja Para usarlo bien conviene entender que stoppropagation, preventdefault y listeners pasivos afectan comportamientos distintos y conviene no confundirlos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el sistema de eventos del DOM?",
+      "respuesta": "Un error frecuente es asumir algo que stoppropagation, preventdefault y listeners pasivos afectan comportamientos distintos y conviene no confundirlos La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el sistema de eventos del DOM de llamar funciones manualmente sin modelo de propagación?",
+      "respuesta": "La diferencia clave es que permite que elementos y documentos reaccionen a interacción y cambios mediante captura, target y burbuja En cambio, el modelo de eventos añade fases, cancelación y delegación, mientras que la llamada manual carece de propagación estructurada",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el sistema de eventos del DOM?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se gestionan formularios, listas dinámicas y componentes con delegación de eventos y recordar que stoppropagation, preventdefault y listeners pasivos afectan comportamientos distintos y conviene no confundirlos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el sistema de eventos del DOM?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que stoppropagation, preventdefault y listeners pasivos afectan comportamientos distintos y conviene no confundirlos o de una suposición incorrecta sobre el sistema de eventos del DOM.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el sistema de eventos del DOM y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permite que elementos y documentos reaccionen a interacción y cambios mediante captura, target y burbuja Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que stoppropagation, preventdefault y listeners pasivos afectan comportamientos distintos y conviene no confundirlos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el sistema de eventos del DOM?",
+      "respuesta": "Encaja bien en un patrón donde se gestionan formularios, listas dinámicas y componentes con delegación de eventos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Fetch API y cuándo se nota más su valor?",
+      "respuesta": "proporciona una interfaz basada en promesas para hacer peticiones HTTP y procesar respuestas como streams Su valor se nota especialmente en se consultan apis rest, se envían formularios o se descargan recursos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Fetch API a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, proporciona una interfaz basada en promesas para hacer peticiones http y procesar respuestas como streams Para usarlo bien conviene entender que fetch solo rechaza por fallos de red o aborto; los errores http siguen llegando como respuestas exitosamente resueltas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Fetch API?",
+      "respuesta": "Un error frecuente es asumir algo que fetch solo rechaza por fallos de red o aborto; los errores http siguen llegando como respuestas exitosamente resueltas La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Fetch API de XMLHttpRequest?",
+      "respuesta": "La diferencia clave es que proporciona una interfaz basada en promesas para hacer peticiones http y procesar respuestas como streams En cambio, XMLHttpRequest tiene un modelo más antiguo y basado en eventos, mientras que fetch encaja mejor con promesas y composición moderna",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Fetch API?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se consultan apis rest, se envían formularios o se descargan recursos y recordar que fetch solo rechaza por fallos de red o aborto; los errores http siguen llegando como respuestas exitosamente resueltas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Fetch API?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que fetch solo rechaza por fallos de red o aborto; los errores http siguen llegando como respuestas exitosamente resueltas o de una suposición incorrecta sobre Fetch API.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Fetch API y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque proporciona una interfaz basada en promesas para hacer peticiones http y procesar respuestas como streams Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que fetch solo rechaza por fallos de red o aborto; los errores http siguen llegando como respuestas exitosamente resueltas",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Fetch API?",
+      "respuesta": "Encaja bien en un patrón donde se consultan apis rest, se envían formularios o se descargan recursos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Storage API y cuándo se nota más su valor?",
+      "respuesta": "ofrece persistencia simple en el navegador mediante localStorage y sessionStorage Su valor se nota especialmente en se guardan preferencias, tokens no sensibles de corta vida o borradores simples.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Storage API a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ofrece persistencia simple en el navegador mediante localstorage y sessionstorage Para usarlo bien conviene entender que es síncrona, tiene cuota limitada y no es adecuada para datos sensibles ni grandes volúmenes",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Storage API?",
+      "respuesta": "Un error frecuente es asumir algo que es síncrona, tiene cuota limitada y no es adecuada para datos sensibles ni grandes volúmenes La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Storage API de mantener estado solo en memoria?",
+      "respuesta": "La diferencia clave es que ofrece persistencia simple en el navegador mediante localstorage y sessionstorage En cambio, la memoria se pierde al recargar o cerrar, mientras que Storage conserva pares clave-valor según alcance de sesión o persistencia",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Storage API?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se guardan preferencias, tokens no sensibles de corta vida o borradores simples y recordar que es síncrona, tiene cuota limitada y no es adecuada para datos sensibles ni grandes volúmenes",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Storage API?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que es síncrona, tiene cuota limitada y no es adecuada para datos sensibles ni grandes volúmenes o de una suposición incorrecta sobre Storage API.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Storage API y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ofrece persistencia simple en el navegador mediante localstorage y sessionstorage Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que es síncrona, tiene cuota limitada y no es adecuada para datos sensibles ni grandes volúmenes",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Storage API?",
+      "respuesta": "Encaja bien en un patrón donde se guardan preferencias, tokens no sensibles de corta vida o borradores simples Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve History y URL API y cuándo se nota más su valor?",
+      "respuesta": "permiten leer y modificar la URL y el historial sin recargar toda la página en apps modernas Su valor se nota especialmente en se implementan routers, filtros compartibles y deep links.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona History y URL API a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten leer y modificar la url y el historial sin recargar toda la página en apps modernas Para usarlo bien conviene entender que cambiar la url sin mantener estado coherente rompe navegación atrás, restauración y compartición de enlaces",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con History y URL API?",
+      "respuesta": "Un error frecuente es asumir algo que cambiar la url sin mantener estado coherente rompe navegación atrás, restauración y compartición de enlaces La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia History y URL API de recargar la navegación completa en cada cambio de vista?",
+      "respuesta": "La diferencia clave es que permiten leer y modificar la url y el historial sin recargar toda la página en apps modernas En cambio, recargar simplifica el modelo pero penaliza experiencia, mientras que estas APIs sincronizan estado de navegación y UI cliente",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener History y URL API?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se implementan routers, filtros compartibles y deep links y recordar que cambiar la url sin mantener estado coherente rompe navegación atrás, restauración y compartición de enlaces",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con History y URL API?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que cambiar la url sin mantener estado coherente rompe navegación atrás, restauración y compartición de enlaces o de una suposición incorrecta sobre History y URL API.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece History y URL API y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten leer y modificar la url y el historial sin recargar toda la página en apps modernas Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que cambiar la url sin mantener estado coherente rompe navegación atrás, restauración y compartición de enlaces",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor History y URL API?",
+      "respuesta": "Encaja bien en un patrón donde se implementan routers, filtros compartibles y deep links Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve IntersectionObserver y cuándo se nota más su valor?",
+      "respuesta": "notifica cambios de intersección entre un elemento y un contenedor o viewport Su valor se nota especialmente en se hacen lazy loading, animaciones al entrar en pantalla o métricas de visibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona IntersectionObserver a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, notifica cambios de intersección entre un elemento y un contenedor o viewport Para usarlo bien conviene entender que el callback no es pixel-perfect en tiempo real y no sustituye cualquier necesidad de medición exacta",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con IntersectionObserver?",
+      "respuesta": "Un error frecuente es asumir algo que el callback no es pixel-perfect en tiempo real y no sustituye cualquier necesidad de medición exacta La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia IntersectionObserver de escuchar scroll y calcular posiciones en cada frame manualmente?",
+      "respuesta": "La diferencia clave es que notifica cambios de intersección entre un elemento y un contenedor o viewport En cambio, el cálculo manual suele ser más costoso y propenso a jank, mientras que el observador delega optimización al navegador",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener IntersectionObserver?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se hacen lazy loading, animaciones al entrar en pantalla o métricas de visibilidad y recordar que el callback no es pixel-perfect en tiempo real y no sustituye cualquier necesidad de medición exacta",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con IntersectionObserver?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que el callback no es pixel-perfect en tiempo real y no sustituye cualquier necesidad de medición exacta o de una suposición incorrecta sobre IntersectionObserver.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece IntersectionObserver y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque notifica cambios de intersección entre un elemento y un contenedor o viewport Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que el callback no es pixel-perfect en tiempo real y no sustituye cualquier necesidad de medición exacta",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor IntersectionObserver?",
+      "respuesta": "Encaja bien en un patrón donde se hacen lazy loading, animaciones al entrar en pantalla o métricas de visibilidad Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve MutationObserver y cuándo se nota más su valor?",
+      "respuesta": "observa cambios en el árbol DOM sin parchear manualmente cada punto de escritura Su valor se nota especialmente en se integran widgets externos, editores o sincronización con elementos generados dinámicamente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona MutationObserver a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, observa cambios en el árbol dom sin parchear manualmente cada punto de escritura Para usarlo bien conviene entender que observar demasiado nodo o demasiados atributos puede producir un volumen de eventos difícil de gestionar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con MutationObserver?",
+      "respuesta": "Un error frecuente es asumir algo que observar demasiado nodo o demasiados atributos puede producir un volumen de eventos difícil de gestionar La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia MutationObserver de reescanear el DOM periódicamente?",
+      "respuesta": "La diferencia clave es que observa cambios en el árbol dom sin parchear manualmente cada punto de escritura En cambio, el polling desperdicia trabajo, mientras que el observador recibe lotes de mutaciones relevantes",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener MutationObserver?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se integran widgets externos, editores o sincronización con elementos generados dinámicamente y recordar que observar demasiado nodo o demasiados atributos puede producir un volumen de eventos difícil de gestionar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con MutationObserver?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que observar demasiado nodo o demasiados atributos puede producir un volumen de eventos difícil de gestionar o de una suposición incorrecta sobre MutationObserver.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece MutationObserver y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque observa cambios en el árbol dom sin parchear manualmente cada punto de escritura Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que observar demasiado nodo o demasiados atributos puede producir un volumen de eventos difícil de gestionar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor MutationObserver?",
+      "respuesta": "Encaja bien en un patrón donde se integran widgets externos, editores o sincronización con elementos generados dinámicamente Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve ResizeObserver y cuándo se nota más su valor?",
+      "respuesta": "detecta cambios de tamaño de elementos individuales Su valor se nota especialmente en se ajustan gráficos, paneles o componentes embebidos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona ResizeObserver a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, detecta cambios de tamaño de elementos individuales Para usarlo bien conviene entender que actualizar layout de forma recursiva en su callback puede desencadenar bucles de observación",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con ResizeObserver?",
+      "respuesta": "Un error frecuente es asumir algo que actualizar layout de forma recursiva en su callback puede desencadenar bucles de observación La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia ResizeObserver de escuchar solo resize de window?",
+      "respuesta": "La diferencia clave es que detecta cambios de tamaño de elementos individuales En cambio, resize de window no cubre cambios internos de layout, mientras que ResizeObserver responde al tamaño real del elemento observado",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener ResizeObserver?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se ajustan gráficos, paneles o componentes embebidos y recordar que actualizar layout de forma recursiva en su callback puede desencadenar bucles de observación",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con ResizeObserver?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que actualizar layout de forma recursiva en su callback puede desencadenar bucles de observación o de una suposición incorrecta sobre ResizeObserver.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece ResizeObserver y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque detecta cambios de tamaño de elementos individuales Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que actualizar layout de forma recursiva en su callback puede desencadenar bucles de observación",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor ResizeObserver?",
+      "respuesta": "Encaja bien en un patrón donde se ajustan gráficos, paneles o componentes embebidos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Clipboard API y cuándo se nota más su valor?",
+      "respuesta": "permite leer y escribir contenido del portapapeles con permisos y restricciones de seguridad Su valor se nota especialmente en se implementan botones de copiar, pegado enriquecido o flujos de productividad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Clipboard API a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permite leer y escribir contenido del portapapeles con permisos y restricciones de seguridad Para usarlo bien conviene entender que muchas operaciones requieren contexto seguro, gesto del usuario y permisos concedidos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Clipboard API?",
+      "respuesta": "Un error frecuente es asumir algo que muchas operaciones requieren contexto seguro, gesto del usuario y permisos concedidos La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Clipboard API de comandos legacy como execCommand?",
+      "respuesta": "La diferencia clave es que permite leer y escribir contenido del portapapeles con permisos y restricciones de seguridad En cambio, las APIs modernas son más claras y orientadas a promesas, mientras que los comandos legacy son menos consistentes y están en desuso",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Clipboard API?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se implementan botones de copiar, pegado enriquecido o flujos de productividad y recordar que muchas operaciones requieren contexto seguro, gesto del usuario y permisos concedidos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Clipboard API?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que muchas operaciones requieren contexto seguro, gesto del usuario y permisos concedidos o de una suposición incorrecta sobre Clipboard API.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Clipboard API y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permite leer y escribir contenido del portapapeles con permisos y restricciones de seguridad Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que muchas operaciones requieren contexto seguro, gesto del usuario y permisos concedidos",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Clipboard API?",
+      "respuesta": "Encaja bien en un patrón donde se implementan botones de copiar, pegado enriquecido o flujos de productividad Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Web Workers y cuándo se nota más su valor?",
+      "respuesta": "ejecutan JavaScript en hilos separados para evitar bloquear la interfaz principal Su valor se nota especialmente en se procesan datos pesados, compresión, parseo o simulaciones.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Web Workers a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, ejecutan javascript en hilos separados para evitar bloquear la interfaz principal Para usarlo bien conviene entender que no tienen acceso directo al dom y pasar datos entre hilos tiene coste de serialización o transferencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Web Workers?",
+      "respuesta": "Un error frecuente es asumir algo que no tienen acceso directo al dom y pasar datos entre hilos tiene coste de serialización o transferencia La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Web Workers de hacer todo en el hilo principal?",
+      "respuesta": "La diferencia clave es que ejecutan javascript en hilos separados para evitar bloquear la interfaz principal En cambio, hacer todo en main thread simplifica acceso al DOM pero degrada respuesta, mientras que un worker mueve cómputo o parsing fuera de la UI",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Web Workers?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se procesan datos pesados, compresión, parseo o simulaciones y recordar que no tienen acceso directo al dom y pasar datos entre hilos tiene coste de serialización o transferencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Web Workers?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que no tienen acceso directo al dom y pasar datos entre hilos tiene coste de serialización o transferencia o de una suposición incorrecta sobre Web Workers.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Web Workers y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque ejecutan javascript en hilos separados para evitar bloquear la interfaz principal Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que no tienen acceso directo al dom y pasar datos entre hilos tiene coste de serialización o transferencia",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Web Workers?",
+      "respuesta": "Encaja bien en un patrón donde se procesan datos pesados, compresión, parseo o simulaciones Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de Web Workers suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que no tienen acceso directo al DOM y pasar datos entre hilos tiene coste de serialización o transferencia Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Service Worker y Cache API y cuándo se nota más su valor?",
+      "respuesta": "interceptan peticiones y permiten estrategias offline, caching y control de red a nivel de aplicación Su valor se nota especialmente en se construyen pwas, soporte offline o mejoras de rendimiento en navegación repetida.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Service Worker y Cache API a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, interceptan peticiones y permiten estrategias offline, caching y control de red a nivel de aplicación Para usarlo bien conviene entender que su ciclo de vida y actualización pueden confundir; un worker nuevo no controla clientes existentes automáticamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Service Worker y Cache API?",
+      "respuesta": "Un error frecuente es asumir algo que su ciclo de vida y actualización pueden confundir; un worker nuevo no controla clientes existentes automáticamente La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Service Worker y Cache API de depender solo del caché HTTP tradicional?",
+      "respuesta": "La diferencia clave es que interceptan peticiones y permiten estrategias offline, caching y control de red a nivel de aplicación En cambio, el caché HTTP es menos programable, mientras que Service Worker permite decidir estrategia por recurso y por contexto",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Service Worker y Cache API?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se construyen pwas, soporte offline o mejoras de rendimiento en navegación repetida y recordar que su ciclo de vida y actualización pueden confundir; un worker nuevo no controla clientes existentes automáticamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Service Worker y Cache API?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que su ciclo de vida y actualización pueden confundir; un worker nuevo no controla clientes existentes automáticamente o de una suposición incorrecta sobre Service Worker y Cache API.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Service Worker y Cache API y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque interceptan peticiones y permiten estrategias offline, caching y control de red a nivel de aplicación Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que su ciclo de vida y actualización pueden confundir; un worker nuevo no controla clientes existentes automáticamente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Service Worker y Cache API?",
+      "respuesta": "Encaja bien en un patrón donde se construyen pwas, soporte offline o mejoras de rendimiento en navegación repetida Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de Service Worker y Cache API suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que su ciclo de vida y actualización pueden confundir; un worker nuevo no controla clientes existentes automáticamente Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Geolocation y Permissions API y cuándo se nota más su valor?",
+      "respuesta": "exponen acceso a capacidades sensibles del dispositivo bajo un modelo explícito de permisos Su valor se nota especialmente en se muestran mapas, sugerencias locales o validaciones ligadas a contexto físico.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Geolocation y Permissions API a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, exponen acceso a capacidades sensibles del dispositivo bajo un modelo explícito de permisos Para usarlo bien conviene entender que el permiso puede ser denegado, revocado o no estar disponible según dispositivo, origen y contexto seguro",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Geolocation y Permissions API?",
+      "respuesta": "Un error frecuente es asumir algo que el permiso puede ser denegado, revocado o no estar disponible según dispositivo, origen y contexto seguro La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Geolocation y Permissions API de asumir acceso inmediato a datos del dispositivo?",
+      "respuesta": "La diferencia clave es que exponen acceso a capacidades sensibles del dispositivo bajo un modelo explícito de permisos En cambio, el acceso real depende de consentimiento y política del navegador, mientras que la API solo inicia la solicitud y consulta estado",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Geolocation y Permissions API?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se muestran mapas, sugerencias locales o validaciones ligadas a contexto físico y recordar que el permiso puede ser denegado, revocado o no estar disponible según dispositivo, origen y contexto seguro",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Geolocation y Permissions API?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que el permiso puede ser denegado, revocado o no estar disponible según dispositivo, origen y contexto seguro o de una suposición incorrecta sobre Geolocation y Permissions API.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Geolocation y Permissions API y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque exponen acceso a capacidades sensibles del dispositivo bajo un modelo explícito de permisos Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que el permiso puede ser denegado, revocado o no estar disponible según dispositivo, origen y contexto seguro",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Geolocation y Permissions API?",
+      "respuesta": "Encaja bien en un patrón donde se muestran mapas, sugerencias locales o validaciones ligadas a contexto físico Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de Geolocation y Permissions API suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que el permiso puede ser denegado, revocado o no estar disponible según dispositivo, origen y contexto seguro Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve Canvas API y cuándo se nota más su valor?",
+      "respuesta": "permite dibujar píxeles, formas e imágenes de manera imperativa sobre un lienzo Su valor se nota especialmente en se hacen gráficos, juegos, editores visuales o procesamiento básico de imágenes.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona Canvas API a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permite dibujar píxeles, formas e imágenes de manera imperativa sobre un lienzo Para usarlo bien conviene entender que redibujar todo cada frame y no gestionar resolución o escalado produce blur y consumo innecesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con Canvas API?",
+      "respuesta": "Un error frecuente es asumir algo que redibujar todo cada frame y no gestionar resolución o escalado produce blur y consumo innecesario La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia Canvas API de construir toda la visualización con DOM tradicional?",
+      "respuesta": "La diferencia clave es que permite dibujar píxeles, formas e imágenes de manera imperativa sobre un lienzo En cambio, el DOM favorece accesibilidad y composición declarativa, mientras que canvas da control fino de dibujo y animación rasterizada",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener Canvas API?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se hacen gráficos, juegos, editores visuales o procesamiento básico de imágenes y recordar que redibujar todo cada frame y no gestionar resolución o escalado produce blur y consumo innecesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con Canvas API?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que redibujar todo cada frame y no gestionar resolución o escalado produce blur y consumo innecesario o de una suposición incorrecta sobre Canvas API.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece Canvas API y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permite dibujar píxeles, formas e imágenes de manera imperativa sobre un lienzo Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que redibujar todo cada frame y no gestionar resolución o escalado produce blur y consumo innecesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor Canvas API?",
+      "respuesta": "Encaja bien en un patrón donde se hacen gráficos, juegos, editores visuales o procesamiento básico de imágenes Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de Canvas API suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que redibujar todo cada frame y no gestionar resolución o escalado produce blur y consumo innecesario Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Web APIs"
+      ]
+    }
+  ]
+}

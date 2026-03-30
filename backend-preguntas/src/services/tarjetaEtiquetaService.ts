@@ -3,10 +3,14 @@ import { Etiquetas } from "../models/index.js";
 import Preguntas from "../models/preguntas.js";
 import { Op } from "sequelize";
 
+type Dificultad = "Facil" | "Intermedio" | "Avanzado";
+type DificultadesPorEtiqueta = Record<string, Dificultad>;
+
 interface PreguntaConEtiquetas {
     id: number;
     pregunta: string;
     respuesta: string;
+    dificultad: Dificultad;
     Etiqueta: Array<{ nombre: string }>;
 }
 
@@ -20,8 +24,27 @@ class TarjetaEtiquetaService {
                 id: preguntaPlana.id,
                 pregunta: preguntaPlana.pregunta,
                 respuesta: preguntaPlana.respuesta,
+                dificultad: preguntaPlana.dificultad,
                 Etiqueta: etiquetas.map((etiqueta: { nombre: string }) => ({ nombre: etiqueta.nombre })),
             };
+        });
+    }
+
+    private filtrarPorDificultad(
+        preguntas: PreguntaConEtiquetas[],
+        dificultadesPorEtiqueta?: DificultadesPorEtiqueta
+    ) {
+        if (!dificultadesPorEtiqueta || Object.keys(dificultadesPorEtiqueta).length === 0) {
+            return preguntas;
+        }
+
+        return preguntas.filter((pregunta) => {
+            const dificultadPregunta = pregunta.dificultad ?? "Intermedio";
+
+            return pregunta.Etiqueta.some((etiqueta) => {
+                const dificultadEsperada = dificultadesPorEtiqueta[etiqueta.nombre.trim().toLowerCase()];
+                return !dificultadEsperada || dificultadEsperada === dificultadPregunta;
+            });
         });
     }
 
@@ -91,7 +114,7 @@ class TarjetaEtiquetaService {
     * { id: 3, titulo: "Promesas", etiquetas: [{nombre: "JavaScript"}, {nombre: "Async"}] }    
     * ]
     */
-    async obtenerPreguntasPorEtiqueta(nombreEtiqueta: string) {
+    async obtenerPreguntasPorEtiqueta(nombreEtiqueta: string, dificultad?: Dificultad) {
         try {
             const etiquetaNormalizada = nombreEtiqueta.trim().toLowerCase();
             const preguntas = await Preguntas.findAll({
@@ -105,14 +128,20 @@ class TarjetaEtiquetaService {
                 ],
             });
 
-            return this.serializarPreguntas(preguntas);
+            return this.filtrarPorDificultad(
+                this.serializarPreguntas(preguntas),
+                dificultad ? { [etiquetaNormalizada]: dificultad } : undefined
+            );
         } catch (error) {
             console.log("Error al listar tarjetas por etiqueta:", error);
             return [];
         }
     }
 
-    async obtenerPreguntasPorEtiquetas(nombresEtiquetas: string[]) {
+    async obtenerPreguntasPorEtiquetas(
+        nombresEtiquetas: string[],
+        dificultadesPorEtiqueta?: DificultadesPorEtiqueta
+    ) {
         try {
             const etiquetasNormalizadas = nombresEtiquetas
                 .map((etiqueta) => etiqueta.trim().toLowerCase())
@@ -138,7 +167,7 @@ class TarjetaEtiquetaService {
                 order: [["id", "ASC"]],
             });
 
-            return this.serializarPreguntas(preguntas);
+            return this.filtrarPorDificultad(this.serializarPreguntas(preguntas), dificultadesPorEtiqueta);
         } catch (error) {
             console.log("Error al listar tarjetas por multiples etiquetas:", error);
             return [];

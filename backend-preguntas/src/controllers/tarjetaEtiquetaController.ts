@@ -1,5 +1,23 @@
 import tarjetaEtiquetaService from '../services/tarjetaEtiquetaService.js'
 
+type Dificultad = "Facil" | "Intermedio" | "Avanzado";
+
+function parsearDificultades(raw: unknown): Record<string, Dificultad> | undefined {
+    if (typeof raw !== "string" || raw.trim().length === 0) {
+        return undefined;
+    }
+
+    try {
+        const parsed = JSON.parse(raw) as Record<string, Dificultad>;
+        return Object.fromEntries(
+            Object.entries(parsed).map(([etiqueta, dificultad]) => [etiqueta.trim().toLowerCase(), dificultad])
+        );
+    } catch (error) {
+        console.error("No se pudieron parsear las dificultades", error);
+        return undefined;
+    }
+}
+
 export const asignarEtiquetaATarjeta = async (req: any, res: any) => {
     try {
         const { idEtiqueta, idPregunta } = req.body;
@@ -26,9 +44,13 @@ export const asignarEtiquetaATarjeta = async (req: any, res: any) => {
 export const listarTarjetasPorEtiquetaPorNombre = async (req: any, res: any) => {
     try {
         const etiquetasQuery = typeof req.query.etiquetas === "string" ? req.query.etiquetas : "";
+        const dificultades = parsearDificultades(req.query.dificultades);
 
         if (etiquetasQuery.trim().length > 0) {
-            const tarjetas = await tarjetaEtiquetaService.obtenerPreguntasPorEtiquetas(etiquetasQuery.split(","));
+            const tarjetas = await tarjetaEtiquetaService.obtenerPreguntasPorEtiquetas(
+                etiquetasQuery.split(","),
+                dificultades
+            );
 
             return res.status(200).json({
                 success: true,
@@ -69,7 +91,9 @@ export const listarTarjetasPorEtiquetaPorNombre = async (req: any, res: any) => 
 export const traerPreguntasPorNombreEtiqueta = async (req: any, res: any) => {
     try {
         const { nombreEtiqueta } = req.params;
-        const tarjetas = await tarjetaEtiquetaService.obtenerPreguntasPorEtiqueta(nombreEtiqueta);
+        const dificultades = parsearDificultades(req.query.dificultades);
+        const dificultad = dificultades?.[String(nombreEtiqueta).trim().toLowerCase()];
+        const tarjetas = await tarjetaEtiquetaService.obtenerPreguntasPorEtiqueta(nombreEtiqueta, dificultad);
         return res.status(200).json({
             success: true,
             message: `Tarjetas con la etiqueta "${nombreEtiqueta}" obtenidas correctamente`,

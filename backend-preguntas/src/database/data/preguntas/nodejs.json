@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Node.js",
+    "url": "/logos/nodejs.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que es arquitectura event-driven y cuando conviene usarlo?",
+      "respuesta": "Node.js ejecuta javascript en un hilo principal y delega io al sistema y a libuv. Conviene usarlo cuando tu aplicacion hace mucha entrada/salida y necesita alta concurrencia.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver arquitectura event-driven?",
+      "respuesta": "Ayuda a resolver el costo de bloquear hilos por cada conexion porque Node.js ejecuta JavaScript en un hilo principal y delega IO al sistema y a libuv.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce arquitectura event-driven?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando tu aplicacion hace mucha entrada/salida y necesita alta concurrencia, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar arquitectura event-driven?",
+      "respuesta": "Un error comun es usarlo aunque tu carga es dominada por CPU intensa sin offloading. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que arquitectura event-driven esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que handlers que hacen calculos pesados antes de responder. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara arquitectura event-driven con modelos thread-per-request?",
+      "respuesta": "Comparado con modelos thread-per-request, arquitectura event-driven suele ofrecer una estructura mas explicita para tu aplicacion hace mucha entrada/salida y necesita alta concurrencia, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar arquitectura event-driven?",
+      "respuesta": "Sirve medir latencia bajo carga IO, uso de CPU del hilo principal y cantidad de conexiones activas. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar arquitectura event-driven?",
+      "respuesta": "No conviene usarlo cuando tu carga es dominada por CPU intensa sin offloading. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde un servicio recibe miles de conexiones websocket concurrentes, ¿como aporta arquitectura event-driven?",
+      "respuesta": "Si un servicio recibe miles de conexiones websocket concurrentes, arquitectura event-driven ayuda porque Node.js ejecuta JavaScript en un hilo principal y delega IO al sistema y a libuv y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es modulos CommonJS y ESM y cuando conviene usarlo?",
+      "respuesta": "Node soporta dos sistemas de modulos con reglas distintas de carga, resolucion e interoperabilidad. Conviene usarlo cuando necesitas organizar dependencias y publicar paquetes reutilizables.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver modulos CommonJS y ESM?",
+      "respuesta": "Ayuda a resolver el acoplamiento y la ambiguedad al mezclar importaciones porque Node soporta dos sistemas de modulos con reglas distintas de carga, resolucion e interoperabilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce modulos CommonJS y ESM?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando necesitas organizar dependencias y publicar paquetes reutilizables, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar modulos CommonJS y ESM?",
+      "respuesta": "Un error comun es usarlo aunque mezclas formatos sin entender como export default y named exports se resuelven. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que modulos CommonJS y ESM esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que wrappers innecesarios para importar archivos entre CJS y ESM. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara modulos CommonJS y ESM con archivos globales o carga manual de scripts?",
+      "respuesta": "Comparado con archivos globales o carga manual de scripts, modulos CommonJS y ESM suele ofrecer una estructura mas explicita para necesitas organizar dependencias y publicar paquetes reutilizables, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar modulos CommonJS y ESM?",
+      "respuesta": "Sirve medir arranque consistente, imports claros y ausencia de hacks en package.json. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar modulos CommonJS y ESM?",
+      "respuesta": "No conviene usarlo cuando mezclas formatos sin entender como export default y named exports se resuelven. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes migrar una libreria interna a ESM sin romper consumidores actuales, ¿como aporta modulos CommonJS y ESM?",
+      "respuesta": "Si debes migrar una libreria interna a ESM sin romper consumidores actuales, modulos CommonJS y ESM ayuda porque Node soporta dos sistemas de modulos con reglas distintas de carga, resolucion e interoperabilidad y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es promesas y async/await y cuando conviene usarlo?",
+      "respuesta": "Las promesas modelan resultados asincronos y async/await hace mas legible su composicion. Conviene usarlo cuando quieres escribir flujos asincronos sin callback hell.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver promesas y async/await?",
+      "respuesta": "Ayuda a resolver la dificultad de propagar errores y coordinar tareas asincronas porque las promesas modelan resultados asincronos y async/await hace mas legible su composicion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce promesas y async/await?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres escribir flujos asincronos sin callback hell, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar promesas y async/await?",
+      "respuesta": "Un error comun es usarlo aunque usas await secuencial en operaciones independientes y degradas throughput. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que promesas y async/await esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que for con await innecesario o promesas sin return. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara promesas y async/await con callbacks anidados?",
+      "respuesta": "Comparado con callbacks anidados, promesas y async/await suele ofrecer una estructura mas explicita para quieres escribir flujos asincronos sin callback hell, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar promesas y async/await?",
+      "respuesta": "Sirve medir manejo correcto de rejections, paralelismo explicito y tests sin race conditions. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar promesas y async/await?",
+      "respuesta": "No conviene usarlo cuando usas await secuencial en operaciones independientes y degradas throughput. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes llamar tres APIs externas y consolidar la respuesta, ¿como aporta promesas y async/await?",
+      "respuesta": "Si debes llamar tres APIs externas y consolidar la respuesta, promesas y async/await ayuda porque las promesas modelan resultados asincronos y async/await hace mas legible su composicion y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es streams y cuando conviene usarlo?",
+      "respuesta": "Los streams permiten procesar datos por chunks con backpressure en lugar de cargarlos completos en memoria. Conviene usarlo cuando manejas archivos grandes, proxys, compresion o transformaciones de red.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver streams?",
+      "respuesta": "Ayuda a resolver el consumo excesivo de memoria y la copia innecesaria de buffers porque los streams permiten procesar datos por chunks con backpressure en lugar de cargarlos completos en memoria.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce streams?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando manejas archivos grandes, proxys, compresion o transformaciones de red, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar streams?",
+      "respuesta": "Un error comun es usarlo aunque el volumen es pequeno y la complejidad del pipeline no se justifica. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que streams esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que Buffer.concat gigantes o readFile sobre archivos muy grandes. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara streams con leer todo el payload en memoria?",
+      "respuesta": "Comparado con leer todo el payload en memoria, streams suele ofrecer una estructura mas explicita para manejas archivos grandes, proxys, compresion o transformaciones de red, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar streams?",
+      "respuesta": "Sirve medir uso de heap estable, throughput sostenido y ausencia de pausas por GC. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar streams?",
+      "respuesta": "No conviene usarlo cuando el volumen es pequeno y la complejidad del pipeline no se justifica. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes transformar y enviar un CSV de varios gigabytes, ¿como aporta streams?",
+      "respuesta": "Si debes transformar y enviar un CSV de varios gigabytes, streams ayuda porque los streams permiten procesar datos por chunks con backpressure en lugar de cargarlos completos en memoria y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es buffers y encoding y cuando conviene usarlo?",
+      "respuesta": "Buffer representa datos binarios y obliga a distinguir bytes de texto y codificaciones. Conviene usarlo cuando trabajas con sockets, archivos binarios, criptografia o protocolos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver buffers y encoding?",
+      "respuesta": "Ayuda a resolver la corrupcion de datos al asumir UTF-8 donde no aplica porque Buffer representa datos binarios y obliga a distinguir bytes de texto y codificaciones.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce buffers y encoding?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando trabajas con sockets, archivos binarios, criptografia o protocolos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar buffers y encoding?",
+      "respuesta": "Un error comun es usarlo aunque solo mueves JSON pequeno y convertir a binario agrega ruido. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que buffers y encoding esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que substring sobre datos binarios o conversiones repetidas string-buffer-string. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara buffers y encoding con tratar todo como string?",
+      "respuesta": "Comparado con tratar todo como string, buffers y encoding suele ofrecer una estructura mas explicita para trabajas con sockets, archivos binarios, criptografia o protocolos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar buffers y encoding?",
+      "respuesta": "Sirve medir tamanos correctos en bytes, round trips de encoding y checksum validos. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar buffers y encoding?",
+      "respuesta": "No conviene usarlo cuando solo mueves JSON pequeno y convertir a binario agrega ruido. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es worker_threads y child_process y cuando conviene usarlo?",
+      "respuesta": "Estas apis sacan trabajo del hilo principal para tareas cpu-bound o procesos aislados. Conviene usarlo cuando necesitas paralelizar calculo, usar binarios externos o aislar fallos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver worker_threads y child_process?",
+      "respuesta": "Ayuda a resolver el bloqueo del event loop por trabajo intensivo porque estas APIs sacan trabajo del hilo principal para tareas CPU-bound o procesos aislados.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce worker_threads y child_process?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando necesitas paralelizar calculo, usar binarios externos o aislar fallos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar worker_threads y child_process?",
+      "respuesta": "Un error comun es usarlo aunque la tarea es corta y el overhead de coordinar workers supera el beneficio. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que worker_threads y child_process esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que picos de lag cuando llega una operacion pesada. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara worker_threads y child_process con hacer todo en el hilo principal?",
+      "respuesta": "Comparado con hacer todo en el hilo principal, worker_threads y child_process suele ofrecer una estructura mas explicita para necesitas paralelizar calculo, usar binarios externos o aislar fallos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar worker_threads y child_process?",
+      "respuesta": "Sirve medir event loop lag, tiempo de CPU y costo de serializacion entre hilos. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar worker_threads y child_process?",
+      "respuesta": "No conviene usarlo cuando la tarea es corta y el overhead de coordinar workers supera el beneficio. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es resolucion de dependencias y package.json y cuando conviene usarlo?",
+      "respuesta": "Package.json define tipo de modulo, scripts, exports, engines y dependencias de un proyecto node. Conviene usarlo cuando quieres builds reproducibles y contratos claros para consumidores.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver resolucion de dependencias y package.json?",
+      "respuesta": "Ayuda a resolver las instalaciones inconsistentes y el acoplamiento a entornos no declarados porque package.json define tipo de modulo, scripts, exports, engines y dependencias de un proyecto Node.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce resolucion de dependencias y package.json?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres builds reproducibles y contratos claros para consumidores, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar resolucion de dependencias y package.json?",
+      "respuesta": "Un error comun es usarlo aunque usas scripts opacos que esconden demasiada logica de release. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que resolucion de dependencias y package.json esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que dependencias en dev que se requieren en produccion o engines desalineados. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara resolucion de dependencias y package.json con dependencias implicitas y scripts ad hoc fuera del manifiesto?",
+      "respuesta": "Comparado con dependencias implicitas y scripts ad hoc fuera del manifiesto, resolucion de dependencias y package.json suele ofrecer una estructura mas explicita para quieres builds reproducibles y contratos claros para consumidores, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar resolucion de dependencias y package.json?",
+      "respuesta": "Sirve medir instalaciones reproducibles con lockfile y scripts estandarizados. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar resolucion de dependencias y package.json?",
+      "respuesta": "No conviene usarlo cuando usas scripts opacos que esconden demasiada logica de release. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es HTTP y servidor core y cuando conviene usarlo?",
+      "respuesta": "El modulo http y apis relacionadas permiten controlar conexiones, headers, sockets y timeouts con granularidad. Conviene usarlo cuando quieres entender bien el costo real antes de depender de frameworks.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver HTTP y servidor core?",
+      "respuesta": "Ayuda a resolver respuestas lentas, conexiones colgadas y mal manejo de keep-alive porque el modulo http y APIs relacionadas permiten controlar conexiones, headers, sockets y timeouts con granularidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce HTTP y servidor core?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres entender bien el costo real antes de depender de frameworks, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar HTTP y servidor core?",
+      "respuesta": "Un error comun es usarlo aunque necesitas solo una API CRUD simple y la complejidad de bajo nivel no aporta. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que HTTP y servidor core esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que no se cierran respuestas en rutas de error o faltan timeouts. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara HTTP y servidor core con delegar todo a un framework sin conocer el runtime?",
+      "respuesta": "Comparado con delegar todo a un framework sin conocer el runtime, HTTP y servidor core suele ofrecer una estructura mas explicita para quieres entender bien el costo real antes de depender de frameworks, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar HTTP y servidor core?",
+      "respuesta": "Sirve medir TTFB, sockets abiertos, keep-alive reuse y timeout coverage. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar HTTP y servidor core?",
+      "respuesta": "No conviene usarlo cuando necesitas solo una API CRUD simple y la complejidad de bajo nivel no aporta. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es manejo de errores de proceso y cuando conviene usarlo?",
+      "respuesta": "Node expone errores en promesas, eventos de proceso y excepciones no capturadas que deben tratarse con criterio. Conviene usarlo cuando quieres fallar de forma controlada y observable.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver manejo de errores de proceso?",
+      "respuesta": "Ayuda a resolver caidas silenciosas o estados corruptos despues de errores graves porque Node expone errores en promesas, eventos de proceso y excepciones no capturadas que deben tratarse con criterio.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce manejo de errores de proceso?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres fallar de forma controlada y observable, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar manejo de errores de proceso?",
+      "respuesta": "Un error comun es usarlo aunque capturas errores fatales y continuas como si nada. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que manejo de errores de proceso esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que listeners globales que solo hacen console.log y siguen ejecutando. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara manejo de errores de proceso con ignorar warnings y eventos globales?",
+      "respuesta": "Comparado con ignorar warnings y eventos globales, manejo de errores de proceso suele ofrecer una estructura mas explicita para quieres fallar de forma controlada y observable, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar manejo de errores de proceso?",
+      "respuesta": "Sirve medir errores con contexto, exit codes correctos y reinicio seguro del proceso. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar manejo de errores de proceso?",
+      "respuesta": "No conviene usarlo cuando capturas errores fatales y continuas como si nada. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es seguridad y configuracion y cuando conviene usarlo?",
+      "respuesta": "En node es clave controlar entrada, secretos, dependencias y permisos del proceso. Conviene usarlo cuando ejecutas servicios expuestos o pipelines con datos no confiables.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver seguridad y configuracion?",
+      "respuesta": "Ayuda a resolver inyecciones, fuga de secretos y abuso de recursos porque en Node es clave controlar entrada, secretos, dependencias y permisos del proceso.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce seguridad y configuracion?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando ejecutas servicios expuestos o pipelines con datos no confiables, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar seguridad y configuracion?",
+      "respuesta": "Un error comun es usarlo aunque confias ciegamente en datos de cliente o de librerias transitivas. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que seguridad y configuracion esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que secretos hardcodeados o process.env leido en cualquier sitio. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara seguridad y configuracion con configuraciones implicitas en codigo?",
+      "respuesta": "Comparado con configuraciones implicitas en codigo, seguridad y configuracion suele ofrecer una estructura mas explicita para ejecutas servicios expuestos o pipelines con datos no confiables, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar seguridad y configuracion?",
+      "respuesta": "Sirve medir validacion de env vars, auditorias de dependencias y limites de payload. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar seguridad y configuracion?",
+      "respuesta": "No conviene usarlo cuando confias ciegamente en datos de cliente o de librerias transitivas. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es observabilidad y cuando conviene usarlo?",
+      "respuesta": "Logs estructurados, metricas y traces permiten entender el comportamiento real de un proceso node. Conviene usarlo cuando quieres diagnosticar latencia, errores y cuellos de botella.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver observabilidad?",
+      "respuesta": "Ayuda a resolver la imposibilidad de explicar por que una peticion fue lenta porque logs estructurados, metricas y traces permiten entender el comportamiento real de un proceso Node.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce observabilidad?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres diagnosticar latencia, errores y cuellos de botella, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar observabilidad?",
+      "respuesta": "Un error comun es usarlo aunque produces volumen de logs tan alto que afecta costo y rendimiento. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que observabilidad esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que mensajes sin contexto de request ni severidad consistente. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara observabilidad con console.log sin correlacion?",
+      "respuesta": "Comparado con console.log sin correlacion, observabilidad suele ofrecer una estructura mas explicita para quieres diagnosticar latencia, errores y cuellos de botella, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar observabilidad?",
+      "respuesta": "Sirve medir correlation ids, histogramas de latencia y trazas por dependencia. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar observabilidad?",
+      "respuesta": "No conviene usarlo cuando produces volumen de logs tan alto que afecta costo y rendimiento. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que es graceful shutdown y cuando conviene usarlo?",
+      "respuesta": "Cerrar un proceso node correctamente implica dejar de aceptar trafico, drenar conexiones y liberar recursos. Conviene usarlo cuando despliegas en contenedores o plataformas que reciclan instancias.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver graceful shutdown?",
+      "respuesta": "Ayuda a resolver peticiones cortadas, perdida de mensajes y datos a medio persistir porque cerrar un proceso Node correctamente implica dejar de aceptar trafico, drenar conexiones y liberar recursos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce graceful shutdown?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando despliegas en contenedores o plataformas que reciclan instancias, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar graceful shutdown?",
+      "respuesta": "Un error comun es usarlo aunque ignoras senales del sistema y asumes que SIGKILL no llegara. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que graceful shutdown esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que servidor sin handlers para SIGTERM o conexiones que quedan vivas. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara graceful shutdown con matar el proceso de inmediato?",
+      "respuesta": "Comparado con matar el proceso de inmediato, graceful shutdown suele ofrecer una estructura mas explicita para despliegas en contenedores o plataformas que reciclan instancias, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar graceful shutdown?",
+      "respuesta": "Sirve medir tiempo de drenado, cierres limpios y ausencia de errores al terminar. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Node.js"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar graceful shutdown?",
+      "respuesta": "No conviene usarlo cuando ignoras senales del sistema y asumes que SIGKILL no llegara. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Node.js"
+      ]
+    }
+  ]
+}

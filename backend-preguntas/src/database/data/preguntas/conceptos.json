@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Conceptos",
+    "url": "/logos/nodejs.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema tecnico resuelve event loop dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Coordina cuando se ejecutan callbacks, promesas y operaciones asincronas sin bloquear el hilo principal Aporta mas valor cuando quieres entender por que una operacion aparentemente pequena retrasa otras respuestas o tareas y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar event loop en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en distinguir trabajo CPU-bound, I/O y colas de microtareas para repartir bien la carga El detalle que suele omitirse es suponer que todo lo asincrono ocurre en paralelo o fuera del hilo principal, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con event loop y como lo evitarias?",
+      "respuesta": "Un error comun es meter calculos pesados dentro de handlers HTTP esperando que la asincronia los haga baratos Para evitarlo conviene mover trabajo intensivo a workers, colas o procesos dedicados, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta event loop al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "si el event loop se bloquea, suben latencia y timeouts aunque haya pocas solicitudes La mejora mas efectiva suele ser reducir secciones sincrónicas largas y medir lag del loop, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con event loop?",
+      "respuesta": "La estrategia es reproducir carga, medir event loop lag y localizar funciones sincrónicas costosas Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona event loop con libuv y thread pool y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque el loop coordina callbacks mientras libuv delega cierto trabajo I/O y CPU nativo al pool El trade-off principal es un solo hilo simplifica concurrencia, pero obliga a evitar bloqueos largos, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si event loop debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si la tarea consume CPU, espera I/O o necesita aislamiento real Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de event loop en equipos grandes?",
+      "respuesta": "Una buena practica es medir lag, throughput y colas para decidir entre optimizar codigo o repartir trabajo Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que event loop se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es picos de latencia generalizada cuando una ruta o tarea puntual recibe carga Cuando eso ocurre, conviene perfilar CPU, identificar bloqueos sincronos y extraer trabajo pesado fuera del hilo principal antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve microtareas y macrotareas dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Explican el orden fino en que se procesan promesas, timers e I/O dentro del runtime Aporta mas valor cuando necesitas razonar por que un then se ejecuta antes que un setTimeout de cero milisegundos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar microtareas y macrotareas en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar promesas y timers sabiendo que pertenecen a colas distintas con prioridades distintas El detalle que suele omitirse es encadenar demasiadas microtareas y retrasar el procesamiento de otras fases del loop, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con microtareas y macrotareas y como lo evitarias?",
+      "respuesta": "Un error comun es intentar coordinar flujos complejos confiando en ordenes no comprendidos Para evitarlo conviene preferir flujos explicitos y usar la cola adecuada para el tipo de trabajo, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta microtareas y macrotareas al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "microtareas excesivas pueden introducir hambre para otras callbacks y aumentar latencia percibida La mejora mas efectiva suele ser partir trabajo largo y ceder control al loop cuando haga falta, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con microtareas y macrotareas?",
+      "respuesta": "La estrategia es reducir el caso a pocas operaciones y observar el orden real de ejecucion Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona microtareas y macrotareas con event loop y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque son mecanismos concretos dentro del modelo general de ejecucion asincrona de Node El trade-off principal es las microtareas dan respuestas inmediatas, pero si se abusa de ellas complican la equidad del loop, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si microtareas y macrotareas debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es urgencia del trabajo y necesidad de dejar pasar I/O pendiente Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de microtareas y macrotareas en equipos grandes?",
+      "respuesta": "Una buena practica es usar colas distintas conscientemente para coordinar librerias y puntos de extension Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que microtareas y macrotareas se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es callbacks de I/O o timers se retrasan sin una causa obvia de CPU alta Cuando eso ocurre, conviene revisar cadenas de promesas y ceder control con mecanismos adecuados cuando proceda antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve asincronia con promesas y async/await dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Permite escribir flujos asincronos legibles y componer operaciones que dependen de I/O o tareas diferidas Aporta mas valor cuando coordinas varias consultas, llamadas HTTP o pasos de negocio que pueden fallar por separado y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar asincronia con promesas y async/await en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en encadenar await solo donde existe dependencia real y agrupar concurrencia con Promise.all cuando aplica El detalle que suele omitirse es serializar operaciones independientes por escribir await de forma lineal, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con asincronia con promesas y async/await y como lo evitarias?",
+      "respuesta": "Un error comun es olvidar manejar rechazos y dejar promesas flotantes sin observacion Para evitarlo conviene hacer explicita la concurrencia y centralizar manejo de errores segun el contexto, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta asincronia con promesas y async/await al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "usar await sin criterio puede duplicar o triplicar la latencia de un flujo con tareas independientes La mejora mas efectiva suele ser lanzar tareas en paralelo y esperar el conjunto solo al necesitar sus resultados, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con asincronia con promesas y async/await?",
+      "respuesta": "La estrategia es buscar awaits encadenados, promesas no retornadas y errores que se pierden fuera del try/catch Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona asincronia con promesas y async/await con manejo de errores y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la asincronia bien escrita necesita una estrategia clara para rechazos, cancelacion y limpieza El trade-off principal es async/await mejora legibilidad, pero oculta que sigue habiendo concurrencia y orden de resolucion real, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si asincronia con promesas y async/await debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es dependencias entre tareas, coste de fallo parcial y capacidad de cancelacion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de asincronia con promesas y async/await en equipos grandes?",
+      "respuesta": "Una buena practica es combinar concurrencia controlada, timeouts y cancelacion cooperativa Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que asincronia con promesas y async/await se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es flujos lentos pese a que las dependencias externas pueden ejecutarse en paralelo Cuando eso ocurre, conviene identificar pasos independientes y reagruparlos con promesas concurrentes antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve streams y backpressure dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Permiten procesar datos progresivamente y controlar el ritmo entre productor y consumidor Aporta mas valor cuando manejas archivos grandes, sockets, compresion o transformaciones continuas de datos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar streams y backpressure en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en encadenar streams con manejo de errores y respetar señales de presion para no desbordar memoria El detalle que suele omitirse es ignorar el resultado de write o no escuchar errores en toda la tuberia, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con streams y backpressure y como lo evitarias?",
+      "respuesta": "Un error comun es convertir a buffer completo por comodidad aunque el volumen sea alto Para evitarlo conviene procesar en flujo y dejar que el sistema regule el ritmo de consumo, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta streams y backpressure al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "el backpressure correcto mantiene memoria estable y mejora throughput sostenido La mejora mas efectiva suele ser usar pipeline y tamaños de buffer razonables para el perfil del dato, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con streams y backpressure?",
+      "respuesta": "La estrategia es medir memoria, revisar eventos de error y observar si algun tramo consume mas lento que el resto Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona streams y backpressure con buffers y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los streams usan buffers internos, pero el objetivo es no depender de acumularlo todo a la vez El trade-off principal es streaming reduce memoria, pero complica depuracion frente a operaciones totalmente en memoria, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si streams y backpressure debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es tamano del dato, transformaciones requeridas y tolerancia a latencia de inicio Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de streams y backpressure en equipos grandes?",
+      "respuesta": "Una buena practica es combinar streams con abortos, compresion y transformaciones incrementales Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que streams y backpressure se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es consumo de RAM creciente al procesar archivos o respuestas grandes Cuando eso ocurre, conviene reemplazar lecturas completas por pipeline y revisar manejo de backpressure antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve buffers y codificacion dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Representan datos binarios y permiten transformar entre texto, bytes y protocolos de bajo nivel Aporta mas valor cuando trabajas con sockets, archivos, criptografia o formatos que no son texto puro y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar buffers y codificacion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en tratar el dato como binario hasta el punto exacto donde conoces su codificacion o estructura El detalle que suele omitirse es asumir UTF-8 en entradas que pueden ser binarias o multibyte incompletas, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con buffers y codificacion y como lo evitarias?",
+      "respuesta": "Un error comun es convertir repetidamente entre string y buffer sin necesidad Para evitarlo conviene mantener una representacion estable y convertir solo una vez por frontera de protocolo, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta buffers y codificacion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "copias innecesarias de buffers elevan memoria y CPU en flujos intensivos La mejora mas efectiva suele ser reutilizar vistas o slices cuando el ciclo de vida del dato lo permita, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con buffers y codificacion?",
+      "respuesta": "La estrategia es inspeccionar longitud, encoding y limites exactos de cada fragmento procesado Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona buffers y codificacion con streams y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque muchos streams operan sobre buffers y su rendimiento depende de como se manejan esas copias El trade-off principal es trabajar en binario da control total, pero es mas facil introducir errores de limites o codificacion, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si buffers y codificacion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el dato es textual confiable o binario estructurado y cuanto volumen manejas Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de buffers y codificacion en equipos grandes?",
+      "respuesta": "Una buena practica es parsear protocolos incrementales sin convertir todo a string por defecto Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve thread pool de libuv dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Ejecuta ciertas operaciones fuera del hilo principal, como fs, dns y algunas tareas criptograficas Aporta mas valor cuando observas que ciertas APIs nativas funcionan sin bloquear el loop principal y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar thread pool de libuv en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en entender que no todo I/O usa el pool y que un pool saturado puede degradar tareas heterogeneas El detalle que suele omitirse es creer que aumentar el tamano del pool siempre mejora el rendimiento, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con thread pool de libuv y como lo evitarias?",
+      "respuesta": "Un error comun es meter demasiadas tareas costosas del mismo tipo y bloquear otras que comparten el pool Para evitarlo conviene medir antes de ajustar y separar cargas pesadas si compiten por los mismos recursos, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta thread pool de libuv al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "un pool saturado aumenta colas y tiempos de espera para operaciones que dependen de el La mejora mas efectiva suele ser limitar concurrencia, perfilar tareas nativas y ajustar el pool solo con evidencia, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con thread pool de libuv?",
+      "respuesta": "La estrategia es identificar que APIs usan el pool y medir si la latencia aparece antes de entrar o al esperar turno Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona thread pool de libuv con event loop y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque aunque el loop siga libre, el trabajo delegado puede atascarse si el pool esta saturado El trade-off principal es delegar trabajo nativo evita bloqueos directos, pero introduce competencia por hilos limitados, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si thread pool de libuv debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es tipo de API, volumen de concurrencia y si existen alternativas dedicadas Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de thread pool de libuv en equipos grandes?",
+      "respuesta": "Una buena practica es aislar tareas intensivas que usan el pool para proteger latencia del resto del sistema Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve worker threads y procesos dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Permiten aislar trabajo intensivo de CPU o necesidades de paralelismo real fuera del hilo principal Aporta mas valor cuando procesas imagenes, cifrado pesado o calculos que no deben bloquear respuestas HTTP y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar worker threads y procesos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en mover tareas CPU-bound a workers o procesos y comunicarte con mensajes y datos bien definidos El detalle que suele omitirse es subestimar el coste de serializar datos o coordinar errores entre hilos y procesos, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con worker threads y procesos y como lo evitarias?",
+      "respuesta": "Un error comun es usar workers para ocultar mala arquitectura cuando el problema real es I/O secuencial Para evitarlo conviene reservar workers para trabajo realmente CPU-bound o aislamiento fuerte, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta worker threads y procesos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "bien usados mejoran throughput, mal usados añaden overhead y complejidad sin beneficio real La mejora mas efectiva suele ser mantener mensajes pequenos, pools reutilizables y limites de concurrencia, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con worker threads y procesos?",
+      "respuesta": "La estrategia es medir tiempo de computo frente al coste de transferencia y arranque del worker Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona worker threads y procesos con event loop y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los workers complementan al event loop cuando el cuello de botella es CPU y no I/O El trade-off principal es paralelismo real frente a mas coordinacion, memoria y observabilidad, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si worker threads y procesos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es peso de CPU, tamaño de datos y frecuencia de ejecucion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de worker threads y procesos en equipos grandes?",
+      "respuesta": "Una buena practica es usar pools de workers con contratos de mensajes estables y telemetria por tarea Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve gestion de memoria y garbage collector dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Explica como se reservan, retienen y liberan objetos, y por que aparecen fugas o pausas de GC Aporta mas valor cuando el proceso crece en RAM con el tiempo o sufre pausas bajo carga sostenida y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar gestion de memoria y garbage collector en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en evitar retenciones accidentales, caches sin limite y referencias vivas mas tiempo del necesario El detalle que suele omitirse es confundir aumento temporal de memoria con fuga permanente sin observar tendencias, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con gestion de memoria y garbage collector y como lo evitarias?",
+      "respuesta": "Un error comun es guardar grandes estructuras globales sin politica de expiracion o limpieza Para evitarlo conviene medir heap, retenciones y ciclo de vida real de los objetos, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta gestion de memoria y garbage collector al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "malas decisiones de memoria reducen throughput y generan pausas mas largas del recolector La mejora mas efectiva suele ser limitar caches, procesar por lotes y liberar referencias pronto, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con gestion de memoria y garbage collector?",
+      "respuesta": "La estrategia es comparar snapshots del heap y localizar objetos retenidos inesperadamente Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona gestion de memoria y garbage collector con streams y buffers y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque procesar en streaming y evitar copias grandes es una forma directa de reducir presion de memoria El trade-off principal es cachear mejora velocidad, pero aumenta riesgo de retencion y consumo excesivo, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si gestion de memoria y garbage collector debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es tamano de objetos, frecuencia de acceso y coste de recomputacion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de gestion de memoria y garbage collector en equipos grandes?",
+      "respuesta": "Una buena practica es combinar perfiles de heap con limites y politicas explicitas de cache Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve errores operativos y excepciones de programacion dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Diferencia fallos esperables de infraestructura o datos frente a bugs que indican estados imposibles Aporta mas valor cuando necesitas decidir si un error debe recuperarse, registrarse o provocar reinicio del proceso y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar errores operativos y excepciones de programacion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en clasificar errores por tipo y tratar solo como recuperables los que tienen estrategia clara de manejo El detalle que suele omitirse es capturar cualquier excepcion y continuar como si el proceso siguiera integro, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con errores operativos y excepciones de programacion y como lo evitarias?",
+      "respuesta": "Un error comun es usar excepciones para flujo normal o esconder errores de programacion bajo mensajes genericos Para evitarlo conviene mantener contratos claros y fallar pronto cuando el estado interno es inconsistente, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta errores operativos y excepciones de programacion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una mala clasificacion produce reintentos absurdos, logs ruidosos y recuperaciones inseguras La mejora mas efectiva suele ser distinguir errores de usuario, dependencias y bugs internos con respuestas y alertas diferentes, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con errores operativos y excepciones de programacion?",
+      "respuesta": "La estrategia es ver si el fallo depende del input externo o revela una violacion de invariantes internas Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona errores operativos y excepciones de programacion con observabilidad y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sin contexto observable no se puede saber si conviene reintentar, alertar o reiniciar El trade-off principal es manejar mas casos mejora resiliencia, pero puede ocultar errores graves si se exagera la recuperacion, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si errores operativos y excepciones de programacion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es seguridad del estado interno y posibilidad real de continuar de forma correcta Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de errores operativos y excepciones de programacion en equipos grandes?",
+      "respuesta": "Una buena practica es definir taxonomias de error con politicas de reinicio y alertado por categoria Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve modulos y cache de carga dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Explica por que el codigo cargado una vez puede compartir estado y afectar orden de inicializacion Aporta mas valor cuando ves comportamientos distintos segun quien importa primero un archivo o como se ejecutan los tests y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar modulos y cache de carga en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en mantener imports con pocos side effects y separar creacion de estado de la definicion del modulo El detalle que suele omitirse es esperar que borrar una referencia reinicie automaticamente el modulo, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con modulos y cache de carga y como lo evitarias?",
+      "respuesta": "Un error comun es inicializar conexiones o configuraciones complejas en el top-level sin control del ciclo de vida Para evitarlo conviene exportar factories e inicializadores explicitos cuando el orden importa, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta modulos y cache de carga al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "el cache evita recargas costosas, pero puede ocultar acoplamiento y fugas de estado La mejora mas efectiva suele ser compartir solo lo intencional y facilitar reinicializacion en pruebas, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con modulos y cache de carga?",
+      "respuesta": "La estrategia es seguir el orden de imports y detectar side effects ejecutados en carga Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona modulos y cache de carga con arquitectura modular y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque un buen limite modular reduce dependencias ocultas y problemas de orden de inicializacion El trade-off principal es estado compartido simplifica acceso, pero complica aislamiento y testabilidad, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si modulos y cache de carga debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el recurso debe ser unico, reiniciable o inyectable segun el contexto Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de modulos y cache de carga en equipos grandes?",
+      "respuesta": "Una buena practica es combinar modulos puros con capas de arranque controladas Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve I/O de red y sistema de archivos dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Describe como Node interactua con sockets, discos y descriptores sin bloquear directamente el hilo principal Aporta mas valor cuando quieres optimizar latencia de lectura, concurrencia de conexiones o transferencia de archivos y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar I/O de red y sistema de archivos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en elegir APIs asincronas, manejar errores de sistema y entender limites de descriptors y buffers El detalle que suele omitirse es tratar cualquier error de I/O como permanente sin distinguir transitorios y definitivos, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con I/O de red y sistema de archivos y como lo evitarias?",
+      "respuesta": "Un error comun es usar versiones sincronas en rutas criticas por simplicidad momentanea Para evitarlo conviene reservar operaciones sincronas para scripts o inicializacion muy acotada, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta I/O de red y sistema de archivos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "la eficiencia depende de no bloquear el loop y de controlar bien concurrencia y streaming La mejora mas efectiva suele ser usar operaciones asincronas, colas y limites cuando los recursos externos son el cuello de botella, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con I/O de red y sistema de archivos?",
+      "respuesta": "La estrategia es observar codigos de error del sistema, tiempos de espera y patrones de acceso reales Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona I/O de red y sistema de archivos con thread pool de libuv y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque parte del I/O se coordina con el loop y otra parte se delega al pool segun la API utilizada El trade-off principal es las APIs asincronas son mas verbosas, pero sostienen mejor la concurrencia del proceso, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si I/O de red y sistema de archivos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es ruta critica, volumen de operaciones y tolerancia a bloqueos breves Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de I/O de red y sistema de archivos en equipos grandes?",
+      "respuesta": "Una buena practica es diseñar acceso a I/O con limites de concurrencia y backpressure explicitos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve observabilidad y profiling dentro de Conceptos y en que escenario aporta mas valor?",
+      "respuesta": "Permite medir donde gasta tiempo y recursos una aplicacion para optimizar con evidencia Aporta mas valor cuando hay latencia alta, CPU inesperada o consumo de memoria creciente y no basta con intuicion y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar observabilidad y profiling en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en recoger metricas, traces y perfiles de CPU o heap en escenarios representativos El detalle que suele omitirse es optimizar puntos irrelevantes sin antes medir el cuello de botella real, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con observabilidad y profiling y como lo evitarias?",
+      "respuesta": "Un error comun es confundir sintomas superficiales con la causa tecnica dominante Para evitarlo conviene partir de una hipotesis, medir, cambiar una cosa y volver a medir, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta observabilidad y profiling al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "la observabilidad bien usada evita semanas de optimizacion de bajo impacto La mejora mas efectiva suele ser instrumentar rutas criticas y perfilar bajo una carga parecida a produccion, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con observabilidad y profiling?",
+      "respuesta": "La estrategia es correlacionar metricas de latencia, CPU, memoria y errores en el mismo intervalo Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona observabilidad y profiling con errores operativos y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sin observabilidad, distinguir entre bug, saturacion o dependencia lenta es mucho mas dificil El trade-off principal es mas instrumentacion da mas claridad, pero añade algo de coste y complejidad operativa, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si observabilidad y profiling debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es criticidad del servicio, coste de incidente y madurez del equipo operativo Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de observabilidad y profiling en equipos grandes?",
+      "respuesta": "Una buena practica es mantener perfiles base y compararlos tras cambios de arquitectura o dependencias Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Conceptos"
+      ]
+    }
+  ]
+}

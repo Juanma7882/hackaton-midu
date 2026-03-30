@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Express",
+    "url": "/logos/nodejs.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que problema tecnico resuelve routing y composicion de rutas dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Permite mapear endpoints HTTP a handlers pequenos, separar responsabilidades y evitar controladores monoliticos Aporta mas valor cuando la API crece por modulos y necesitas versionado, agrupacion por recurso y reglas consistentes por prefijo y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar routing y composicion de rutas en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir routers por dominio, montarlos con app.use y centralizar prefijos y middlewares compartidos El detalle que suele omitirse es olvidar el orden de registro de rutas dinamicas y estaticas, lo que produce coincidencias inesperadas, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con routing y composicion de rutas y como lo evitarias?",
+      "respuesta": "Un error comun es poner demasiada logica de negocio en el handler HTTP Para evitarlo conviene delegar a servicios puros y dejar en el router solo validacion, adaptacion de entrada y salida, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta routing y composicion de rutas al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "Un arbol de rutas desordenado dificulta el mantenimiento y aumenta el coste de revisar reglas transversales La mejora mas efectiva suele ser agrupar rutas por recurso y aplicar middlewares solo donde realmente se necesitan, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con routing y composicion de rutas?",
+      "respuesta": "La estrategia es revisar el metodo, la URL final, el orden de montaje y si algun middleware previo termina la respuesta Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona routing y composicion de rutas con middlewares y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque las rutas dependen de middlewares para autenticacion, parsing y manejo de errores antes de ejecutar el handler final El trade-off principal es mas composicion mejora reutilizacion, pero tambien hace mas dificil seguir el flujo si no hay convenciones claras, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si routing y composicion de rutas debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es la cantidad real de endpoints, reglas comunes y variaciones por version o dominio Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de routing y composicion de rutas en equipos grandes?",
+      "respuesta": "Una buena practica es definir un mapa de rutas por modulo con convenciones de nombres, validacion y pruebas contractuales Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que routing y composicion de rutas se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es handlers largos, rutas repetidas y cambios pequeños que obligan a tocar muchos archivos Cuando eso ocurre, conviene extraer routers especializados, crear convenciones de carpetas y medir cobertura por endpoint antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve middlewares dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Permite interceptar la peticion y la respuesta para reutilizar validaciones, autenticacion, logs y reglas transversales Aporta mas valor cuando varios endpoints necesitan el mismo comportamiento antes o despues del controlador y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar middlewares en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en crear middlewares de responsabilidad unica y encadenarlos segun el contexto del router o de la aplicacion El detalle que suele omitirse es no llamar a next ni finalizar la respuesta, dejando solicitudes colgadas, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con middlewares y como lo evitarias?",
+      "respuesta": "Un error comun es mezclar en una sola funcion autenticacion, logging, validacion y acceso a datos Para evitarlo conviene separar cada preocupacion en piezas pequenas y probarlas de forma aislada, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta middlewares al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "middlewares globales innecesarios agregan trabajo a cada request aunque pocos endpoints los usen La mejora mas efectiva suele ser aplicarlos por router o por ruta y evitar operaciones costosas cuando la informacion ya existe, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con middlewares?",
+      "respuesta": "La estrategia es trazar el orden de ejecucion, revisar mutaciones en req y confirmar si el middleware termina o delega el flujo Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona middlewares con manejo de errores y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque los middlewares normales preparan el contexto y los de error capturan fallos para normalizar la salida El trade-off principal es mas capas aportan reutilizacion, pero ocultan el flujo si se abusa de ellas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si middlewares debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si la regla es transversal, si depende del dominio y si necesita acceso a datos de la peticion ya procesados Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de middlewares en equipos grandes?",
+      "respuesta": "Una buena practica es usar factories de middlewares configurables y tipados para compartir comportamiento sin acoplarse a un solo modulo Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que middlewares se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es es dificil saber de donde sale una propiedad en req o por que una ruta devuelve estados distintos Cuando eso ocurre, conviene documentar contratos, nombrar bien las mutaciones y limitar el numero de middlewares por flujo antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve manejo de errores dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Centraliza la traduccion de excepciones a respuestas HTTP consistentes y evita fugas de detalles internos Aporta mas valor cuando tu API necesita diferenciar errores de validacion, dominio, infraestructura y autenticacion y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar manejo de errores en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar clases o codigos de error del dominio y un middleware final que los convierta a status y payloads estables El detalle que suele omitirse es no propagar errores asincronos correctamente en handlers con promesas, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con manejo de errores y como lo evitarias?",
+      "respuesta": "Un error comun es responder mensajes diferentes para el mismo fallo segun el controlador Para evitarlo conviene definir una taxonomia de errores y un formato comun de respuesta, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta manejo de errores al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "un mal manejo de errores genera reintentos inutiles, logs ruidosos y mas tiempo de soporte La mejora mas efectiva suele ser clasificar errores operativos y reducir excepciones usadas como flujo normal, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con manejo de errores?",
+      "respuesta": "La estrategia es correlacionar logs con request id, revisar stack interno y confirmar que la respuesta publica no expone informacion sensible Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona manejo de errores con observabilidad y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque sin logs, metricas y trazas, un manejador central de errores solo muestra sintomas y no causas El trade-off principal es respuestas muy genericas protegen mas, pero dificultan diagnosticar a clientes internos, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si manejo de errores debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es quien consumira la API, que informacion es segura exponer y como se rastrea el error internamente Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de manejo de errores en equipos grandes?",
+      "respuesta": "Una buena practica es normalizar errores con codigos semanticos, contexto de negocio y mapeo estricto a HTTP Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que manejo de errores se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es cada endpoint maneja fallos distinto o los logs no permiten reconstruir el incidente Cuando eso ocurre, conviene introducir errores tipados, request ids y contratos de error versionados antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve validacion de entrada dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Evita que datos invalidos avancen hacia la logica de negocio o la base de datos y mejora la calidad de la API Aporta mas valor cuando aceptas body, query y params con reglas diferentes y necesitas errores claros para el cliente y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar validacion de entrada en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en validar en el borde con esquemas declarativos y transformar tipos antes de entrar al servicio El detalle que suele omitirse es asumir que todo llega como el tipo esperado, especialmente en query params, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con validacion de entrada y como lo evitarias?",
+      "respuesta": "Un error comun es duplicar reglas de validacion en cada controlador Para evitarlo conviene centralizar esquemas reutilizables y separar validacion sintactica de reglas de negocio, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta validacion de entrada al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "validaciones costosas o repetidas añaden latencia, pero reducen errores posteriores mucho mas caros La mejora mas efectiva suele ser reutilizar esquemas compilados y validar solo los segmentos necesarios de la request, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con validacion de entrada?",
+      "respuesta": "La estrategia es comparar el payload recibido con el esquema efectivo y revisar transformaciones implicitas Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona validacion de entrada con serializacion de respuestas y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque una API robusta valida tanto entradas como salidas para sostener contratos estables El trade-off principal es esquemas estrictos protegen mas, pero pueden volver mas rigida la evolucion de la API, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si validacion de entrada debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es el coste del fallo, el nivel de confianza en el cliente y la frecuencia de cambios del contrato Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de validacion de entrada en equipos grandes?",
+      "respuesta": "Una buena practica es versionar esquemas, reutilizar tipos compartidos y generar documentacion a partir de la fuente de verdad Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que senal indica que validacion de entrada se esta convirtiendo en un cuello de botella o en una fuente de deuda tecnica?",
+      "respuesta": "Una senal clara es aparecen errores de base de datos por campos faltantes o conversiones tardias de tipos Cuando eso ocurre, conviene mover la validacion al borde y medir tasas de rechazo por endpoint antes de seguir agregando funcionalidad sobre una base inestable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve autenticacion y autorizacion dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Controla quien puede acceder y que operaciones puede ejecutar dentro de la API Aporta mas valor cuando hay usuarios, roles o scopes distintos y las rutas no comparten el mismo nivel de acceso y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar autenticacion y autorizacion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en separar autenticacion de autorizacion y propagar al request solo el contexto minimo necesario El detalle que suele omitirse es confiar en claims sin verificar expiracion, emisor o audiencia, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con autenticacion y autorizacion y como lo evitarias?",
+      "respuesta": "Un error comun es mezclar reglas de permisos con logica del controlador Para evitarlo conviene crear políticas o middlewares de autorizacion por capacidad y no por endpoint aislado, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta autenticacion y autorizacion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "consultar permisos en cada request puede ser costoso si no se cachea o modela bien el contexto La mejora mas efectiva suele ser usar tokens con claims suficientes y validar en memoria lo que no requiere I/O adicional, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con autenticacion y autorizacion?",
+      "respuesta": "La estrategia es revisar token, headers, reloj del servidor, scopes y reglas aplicadas antes del handler Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona autenticacion y autorizacion con sesiones y cookies y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque la autenticacion puede apoyarse en sesiones stateful o en tokens stateless segun el contexto El trade-off principal es tokens reducen estado central, pero complican revocacion inmediata y rotacion, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si autenticacion y autorizacion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es requisitos de seguridad, necesidad de revocacion, numero de clientes y tipo de despliegue Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de autenticacion y autorizacion en equipos grandes?",
+      "respuesta": "Una buena practica es modelar permisos por capacidades y aplicar autorizacion declarativa por recurso y accion Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve sesiones y cookies dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Permite mantener estado entre requests y soportar autenticacion basada en servidor o preferencias de usuario Aporta mas valor cuando necesitas login web tradicional, proteccion CSRF o control fino de expiracion y revocacion y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar sesiones y cookies en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar cookies seguras, almacenamiento de sesion adecuado y rotacion de identificadores al autenticar El detalle que suele omitirse es no configurar httpOnly, secure o sameSite segun el entorno y el tipo de cliente, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con sesiones y cookies y como lo evitarias?",
+      "respuesta": "Un error comun es guardar demasiada informacion mutable dentro de la sesion Para evitarlo conviene persistir solo identificadores y recuperar datos variables desde una fuente controlada, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta sesiones y cookies al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "un store de sesiones lento afecta cada request autenticada y escala peor si no se comparte correctamente La mejora mas efectiva suele ser elegir un store externo rapido y definir TTL, limpieza y claves adecuadas, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con sesiones y cookies?",
+      "respuesta": "La estrategia es inspeccionar cabeceras Set-Cookie, dominio, path, expiracion y si el navegador realmente reenvia la cookie Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona sesiones y cookies con seguridad de navegadores y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque cookies y sesiones deben alinearse con CORS, CSRF y politicas del navegador El trade-off principal es mas seguridad en cookies puede complicar integraciones entre dominios o entornos locales, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si sesiones y cookies debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es si el cliente es navegador, si se requiere revocacion instantanea y si existe infraestructura compartida Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de sesiones y cookies en equipos grandes?",
+      "respuesta": "Una buena practica es rotar identificadores de sesion tras eventos sensibles y separar cookies por finalidad Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve streaming y archivos dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Permite enviar o recibir datos grandes sin cargarlos completos en memoria Aporta mas valor cuando sirves descargas, proxies, CSV grandes o subidas de archivos concurrentes y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar streaming y archivos en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en usar streams nativos, piping con manejo de errores y cabeceras correctas de contenido y cache El detalle que suele omitirse es ignorar backpressure y los eventos de error del stream, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con streaming y archivos y como lo evitarias?",
+      "respuesta": "Un error comun es leer archivos enteros en memoria antes de responder Para evitarlo conviene transmitir en streaming y cortar el flujo si el cliente cancela la conexion, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta streaming y archivos al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "manejar archivos grandes incorrectamente dispara consumo de RAM y degrada toda la instancia La mejora mas efectiva suele ser usar tuberias con streaming y limites de tamano y concurrencia, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con streaming y archivos?",
+      "respuesta": "La estrategia es reproducir con archivos de distinto tamano, revisar eventos close y error, y medir memoria durante la transferencia Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona streaming y archivos con timeouts y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque transferencias largas requieren timeouts y abortos bien calibrados para no cortar clientes legitimos El trade-off principal es mas buffering simplifica ciertas transformaciones, pero aumenta memoria y latencia inicial, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si streaming y archivos debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es tamano esperado, transformaciones requeridas y tolerancia a cortes o reintentos Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de streaming y archivos en equipos grandes?",
+      "respuesta": "Una buena practica es combinar streaming, compresion selectiva y cancelacion por AbortController Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve caching y compresion dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Reduce latencia y carga reutilizando respuestas y minimizando bytes transferidos Aporta mas valor cuando tienes recursos estables, respuestas costosas o alto trafico de lectura y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar caching y compresion en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir cache-control, ETag o last-modified y aplicar compresion segun tipo y tamano de contenido El detalle que suele omitirse es cachear respuestas personalizadas sin variar por usuario o cabeceras relevantes, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con caching y compresion y como lo evitarias?",
+      "respuesta": "Un error comun es activar cache sin estrategia clara de invalidacion Para evitarlo conviene distinguir contenido publico, privado y no cacheable y documentar reglas de expiracion, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta caching y compresion al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "bien configurado reduce CPU y trafico; mal configurado sirve datos obsoletos o desperdicia compresion La mejora mas efectiva suele ser medir hit rate y cachear solo aquello estable y caro de recalcular, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con caching y compresion?",
+      "respuesta": "La estrategia es inspeccionar cabeceras HTTP, comprobar variaciones y reproducir solicitudes condicionales Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona caching y compresion con proxies y CDNs y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque las decisiones de cache en Express deben ser compatibles con capas reversas y caches intermedias El trade-off principal es mas cache mejora velocidad, pero complica consistencia y purgado, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si caching y compresion debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es frecuencia de cambio, sensibilidad del dato y coste de recomputacion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de caching y compresion en equipos grandes?",
+      "respuesta": "Una buena practica es usar cache por clave semantica y revalidacion condicionada en endpoints costosos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve observabilidad y logging dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Hace visible el comportamiento de la API mediante logs, metricas y trazas utiles para operar el servicio Aporta mas valor cuando necesitas diagnosticar incidentes, cuellos de botella o errores intermitentes en produccion y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar observabilidad y logging en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en emitir logs estructurados con request id, duracion, resultado y contexto minimo suficiente El detalle que suele omitirse es registrar informacion sensible o demasiado ruido sin campos consultables, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con observabilidad y logging y como lo evitarias?",
+      "respuesta": "Un error comun es tratar el log como texto libre sin esquema estable Para evitarlo conviene definir campos obligatorios y niveles de severidad coherentes, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta observabilidad y logging al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "loggear en exceso aumenta I/O y coste de almacenamiento, pero loggear poco vuelve ciega la operacion La mejora mas efectiva suele ser estructurar logs y muestrear eventos de alto volumen manteniendo los criticos completos, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con observabilidad y logging?",
+      "respuesta": "La estrategia es seguir un request id de punta a punta y correlacionarlo con metricas y errores capturados Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona observabilidad y logging con manejo de errores y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque errores sin contexto observable no ayudan a encontrar la causa raiz ni a medir impacto El trade-off principal es mas detalle ayuda a depurar, pero puede afectar costo, privacidad y legibilidad, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si observabilidad y logging debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es los incidentes esperables, requisitos de auditoria y presupuesto operativo Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de observabilidad y logging en equipos grandes?",
+      "respuesta": "Una buena practica es normalizar logs, metricas y trazas sobre el mismo identificador de correlacion Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve testing de APIs dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Permite verificar contratos HTTP, reglas de negocio y regresiones sin depender de pruebas manuales Aporta mas valor cuando la API evoluciona con frecuencia y varios equipos consumen los mismos endpoints y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar testing de APIs en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en combinar tests de integracion por endpoint con unit tests de servicios y dobles controlados El detalle que suele omitirse es no sembrar datos reproducibles ni limpiar estado entre pruebas, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con testing de APIs y como lo evitarias?",
+      "respuesta": "Un error comun es probar solo respuestas felices y no casos de error o autorizacion Para evitarlo conviene cubrir rutas principales, bordes y fallos operativos relevantes, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta testing de APIs al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "tests lentos reducen feedback; tests demasiado mockeados dejan huecos importantes La mejora mas efectiva suele ser aislar dependencias externas y reservar integraciones reales para caminos criticos, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con testing de APIs?",
+      "respuesta": "La estrategia es reproducir el caso con fixtures minimos y comparar request, respuesta y estado persistido Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona testing de APIs con validacion de entrada y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque muchos errores de contrato se descubren antes si los tests ejercitan esquemas y mensajes de error El trade-off principal es mas realismo en pruebas da confianza, pero hace la suite mas lenta y fragil, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si testing de APIs debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es riesgo del endpoint, frecuencia de cambio y coste de un fallo en produccion Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de testing de APIs en equipos grandes?",
+      "respuesta": "Una buena practica es mantener pruebas contractuales y factories de datos para escenarios complejos Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve deployment detras de proxy dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Permite que Express interprete correctamente IPs, protocolo y cabeceras cuando corre detras de balanceadores o proxies reversos Aporta mas valor cuando despliegas en plataformas cloud con TLS terminado antes de llegar a la app y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar deployment detras de proxy en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en configurar trust proxy adecuadamente y revisar como se derivan req.ip, protocolo y cookies seguras El detalle que suele omitirse es asumir que secure cookies funcionaran sin indicar el proxy de confianza, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con deployment detras de proxy y como lo evitarias?",
+      "respuesta": "Un error comun es confiar en cabeceras reenviadas sin definir que proxies son validos Para evitarlo conviene ajustar trust proxy al entorno real y documentar la topologia de red, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta deployment detras de proxy al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "una mala configuracion no suele degradar CPU, pero si rompe redirecciones, seguridad y auditoria La mejora mas efectiva suele ser simplificar capas intermedias y estandarizar cabeceras de forwarding, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con deployment detras de proxy?",
+      "respuesta": "La estrategia es comparar cabeceras originales y reenviadas, y verificar si req.secure y req.ip reflejan la realidad Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona deployment detras de proxy con sesiones y cookies y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque cookies secure y decisiones de autenticacion dependen de interpretar bien el protocolo y origen del cliente El trade-off principal es confiar demasiado en proxies simplifica despliegue, pero abre riesgos de suplantacion si la red no esta controlada, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si deployment detras de proxy debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es numero de saltos, control sobre la infraestructura y requisitos de auditoria Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de deployment detras de proxy en equipos grandes?",
+      "respuesta": "Una buena practica es definir una politica explicita de proxies de confianza por entorno Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico resuelve timeouts y resiliencia dentro de Express y en que escenario aporta mas valor?",
+      "respuesta": "Protege a la API frente a clientes lentos, dependencias colgadas y consumo de recursos por requests interminables Aporta mas valor cuando la aplicacion llama a servicios externos o procesa operaciones variables en duracion y conviene aplicarlo desde el diseno inicial para evitar retrabajo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es una forma solida de implementar timeouts y resiliencia en un proyecto real y que detalle suele pasarse por alto?",
+      "respuesta": "Una implementacion solida consiste en definir timeouts por capa, abortar dependencias y responder errores operativos claros El detalle que suele omitirse es dejar timeouts por defecto sin alinearlos con el SLA y el balanceador, lo que despues genera errores dificiles de rastrear.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que error de diseno es comun al trabajar con timeouts y resiliencia y como lo evitarias?",
+      "respuesta": "Un error comun es solo poner timeout en el cliente saliente y no en el servidor o viceversa Para evitarlo conviene trazar tiempos maximos coherentes extremo a extremo y cancelar trabajo huérfano, documentar el comportamiento esperado y cubrir los casos limite con pruebas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como afecta timeouts y resiliencia al rendimiento o a la escalabilidad y que decision tecnica mejora el resultado?",
+      "respuesta": "timeouts correctos liberan recursos antes; timeouts malos generan cascadas de reintentos La mejora mas efectiva suele ser aplicar budgets de latencia y circuit breakers en dependencias lentas, porque reduce trabajo innecesario y hace el comportamiento mas predecible bajo carga.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que estrategia usarias para depurar un fallo relacionado con timeouts y resiliencia?",
+      "respuesta": "La estrategia es medir en que tramo se consume el tiempo y distinguir entre espera de red, CPU o bloqueo de dependencias Conviene aislar el flujo minimo que reproduce el fallo, observar entradas y salidas, y verificar primero las suposiciones basicas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Como se relaciona timeouts y resiliencia con streaming y archivos y que trade-off tecnico aparece?",
+      "respuesta": "Se relaciona porque descargas y subidas largas exigen timeouts distintos a los de endpoints CRUD normales El trade-off principal es timeouts cortos protegen mas al servidor, pero aumentan falsos negativos en redes lentas, asi que hay que elegir la opcion que mejor encaje con las prioridades del sistema.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que criterio tecnico te ayuda a decidir si timeouts y resiliencia debe abstraerse, configurarse o mantenerse simple?",
+      "respuesta": "El criterio es SLA objetivo, perfil de clientes y comportamiento de dependencias externas Si la variacion real es baja, mantenerlo simple evita complejidad accidental; si la variacion es alta, abstraerlo con contratos claros ahorra errores.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    },
+    {
+      "pregunta": "¿Que patron avanzado o buena practica mejora el uso de timeouts y resiliencia en equipos grandes?",
+      "respuesta": "Una buena practica es usar presupuestos de latencia propagados por request y cancelacion cooperativa Esto mejora consistencia, reduce conocimiento implicito y facilita que otros desarrolladores extiendan el sistema sin romperlo.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Express"
+      ]
+    }
+  ]
+}

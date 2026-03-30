@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "Herramientas",
+    "url": "/logos/nodejs.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Que es gestores de paquetes y cuando conviene usarlo?",
+      "respuesta": "Npm, pnpm o yarn automatizan instalacion, scripts y resolucion de dependencias. Conviene usarlo cuando quieres reproducibilidad y distribucion ordenada de librerias.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver gestores de paquetes?",
+      "respuesta": "Ayuda a resolver entornos inconsistentes y dependencias instaladas a mano porque npm, pnpm o yarn automatizan instalacion, scripts y resolucion de dependencias.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce gestores de paquetes?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres reproducibilidad y distribucion ordenada de librerias, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar gestores de paquetes?",
+      "respuesta": "Un error comun es usarlo aunque mezclas gestores en el mismo repo y rompes el lockfile. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que gestores de paquetes esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que cada desarrollador obtiene arboles de dependencias distintos. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara gestores de paquetes con manejo manual de paquetes?",
+      "respuesta": "Comparado con manejo manual de paquetes, gestores de paquetes suele ofrecer una estructura mas explicita para quieres reproducibilidad y distribucion ordenada de librerias, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar gestores de paquetes?",
+      "respuesta": "Sirve medir lockfile limpio, instalaciones reproducibles y tiempo de install. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar gestores de paquetes?",
+      "respuesta": "No conviene usarlo cuando mezclas gestores en el mismo repo y rompes el lockfile. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde una build falla solo en CI por versiones transitivas, ¿como aporta gestores de paquetes?",
+      "respuesta": "Si una build falla solo en CI por versiones transitivas, gestores de paquetes ayuda porque npm, pnpm o yarn automatizan instalacion, scripts y resolucion de dependencias y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es linters y formatters y cuando conviene usarlo?",
+      "respuesta": "Estas herramientas aplican reglas estaticas y formato consistente antes de ejecutar el codigo. Conviene usarlo cuando quieres detectar errores simples y reducir discusiones de estilo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver linters y formatters?",
+      "respuesta": "Ayuda a resolver bugs triviales y ruido en code review porque estas herramientas aplican reglas estaticas y formato consistente antes de ejecutar el codigo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce linters y formatters?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres detectar errores simples y reducir discusiones de estilo, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar linters y formatters?",
+      "respuesta": "Un error comun es usarlo aunque configuras demasiadas reglas cosmeticas que todos terminan ignorando. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que linters y formatters esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que PRs llenos de cambios de formato mezclados con logica. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara linters y formatters con revisar estilo solo a mano?",
+      "respuesta": "Comparado con revisar estilo solo a mano, linters y formatters suele ofrecer una estructura mas explicita para quieres detectar errores simples y reducir discusiones de estilo, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar linters y formatters?",
+      "respuesta": "Sirve medir errores detectados temprano y diffs pequeños de formato. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar linters y formatters?",
+      "respuesta": "No conviene usarlo cuando configuras demasiadas reglas cosmeticas que todos terminan ignorando. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde el equipo pierde tiempo discutiendo comas, imports y patrones repetidos, ¿como aporta linters y formatters?",
+      "respuesta": "Si el equipo pierde tiempo discutiendo comas, imports y patrones repetidos, linters y formatters ayuda porque estas herramientas aplican reglas estaticas y formato consistente antes de ejecutar el codigo y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es testing tools y cuando conviene usarlo?",
+      "respuesta": "Frameworks de test permiten validar unidades, integraciones y flujos end-to-end con automatizacion. Conviene usarlo cuando quieres detectar regresiones antes de desplegar.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver testing tools?",
+      "respuesta": "Ayuda a resolver miedo al cambio y bugs que reaparecen porque frameworks de test permiten validar unidades, integraciones y flujos end-to-end con automatizacion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce testing tools?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres detectar regresiones antes de desplegar, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar testing tools?",
+      "respuesta": "Un error comun es usarlo aunque mides solo cobertura porcentual sin calidad de escenarios. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que testing tools esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que tests que mockean todo y no detectan roturas reales. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara testing tools con probar manualmente en cada entrega?",
+      "respuesta": "Comparado con probar manualmente en cada entrega, testing tools suele ofrecer una estructura mas explicita para quieres detectar regresiones antes de desplegar, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar testing tools?",
+      "respuesta": "Sirve medir cobertura significativa, tiempo de suite y tasa de flaky tests. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar testing tools?",
+      "respuesta": "No conviene usarlo cuando mides solo cobertura porcentual sin calidad de escenarios. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde debes refactorizar una parte sensible sin frenar al equipo, ¿como aporta testing tools?",
+      "respuesta": "Si debes refactorizar una parte sensible sin frenar al equipo, testing tools ayuda porque frameworks de test permiten validar unidades, integraciones y flujos end-to-end con automatizacion y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es git y revision de cambios y cuando conviene usarlo?",
+      "respuesta": "Git y las plataformas de revision ayudan a versionar, aislar y discutir cambios tecnicos. Conviene usarlo cuando quieres trazabilidad y colaboracion segura.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver git y revision de cambios?",
+      "respuesta": "Ayuda a resolver perdida de contexto, conflictos y cambios dificiles de auditar porque git y las plataformas de revision ayudan a versionar, aislar y discutir cambios tecnicos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce git y revision de cambios?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres trazabilidad y colaboracion segura, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar git y revision de cambios?",
+      "respuesta": "Un error comun es usarlo aunque ramas largas que divergen semanas del trunk. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que git y revision de cambios esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que commits gigantes que mezclan refactor, feature y fix. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara git y revision de cambios con copias manuales de archivos o ramas eternas?",
+      "respuesta": "Comparado con copias manuales de archivos o ramas eternas, git y revision de cambios suele ofrecer una estructura mas explicita para quieres trazabilidad y colaboracion segura, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar git y revision de cambios?",
+      "respuesta": "Sirve medir PRs pequeños, historial claro y conflictos manejables. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar git y revision de cambios?",
+      "respuesta": "No conviene usarlo cuando ramas largas que divergen semanas del trunk. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "En un escenario donde varios desarrolladores trabajan sobre el mismo modulo en paralelo, ¿como aporta git y revision de cambios?",
+      "respuesta": "Si varios desarrolladores trabajan sobre el mismo modulo en paralelo, git y revision de cambios ayuda porque git y las plataformas de revision ayudan a versionar, aislar y discutir cambios tecnicos y permite tomar una decision mas predecible, mantenible y observable.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es contenedores y cuando conviene usarlo?",
+      "respuesta": "Docker y similares empaquetan runtime, dependencias y configuracion base de forma portable. Conviene usarlo cuando quieres consistencia entre local, CI y produccion.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver contenedores?",
+      "respuesta": "Ayuda a resolver funciona en mi maquina pero no en otros entornos porque Docker y similares empaquetan runtime, dependencias y configuracion base de forma portable.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce contenedores?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres consistencia entre local, CI y produccion, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar contenedores?",
+      "respuesta": "Un error comun es usarlo aunque metes secretos en la imagen o la conviertes en una VM enorme. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que contenedores esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que Dockerfile con capas innecesarias y tooling de desarrollo en produccion. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara contenedores con instalaciones manuales por servidor o por laptop?",
+      "respuesta": "Comparado con instalaciones manuales por servidor o por laptop, contenedores suele ofrecer una estructura mas explicita para quieres consistencia entre local, CI y produccion, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar contenedores?",
+      "respuesta": "Sirve medir imagenes reproducibles, tamaño razonable y tiempo de arranque. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar contenedores?",
+      "respuesta": "No conviene usarlo cuando metes secretos en la imagen o la conviertes en una VM enorme. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es CI/CD y cuando conviene usarlo?",
+      "respuesta": "Pipelines automatizados ejecutan checks, empaquetado y despliegues repetibles. Conviene usarlo cuando quieres entregar cambios con menos pasos manuales y menor riesgo.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver CI/CD?",
+      "respuesta": "Ayuda a resolver errores humanos en builds y releases porque pipelines automatizados ejecutan checks, empaquetado y despliegues repetibles.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce CI/CD?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres entregar cambios con menos pasos manuales y menor riesgo, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar CI/CD?",
+      "respuesta": "Un error comun es usarlo aunque el pipeline tarda tanto que la gente busca saltarselo. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que CI/CD esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que pasos manuales no documentados entre merge y release. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara CI/CD con despliegues manuales desde laptops?",
+      "respuesta": "Comparado con despliegues manuales desde laptops, CI/CD suele ofrecer una estructura mas explicita para quieres entregar cambios con menos pasos manuales y menor riesgo, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar CI/CD?",
+      "respuesta": "Sirve medir tiempo de pipeline, tasa de fallo y capacidad de rollback. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar CI/CD?",
+      "respuesta": "No conviene usarlo cuando el pipeline tarda tanto que la gente busca saltarselo. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es lockfiles y actualizacion de dependencias y cuando conviene usarlo?",
+      "respuesta": "El lockfile fija versiones exactas y facilita actualizaciones controladas. Conviene usarlo cuando quieres reproducibilidad y menor sorpresa en transitive deps.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver lockfiles y actualizacion de dependencias?",
+      "respuesta": "Ayuda a resolver builds no deterministas y roturas por cambios silenciosos porque el lockfile fija versiones exactas y facilita actualizaciones controladas.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce lockfiles y actualizacion de dependencias?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres reproducibilidad y menor sorpresa en transitive deps, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar lockfiles y actualizacion de dependencias?",
+      "respuesta": "Un error comun es usarlo aunque actualizas todo junto sin aislar impacto. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que lockfiles y actualizacion de dependencias esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que el lockfile cambia de forma caotica y nadie sabe por que. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara lockfiles y actualizacion de dependencias con instalar siempre la ultima version permitida?",
+      "respuesta": "Comparado con instalar siempre la ultima version permitida, lockfiles y actualizacion de dependencias suele ofrecer una estructura mas explicita para quieres reproducibilidad y menor sorpresa en transitive deps, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar lockfiles y actualizacion de dependencias?",
+      "respuesta": "Sirve medir deltas pequeños, changelogs revisados y regresiones detectadas temprano. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar lockfiles y actualizacion de dependencias?",
+      "respuesta": "No conviene usarlo cuando actualizas todo junto sin aislar impacto. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es debuggers y profiladores y cuando conviene usarlo?",
+      "respuesta": "Un debugger inspecciona estado paso a paso y un profiler muestra costo real de ejecucion. Conviene usarlo cuando quieres entender bugs complejos o cuellos de botella.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver debuggers y profiladores?",
+      "respuesta": "Ayuda a resolver diagnostico basado en suposiciones porque un debugger inspecciona estado paso a paso y un profiler muestra costo real de ejecucion.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce debuggers y profiladores?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres entender bugs complejos o cuellos de botella, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar debuggers y profiladores?",
+      "respuesta": "Un error comun es usarlo aunque usas solo breakpoints y nunca reproduces con datos reales. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que debuggers y profiladores esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que cambias codigo al azar porque no puedes observar el estado internamente. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara debuggers y profiladores con agregar logs indiscriminados?",
+      "respuesta": "Comparado con agregar logs indiscriminados, debuggers y profiladores suele ofrecer una estructura mas explicita para quieres entender bugs complejos o cuellos de botella, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar debuggers y profiladores?",
+      "respuesta": "Sirve medir tiempo ahorrado para aislar causa raiz y evidencia de hotspots. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar debuggers y profiladores?",
+      "respuesta": "No conviene usarlo cuando usas solo breakpoints y nunca reproduces con datos reales. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es gestion de entorno y secretos y cuando conviene usarlo?",
+      "respuesta": "Dotenv, vaults y validadores de configuracion separan codigo de valores sensibles y variables por entorno. Conviene usarlo cuando quieres seguridad y despliegues previsibles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver gestion de entorno y secretos?",
+      "respuesta": "Ayuda a resolver secretos expuestos y configuraciones incompletas porque dotenv, vaults y validadores de configuracion separan codigo de valores sensibles y variables por entorno.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce gestion de entorno y secretos?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres seguridad y despliegues previsibles, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar gestion de entorno y secretos?",
+      "respuesta": "Un error comun es usarlo aunque duplicas configuracion sin fuente de verdad. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que gestion de entorno y secretos esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que la aplicacion arranca con env faltantes y falla en runtime tardio. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara gestion de entorno y secretos con hardcodear valores en repositorio?",
+      "respuesta": "Comparado con hardcodear valores en repositorio, gestion de entorno y secretos suele ofrecer una estructura mas explicita para quieres seguridad y despliegues previsibles, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar gestion de entorno y secretos?",
+      "respuesta": "Sirve medir variables validadas al arranque y secretos rotados fuera del codigo. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar gestion de entorno y secretos?",
+      "respuesta": "No conviene usarlo cuando duplicas configuracion sin fuente de verdad. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es build tools y task runners y cuando conviene usarlo?",
+      "respuesta": "Bundlers y runners coordinan transpilacion, empaquetado y automatizaciones repetibles. Conviene usarlo cuando quieres estandarizar tareas y optimizar artefactos.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver build tools y task runners?",
+      "respuesta": "Ayuda a resolver scripts dispersos y pasos manuales inconsistentes porque bundlers y runners coordinan transpilacion, empaquetado y automatizaciones repetibles.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce build tools y task runners?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres estandarizar tareas y optimizar artefactos, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar build tools y task runners?",
+      "respuesta": "Un error comun es usarlo aunque introduces una herramienta pesada para resolver una necesidad minima. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que build tools y task runners esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que cada desarrollador usa comandos distintos para hacer lo mismo. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara build tools y task runners con ejecutar comandos sueltos sin orquestacion?",
+      "respuesta": "Comparado con ejecutar comandos sueltos sin orquestacion, build tools y task runners suele ofrecer una estructura mas explicita para quieres estandarizar tareas y optimizar artefactos, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar build tools y task runners?",
+      "respuesta": "Sirve medir tiempo de build, cacheo efectivo y simplicidad del pipeline local. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar build tools y task runners?",
+      "respuesta": "No conviene usarlo cuando introduces una herramienta pesada para resolver una necesidad minima. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es clientes API y contract testing y cuando conviene usarlo?",
+      "respuesta": "Herramientas como postman, insomnia o pact tests ayudan a explorar y verificar contratos entre servicios. Conviene usarlo cuando quieres validar integraciones sin depender siempre del frontend o del proveedor real.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver clientes API y contract testing?",
+      "respuesta": "Ayuda a resolver roturas de integracion detectadas demasiado tarde porque herramientas como Postman, Insomnia o pact tests ayudan a explorar y verificar contratos entre servicios.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce clientes API y contract testing?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres validar integraciones sin depender siempre del frontend o del proveedor real, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar clientes API y contract testing?",
+      "respuesta": "Un error comun es usarlo aunque confundes colecciones manuales con una estrategia de testing automatizada. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que clientes API y contract testing esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que cada equipo asume payloads distintos y nadie valida compatibilidad. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara clientes API y contract testing con probar solo manualmente contra produccion?",
+      "respuesta": "Comparado con probar solo manualmente contra produccion, clientes API y contract testing suele ofrecer una estructura mas explicita para quieres validar integraciones sin depender siempre del frontend o del proveedor real, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar clientes API y contract testing?",
+      "respuesta": "Sirve medir contratos versionados, mocks realistas y errores detectados antes del despliegue. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar clientes API y contract testing?",
+      "respuesta": "No conviene usarlo cuando confundes colecciones manuales con una estrategia de testing automatizada. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que es analisis estatico y escaneo de seguridad y cuando conviene usarlo?",
+      "respuesta": "Estas herramientas encuentran vulnerabilidades, code smells y patrones riesgosos antes de ejecutar el sistema. Conviene usarlo cuando quieres reducir deuda y problemas de seguridad temprano.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que problema tecnico ayuda a resolver analisis estatico y escaneo de seguridad?",
+      "respuesta": "Ayuda a resolver errores repetibles que llegan a produccion por falta de controles automaticos porque estas herramientas encuentran vulnerabilidades, code smells y patrones riesgosos antes de ejecutar el sistema.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que trade-off introduce analisis estatico y escaneo de seguridad?",
+      "respuesta": "Introduce trade-offs de complejidad y disciplina: aporta valor cuando quieres reducir deuda y problemas de seguridad temprano, pero exige medir bien impacto, entender limites y no convertir la abstraccion en un fin en si mismo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cual es un error comun al aplicar analisis estatico y escaneo de seguridad?",
+      "respuesta": "Un error comun es usarlo aunque llenar el pipeline de ruido que nadie triagea. En ese caso se agrega complejidad sin compensar con claridad, rendimiento o mantenibilidad.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como detectarias en una revision de codigo que analisis estatico y escaneo de seguridad esta mal aplicado?",
+      "respuesta": "Una senal frecuente es que reportes eternos sin prioridad ni ownership. Si aparece ese olor, conviene revisar limites, contratos y costos reales de la decision.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Como se compara analisis estatico y escaneo de seguridad con auditorias esporadicas exclusivamente manuales?",
+      "respuesta": "Comparado con auditorias esporadicas exclusivamente manuales, analisis estatico y escaneo de seguridad suele ofrecer una estructura mas explicita para quieres reducir deuda y problemas de seguridad temprano, a cambio de pedir mas criterio tecnico y mejor entendimiento del contexto.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Que metricas o pruebas ayudan a validar analisis estatico y escaneo de seguridad?",
+      "respuesta": "Sirve medir hallazgos accionables, falsos positivos controlados y tiempo hasta remediacion. Si esas evidencias mejoran de forma consistente, la decision probablemente esta bien aplicada.",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    },
+    {
+      "pregunta": "¿Cuando no conviene usar analisis estatico y escaneo de seguridad?",
+      "respuesta": "No conviene usarlo cuando llenar el pipeline de ruido que nadie triagea. En esos casos suele ser mejor una solucion mas simple y con menor sobrecarga operacional o cognitiva.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "Herramientas"
+      ]
+    }
+  ]
+}

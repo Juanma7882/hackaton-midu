@@ -1,0 +1,808 @@
+{
+  "etiqueta": {
+    "nombre": "JavaScript",
+    "url": "/logos/javascript.png"
+  },
+  "preguntas": [
+    {
+      "pregunta": "¿Qué problema resuelve el scope léxico y cuándo se nota más su valor?",
+      "respuesta": "determina desde qué bloques y funciones puede resolverse cada identificador en tiempo de ejecución Su valor se nota especialmente en se diseñan módulos, closures y utilidades que comparten estado sin exponerlo globalmente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el scope léxico a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, determina desde qué bloques y funciones puede resolverse cada identificador en tiempo de ejecución Para usarlo bien conviene entender que una variable puede ocultar otra del ámbito superior y producir lecturas correctas en apariencia pero equivocadas en intención",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el scope léxico?",
+      "respuesta": "Un error frecuente es asumir algo que una variable puede ocultar otra del ámbito superior y producir lecturas correctas en apariencia pero equivocadas en intención La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el scope léxico de el scope dinámico?",
+      "respuesta": "La diferencia clave es que determina desde qué bloques y funciones puede resolverse cada identificador en tiempo de ejecución En cambio, el scope dinámico depende de quién invoca una función, mientras que en JavaScript la resolución nace del lugar donde fue declarada",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el scope léxico?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se diseñan módulos, closures y utilidades que comparten estado sin exponerlo globalmente y recordar que una variable puede ocultar otra del ámbito superior y producir lecturas correctas en apariencia pero equivocadas en intención",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el scope léxico?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que una variable puede ocultar otra del ámbito superior y producir lecturas correctas en apariencia pero equivocadas en intención o de una suposición incorrecta sobre el scope léxico.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el scope léxico y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque determina desde qué bloques y funciones puede resolverse cada identificador en tiempo de ejecución Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que una variable puede ocultar otra del ámbito superior y producir lecturas correctas en apariencia pero equivocadas en intención",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el scope léxico?",
+      "respuesta": "Encaja bien en un patrón donde se diseñan módulos, closures y utilidades que comparten estado sin exponerlo globalmente Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve el hoisting y cuándo se nota más su valor?",
+      "respuesta": "hace que declaraciones se registren antes de ejecutar el cuerpo, aunque no todas queden inicializadas del mismo modo Su valor se nota especialmente en se mezclan funciones, variables y bloques en archivos grandes o legacy.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el hoisting a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, hace que declaraciones se registren antes de ejecutar el cuerpo, aunque no todas queden inicializadas del mismo modo Para usarlo bien conviene entender que let y const entran en zona temporal muerta y acceder antes de inicializarlas produce un error real, no undefined",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el hoisting?",
+      "respuesta": "Un error frecuente es asumir algo que let y const entran en zona temporal muerta y acceder antes de inicializarlas produce un error real, no undefined La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el hoisting de la inicialización explícita en la línea donde se escribe?",
+      "respuesta": "La diferencia clave es que hace que declaraciones se registren antes de ejecutar el cuerpo, aunque no todas queden inicializadas del mismo modo En cambio, la inicialización explícita ocurre al llegar a esa instrucción, mientras que el registro previo de nombres sucede durante la creación del contexto",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el hoisting?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se mezclan funciones, variables y bloques en archivos grandes o legacy y recordar que let y const entran en zona temporal muerta y acceder antes de inicializarlas produce un error real, no undefined",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el hoisting?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que let y const entran en zona temporal muerta y acceder antes de inicializarlas produce un error real, no undefined o de una suposición incorrecta sobre el hoisting.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el hoisting y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque hace que declaraciones se registren antes de ejecutar el cuerpo, aunque no todas queden inicializadas del mismo modo Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que let y const entran en zona temporal muerta y acceder antes de inicializarlas produce un error real, no undefined",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el hoisting?",
+      "respuesta": "Encaja bien en un patrón donde se mezclan funciones, variables y bloques en archivos grandes o legacy Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los closures y cuándo se nota más su valor?",
+      "respuesta": "permiten que una función conserve acceso a variables de su entorno de creación incluso después de salir de la función externa Su valor se nota especialmente en se crean fábricas, callbacks y encapsulación sin clases.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los closures a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permiten que una función conserve acceso a variables de su entorno de creación incluso después de salir de la función externa Para usarlo bien conviene entender que capturar objetos grandes o referencias largas puede mantener memoria viva más tiempo del necesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los closures?",
+      "respuesta": "Un error frecuente es asumir algo que capturar objetos grandes o referencias largas puede mantener memoria viva más tiempo del necesario La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los closures de guardar estado en variables globales?",
+      "respuesta": "La diferencia clave es que permiten que una función conserve acceso a variables de su entorno de creación incluso después de salir de la función externa En cambio, una variable global comparte estado con todo el programa, mientras que un closure encapsula estado por instancia o por fábrica",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los closures?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se crean fábricas, callbacks y encapsulación sin clases y recordar que capturar objetos grandes o referencias largas puede mantener memoria viva más tiempo del necesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los closures?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que capturar objetos grandes o referencias largas puede mantener memoria viva más tiempo del necesario o de una suposición incorrecta sobre los closures.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los closures y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permiten que una función conserve acceso a variables de su entorno de creación incluso después de salir de la función externa Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que capturar objetos grandes o referencias largas puede mantener memoria viva más tiempo del necesario",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los closures?",
+      "respuesta": "Encaja bien en un patrón donde se crean fábricas, callbacks y encapsulación sin clases Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve this y cuándo se nota más su valor?",
+      "respuesta": "se resuelve según la forma de invocación y no según dónde se escribió la función tradicional Su valor se nota especialmente en se implementan métodos, adaptadores, listeners y apis orientadas a objetos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona this a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, se resuelve según la forma de invocación y no según dónde se escribió la función tradicional Para usarlo bien conviene entender que extraer un método sin bind suele perder el contexto esperado y cambiar silenciosamente el valor de this",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con this?",
+      "respuesta": "Un error frecuente es asumir algo que extraer un método sin bind suele perder el contexto esperado y cambiar silenciosamente el valor de this La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia this de las variables léxicas?",
+      "respuesta": "La diferencia clave es que se resuelve según la forma de invocación y no según dónde se escribió la función tradicional En cambio, las variables léxicas se resuelven por scope, mientras que this depende del call-site salvo en arrow functions",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener this?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se implementan métodos, adaptadores, listeners y apis orientadas a objetos y recordar que extraer un método sin bind suele perder el contexto esperado y cambiar silenciosamente el valor de this",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con this?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que extraer un método sin bind suele perder el contexto esperado y cambiar silenciosamente el valor de this o de una suposición incorrecta sobre this.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece this y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque se resuelve según la forma de invocación y no según dónde se escribió la función tradicional Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que extraer un método sin bind suele perder el contexto esperado y cambiar silenciosamente el valor de this",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor this?",
+      "respuesta": "Encaja bien en un patrón donde se implementan métodos, adaptadores, listeners y apis orientadas a objetos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la cadena de prototipos y cuándo se nota más su valor?",
+      "respuesta": "permite delegar búsqueda de propiedades y métodos entre objetos enlazados Su valor se nota especialmente en se crean instancias, herencia basada en delegación y objetos ligeros.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la cadena de prototipos a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permite delegar búsqueda de propiedades y métodos entre objetos enlazados Para usarlo bien conviene entender que escribir una propiedad propia puede sombrear otra heredada y hacer pensar que el prototipo dejó de funcionar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la cadena de prototipos?",
+      "respuesta": "Un error frecuente es asumir algo que escribir una propiedad propia puede sombrear otra heredada y hacer pensar que el prototipo dejó de funcionar La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la cadena de prototipos de la copia completa de métodos por objeto?",
+      "respuesta": "La diferencia clave es que permite delegar búsqueda de propiedades y métodos entre objetos enlazados En cambio, copiar duplica comportamiento en cada instancia, mientras que el prototipo comparte la implementación y delega la resolución",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la cadena de prototipos?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se crean instancias, herencia basada en delegación y objetos ligeros y recordar que escribir una propiedad propia puede sombrear otra heredada y hacer pensar que el prototipo dejó de funcionar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la cadena de prototipos?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que escribir una propiedad propia puede sombrear otra heredada y hacer pensar que el prototipo dejó de funcionar o de una suposición incorrecta sobre la cadena de prototipos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la cadena de prototipos y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permite delegar búsqueda de propiedades y métodos entre objetos enlazados Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que escribir una propiedad propia puede sombrear otra heredada y hacer pensar que el prototipo dejó de funcionar",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la cadena de prototipos?",
+      "respuesta": "Encaja bien en un patrón donde se crean instancias, herencia basada en delegación y objetos ligeros Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la coerción de tipos y cuándo se nota más su valor?",
+      "respuesta": "convierte valores entre tipos en operaciones concretas como comparación, suma o evaluación booleana Su valor se nota especialmente en se integran datos de formularios, apis y valores heterogéneos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la coerción de tipos a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, convierte valores entre tipos en operaciones concretas como comparación, suma o evaluación booleana Para usarlo bien conviene entender que operadores como + y == aplican reglas distintas y pequeñas diferencias de tipo cambian el resultado final",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la coerción de tipos?",
+      "respuesta": "Un error frecuente es asumir algo que operadores como + y == aplican reglas distintas y pequeñas diferencias de tipo cambian el resultado final La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la coerción de tipos de la conversión explícita?",
+      "respuesta": "La diferencia clave es que convierte valores entre tipos en operaciones concretas como comparación, suma o evaluación booleana En cambio, la conversión explícita hace visible la intención, mientras que la coerción ocurre por reglas del lenguaje y puede ser menos obvia",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la coerción de tipos?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se integran datos de formularios, apis y valores heterogéneos y recordar que operadores como + y == aplican reglas distintas y pequeñas diferencias de tipo cambian el resultado final",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la coerción de tipos?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que operadores como + y == aplican reglas distintas y pequeñas diferencias de tipo cambian el resultado final o de una suposición incorrecta sobre la coerción de tipos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la coerción de tipos y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque convierte valores entre tipos en operaciones concretas como comparación, suma o evaluación booleana Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que operadores como + y == aplican reglas distintas y pequeñas diferencias de tipo cambian el resultado final",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la coerción de tipos?",
+      "respuesta": "Encaja bien en un patrón donde se integran datos de formularios, apis y valores heterogéneos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los descriptores de propiedades y cuándo se nota más su valor?",
+      "respuesta": "controlan si una propiedad es enumerable, configurable, writable o accesible mediante getters y setters Su valor se nota especialmente en se diseñan apis públicas, objetos inmutables parciales y metaprogramación.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los descriptores de propiedades a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, controlan si una propiedad es enumerable, configurable, writable o accesible mediante getters y setters Para usarlo bien conviene entender que una propiedad no configurable restringe cambios futuros y puede complicar pruebas, mocks o refactors",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los descriptores de propiedades?",
+      "respuesta": "Un error frecuente es asumir algo que una propiedad no configurable restringe cambios futuros y puede complicar pruebas, mocks o refactors La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los descriptores de propiedades de asignar propiedades de forma directa?",
+      "respuesta": "La diferencia clave es que controlan si una propiedad es enumerable, configurable, writable o accesible mediante getters y setters En cambio, la asignación directa crea una propiedad estándar, mientras que un descriptor ajusta comportamiento y visibilidad con más precisión",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los descriptores de propiedades?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se diseñan apis públicas, objetos inmutables parciales y metaprogramación y recordar que una propiedad no configurable restringe cambios futuros y puede complicar pruebas, mocks o refactors",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los descriptores de propiedades?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que una propiedad no configurable restringe cambios futuros y puede complicar pruebas, mocks o refactors o de una suposición incorrecta sobre los descriptores de propiedades.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los descriptores de propiedades y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque controlan si una propiedad es enumerable, configurable, writable o accesible mediante getters y setters Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que una propiedad no configurable restringe cambios futuros y puede complicar pruebas, mocks o refactors",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los descriptores de propiedades?",
+      "respuesta": "Encaja bien en un patrón donde se diseñan apis públicas, objetos inmutables parciales y metaprogramación Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los iterables y los iteradores y cuándo se nota más su valor?",
+      "respuesta": "definen un protocolo para producir valores de forma secuencial con for...of y otras APIs Su valor se nota especialmente en se exponen colecciones, secuencias perezosas y adaptadores de datos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los iterables y los iteradores a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, definen un protocolo para producir valores de forma secuencial con for...of y otras apis Para usarlo bien conviene entender que no todo objeto con longitud es iterable y confundir ambos modelos rompe interoperabilidad",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los iterables y los iteradores?",
+      "respuesta": "Un error frecuente es asumir algo que no todo objeto con longitud es iterable y confundir ambos modelos rompe interoperabilidad La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los iterables y los iteradores de recorrer índices manualmente?",
+      "respuesta": "La diferencia clave es que definen un protocolo para producir valores de forma secuencial con for...of y otras apis En cambio, recorrer índices asume estructura concreta, mientras que el protocolo iterable desacopla consumo y origen de los datos",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los iterables y los iteradores?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se exponen colecciones, secuencias perezosas y adaptadores de datos y recordar que no todo objeto con longitud es iterable y confundir ambos modelos rompe interoperabilidad",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los iterables y los iteradores?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que no todo objeto con longitud es iterable y confundir ambos modelos rompe interoperabilidad o de una suposición incorrecta sobre los iterables y los iteradores.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los iterables y los iteradores y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque definen un protocolo para producir valores de forma secuencial con for...of y otras apis Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que no todo objeto con longitud es iterable y confundir ambos modelos rompe interoperabilidad",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los iterables y los iteradores?",
+      "respuesta": "Encaja bien en un patrón donde se exponen colecciones, secuencias perezosas y adaptadores de datos Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve el event loop y cuándo se nota más su valor?",
+      "respuesta": "coordina pila de llamadas, colas y puntos de reanudación para que el código no bloqueante avance sin múltiples hilos de JavaScript Su valor se nota especialmente en hay timers, promesas, eventos de ui o i/o concurrente.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el event loop a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, coordina pila de llamadas, colas y puntos de reanudación para que el código no bloqueante avance sin múltiples hilos de javascript Para usarlo bien conviene entender que una cadena larga de microtareas puede retrasar renderizado o macrotareas más de lo esperado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el event loop?",
+      "respuesta": "Un error frecuente es asumir algo que una cadena larga de microtareas puede retrasar renderizado o macrotareas más de lo esperado La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el event loop de la ejecución totalmente síncrona?",
+      "respuesta": "La diferencia clave es que coordina pila de llamadas, colas y puntos de reanudación para que el código no bloqueante avance sin múltiples hilos de javascript En cambio, la ejecución síncrona consume la pila en orden directo, mientras que el event loop introduce colas, microtareas y momentos de reentrada",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el event loop?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando hay timers, promesas, eventos de ui o i/o concurrente y recordar que una cadena larga de microtareas puede retrasar renderizado o macrotareas más de lo esperado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el event loop?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que una cadena larga de microtareas puede retrasar renderizado o macrotareas más de lo esperado o de una suposición incorrecta sobre el event loop.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el event loop y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque coordina pila de llamadas, colas y puntos de reanudación para que el código no bloqueante avance sin múltiples hilos de javascript Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que una cadena larga de microtareas puede retrasar renderizado o macrotareas más de lo esperado",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el event loop?",
+      "respuesta": "Encaja bien en un patrón donde hay timers, promesas, eventos de ui o i/o concurrente Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de el event loop suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que una cadena larga de microtareas puede retrasar renderizado o macrotareas más de lo esperado Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve los módulos ES y cuándo se nota más su valor?",
+      "respuesta": "crean fronteras de archivo con imports y exports estáticos que el motor puede analizar antes de ejecutar Su valor se nota especialmente en se organiza una base de código grande con dependencias claras.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona los módulos ES a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, crean fronteras de archivo con imports y exports estáticos que el motor puede analizar antes de ejecutar Para usarlo bien conviene entender que las importaciones son enlaces vivos y los ciclos entre módulos pueden dejar valores temporalmente no inicializados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con los módulos ES?",
+      "respuesta": "Un error frecuente es asumir algo que las importaciones son enlaces vivos y los ciclos entre módulos pueden dejar valores temporalmente no inicializados La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia los módulos ES de los scripts globales?",
+      "respuesta": "La diferencia clave es que crean fronteras de archivo con imports y exports estáticos que el motor puede analizar antes de ejecutar En cambio, los scripts globales comparten nombres y orden implícito, mientras que los módulos hacen explícitas dependencias y exportaciones",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener los módulos ES?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se organiza una base de código grande con dependencias claras y recordar que las importaciones son enlaces vivos y los ciclos entre módulos pueden dejar valores temporalmente no inicializados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con los módulos ES?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que las importaciones son enlaces vivos y los ciclos entre módulos pueden dejar valores temporalmente no inicializados o de una suposición incorrecta sobre los módulos ES.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece los módulos ES y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque crean fronteras de archivo con imports y exports estáticos que el motor puede analizar antes de ejecutar Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que las importaciones son enlaces vivos y los ciclos entre módulos pueden dejar valores temporalmente no inicializados",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor los módulos ES?",
+      "respuesta": "Encaja bien en un patrón donde se organiza una base de código grande con dependencias claras Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de los módulos ES suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que las importaciones son enlaces vivos y los ciclos entre módulos pueden dejar valores temporalmente no inicializados Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve la gestión de memoria y el garbage collector y cuándo se nota más su valor?",
+      "respuesta": "libera objetos sin referencias alcanzables, pero solo cuando el motor decide que ya no son necesarios Su valor se nota especialmente en hay caches, listeners, timers o estructuras que crecen con el tiempo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona la gestión de memoria y el garbage collector a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, libera objetos sin referencias alcanzables, pero solo cuando el motor decide que ya no son necesarios Para usarlo bien conviene entender que si una referencia persiste en un closure, mapa o listener, el recolector no podrá liberar ese objeto",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con la gestión de memoria y el garbage collector?",
+      "respuesta": "Un error frecuente es asumir algo que si una referencia persiste en un closure, mapa o listener, el recolector no podrá liberar ese objeto La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia la gestión de memoria y el garbage collector de la liberación manual típica de lenguajes de bajo nivel?",
+      "respuesta": "La diferencia clave es que libera objetos sin referencias alcanzables, pero solo cuando el motor decide que ya no son necesarios En cambio, la liberación manual da control explícito, mientras que en JavaScript se depende de alcanzabilidad y heurísticas del motor",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener la gestión de memoria y el garbage collector?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando hay caches, listeners, timers o estructuras que crecen con el tiempo y recordar que si una referencia persiste en un closure, mapa o listener, el recolector no podrá liberar ese objeto",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con la gestión de memoria y el garbage collector?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que si una referencia persiste en un closure, mapa o listener, el recolector no podrá liberar ese objeto o de una suposición incorrecta sobre la gestión de memoria y el garbage collector.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece la gestión de memoria y el garbage collector y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque libera objetos sin referencias alcanzables, pero solo cuando el motor decide que ya no son necesarios Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que si una referencia persiste en un closure, mapa o listener, el recolector no podrá liberar ese objeto",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor la gestión de memoria y el garbage collector?",
+      "respuesta": "Encaja bien en un patrón donde hay caches, listeners, timers o estructuras que crecen con el tiempo Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de la gestión de memoria y el garbage collector suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que si una referencia persiste en un closure, mapa o listener, el recolector no podrá liberar ese objeto Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué problema resuelve el manejo de errores y cuándo se nota más su valor?",
+      "respuesta": "permite separar flujo normal y fallos mediante throw, try/catch/finally y rechazos de promesas Su valor se nota especialmente en se integran validaciones, i/o y capas donde importa distinguir fallos recuperables de fallos de programación.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo funciona el manejo de errores a nivel conceptual en JavaScript o en el navegador?",
+      "respuesta": "A nivel conceptual, permite separar flujo normal y fallos mediante throw, try/catch/finally y rechazos de promesas Para usarlo bien conviene entender que capturar demasiado pronto puede ocultar contexto valioso y dejar la aplicación en un estado incoherente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué error de implementación es frecuente al trabajar con el manejo de errores?",
+      "respuesta": "Un error frecuente es asumir algo que capturar demasiado pronto puede ocultar contexto valioso y dejar la aplicación en un estado incoherente La forma de evitarlo es validar entradas, revisar el flujo real y probar el caso límite antes de integrarlo.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿En qué se diferencia el manejo de errores de usar valores centinela en lugar de errores?",
+      "respuesta": "La diferencia clave es que permite separar flujo normal y fallos mediante throw, try/catch/finally y rechazos de promesas En cambio, un valor centinela obliga a comprobar manualmente cada retorno, mientras que una excepción puede propagar el fallo hasta un manejador adecuado",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué implicación de rendimiento o mantenimiento suele tener el manejo de errores?",
+      "respuesta": "Su impacto depende del contexto, pero suele influir en legibilidad, coste de depuración y trabajo del motor. Conviene medir cuando se integran validaciones, i/o y capas donde importa distinguir fallos recuperables de fallos de programación y recordar que capturar demasiado pronto puede ocultar contexto valioso y dejar la aplicación en un estado incoherente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Cómo depurarías un bug relacionado con el manejo de errores?",
+      "respuesta": "Primero aislaría un caso reproducible, luego inspeccionaría estado, orden de ejecución y valores intermedios. Después comprobaría si el problema viene de que capturar demasiado pronto puede ocultar contexto valioso y dejar la aplicación en un estado incoherente o de una suposición incorrecta sobre el manejo de errores.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué garantía ofrece el manejo de errores y qué no garantiza?",
+      "respuesta": "Ofrece una abstracción útil porque permite separar flujo normal y fallos mediante throw, try/catch/finally y rechazos de promesas Lo que no garantiza por sí sola es evitar errores de diseño; todavía hay que considerar que capturar demasiado pronto puede ocultar contexto valioso y dejar la aplicación en un estado incoherente",
+      "dificultad": "Avanzado",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué patrón práctico de arquitectura aprovecha mejor el manejo de errores?",
+      "respuesta": "Encaja bien en un patrón donde se integran validaciones, i/o y capas donde importa distinguir fallos recuperables de fallos de programación Así se aprovecha su punto fuerte sin mezclar responsabilidades ni depender de supuestos frágiles.",
+      "dificultad": "Facil",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    },
+    {
+      "pregunta": "¿Qué caso límite de el manejo de errores suele sorprender incluso a perfiles intermedios?",
+      "respuesta": "Suele sorprender que capturar demasiado pronto puede ocultar contexto valioso y dejar la aplicación en un estado incoherente Ese detalle cambia el resultado en producción cuando el código parece correcto pero el entorno real introduce estados o tiempos distintos.",
+      "dificultad": "Intermedio",
+      "etiquetas": [
+        "JavaScript"
+      ]
+    }
+  ]
+}
