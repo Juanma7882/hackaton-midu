@@ -9,6 +9,7 @@ import {
     type PreguntaAEvaluar,
     type QuizOverview,
 } from "../../api/apis";
+import { useParams } from "react-router-dom";
 
 interface QuizCompletionMeta {
     elapsedSeconds: number;
@@ -34,6 +35,7 @@ export default function Preguntas() {
     const [evalLoading, setEvalLoading] = useState(false);
     const [evaluandoPreguntaId, setEvaluandoPreguntaId] = useState<number | null>(null);
     const [evalError, setEvalError] = useState<string | null>(null);
+    const { slug } = useParams();
     const [respuestasUsuario, setRespuestasUsuario] = useState<Record<number, string>>({});
     const [preguntasTotales, setPreguntasTotales] = useState<Pregunta[]>([]);
     const [quizTerminado, setQuizTerminado] = useState(false);
