@@ -13,7 +13,7 @@ export default defineConfig({
       usePolling: true
     },
     allowedHosts: [
-      'interviewquiz-frontend-827msf-063283-107-148-105-4.traefik.me'
+      'interviewquiz.404.mn'
     ]
   },
   preview: {
